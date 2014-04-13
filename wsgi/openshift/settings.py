@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Django settings for OpenShift project.
+# Django settings for openshift project.
 import imp, os
 
 # a setting to determine whether we are running on OpenShift
 ON_OPENSHIFT = False
-if os.environ.has_key('OPENSHIFT_REPO_DIR'):
+if 'OPENSHIFT_REPO_DIR' in os.environ:
     ON_OPENSHIFT = True
 
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -14,10 +14,13 @@ if ON_OPENSHIFT:
         print("WARNING: The DEBUG environment is set to True.")
 else:
     DEBUG = True
+
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Lorenzo Moriondo', 'tunedconsulting@gmail.com'),
 )
 MANAGERS = ADMINS
 
@@ -26,23 +29,23 @@ if ON_OPENSHIFT:
     # with rhc cartridge add (see /README in this git repo)
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': os.path.join(os.environ['OPENSHIFT_DATA_DIR'], 'sqlite3.db'),  # Or path to database file if using sqlite3.
-            'USER': '',                      # Not used with sqlite3.
-            'PASSWORD': '',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'serverpy',                                               # Or path to database file if using sqlite3.
+            'USER': os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],         # Not used with sqlite3.
+            'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],     # Not used with sqlite3.
+            'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],             # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],             # Set to empty string for default. Not used with sqlite3.
         }
     }
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': os.path.join(PROJECT_DIR, 'sqlite3.db'),  # Or path to database file if using sqlite3.
-            'USER': '',                      # Not used with sqlite3.
-            'PASSWORD': '',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'openius',  # Or path to database file if using sqlite3.
+            'USER': 'postgres',                      # Not used with sqlite3.
+            'PASSWORD': 'poiuyt',                  # Not used with sqlite3.
+            'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
         }
     }
 
@@ -94,10 +97,13 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
+CSS_DIR = os.path.join(PROJECT_DIR, '..', 'static', 'css')
+
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    CSS_DIR,
 )
 
 # List of finder classes that know how to find static files in
@@ -121,6 +127,12 @@ if ON_OPENSHIFT:
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = use_keys['SECRET_KEY']
 
+# Hosts
+if DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    ALLOWED_HOSTS = ['*']
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -136,7 +148,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'openshift.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
