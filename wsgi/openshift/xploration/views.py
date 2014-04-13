@@ -64,14 +64,14 @@ def Mars(request):
     return StreamingHttpResponse(js, content_type="application/json")
 
 def test(request):
-    js = {'status': 'OK', 'response': 200}
+    js = {'code': 0, 'status': 'OK', 'response': 200}
     js = json.dumps(js)
 
     return StreamingHttpResponse(js, content_type="application/json")
 
 def simulation(request):
 
-    # GET example: /simulation/?planet=mars&mission=prop-chem&opt_sensor=true&radio_sensor=false&spectrometer=true& probe=true&amplifierfier=false
+    # GET example: /simulation/?planet=marsmission=prop-chemopt_sensor=trueradio_sensor=falsespectrometer=true probe=trueamplifierfier=false
 
     #js = request.GET
     #js = {'status': 'OK', 'response': 200}
@@ -318,7 +318,7 @@ def simulation(request):
 
     results = {}
 
-    # /simulation/?destinatio=mars&mission=prop-chem&opt_sensor=true&radio_sensor=false&spectrometer=true& probe=true&amplifierfier=false
+    # /simulation/?destinatio=marsmission=prop-chemopt_sensor=trueradio_sensor=falsespectrometer=true probe=trueamplifierfier=false
 
     usr_planet = request.GET['destination']
 
@@ -333,7 +333,7 @@ def simulation(request):
 
 
     if usr_planet[usr_mission_slug] != True :
-        results['Error'] = [False, 'Errore in mission type ' + usr_mission_slug ]
+        results = {'code': 0, 'Error': 'Error in mission type ' + usr_mission_slug }
         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
         
 
@@ -350,7 +350,7 @@ def simulation(request):
             #print k
             if k['slug'] == usr_mission_slug:
                 if k[e] != True: 
-                    results['Error'] = [False, 'Errore in component ' + e]
+                    results = { 'code': 1, 'Error': 'Errore in component ' + e }
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
 
     
@@ -507,12 +507,14 @@ def simulation(request):
         if v == 'bustrue':
             busAll[k] = True
 
-    for e in bus_vs_mission_type:
+    if len(busAll) != 0:
+      for e in bus_vs_mission_type:
         if e['slug'] == usr_mission_slug:
             for k,v in busAll.iteritems():
                 if e[k] != v:
-                    results['Error'] = [False, 'Errore in BUS in system ' + k]
+                    results = {'code': 1, 'Error': 'Error in BUS in system ' + k }
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json")
+
     bus_vs_dist = []
 
     dist1 = {}
@@ -532,18 +534,18 @@ def simulation(request):
     dist1['aodcs_simple'] = True
     dist1['prop_electr'] = True
     dist1['prop_chem'] = True
-    dist1['c&dh_standard'] = True
-    dist1['c&dh_optim'] = True
+    dist1['cdh_standard'] = True
+    dist1['cdh_optim'] = True
     dist1['struct_stand'] = True
     dist1['struct_high_resist'] = True
 
     bus_vs_dist.append(dist1)
 
     dist2 = {}
-    dist1['name'] = 'Dist2'
-    dist1['slug'] = 'dist2'
-    dist1['range_min'] = 0.8
-    dist1['range_max'] = 1.6
+    dist2['name'] = 'Dist2'
+    dist2['slug'] = 'dist2'
+    dist2['range_min'] = 0.8
+    dist2['range_max'] = 1.6
     dist2['therm_active'] = False
     dist2['therm_passive'] = True
     dist2['pow_prim_panels'] = True
@@ -556,8 +558,8 @@ def simulation(request):
     dist2['aodcs_simple'] = True
     dist2['prop_electr'] = True
     dist2['prop_chem'] = True
-    dist2['c&dh_standard'] = True
-    dist2['c&dh_optim'] = True
+    dist2['cdh_standard'] = True
+    dist2['cdh_optim'] = True
     dist2['struct_stand'] = True
     dist2['struct_high_resist'] = True
 
@@ -567,7 +569,7 @@ def simulation(request):
     dist3['name'] = 'Dist3'
     dist3['slug'] = 'dist3'
     dist3['range_min'] = 1.6
-    dist1['range_max'] = 3
+    dist3['range_max'] = 3
     dist3['therm_active'] = True
     dist3['therm_passive'] = False
     dist3['pow_prim_panels'] = True
@@ -580,8 +582,8 @@ def simulation(request):
     dist3['aodcs_simple'] = True
     dist3['prop_electr'] = True
     dist3['prop_chem'] = True
-    dist3['c&dh_standard'] = True
-    dist3['c&dh_optim'] = True
+    dist3['cdh_standard'] = True
+    dist3['cdh_optim'] = True
     dist3['struct_stand'] = False
     dist3['struct_high_resist'] = True
 
@@ -604,8 +606,8 @@ def simulation(request):
     dist4['aodcs_simple'] = True
     dist4['prop_electr'] = True
     dist4['prop_chem'] = True
-    dist4['c&dh_standard'] = True
-    dist4['c&dh_optim'] = True
+    dist4['cdh_standard'] = True
+    dist4['cdh_optim'] = True
     dist4['struct_stand'] = True
     dist4['struct_high_resist'] = True
 
@@ -628,16 +630,228 @@ def simulation(request):
     dist5['aodcs_simple'] = True
     dist5['prop_electr'] = True
     dist5['prop_chem'] = True
-    dist5['c&dh_standard'] = True
-    dist5['c&dh_optim'] = True
+    dist5['cdh_standard'] = True
+    dist5['cdh_optim'] = True
     dist5['struct_stand'] = True
     dist5['struct_high_resist'] = True
 
     bus_vs_dist.append(dist5)
 
-    
+    usr_distance = usr_planet['distance']
 
-    results['Status'] = 'Mission is possible'
+
+    if len(busAll) != 0:
+        for e in bus_vs_dist:
+            j = e['range_min']
+            # return StreamingHttpResponse(json.dumps(j), content_type="application/json")
+            if isinstance(j, str):
+              if j < int(usr_distance):
+                for k,v in busAll.iteritems():
+                    if e[k] != v:
+                        results = { 'code':1, 'Error': 'Error in BUS vs distance ' + k }
+                        return StreamingHttpResponse(json.dumps(results), content_type="application/json")
+
+
+    bus_vs_bus = []
+
+    aodcs_robust = {}
+    aodcs_robust['name'] = 'AODCS Robust'
+    aodcs_robust['slug'] = 'aodcs_robust'
+    aodcs_robust['therm_active'] = False
+    aodcs_robust['therm_passive'] = True
+    aodcs_robust['pow_prim_panels'] = True
+    aodcs_robust['pow_prim_rtg'] = True
+    aodcs_robust['pow_sec_batt'] = True
+    aodcs_robust['pow_sec_fc'] = True
+    aodcs_robust['comm_mono'] = True
+    aodcs_robust['comm_omni'] = True
+    aodcs_robust['aodcs_robust'] = True
+    aodcs_robust['aodcs_simple'] = False
+    aodcs_robust['prop_electr'] = True
+    aodcs_robust['prop_chem'] = True
+    aodcs_robust['cdh_standard'] = True
+    aodcs_robust['cdh_optim'] = True
+    aodcs_robust['struct_stand'] = True
+    aodcs_robust['struct_high_resist'] = True
+
+    bus_vs_bus.append(aodcs_robust)
+
+
+
+    aodcs_simple = {}
+    aodcs_simple['name'] = 'AODCS Simple'
+    aodcs_simple['slug'] = 'aodcs_simple'
+    aodcs_simple['therm_active'] = True
+    aodcs_simple['therm_passive'] = False
+    aodcs_simple['pow_prim_panels'] = False
+    aodcs_simple['pow_prim_rtg'] = True
+    aodcs_simple['pow_sec_batt'] = True
+    aodcs_simple['pow_sec_fc'] = True
+    aodcs_simple['comm_mono'] = False
+    aodcs_simple['comm_omni'] = True
+    aodcs_simple['aodcs_robust'] = False
+    aodcs_simple['aodcs_simple'] = True
+    aodcs_simple['prop_electr'] = True
+    aodcs_simple['prop_chem'] = False
+    aodcs_simple['cdh_standard'] = True
+    aodcs_simple['cdh_optim'] = True
+    aodcs_simple['struct_stand'] = True
+    aodcs_simple['struct_high_resist'] = True
+
+    bus_vs_bus.append(aodcs_simple)
+
+
+
+    prop_elect = {}
+    prop_elect['name'] = 'Electric Propulsion'
+    prop_elect['slug'] = 'prop_elect'
+    prop_elect['therm_active'] = True
+    prop_elect['therm_passive'] = True
+    prop_elect['pow_prim_panels'] = True
+    prop_elect['pow_prim_rtg'] = True
+    prop_elect['pow_sec_batt'] = True
+    prop_elect['pow_sec_fc'] = False
+    prop_elect['comm_mono'] = True
+    prop_elect['comm_omni'] = True
+    prop_elect['aodcs_robust'] = True
+    prop_elect['aodcs_simple'] = True
+    prop_elect['prop_electr'] = True
+    prop_elect['prop_chem'] = False
+    prop_elect['cdh_standard'] = True
+    prop_elect['cdh_optim'] = True
+    prop_elect['struct_stand'] = True
+    prop_elect['struct_high_resist'] = True
+
+    bus_vs_bus.append(prop_elect)
+
+
+
+    prop_chem = {}
+    prop_chem['name'] = 'Chemical Propulsion'
+    prop_chem['slug'] = 'prop_chem'
+    prop_chem['therm_active'] = True
+    prop_chem['therm_passive'] = True
+    prop_chem['pow_prim_panels'] = True
+    prop_chem['pow_prim_rtg'] = True
+    prop_chem['pow_sec_batt'] = True
+    prop_chem['pow_sec_fc'] = True
+    prop_chem['comm_mono'] = True
+    prop_chem['comm_omni'] = True
+    prop_chem['aodcs_robust'] = True
+    prop_chem['aodcs_simple'] = False
+    prop_chem['prop_electr'] = False
+    prop_chem['prop_chem'] = True
+    prop_chem['cdh_standard'] = True
+    prop_chem['cdh_optim'] = True
+    prop_chem['struct_stand'] = True
+    prop_chem['struct_high_resist'] = True
+
+    bus_vs_bus.append(prop_chem)
+
+
+
+    cdh_standard = {}
+    cdh_standard['name'] = 'CDH Standard'
+    cdh_standard['slug'] = 'cdh_standard'
+    cdh_standard['therm_active'] = True
+    cdh_standard['therm_passive'] = True
+    cdh_standard['pow_prim_panels'] = True
+    cdh_standard['pow_prim_rtg'] = True
+    cdh_standard['pow_sec_batt'] = True
+    cdh_standard['pow_sec_fc'] = True
+    cdh_standard['comm_mono'] = True
+    cdh_standard['comm_omni'] = False
+    cdh_standard['aodcs_robust'] = True
+    cdh_standard['aodcs_simple'] = True
+    cdh_standard['prop_electr'] = True
+    cdh_standard['prop_chem'] = True
+    cdh_standard['cdh_standard'] = True
+    cdh_standard['cdh_optim'] = False
+    cdh_standard['struct_stand'] = True
+    cdh_standard['struct_high_resist'] = True
+
+    bus_vs_bus.append(cdh_standard)
+
+
+
+    cdh_optim = {}
+    cdh_optim['name'] = 'CDH Optimized'
+    cdh_optim['slug'] = 'cdh_optim'
+    cdh_optim['therm_active'] = True
+    cdh_optim['therm_passive'] = True
+    cdh_optim['pow_prim_panels'] = True
+    cdh_optim['pow_prim_rtg'] = True
+    cdh_optim['pow_sec_batt'] = True
+    cdh_optim['pow_sec_fc'] = True
+    cdh_optim['comm_mono'] = True
+    cdh_optim['comm_omni'] = True
+    cdh_optim['aodcs_robust'] = True
+    cdh_optim['aodcs_simple'] = True
+    cdh_optim['prop_electr'] = True
+    cdh_optim['prop_chem'] = True
+    cdh_optim['cdh_standard'] = False
+    cdh_optim['cdh_optim'] = True
+    cdh_optim['struct_stand'] = True
+    cdh_optim['struct_high_resist'] = True
+
+    bus_vs_bus.append(cdh_optim)
+
+
+
+    struct_stand = {}
+    struct_stand['name'] = 'Standard Structure'
+    struct_stand['slug'] = 'struct_stand'
+    struct_stand['therm_active'] = True
+    struct_stand['therm_passive'] = True
+    struct_stand['pow_prim_panels'] = True
+    struct_stand['pow_prim_rtg'] = False
+    struct_stand['pow_sec_batt'] = True
+    struct_stand['pow_sec_fc'] = True
+    struct_stand['comm_mono'] = True
+    struct_stand['comm_omni'] = True
+    struct_stand['aodcs_robust'] = True
+    struct_stand['aodcs_simple'] = True
+    struct_stand['prop_electr'] = True
+    struct_stand['prop_chem'] = True
+    struct_stand['cdh_standard'] = True
+    struct_stand['cdh_optim'] = True
+    struct_stand['struct_stand'] = True
+    struct_stand['struct_high_resist'] = False
+
+    bus_vs_bus.append(struct_stand)
+
+
+    struct_high_resist = {}
+    struct_high_resist['name'] = 'Standard Structure'
+    struct_high_resist['slug'] = 'struct_high_resist'
+    struct_high_resist['therm_active'] = True
+    struct_high_resist['therm_passive'] = True
+    struct_high_resist['pow_prim_panels'] = True
+    struct_high_resist['pow_prim_rtg'] = True
+    struct_high_resist['pow_sec_batt'] = True
+    struct_high_resist['pow_sec_fc'] = True
+    struct_high_resist['comm_mono'] = True
+    struct_high_resist['comm_omni'] = True
+    struct_high_resist['aodcs_robust'] = True
+    struct_high_resist['aodcs_simple'] = True
+    struct_high_resist['prop_electr'] = True
+    struct_high_resist['prop_chem'] = True
+    struct_high_resist['cdh_standard'] = True
+    struct_high_resist['cdh_optim'] = True
+    struct_high_resist['struct_stand'] = False
+    struct_high_resist['struct_high_resist'] = True
+
+    bus_vs_bus.append(struct_high_resist)
+
+    if len(busAll) != 0:
+      for e in bus_vs_bus:
+        if e['slug'] == usr_mission_slug:
+            for k,v in busAll.iteritems():
+                if e[k] != v:
+                    results = { 'code':1, 'Error': 'Error in BUS in payload check ' + k }
+                    return StreamingHttpResponse(json.dumps(results), content_type="application/json")
+
+    results = { 'code':0, 'status':'OK - Mission is possible' }
     return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
 
         
