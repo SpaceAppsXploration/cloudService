@@ -10,6 +10,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^simulation/', 'xploration.views.simulation'),
+    url(r'^planets/mars', 'xploration.views.Mars'),
+
     url(r'^test/', 'xploration.views.test'),
 
     url(r'^$', 'xploration.views.home', name='home'),
