@@ -285,13 +285,12 @@ def simulation(request):
         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
         
 
-    components = [k for k,v in request.GET.iteritems() if v == True]
+    components = [k for k,v in request.GET.iteritems() if v == 'true']
     
 
     #components = ['opt_sensor', 'radio_sensor', 'spectrometer', 'probe', 'amplifier']
     # comp_samples = random.sample(components, random.randint(1, len(components)))
 
-    #print comp_samples
 
     for e in components:
         #print e

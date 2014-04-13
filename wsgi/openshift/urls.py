@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
-from django.contrib import admin
-admin.autodiscover()
+#from django.contrib import admin
+#admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -13,5 +13,5 @@ urlpatterns = patterns('',
     url(r'^test/', 'xploration.views.test'),
 
     url(r'^$', 'xploration.views.home', name='home'),
-    url(r'^admin/', include(admin.site.urls)),
+    # url(r'^admin/', include(admin.site.urls)),
 )
