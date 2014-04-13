@@ -21,6 +21,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Lorenzo Moriondo', 'tunedconsulting@gmail.com'),
+    ('Claudio', 'pastorini.claudio@gmail.com'),
 )
 MANAGERS = ADMINS
 
@@ -35,7 +36,7 @@ if ON_OPENSHIFT:
             'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],     # Not used with sqlite3.
             'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],             # Set to empty string for localhost. Not used with sqlite3.
             'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],             # Set to empty string for default. Not used with sqlite3.
-        }
+       }
     }
 else:
     DATABASES = {
@@ -46,7 +47,7 @@ else:
             'PASSWORD': 'poiuyt',                  # Not used with sqlite3.
             'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
             'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
-        }
+       }
     }
 
 # Local time zone for this installation. Choices can be found here:
@@ -66,7 +67,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale
@@ -97,13 +98,13 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
-CSS_DIR = os.path.join(PROJECT_DIR, '..', 'static', 'css')
+#CSS_DIR = os.path.join(PROJECT_DIR, '..', 'static', 'css')
 
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    CSS_DIR,
+    #    CSS_DIR,
 )
 
 # List of finder classes that know how to find static files in
@@ -168,6 +169,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'xploration',
 )
 
 # A sample logging configuration. The only tangible logging
