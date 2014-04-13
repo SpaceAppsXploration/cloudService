@@ -18,6 +18,15 @@ def test(request):
     return StreamingHttpResponse(js, content_type="application/json")
 
 def simulation(request):
+
+    # GET example: /simulation/?planet=mars&mission=prop-chem&opt_sensor=true&radio_sensor=false&spectrometerometer=true& probe=true&amplifierfier=false
+
+    #js = request.GET
+    #js = {'status': 'OK', 'response': 200}
+    #js = json.dumps(js)
+
+    #return StreamingHttpResponse(js, content_type="application/json")
+
     planets = []
     mercury = {}
     mercury['name'] = 'Mercury'
@@ -193,9 +202,9 @@ def simulation(request):
     earth_obs['slug'] = 'earth_obs'
     earth_obs['opt_sensor'] = True
     earth_obs['radio_sensor'] = True
-    earth_obs['spectr'] = False
+    earth_obs['spectrometer'] = False
     earth_obs['probe'] = False
-    earth_obs['ampli'] = False
+    earth_obs['amplifier'] = False
 
     mission_type.append(earth_obs)
 
@@ -205,9 +214,9 @@ def simulation(request):
     body_obs['slug'] = 'cel_body_obs'
     body_obs['opt_sensor'] = True
     body_obs['radio_sensor'] = True
-    body_obs['spectr'] = True
+    body_obs['spectrometer'] = True
     body_obs['probe'] = False
-    body_obs['ampli'] = False
+    body_obs['amplifier'] = False
 
     mission_type.append(body_obs)
 
@@ -216,9 +225,9 @@ def simulation(request):
     space_obs['slug'] = 'deep_space_obs'
     space_obs['opt_sensor'] = True
     space_obs['radio_sensor'] = True
-    space_obs['spectr'] = True
+    space_obs['spectrometer'] = True
     space_obs['probe'] = False
-    space_obs['ampli'] = True
+    space_obs['amplifier'] = True
 
     mission_type.append(space_obs)
 
@@ -227,9 +236,9 @@ def simulation(request):
     atm_analysis['slug'] = 'atm_analysis'
     atm_analysis['opt_sensor'] = True
     atm_analysis['radio_sensor'] = True
-    atm_analysis['spectr'] = True
+    atm_analysis['spectrometer'] = True
     atm_analysis['probe'] = False
-    atm_analysis['ampli'] = False
+    atm_analysis['amplifier'] = False
 
     mission_type.append(atm_analysis)
 
@@ -238,9 +247,9 @@ def simulation(request):
     sample_collect['slug'] = 'sample_collect'
     sample_collect['opt_sensor'] = True
     sample_collect['radio_sensor'] = False
-    sample_collect['spectr'] = True
+    sample_collect['spectrometer'] = True
     sample_collect['probe'] = True
-    sample_collect['ampli'] = False
+    sample_collect['amplifier'] = False
 
     mission_type.append(sample_collect)
 
@@ -249,36 +258,46 @@ def simulation(request):
     telecom['slug'] = 'telecom'
     telecom['opt_sensor'] = False
     telecom['radio_sensor'] = False
-    telecom['spectr'] = False
+    telecom['spectrometer'] = False
     telecom['probe'] = False
-    telecom['ampli'] = True
+    telecom['amplifier'] = True
 
     mission_type.append(telecom)
 
     results = {}
 
-    usr_planet = random.choice(planets)
+    # /simulation/?planet=mars&mission=prop-chem&opt_sensor=true&radio_sensor=false&spectrometerometer=true& probe=true&amplifierfier=false
 
-    usr_mission = random.choice(mission_type)
+    usr_planet = request.GET['planet']
+
+    for p in planets:
+        if p['slug'] == usr_planet:
+            usr_planet = p
+    
+
+
+    usr_mission_slug = request.GET['mission']
     #print  usr_planet['name'], usr_mission['name']
 
 
-    if usr_planet[usr_mission['slug']] != True :
-        results['Error'] = [False, 'Errore in mission type ' + usr_mission['name'] ]
+    if usr_planet[usr_mission_slug] != True :
+        results['Error'] = [False, 'Errore in mission type ' + usr_mission_slug ]
         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
         
 
+    components = [k for k,v in request.GET.iteritems() if v == True]
+    
 
-    components = ['opt_sensor', 'radio_sensor', 'spectr', 'probe', 'ampli']
-    comp_samples = random.sample(components, random.randint(1, len(components)))
+    #components = ['opt_sensor', 'radio_sensor', 'spectrometer', 'probe', 'amplifier']
+    # comp_samples = random.sample(components, random.randint(1, len(components)))
 
-    print comp_samples
+    #print comp_samples
 
-    for e in comp_samples:
+    for e in components:
         #print e
         for k in mission_type:
             #print k
-            if k['name'] == usr_mission['name']:
+            if k['slug'] == usr_mission_slug:
                 if k[e] != True: 
                     results['Error'] = [False, 'Errore in component ' + e]
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
