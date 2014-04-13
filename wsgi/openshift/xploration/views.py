@@ -333,7 +333,7 @@ def simulation(request):
 
 
     if usr_planet[usr_mission_slug] != True :
-        results = {'code': 0, 'Error': 'Error in mission type ' + usr_mission_slug }
+        results = {'code': 1, 'Error': 'Error in mission type ' + usr_mission_slug }
         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
         
 
@@ -350,7 +350,7 @@ def simulation(request):
             #print k
             if k['slug'] == usr_mission_slug:
                 if k[e] != True: 
-                    results = { 'code': 1, 'Error': 'Errore in component ' + e }
+                    results = { 'code': 1, 'Error': 'Error in component ' + e }
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
 
     
