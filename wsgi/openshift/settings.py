@@ -61,7 +61,7 @@ TIME_ZONE = 'Europe/Rome'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'it-it'
+LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
@@ -105,6 +105,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     #    CSS_DIR,
+    os.path.join(PROJECT_DIR, '..', 'static', 'xploration'),
 )
 
 # List of finder classes that know how to find static files in

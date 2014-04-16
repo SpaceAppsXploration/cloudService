@@ -6,10 +6,12 @@ from django.shortcuts import render_to_response
 # Create your views here.
 
 def home(request):
-    js = {'status': 'OK', 'response': 200}
+    js = {'status': 'OK', 'response': 200, 'code': 0}
     js = json.dumps(js)
-
-    params = js
+    
+    params = {}
+    params['keywords'] = 'space journey satellites exploration solar system simulation play'
+    params['status'] = js
     return render_to_response('home/home.html', params)
 
 def Mars(request):
