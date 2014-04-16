@@ -9,7 +9,8 @@ def home(request):
     js = {'status': 'OK', 'response': 200}
     js = json.dumps(js)
 
-    return StreamingHttpResponse(js, content_type="application/json")
+    params = js
+    return render_to_response('home/home.html', params)
 
 def Mars(request):
     js = [
