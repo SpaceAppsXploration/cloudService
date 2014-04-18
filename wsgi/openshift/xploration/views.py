@@ -2,6 +2,7 @@ import json
 from django.http import StreamingHttpResponse
 import random
 from django.shortcuts import render_to_response
+from django.http import Http404
 
 # Create your views here.
 
@@ -319,6 +320,9 @@ def simulation(request):
 
     mission_type.append(telecom)
 
+    if 'destination' not in request.GET:
+        raise Http404
+
     results = {}
 
     # /simulation/?destinatio=marsmission=prop-chemopt_sensor=trueradio_sensor=falsespectrometer=true probe=trueamplifierfier=false
@@ -330,6 +334,8 @@ def simulation(request):
             usr_planet = p
     
 
+    if 'mission' not in request.GET:
+        raise Http404
 
     usr_mission_slug = request.GET['mission']
     #print  usr_planet['name'], usr_mission['name']
