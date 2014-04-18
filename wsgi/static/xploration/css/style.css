@@ -325,7 +325,7 @@ header {
 	-webkit-box-shadow: 0 3px 3px -3px rgba(0, 0, 0, 0.2);
 }
 .top-bar {
-	background-color: #000;
+	background-color: #000000;
 	border-bottom: 1px solid #f2f2f2;
 }
 .top-bar.color-bar {
@@ -450,12 +450,13 @@ ul.social-list li:last-child a i {
 }
 .navbar {
 	margin-bottom: 0;
-	background: #000;
+	background: #fff;
 	border: none;
 	border-radius: 0;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	-o-border-radius: 0;
+	background-color: #000000;
 }
 .navbar-brand {
 	position: relative;
@@ -465,6 +466,12 @@ ul.social-list li:last-child a i {
 	-moz-transition: all 0.3s ease-in-out;
 	-webkit-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
+	background-color:#000000;
+}
+
+.navbar-brand img {
+    min-width :145px; 
+    height: 150px;
 }
 .navbar-default .navbar-nav {
 	margin-right: 10px!important;
@@ -3210,10 +3217,10 @@ ul.post-meta li, ul.post-meta li a {
 /*------------------------------------------*/
 
 footer {
-	background-color: #ccc;
+	background-color: #222;
 	padding-top: 60px;
-	border-top: 4px solid #ddd;
-	color: #000;
+	border-top: 4px solid #555;
+	color: #ccc;
 }
 footer p {
 	color: #ccc;
@@ -3380,7 +3387,6 @@ footer a:hover {
 	border-top: 1px solid rgba(255,255,255,.06);
 }
 .copyright-section p {
-	color: #000;
 	font-size: 11px;
 	text-transform: uppercase;
 }
