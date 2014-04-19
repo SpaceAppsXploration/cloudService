@@ -3,24 +3,55 @@
 {% block body %}
 
 
-    <div class="row" style="margin-top:3%;">
+    <div class="row" style="">
         <div class="col-md-12">
             <div class="container" style="margin-top:3%;"> 
 
-                <b>
-                    <p>
-                    Welcome  to Xploration!</p>
-                    <p>
-                    Solar System's Satellites Launching Pad</p>
-                    <p>
-                    Coming soon... </p>
-                </b>
-                <br>
-                <br>
-                <p style="font-family: 'Lora', serif;">{{status}}</p>
+                <div class="navbar navbar-default navbar-top">
+                    <div class="navbar-header col-md-5">
+                    
+                        <!-- Stat Toggle Nav Link For Mobiles 
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="icon-menu-1"></i>
+                        </button>
+                        <!- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="/"><img alt="" src="/static/images/logo145x150.png"></a>
+                        
+                    </div>
+                  
+                </div>
+                <div class="b_white" style="margin-top: 150px;">
+                    <b>
+                        <p>
+                        Welcome  to Xploration!</p>
+                        <p>
+                        Solar System's Satellites Launching Pad</p>
+                        <p>
+                        Coming soon... </p>
+                    </b>
+                    <br>
+                    <br>
+                    <p style="font-family: 'Lora', serif;">{{status}}</p>
+                </div>
 
             </div>
         </div>
     </div>
+
+<style>
+body {
+    background-image: url(/static/images/background.svg); background-size: cover; height: 100%;
+    overflow:hidden;
+}
+.b_white > p {
+    color: #fff;
+    margin-left: 2em;
+}
+
+.b_white > b > p {
+    color: #fff;
+    margin-left: 2em;
+}
+</style>
 
 {% endblock %}

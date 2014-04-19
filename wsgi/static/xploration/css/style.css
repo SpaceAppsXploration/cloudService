@@ -456,7 +456,7 @@ ul.social-list li:last-child a i {
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	-o-border-radius: 0;
-	background-color: #000000;
+	background-color: transparent;
 }
 .navbar-brand {
 	position: relative;
@@ -466,12 +466,17 @@ ul.social-list li:last-child a i {
 	-moz-transition: all 0.3s ease-in-out;
 	-webkit-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
-	background-color:#000000;
+	background-color: transparent;
 }
 
 .navbar-brand img {
-    min-width :145px; 
-    height: 150px;
+    position: relative;
+	padding: 8px 0;
+	margin: 0!important;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
 }
 .navbar-default .navbar-nav {
 	margin-right: 10px!important;
