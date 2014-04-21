@@ -1,3 +1,5 @@
+# True/False Tables about mission's operations (objectives)
+
 bus_vs_mission_type = []
 
 earth_obs = {}
