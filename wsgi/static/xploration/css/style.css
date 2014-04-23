@@ -600,6 +600,13 @@ ul.social-list li:last-child a i {
 	visibility: visible;
 	margin-top: 0;
 }
+
+.navbar-fixed-bottom {
+	background-color: #000000;
+	border-top: 1px solid #f2f2f2;
+	max-height: 45px;
+}
+
 .search-side {
 	position: relative;
 	float: right;

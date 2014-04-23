@@ -117,7 +117,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make a dictionary of default keys
-default_keys = { 'SECRET_KEY': '********************************' }
+default_keys = { 'SECRET_KEY': 'aajklslnlasdfon9342§"$£902481_' }
 
 # Replace default keys with dynamic values if we are in OpenShift
 use_keys = default_keys
@@ -171,6 +171,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'xploration',
+    'webapp',
 )
 
 # A sample logging configuration. The only tangible logging

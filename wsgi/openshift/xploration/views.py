@@ -78,6 +78,15 @@ def test(request):
 
     return StreamingHttpResponse(js, content_type="application/json")
 
+def homeTEST(request):
+    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
+    js = json.dumps(js)
+    
+    params = {}
+    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
+    params['status'] = js
+    return render_to_response('home/homeTEST.html', params)
+
 def simulation(request):
 
     ''' 
