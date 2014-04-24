@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" media="screen">
     <link rel="stylesheet" type="text/css" href="/static/css/responsive.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css" media="screen">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     
     <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -25,7 +27,7 @@
 
 <body>
 <!-- Container -->
-<div class="row" style="">
+<div class="row">
     <div class="col-md-12">
     <!-- Start Header -->
         <header class="clearfix">
@@ -61,6 +63,13 @@
     </div>
 </div>
 
+<div id="loader">
+    <div class="spinner">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
+</div>
+
 <script type="text/javascript" src="/static/js/modernizrr.js"></script>
 
 <script>
@@ -72,6 +81,11 @@
   ga('create', 'UA-50314218-1', 'spacexplore.it');
   ga('send', 'pageview');
 
+// Page Loader
+
+$(window).load(function(){
+    $('#loader').fadeOut();
+});
 </script>
 </body>
 </html>
