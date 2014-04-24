@@ -1,6 +1,6 @@
 from django.db import models
 
-class targets(models.Model):
+class Targets(models.Model):
     BODY_TYPE = ((1, "planet"), 
         (2, "asteroid"),
         (3, "comet"),
@@ -17,24 +17,25 @@ class targets(models.Model):
 
 
 
-class missions(models.Model):
+class Missions(models.Model):
     ERA = (
         (1, 'Past'),
         (2, 'Present'),
-        (3, 'Future')
+        (3, 'Future'),
+        (0, 'Concept')
         )
 
     id              = models.AutoField(primary_key=True)
-    target          = models.ForeignKey(targets)
+    target          = models.ForeignKey(Targets)
     era             = models.IntegerField(max_length=3, choices=ERA)
     name            = models.CharField(max_length=80)
-    codename        = models.CharField(max_length=10)
+    codename        = models.CharField(max_length=50)
     hashed          = models.CharField(max_length=150)
     image_url       = models.CharField(max_length=250)
-    launch_date     = models.DateTimeField(null=True, blank=True, default='')
+    launch_date     = models.DateTimeField(null=True, blank=True)
     
 
-class details(models.Model):
+class Details(models.Model):
     DETAIL_TYPE = (
         (1, 'goals'),
         (2, 'accomplished'),
@@ -45,7 +46,7 @@ class details(models.Model):
         )
 
     id              = models.AutoField(primary_key=True)
-    mission         = models.ForeignKey(missions)
+    mission         = models.ForeignKey(Missions)
     detail_type     = models.IntegerField(max_length=3, choices=DETAIL_TYPE)
     mission_type    = models.CharField(max_length=50)
     header          = models.CharField(max_length=150)

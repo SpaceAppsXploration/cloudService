@@ -12,6 +12,8 @@ from data.tables_BusVsDist import bus_vs_dist
 from data.tables_BusVsBus import bus_vs_bus
 from data.missions import missions
 
+from models import Missions, Targets
+
 def home(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
     js = json.dumps(js)
@@ -80,13 +82,45 @@ def test(request):
     return StreamingHttpResponse(js, content_type="application/json")
 
 def clean(request):
-    js = {}
+    '''
+    # Script creazione record in Targets
+    for m in missions:
+        tot_target = m['pageURL']
+        inizio = tot_target.find('Target=')
+        fine = tot_target.find('&Era=')
+        target = tot_target[inizio+7:fine]
+        if not Targets.objects.all().filter(name=target):
+            newObj = Targets(name=target, body_type=1, image_url='Empty') # per ora setto tutti i tipi a 1 e le immagini a 'Empty'
+            newObj.save()   
+   
+    # Script creazione record in Missions
+    for obj in missions:
+        tot_target = obj['pageURL']
+        inizio = tot_target.find('Target=')
+        fine = tot_target.find('&Era=')
+        target = tot_target[inizio+7:fine]
+        
+        destination = Targets.objects.all().filter(name=target)[0]
 
-    for obj in js['data']:
-        mission = {'link': obj['link'][0], 'name': obj['name'][0], 'image': obj['image'][0], 'pageURL': obj['_pageUrl']}
-        missions.append(mission)
+        era = tot_target[fine+5:]
+        if era == 'Past':
+            era = 1
+        if era == 'Present':
+            era = 2
+        if era == 'Future':
+            era = 3
+        if era == 'Concept':
+            era = 0
 
-    missions = json.dumps(missions)
+               
+        tot_link = obj['link']
+        name = obj['name']
+        inizio = tot_link.find('&MCode=')
+        hashed = tot_link[inizio+7:]
+        newObj = Missions(target=destination, era=era, name=name, codename=name, hashed=hashed, image_url=obj['image'])
+        newObj.save()
+    '''
+
     return StreamingHttpResponse(missions, content_type="application/json")
 
 
