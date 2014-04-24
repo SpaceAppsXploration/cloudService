@@ -78,6 +78,18 @@ def test(request):
 
     return StreamingHttpResponse(js, content_type="application/json")
 
+def clean(request):
+    js = {}
+    missions = []
+
+    for obj in js['data']:
+        mission = {'link': obj['link'][0], 'name': obj['name'][0], 'image': obj['image'][0], 'pageURL': obj['_pageUrl']}
+        missions.append(mission)
+
+    missions = json.dumps(missions)
+    return StreamingHttpResponse(missions, content_type="application/json")
+
+
 def homeTEST(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
     js = json.dumps(js)
@@ -95,7 +107,7 @@ def simulation(request):
         destination=mars
         &mission=prop_chem
         &opt_sensor=true
-        &radio_sensor=falses
+        &radio_sensor=false
         &spectrometer=true
         &probe=true
         &amplifierfier=false

@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^webapp/start', 'webapp.views.start'),
 
     url(r'^test/', 'xploration.views.test'),
+    url(r'^clean/', 'xploration.views.clean'),
 
     url(r'^hometest', 'xploration.views.homeTEST'),
     url(r'^$', 'xploration.views.home', name='home'),
