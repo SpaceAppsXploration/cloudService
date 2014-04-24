@@ -5,11 +5,12 @@ from django.shortcuts import render_to_response
 from django.http import Http404
 
 # import verity tables for mission's checking
-from tables_Bodies import destinations
-from tables_Missions import mission_type
-from tables_BusVsMission import bus_vs_mission_type
-from tables_BusVsDist import bus_vs_dist
-from tables_BusVsBus import bus_vs_bus
+from data.tables_Bodies import destinations
+from data.tables_Missions import mission_type
+from data.tables_BusVsMission import bus_vs_mission_type
+from data.tables_BusVsDist import bus_vs_dist
+from data.tables_BusVsBus import bus_vs_bus
+from data.missions import missions
 
 def home(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
@@ -80,7 +81,6 @@ def test(request):
 
 def clean(request):
     js = {}
-    missions = []
 
     for obj in js['data']:
         mission = {'link': obj['link'][0], 'name': obj['name'][0], 'image': obj['image'][0], 'pageURL': obj['_pageUrl']}
