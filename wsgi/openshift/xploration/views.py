@@ -121,7 +121,7 @@ def clean(request):
         hashed = tot_link[inizio+7:]
         newObj = Missions(target=destination, era=era, name=name, codename=name, hashed=hashed, image_url=obj['image'])
         newObj.save()
-
+    '''
     # Script creazione record in Details (ca. 1400)
     for m in missions_details:
         name = m['name']
@@ -144,7 +144,7 @@ def clean(request):
                     body=d['body'])
                 to_save.save()
     
-    '''
+    
     return StreamingHttpResponse(json.dumps({'status': 'done'}), content_type="application/json")
 
 
