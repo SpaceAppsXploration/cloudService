@@ -16,6 +16,10 @@ urlpatterns = patterns('',
     url(r'^test/', 'xploration.views.test'),
     url(r'^clean/', 'xploration.views.clean'),
 
+    # REST endpoints
+    url(r'^targets/$', 'xploration.views.targets_list'),
+    url(r'^targets/(?P<t_id>[0-9]+)/$', 'xploration.views.target_detail'),
+
     url(r'^hometest', 'xploration.views.homeTEST'),
     url(r'^$', 'xploration.views.home', name='home'),
     # url(r'^admin/', include(admin.site.urls)),
