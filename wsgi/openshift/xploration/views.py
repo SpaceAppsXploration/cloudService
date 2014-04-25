@@ -68,6 +68,73 @@ def target_detail(request, t_id):
         mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
         return JSONResponse(mex)
 
+@csrf_exempt
+def missions_list(request):
+    '''
+    List all possible Missions
+    '''
+    if request.method == 'GET':
+        mix = Missions.objects.all()
+        serializer = MissionsSerializer(mix, many=True)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        return JSONResponse(mex)
+
+@csrf_exempt
+def single_mission(request, m_id):
+    '''
+    List all possible Missions
+    '''
+    if request.method == 'GET':
+        one_mission = Missions.objects.all().filter(id=m_id)[0]
+        name_mission = one_mission.name
+        all_target = Missions.objects.all().filter(name=name_mission)
+        serializer = MissionsSerializer(all_target, many=True)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        return JSONResponse(mex)
+
+
+@csrf_exempt
+def mission_detail(request, m_id):
+    '''
+    Reply with all the data referred to one Missions.
+    Search by mission id
+    '''
+    try:
+        mix_details = Details.objects.all().filter(mission=m_id)
+    except Targets.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = DetailsSerializer(mix_details)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        return JSONResponse(mex)
+
+@csrf_exempt
+def missions_by_target(request, t_id):
+    '''
+    Reply with all the data referred to one Missions.
+    Search by mission id
+    '''
+    try:
+        target_missions = Missions.objects.all().filter(target=t_id)
+        #mix_details = Details.objects.all().filter(mission=m_id)
+    except Targets.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = MissionsSerializer(target_missions)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        return JSONResponse(mex)
+
+
 def home(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
     js = json.dumps(js)
