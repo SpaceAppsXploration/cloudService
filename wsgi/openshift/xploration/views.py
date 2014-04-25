@@ -84,7 +84,7 @@ def test(request):
     return StreamingHttpResponse(js, content_type="application/json")
 
 def clean(request):
-
+    '''
     # Script creazione record in Targets (9)
     for m in missions:
         tot_target = m['pageURL']
@@ -144,7 +144,7 @@ def clean(request):
                     body=d['body'])
                 to_save.save()
     
-    
+    '''
     return StreamingHttpResponse(json.dumps({'status': 'done'}), content_type="application/json")
 
 
