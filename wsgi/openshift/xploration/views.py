@@ -3,6 +3,7 @@ from django.http import StreamingHttpResponse
 import random
 from django.shortcuts import render_to_response
 from django.http import Http404
+import datetime
 
 # import verity tables for mission's checking
 from data.tables_Bodies import destinations
@@ -11,8 +12,9 @@ from data.tables_BusVsMission import bus_vs_mission_type
 from data.tables_BusVsDist import bus_vs_dist
 from data.tables_BusVsBus import bus_vs_bus
 from data.missions import missions
+from data.missions_details import missions_details
 
-from models import Missions, Targets
+from models import Missions, Targets, Details
 
 def home(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
@@ -82,8 +84,8 @@ def test(request):
     return StreamingHttpResponse(js, content_type="application/json")
 
 def clean(request):
-    '''
-    # Script creazione record in Targets
+
+    # Script creazione record in Targets (9)
     for m in missions:
         tot_target = m['pageURL']
         inizio = tot_target.find('Target=')
@@ -93,7 +95,7 @@ def clean(request):
             newObj = Targets(name=target, body_type=1, image_url='Empty') # per ora setto tutti i tipi a 1 e le immagini a 'Empty'
             newObj.save()   
    
-    # Script creazione record in Missions
+    # Script creazione record in Missions (ca. 252)
     for obj in missions:
         tot_target = obj['pageURL']
         inizio = tot_target.find('Target=')
@@ -119,9 +121,31 @@ def clean(request):
         hashed = tot_link[inizio+7:]
         newObj = Missions(target=destination, era=era, name=name, codename=name, hashed=hashed, image_url=obj['image'])
         newObj.save()
-    '''
 
-    return StreamingHttpResponse(missions, content_type="application/json")
+    # Script creazione record in Details (ca. 1400)
+    for m in missions_details:
+        name = m['name']
+        data = m['data']
+        mission_to_save = Missions.objects.all().filter(name=name)[0]
+        for d in data:
+            if 'image_link' in d:
+                # type Fact
+                to_save = Details(mission=mission_to_save, detail_type=d['type'], header=d['header'],
+                    body=d['body'], image_link=d['image_link'])
+                to_save.save()
+            if 'date' in d:
+                # type event (news, headlines, key_dates)
+                to_save = Details(mission=mission_to_save, detail_type=d['type'], header=d['header'],
+                    body=d['body'], date=datetime.datetime.strptime(d['date'], '%d %b %Y').date())
+                to_save.save()
+            else:
+                #type Goals, accomp
+                to_save = Details(mission=mission_to_save, detail_type=d['type'], header=d['header'],
+                    body=d['body'])
+                to_save.save()
+    
+    
+    return StreamingHttpResponse(json.dumps({'status': 'done'}), content_type="application/json")
 
 
 def homeTEST(request):

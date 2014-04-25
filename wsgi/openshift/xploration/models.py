@@ -37,21 +37,22 @@ class Missions(models.Model):
 
 class Details(models.Model):
     DETAIL_TYPE = (
-        (1, 'goals'),
-        (2, 'accomplished'),
-        (3, 'link'),
-        (4, 'read_more'),
-        (5, 'key_dates'),
-        (6, 'headlines')
+        (1, 'goal'),
+        (2, 'accomplishment'),
+        (3, 'read_more'),
+        (4, 'mission_link'),
+        (5, 'event'),
+        (6, 'fact'),
+        (7, 'status')
         )
 
     id              = models.AutoField(primary_key=True)
     mission         = models.ForeignKey(Missions)
     detail_type     = models.IntegerField(max_length=3, choices=DETAIL_TYPE)
-    mission_type    = models.CharField(max_length=50)
     header          = models.CharField(max_length=150)
     body            = models.CharField(max_length=3000)
-    date            = models.DateTimeField()        
+    date            = models.DateTimeField(null=True, blank=True)
+    image_link      = models.CharField(max_length=250, null=True, blank=True)
      
 
 
