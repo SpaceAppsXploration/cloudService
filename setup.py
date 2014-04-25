@@ -9,5 +9,5 @@ setup(
     author='Chronos SpaceApps Rome Team 2014',
     author_email='@XplorationApp',
     url='http://www.spacexplore.it',
-    install_requires=['Django==1.6.2', 'djangorestframework'],
+    install_requires=['djangorestframework==2.3.13', 'Django==1.6.2'],
 )
