@@ -151,7 +151,7 @@ def test(request):
     return StreamingHttpResponse(js, content_type="application/json")
 
 def clean(request):
-    '''
+
     # Script creazione record in Targets (9)
     for m in missions:
         tot_target = m['pageURL']
@@ -161,15 +161,19 @@ def clean(request):
         if not Targets.objects.all().filter(name=target):
             newObj = Targets(name=target, body_type=1, image_url='Empty') # per ora setto tutti i tipi a 1 e le immagini a 'Empty'
             newObj.save()   
-   
+
     # Script creazione record in Missions (ca. 252)
     for obj in missions:
         tot_target = obj['pageURL']
         inizio = tot_target.find('Target=')
         fine = tot_target.find('&Era=')
         target = tot_target[inizio+7:fine]
+        print target
         
-        destination = Targets.objects.all().filter(name=target)[0]
+        try:
+            destination = Targets.objects.all().filter(name=target)[0]
+        except:
+            raise 
 
         era = tot_target[fine+5:]
         if era == 'Past':
@@ -188,7 +192,7 @@ def clean(request):
         hashed = tot_link[inizio+7:]
         newObj = Missions(target=destination, era=era, name=name, codename=name, hashed=hashed, image_url=obj['image'])
         newObj.save()
-    
+
     # Script creazione record in Details (ca. 1200)
     for m in missions_details:
         name = m['name']
@@ -211,7 +215,7 @@ def clean(request):
                     body=d['body'])
                 to_save.save()
     
-    '''
+    
     return StreamingHttpResponse(json.dumps({'status': 'done'}), content_type="application/json")
 
 
