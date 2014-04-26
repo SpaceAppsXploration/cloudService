@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Targets, Missions, Details
+from models import Targets, Missions, Details, Planets
 
 class TargetsSerializer(serializers.ModelSerializer):
     class Meta:

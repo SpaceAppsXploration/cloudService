@@ -27,7 +27,7 @@ from data.physics import physics
 import models and json serializers
 '''
 from models import Missions, Targets, Details, Planets
-from serializers import TargetsSerializer, MissionsSerializer, DetailsSerializer
+from serializers import TargetsSerializer, MissionsSerializer, DetailsSerializer, PlanetsSerializer
 
 
 class JSONResponse(HttpResponse):
@@ -172,7 +172,7 @@ def clean(request):
         atm = p['atmosphere']
         newPla = Planets(discover=discover, rings=rings, light=light, mass=mass, diameter=diameter, density=density, gravity=gravity, l_day=l_day, l_year=l_year, eccent=ecc, distance=dist, perihelion=per, aphelion=aph, inclination=tilt, active=active, atmosphere=atm)
         newPla.save()  
-         
+
     return StreamingHttpResponse(json.dumps({'status': 'done'}), content_type="application/json")
 
 
