@@ -53,6 +53,26 @@ class Details(models.Model):
     body            = models.CharField(max_length=3000)
     date            = models.DateTimeField(null=True, blank=True)
     image_link      = models.CharField(max_length=250, null=True, blank=True)
+
+class Planets(models.Model):
+
+    id      = models.AutoField(primary_key=True)
+    discover    = models.CharField(max_length=20)
+    rings       = models.BooleanField()         
+    light       = models.CharField(max_length=50)   
+    mass        = models.CharField(max_length=50)   
+    diameter    = models.CharField(max_length=50)   
+    density     = models.CharField(max_length=50)
+    gravity     = models.CharField(max_length=50)   
+    l_day       = models.CharField(max_length=50)   
+    l_year      = models.CharField(max_length=50)   
+    eccent      = models.CharField(max_length=50)   
+    distance    = models.CharField(max_length=50)   
+    perihelion  = models.CharField(max_length=50)   
+    aphelion    = models.CharField(max_length=50)   
+    inclination = models.CharField(max_length=10)   
+    active      = models.BooleanField()         
+    atmosphere  = models.CharField(max_length=50)
      
 
 

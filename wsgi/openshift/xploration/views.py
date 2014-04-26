@@ -21,11 +21,12 @@ from data.tables_BusVsDist import bus_vs_dist
 from data.tables_BusVsBus import bus_vs_bus
 from data.missions import missions
 from data.missions_details import missions_details
+from data.physics import physics
 
 '''
 import models and json serializers
 '''
-from models import Missions, Targets, Details
+from models import Missions, Targets, Details, Planets
 from serializers import TargetsSerializer, MissionsSerializer, DetailsSerializer
 
 
@@ -151,71 +152,27 @@ def test(request):
     return StreamingHttpResponse(js, content_type="application/json")
 
 def clean(request):
-    '''
-    # Script creazione record in Targets (9)
-    for m in missions:
-        tot_target = m['pageURL']
-        inizio = tot_target.find('Target=')
-        fine = tot_target.find('&Era=')
-        target = tot_target[inizio+7:fine]
-        if not Targets.objects.all().filter(name=target):
-            newObj = Targets(name=target, body_type=1, image_url='Empty') # per ora setto tutti i tipi a 1 e le immagini a 'Empty'
-            newObj.save()   
 
-    # Script creazione record in Missions (ca. 252)
-    for obj in missions:
-        tot_target = obj['pageURL']
-        inizio = tot_target.find('Target=')
-        fine = tot_target.find('&Era=')
-        target = tot_target[inizio+7:fine]
-        print target
-        
-        try:
-            destination = Targets.objects.all().filter(name=target)[0]
-        except:
-            raise 
-
-        era = tot_target[fine+5:]
-        if era == 'Past':
-            era = 1
-        if era == 'Present':
-            era = 2
-        if era == 'Future':
-            era = 3
-        if era == 'Concept':
-            era = 0
-
-               
-        tot_link = obj['link']
-        name = obj['name']
-        inizio = tot_link.find('&MCode=')
-        hashed = tot_link[inizio+7:]
-        newObj = Missions(target=destination, era=era, name=name, codename=name, hashed=hashed, image_url=obj['image'])
-        newObj.save()
-
-    # Script creazione record in Details (ca. 1200)
-    for m in missions_details:
-        name = m['name']
-        data = m['data']
-        mission_to_save = Missions.objects.all().filter(name=name)[0]
-        for d in data:
-            if 'image_link' in d:
-                # type Fact
-                to_save = Details(mission=mission_to_save, detail_type=d['type'], header=d['header'],
-                    body=d['body'], image_link=d['image_link'])
-                to_save.save()
-            if 'date' in d:
-                # type event (news, headlines, key_dates)
-                to_save = Details(mission=mission_to_save, detail_type=d['type'], header=d['header'],
-                    body=d['body'], date=datetime.datetime.strptime(d['date'], '%d %b %Y').date())
-                to_save.save()
-            else:
-                #type Goals, accomp
-                to_save = Details(mission=mission_to_save, detail_type=d['type'], header=d['header'],
-                    body=d['body'])
-                to_save.save()
-    
-    '''
+    for p in physics:
+        discover = p['data']
+        rings = p['rings']
+        light = p['light']
+        mass = p['mass']
+        diameter = p['diameter']
+        density = p['density']
+        gravity = p['gravity']
+        l_day = p['l_day']
+        l_year = p['l_year']
+        ecc = p['eccentricity']
+        dist = p['distance']
+        per = p['perihelion']
+        aph = p['aphelion']
+        tilt = p['tilt']
+        active = p['active']
+        atm = p['atmosphere']
+        newPla = Planets(discover=discover, rings=rings, light=light, mass=mass, diameter=diameter, density=density, gravity=gravity, l_day=l_day, l_year=l_year, eccent=ecc, distance=dist, perihelion=per, aphelion=aph, inclination=tilt, active=active, atmosphere=atm)
+        newPla.save()  
+         
     return StreamingHttpResponse(json.dumps({'status': 'done'}), content_type="application/json")
 
 
