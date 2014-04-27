@@ -43,6 +43,7 @@ class Missions(models.Model):
 
     class Meta:
         verbose_name_plural = 'Missions'
+        ordering = ['name']
 
 class Details(models.Model):
     DETAIL_TYPE = (
@@ -53,7 +54,10 @@ class Details(models.Model):
         (5, 'event'),
         (6, 'fact'),
         (7, 'status'),
-        (8, 'article')
+        (8, 'article'),
+        (9, 'publications'),
+        (10, 'archive_link'),
+        (11, 'news')
         )
 
     id              = models.AutoField(primary_key=True)
@@ -69,6 +73,7 @@ class Details(models.Model):
 
     class Meta:
         verbose_name_plural = 'Details'
+        ordering = ['mission__name']
 
 class Planets(models.Model):
 
