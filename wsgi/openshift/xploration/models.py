@@ -15,7 +15,11 @@ class Targets(models.Model):
     curiousities    = models.CharField(max_length=3000, null=True, blank=True, default='')
     sim_related     = models.CharField(max_length=3000, null=True, blank=True, default='')
 
+    def __unicode__(self):
+        return self.name
 
+    class Meta:
+        verbose_name_plural = 'Targets'
 
 class Missions(models.Model):
     ERA = (
@@ -34,6 +38,11 @@ class Missions(models.Model):
     image_url       = models.CharField(max_length=250)
     launch_date     = models.DateTimeField(null=True, blank=True)
     
+    def __unicode__(self):
+        return self.codename
+
+    class Meta:
+        verbose_name_plural = 'Missions'
 
 class Details(models.Model):
     DETAIL_TYPE = (
@@ -55,9 +64,16 @@ class Details(models.Model):
     date            = models.DateTimeField(null=True, blank=True)
     image_link      = models.CharField(max_length=250, null=True, blank=True)
 
+    def __unicode__(self):
+        return str(self.mission.name)+' - '+str(self.header)
+
+    class Meta:
+        verbose_name_plural = 'Details'
+
 class Planets(models.Model):
 
     id          = models.AutoField(primary_key=True)
+    target      = models.ForeignKey(Targets)
     discover    = models.CharField(max_length=20)
     rings       = models.BooleanField()         
     light       = models.CharField(max_length=50)   
