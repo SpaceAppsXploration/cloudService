@@ -43,7 +43,8 @@ class Details(models.Model):
         (4, 'mission_link'),
         (5, 'event'),
         (6, 'fact'),
-        (7, 'status')
+        (7, 'status'),
+        (8, 'article')
         )
 
     id              = models.AutoField(primary_key=True)
@@ -56,7 +57,7 @@ class Details(models.Model):
 
 class Planets(models.Model):
 
-    id      = models.AutoField(primary_key=True)
+    id          = models.AutoField(primary_key=True)
     discover    = models.CharField(max_length=20)
     rings       = models.BooleanField()         
     light       = models.CharField(max_length=50)   

@@ -118,7 +118,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make a dictionary of default keys
-default_keys = { 'SECRET_KEY': 'aajklslnlasdfon9342§"$£902481_' }
+default_keys = { 'SECRET_KEY': 'aajklsl452346_$' }
 
 # Replace default keys with dynamic values if we are in OpenShift
 use_keys = default_keys
@@ -168,7 +168,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    #'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'xploration',

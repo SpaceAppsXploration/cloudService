@@ -85,14 +85,20 @@ def missions_list(request):
 @csrf_exempt
 def single_mission(request, m_id):
     '''
-    List all possible Missions
+    List all target-mission tuples
     '''
     if request.method == 'GET':
         one_mission = Missions.objects.all().filter(id=m_id)[0]
         name_mission = one_mission.name
         all_target = Missions.objects.all().filter(name=name_mission)
-        serializer = MissionsSerializer(all_target, many=True)
-        return JSONResponse(serializer.data)
+        mission_targets = []
+        for t in all_target:
+            mission_targets.append(t.target.id)
+        obj = {'target': mission_targets, 'era': one_mission.era, 'name': one_mission.name,
+               'codename': one_mission.codename, 'hashed': one_mission.hashed, 'image_url': one_mission.image_url,
+               'launch_date': one_mission.launch_date  }
+        serializer = json.dumps(obj)
+        return StreamingHttpResponse(serializer, content_type="application/json")
     else:
         mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
         return JSONResponse(mex)
@@ -119,8 +125,8 @@ def mission_detail(request, m_id):
 @csrf_exempt
 def missions_by_target(request, t_id):
     '''
-    Reply with all the data referred to one Missions.
-    Search by mission id
+    Reply with all the data referred to one Targets.
+    Search by target id
     '''
     try:
         target_missions = Missions.objects.all().filter(target=t_id)
