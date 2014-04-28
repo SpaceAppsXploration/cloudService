@@ -64,10 +64,12 @@
 </div>
 
 <div id="loader">
-    <div class="spinner">
-      <div class="dot1"></div>
-      <div class="dot2"></div>
-    </div>
+    <div class="orbital">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+</div>  
 </div>
 
 <script type="text/javascript" src="/static/js/modernizrr.js"></script>
@@ -84,7 +86,8 @@
 // Page Loader
 
 $(window).load(function(){
-    $('#loader').fadeOut();
+
+    $('#loader').delay(5999).fadeOut();
 });
 </script>
 </body>
