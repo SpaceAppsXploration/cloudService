@@ -33,7 +33,7 @@ class Missions(models.Model):
     target          = models.ForeignKey(Targets)
     era             = models.IntegerField(max_length=3, choices=ERA)
     name            = models.CharField(max_length=80)
-    codename        = models.CharField(max_length=50)
+    codename        = models.CharField(max_length=50, null=True, blank=True)
     hashed          = models.CharField(max_length=150)
     image_url       = models.CharField(max_length=250)
     launch_dates    = models.CharField(max_length=80, null=True, blank=True)

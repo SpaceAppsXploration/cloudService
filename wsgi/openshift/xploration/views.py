@@ -152,7 +152,7 @@ def home(request):
     return render_to_response('home/home.html', params)
 
 def test(request):
-    from data.ESA_output_COMPLETE import missions
+    #from data.ESA_output_COMPLETE import missions
     from data.ESA_MISSIONS_COMPLETE import ESA_missions
 
     from unicodedata import normalize
@@ -168,17 +168,16 @@ def test(request):
         strict_text = map(lambda x: x if x in permitted_chars else '', ascii_text)
         return ''.join(strict_text)
  
-
+    count = 0
     for m in ESA_missions:
-        try:
-            new = Missions.objects.all().filter(name=m['name'])[0]
-            count = 0
+        if Missions.objects.all().filter(name=m['name'][0]).first() != None:
+            new = Missions.objects.all().filter(name=m['name'][0]).first()
+                      
             
-        except:
+        else:
             launch_str = str(m["launches"])
             dates = m["launches"]
-            print m["short_description"]
-            count=0
+            #print m["short_description"]
             for i,e in enumerate(dates):
                 if e.find('(failed)'):
                     dates[i] = e.replace('(failed)', '')
@@ -195,21 +194,21 @@ def test(request):
             new_mission = Missions(image_url=m["mission_image"],
             launch_dates=launch_str,
             name= m["name"][0],
-            codename= m['name'][0],
             hashed= slug(m['name'][0]),
             target=destination,
             era=era 
             )
             new_mission.save()
-            count += 1
-
-            new = Missions.objects.all().filter(name=m['name'])[0]
+            count = count + 1
+            
+            new = Missions.objects.all().filter(name=m['name'][0]).first()
             
 
         #create details
-        new_goal= Details(mission=new, detail_type=1, header="Goal",
-            body=m["short_description"])
-        new_goal.save()
+        if m.get('short_description'):
+            new_goal= Details(mission=new, detail_type=1, header="Goal",
+                body=m["short_description"])
+            new_goal.save()
         
         header = m['name'][0]+' Website'
         new_link = Details(mission=new, detail_type=4, header=header , body=m["link"])
