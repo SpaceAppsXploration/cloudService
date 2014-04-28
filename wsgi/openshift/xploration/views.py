@@ -19,9 +19,9 @@ from data.tables_Missions import mission_type
 from data.tables_BusVsMission import bus_vs_mission_type
 from data.tables_BusVsDist import bus_vs_dist
 from data.tables_BusVsBus import bus_vs_bus
-from data.missions import missions
-from data.missions_details import missions_details
-from data.physics import physics
+#from data.missions import missions
+#from data.missions_details import missions_details
+
 
 '''
 import models and json serializers
@@ -85,7 +85,7 @@ def missions_list(request):
 @csrf_exempt
 def single_mission(request, m_id):
     '''
-    List all target-mission tuples
+    Get single mission by mission id
     '''
     if request.method == 'GET':
         one_mission = Missions.objects.all().filter(id=m_id)[0]
@@ -152,12 +152,74 @@ def home(request):
     return render_to_response('home/home.html', params)
 
 def test(request):
-    js = {'code': 0, 'status': 'OK', 'response': 200}
-    js = json.dumps(js)
+    from data.ESA_output_COMPLETE import missions
+    from data.ESA_MISSIONS_COMPLETE import ESA_missions
 
-    return StreamingHttpResponse(js, content_type="application/json")
+    from unicodedata import normalize
+
+    def slug(text, encoding=None,
+               permitted_chars='abcdefghijklmnopqrstuvwxyz0123456789_'):
+        if isinstance(text, str):
+            text = text.decode(encoding or 'ascii')
+        clean_text = text.strip().replace(' ', '_').lower()
+        while '__' in clean_text:
+            clean_text = clean_text.replace('__', '_')
+        ascii_text = normalize('NFKD', clean_text).encode('ascii', 'ignore')
+        strict_text = map(lambda x: x if x in permitted_chars else '', ascii_text)
+        return ''.join(strict_text)
+ 
+
+    for m in ESA_missions:
+        try:
+            new = Missions.objects.all().filter(name=m['name'])[0]
+            count = 0
+            pass
+        except:
+            launch_str = str(m["launches"])
+            dates = m["launches"]
+            print m["short_description"]
+            count=0
+            for i,e in enumerate(dates):
+                if e.find('(failed)'):
+                    dates[i] = e.replace('(failed)', '')
+            if all(int(i) <= 2000 for i in dates):
+                era = 1
+            if all(int(i) > 2015 and int(i) < 2020 for i in dates):
+                era = 3
+            if all(int(i) > 2000 and int(i) <= 2017 for i in dates):
+                era = 2
+            if all(int(i) > 2020 for i in dates):
+                era = 0
+
+            destination = Targets.objects.all().get(name=m["target"])
+            new_mission = Missions(image_url=m["mission_image"],
+            launch_dates=launch_str,
+            name= m["name"][0],
+            codename= m['name'][0],
+            hashed= slug(m['name'][0]),
+            target=destination,
+            era=era 
+            )
+            new_mission.save()
+            count += 1
+
+            new = Missions.objects.all().filter(name=m['name'])[0]
+            
+
+            #create details
+            new_goal= Details(mission=new, detail_type=1, header="Goal",
+                body=m["short_description"])
+            new_goal.save()
+            
+            header = m['name'][0]+' Website'
+            new_link = Details(mission=new, detail_type=4, header=header , body=m["link"])
+            new_link.save()
+
+    return StreamingHttpResponse(json.dumps({'status': 'finished', 'count': count}), content_type="application/json")
 
 def clean(request):
+
+    from data.physics import physics
 
     for p in physics:
         discover = p['data']

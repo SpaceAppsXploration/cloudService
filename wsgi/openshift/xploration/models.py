@@ -12,7 +12,7 @@ class Targets(models.Model):
     body_type       = models.IntegerField(max_length=3, choices=BODY_TYPE)  # planet, asteroids, outer space
     image_url       = models.CharField(max_length=150)
     characteristics = models.CharField(max_length=3000, null=True, blank=True, default='')
-    curiousities    = models.CharField(max_length=3000, null=True, blank=True, default='')
+    curiosities    = models.CharField(max_length=3000, null=True, blank=True, default='')
     sim_related     = models.CharField(max_length=3000, null=True, blank=True, default='')
 
     def __unicode__(self):
@@ -36,7 +36,7 @@ class Missions(models.Model):
     codename        = models.CharField(max_length=50)
     hashed          = models.CharField(max_length=150)
     image_url       = models.CharField(max_length=250)
-    launch_date     = models.DateTimeField(null=True, blank=True)
+    launch_dates    = models.CharField(max_length=80, null=True, blank=True)
     
     def __unicode__(self):
         return self.codename
