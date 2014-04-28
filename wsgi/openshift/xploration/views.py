@@ -153,68 +153,8 @@ def home(request):
 
 def test(request):
     #from data.ESA_output_COMPLETE import missions
-    from data.ESA_MISSIONS_COMPLETE import ESA_missions
-
-    from unicodedata import normalize
-
-    def slug(text, encoding=None,
-               permitted_chars='abcdefghijklmnopqrstuvwxyz0123456789_'):
-        if isinstance(text, str):
-            text = text.decode(encoding or 'ascii')
-        clean_text = text.strip().replace(' ', '_').lower()
-        while '__' in clean_text:
-            clean_text = clean_text.replace('__', '_')
-        ascii_text = normalize('NFKD', clean_text).encode('ascii', 'ignore')
-        strict_text = map(lambda x: x if x in permitted_chars else '', ascii_text)
-        return ''.join(strict_text)
- 
-    count = 0
-    for m in ESA_missions:
-        if Missions.objects.all().filter(name=m['name'][0]).first() != None:
-            new = Missions.objects.all().filter(name=m['name'][0]).first()
-                      
-            
-        else:
-            launch_str = str(m["launches"])
-            dates = m["launches"]
-            #print m["short_description"]
-            for i,e in enumerate(dates):
-                if e.find('(failed)'):
-                    dates[i] = e.replace('(failed)', '')
-            if all(int(i) <= 2000 for i in dates):
-                era = 1
-            if all(int(i) > 2015 and int(i) < 2020 for i in dates):
-                era = 3
-            if all(int(i) > 2000 and int(i) <= 2017 for i in dates):
-                era = 2
-            if all(int(i) > 2020 for i in dates):
-                era = 0
-
-            destination = Targets.objects.all().get(name=m["target"])
-            new_mission = Missions(image_url=m["mission_image"],
-            launch_dates=launch_str,
-            name= m["name"][0],
-            codename= 'None',
-            hashed= slug(m['name'][0]),
-            target=destination,
-            era=era 
-            )
-            new_mission.save()
-            count = count + 1
-            
-            new = Missions.objects.all().filter(name=m['name'][0]).first()
-            
-
-        #create details
-        if m.get('short_description'):
-            new_goal= Details(mission=new, detail_type=1, header="Goal",
-                body=m["short_description"])
-            new_goal.save()
-        
-        header = m['name'][0]+' Website'
-        new_link = Details(mission=new, detail_type=4, header=header , body=m["link"])
-        new_link.save()
-
+    count = 0 
+    
     return StreamingHttpResponse(json.dumps({'status': 'finished', 'count': count}), content_type="application/json")
 
 def clean(request):
