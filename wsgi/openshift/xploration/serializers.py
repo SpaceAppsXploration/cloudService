@@ -4,12 +4,12 @@ from models import Targets, Missions, Details, Planets
 class TargetsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Targets
-        fields = ('id', 'name', 'body_type', 'image_url', 'characteristics', 'curiousities', 'sim_related')
+        fields = ('id', 'name', 'body_type', 'image_url', 'characteristics', 'curiosities', 'sim_related')
 
 class MissionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Missions
-        fields = ('id', 'target', 'era', 'name', 'codename', 'hashed', 'image_url', 'launch_date')
+        fields = ('id', 'target', 'era', 'name', 'codename', 'hashed', 'image_url', 'launch_dates')
 
 class DetailsSerializer(serializers.ModelSerializer):
     class Meta:

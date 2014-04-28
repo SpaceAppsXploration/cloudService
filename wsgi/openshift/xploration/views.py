@@ -88,7 +88,7 @@ def single_mission(request, m_id):
     Get single mission by mission id
     '''
     if request.method == 'GET':
-        one_mission = Missions.objects.all().filter(id=m_id)[0]
+        one_mission = Missions.objects.all().filter(id=m_id).first()
         name_mission = one_mission.name
         all_target = Missions.objects.all().filter(name=name_mission)
         mission_targets = []
@@ -96,7 +96,7 @@ def single_mission(request, m_id):
             mission_targets.append(t.target.id)
         obj = {'target': mission_targets, 'era': one_mission.era, 'name': one_mission.name,
                'codename': one_mission.codename, 'hashed': one_mission.hashed, 'image_url': one_mission.image_url,
-               'launch_date': one_mission.launch_date  }
+               'launch_dates': one_mission.launch_dates  }
         serializer = json.dumps(obj)
         return StreamingHttpResponse(serializer, content_type="application/json")
     else:
