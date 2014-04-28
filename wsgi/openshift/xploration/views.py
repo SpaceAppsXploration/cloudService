@@ -194,6 +194,7 @@ def test(request):
             new_mission = Missions(image_url=m["mission_image"],
             launch_dates=launch_str,
             name= m["name"][0],
+            codename= 'None',
             hashed= slug(m['name'][0]),
             target=destination,
             era=era 

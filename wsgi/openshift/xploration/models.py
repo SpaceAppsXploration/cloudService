@@ -6,7 +6,9 @@ class Targets(models.Model):
         (3, "comet"),
         (4, "satellite"),
         (5, "sun"),
-        (6, "deepspace"))
+        (6, "deepspace"),
+        (7, "extra-terrestrial")
+        )
     id              = models.AutoField(primary_key=True)
     name            = models.CharField(max_length=150)
     body_type       = models.IntegerField(max_length=3, choices=BODY_TYPE)  # planet, asteroids, outer space

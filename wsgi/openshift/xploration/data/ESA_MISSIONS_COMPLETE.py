@@ -209,13 +209,11 @@ ESA_missions = [
     },
     {
         "mission_image": "http://www.esa.int/extension/esa_ext/design/esn2/images/layout/mis_bg.png",
-        "short_description": "Intermediate eXperimental Vehicle",
+        "name": "Intermediate eXperimental Vehicle",
         "launches": [
             "2013"
         ],
-        "name": [
-            "IXV"
-        ],
+        "codename": "IXV",
         "link": "http://www.esa.int/Our_Activities/Launchers/Launcher_Technology/Reentry_technologies",
         "target": "Surface"
     },
