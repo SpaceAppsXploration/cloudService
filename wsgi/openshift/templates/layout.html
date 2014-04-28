@@ -86,9 +86,19 @@
 // Page Loader
 
 $(window).load(function(){
+    setInterval (function () {
 
-    $('#loader').delay(5999).fadeOut();
+        $('#loader').fadeOut();
+    }, 5999);
+    setInterval (function () {
+
+        $('body').css({ 'overflow-y': 'scroll'})
+    }, 5999);
+      
+
+    
 });
 </script>
+
 </body>
 </html>
