@@ -173,7 +173,7 @@ def test(request):
         try:
             new = Missions.objects.all().filter(name=m['name'])[0]
             count = 0
-            pass
+            
         except:
             launch_str = str(m["launches"])
             dates = m["launches"]
@@ -206,14 +206,14 @@ def test(request):
             new = Missions.objects.all().filter(name=m['name'])[0]
             
 
-            #create details
-            new_goal= Details(mission=new, detail_type=1, header="Goal",
-                body=m["short_description"])
-            new_goal.save()
-            
-            header = m['name'][0]+' Website'
-            new_link = Details(mission=new, detail_type=4, header=header , body=m["link"])
-            new_link.save()
+        #create details
+        new_goal= Details(mission=new, detail_type=1, header="Goal",
+            body=m["short_description"])
+        new_goal.save()
+        
+        header = m['name'][0]+' Website'
+        new_link = Details(mission=new, detail_type=4, header=header , body=m["link"])
+        new_link.save()
 
     return StreamingHttpResponse(json.dumps({'status': 'finished', 'count': count}), content_type="application/json")
 

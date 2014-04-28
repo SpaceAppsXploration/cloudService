@@ -51,13 +51,26 @@ ESA_missions = [
     },
     {
         "mission_image": "http://www.esa.int/extension/esa_ext/design/esn2/images/layout/mis_bg.png",
-        "short_description": ",  Mars orbiter and lander, followed by rover",
+        "short_description": "Mars orbiter and lander, followed by rover",
         "launches": [
             "2016",
             "2018"
         ],
         "name": [
-            "Exomars"
+            "Exomars Orbiter / EDM"
+        ],
+        "link": "http://exploration.esa.int/science-e/www/area/index.cfm?fareaid=118",
+        "target": "Mars"
+    },
+    {
+        "mission_image": "http://www.esa.int/extension/esa_ext/design/esn2/images/layout/mis_bg.png",
+        "short_description": "Mars orbiter and lander, followed by rover",
+        "launches": [
+            "2016",
+            "2018"
+        ],
+        "name": [
+            "Exomars Rover"
         ],
         "link": "http://exploration.esa.int/science-e/www/area/index.cfm?fareaid=118",
         "target": "Mars"
