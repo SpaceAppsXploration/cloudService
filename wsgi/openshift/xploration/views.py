@@ -79,7 +79,7 @@ def missions_list(request):
         serializer = MissionsSerializer(mix, many=True)
         return JSONResponse(serializer.data)
     else:
-        mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
         return JSONResponse(mex)
 
 @csrf_exempt
@@ -100,7 +100,7 @@ def single_mission(request, m_id):
         serializer = json.dumps(obj)
         return StreamingHttpResponse(serializer, content_type="application/json")
     else:
-        mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
         return JSONResponse(mex)
 
 
@@ -119,7 +119,7 @@ def mission_detail(request, m_id):
         serializer = DetailsSerializer(mix_details)
         return JSONResponse(serializer.data)
     else:
-        mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
         return JSONResponse(mex)
 
 @csrf_exempt
@@ -138,7 +138,7 @@ def missions_by_target(request, t_id):
         serializer = MissionsSerializer(target_missions)
         return JSONResponse(serializer.data)
     else:
-        mex = {'response': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
         return JSONResponse(mex)
 
 
@@ -230,7 +230,7 @@ def simulation(request):
 
     # check compatibility planet/mission  
     if usr_planet[usr_mission_slug] != True :
-        results = {'code': 1, 'Error': 'Error in mission type ' + usr_mission_slug }
+        results = {'code': 1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in mission type ' + usr_mission_slug }
         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
         
 
@@ -248,7 +248,7 @@ def simulation(request):
             #print k
             if k['slug'] == usr_mission_slug:
                 if k[e] != True: 
-                    results = { 'code': 1, 'Error': 'Error in component ' + e }
+                    results = { 'code': 1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in component ' + e }
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
 
     
@@ -264,7 +264,7 @@ def simulation(request):
         if e['slug'] == usr_mission_slug:
             for k,v in busAll.iteritems():
                 if e[k] != v:
-                    results = {'code': 1, 'Error': 'Error in BUS in system ' + k }
+                    results = {'code': 1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in BUS in system ' + k }
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json")
 
     
@@ -280,7 +280,7 @@ def simulation(request):
               if j < int(usr_distance):
                 for k,v in busAll.iteritems():
                     if e[k] != v:
-                        results = { 'code':1, 'Error': 'Error in BUS vs distance ' + k }
+                        results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in BUS vs distance check ' + k }
                         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
 
 
@@ -291,10 +291,10 @@ def simulation(request):
         if e['slug'] == usr_mission_slug:
             for k,v in busAll.iteritems():
                 if e[k] != v:
-                    results = { 'code':1, 'Error': 'Error in BUS in payload check ' + k }
+                    results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in BUS vs payload check ' + k }
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json")
 
-    results = { 'code':0, 'status':'OK', 'message': 'Mission is way to go!' }
+    results = { 'code':0, 'status':'OK', 'message': 'Mission is way to go!', 'type': 'cheer' }
     return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
 
         
