@@ -19,4 +19,4 @@ class DetailsSerializer(serializers.ModelSerializer):
 class PlanetsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Planets
-        fields = ('id', 'discover', 'rings', 'light', 'mass', 'diameter', 'density', 'gravity', 'l_day', 'l_year', 'eccent', 'distance', 'perihelion', 'aphelion', 'inclination', 'active', 'atmosphere')
+        fields = ('target', 'discover', 'rings', 'light', 'mass', 'diameter', 'density', 'gravity', 'l_day', 'l_year', 'eccent', 'distance', 'perihelion', 'aphelion', 'inclination', 'active', 'atmosphere')

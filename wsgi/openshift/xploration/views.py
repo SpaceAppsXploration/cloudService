@@ -83,6 +83,32 @@ def missions_list(request):
         return JSONResponse(mex)
 
 @csrf_exempt
+def planets_list(request):
+    '''
+    List of all Planets physical values
+    '''
+    if request.method == 'GET':
+        mix = Planets.objects.all()
+        serializer = PlanetsSerializer(mix, many=True)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'status': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        return JSONResponse(mex)
+
+@csrf_exempt
+def single_planet(request, p_id):
+    '''
+    Get  single Planets physical values
+    '''
+    if request.method == 'GET':
+        mix = Planets.objects.get(target=p_id)
+        serializer = PlanetsSerializer(mix)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'status': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        return JSONResponse(mex)
+
+@csrf_exempt
 def single_mission(request, m_id):
     '''
     Get single mission by mission id
@@ -160,9 +186,15 @@ def test(request):
 def clean(request):
 
     from data.physics import physics
-
+    count = 0
     for p in physics:
-        discover = p['data']
+        name = p['name']
+        obj = Targets.objects.get(name=name)
+
+        if p.get('date'):
+           discover = p['date']
+        else:
+            discover = None
         rings = p['rings']
         light = p['light']
         mass = p['mass']
@@ -178,10 +210,12 @@ def clean(request):
         tilt = p['tilt']
         active = p['active']
         atm = p['atmosphere']
-        newPla = Planets(discover=discover, rings=rings, light=light, mass=mass, diameter=diameter, density=density, gravity=gravity, l_day=l_day, l_year=l_year, eccent=ecc, distance=dist, perihelion=per, aphelion=aph, inclination=tilt, active=active, atmosphere=atm)
-        newPla.save()  
-
-    return StreamingHttpResponse(json.dumps({'status': 'done'}), content_type="application/json")
+        
+        newPla = Planets(target=obj, discover=discover, rings=rings, light=light, mass=mass, diameter=diameter, density=density, gravity=gravity, l_day=l_day, l_year=l_year, eccent=ecc, distance=dist, perihelion=per, aphelion=aph, inclination=tilt, active=active, atmosphere=atm)
+        newPla.save()
+        count += 1
+    
+    return StreamingHttpResponse(json.dumps({'status': 'done', 'count': count }), content_type="application/json")
 
 
 def homeTEST(request):

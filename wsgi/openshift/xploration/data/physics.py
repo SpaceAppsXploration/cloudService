@@ -1,6 +1,6 @@
 physics = [
     {
-    "data": "Unknown",
+    "name": "Mercury",
     "rings": False,
     "light": "3 min 16 sec",
     "mass": "3,3010 x 10^23 kg",
@@ -18,7 +18,7 @@ physics = [
     "atmosphere": "Extremely Thin",
     },
     {
-    "data": "Unknown",
+    "name": "Venus",
     "rings": False,
     "light": "6 min",
     "mass": "4,87 x 10^24 kg",
@@ -38,7 +38,7 @@ physics = [
     "atmosphere": "Extremely dense",
     },
     {
-    "data" : "Unknown",
+    "name": "Earth",
     "rings": False,
     "light": "8 minutes 17 seconds",
     "mass": "5,98 x 10^24 kg",
@@ -58,7 +58,7 @@ physics = [
     "atmosphere": "Good for humans",
     },
     {
-    "data": "Unknown",
+    "name": "Mars",
     "rings": False,
     "light": "12 minutes 40 seconds",
     "mass": "6,42 x 10^23 kg",
@@ -78,7 +78,7 @@ physics = [
     "atmosphere": "Thin",
     },
     {
-    "data": "Unknown",
+    "name": "Jupiter",
     "rings": True,
     "light": "43 min",
     "mass": "1,90 x 10^27 kg",
@@ -94,11 +94,11 @@ physics = [
     "perihelion": "7,41 x 10^8 km",
     "aphelion": "8,16 x 10^8 km",
     "tilt": "3,1",
-    "active": "boh",
+    "active": "",
     "atmosphere": "Very dense",
     },
     {
-    "data": "Unknown",
+    "name": "Saturn",
     "rings": True,
     "light": "1 hour 20 minutes",
     "mass": "5,68 x 10^26 kg",
@@ -114,11 +114,12 @@ physics = [
     "perihelion": "1,35 x 109 km",
     "aphelion": ",50 x 109 km",
     "tilt": "26,7",
-    "active": "boh",
-    "atmosphere": "boh",
+    "active": "",
+    "atmosphere": "Not available",
     },
     {
-    "data": "1781",
+    "name": "Uranus",
+    "date": "1781",
     "rings": True,
     "light": "2 hours 40 minutes",
     "mass": "8,68 x 10^25 kg",
@@ -134,11 +135,12 @@ physics = [
     "perihelion": "2,74 x 109 km",
     "aphelion": "3,01 x 109 km",
     "tilt": "97,8",
-    "active": "boh",
-    "atmosphere": "boh",
+    "active": "",
+    "atmosphere": "Not available",
     },
     {
-    "data": "1846",
+    "name": "Neptune",
+    "date": "1846",
     "rings": True,
     "light": "4 hours 40 minutes",
     "mass": "5,68 x 10^26 kg",
@@ -154,7 +156,7 @@ physics = [
     "perihelion": "4,46 x 109 km",
     "aphelion": "4,54 x 109 km",
     "tilt": "28,3",
-    "active": "boh",
-    "atmosphere": "boh",
+    "active": "",
+    "atmosphere": "Not available",
     }
       ]

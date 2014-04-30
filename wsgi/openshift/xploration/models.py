@@ -82,7 +82,7 @@ class Planets(models.Model):
 
     id          = models.AutoField(primary_key=True)
     target      = models.ForeignKey(Targets)
-    discover    = models.CharField(max_length=20)
+    discover    = models.CharField(max_length=20, null=True, blank=True)
     rings       = models.BooleanField()         
     light       = models.CharField(max_length=50)   
     mass        = models.CharField(max_length=50)   
