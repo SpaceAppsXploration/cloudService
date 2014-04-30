@@ -185,35 +185,7 @@ def test(request):
 
 def clean(request):
 
-    from data.physics import physics
     count = 0
-    for p in physics:
-        name = p['name']
-        obj = Targets.objects.get(name=name)
-
-        if p.get('date'):
-           discover = p['date']
-        else:
-            discover = None
-        rings = p['rings']
-        light = p['light']
-        mass = p['mass']
-        diameter = p['diameter']
-        density = p['density']
-        gravity = p['gravity']
-        l_day = p['l_day']
-        l_year = p['l_year']
-        ecc = p['eccentricity']
-        dist = p['distance']
-        per = p['perihelion']
-        aph = p['aphelion']
-        tilt = p['tilt']
-        active = p['active']
-        atm = p['atmosphere']
-        
-        newPla = Planets(target=obj, discover=discover, rings=rings, light=light, mass=mass, diameter=diameter, density=density, gravity=gravity, l_day=l_day, l_year=l_year, eccent=ecc, distance=dist, perihelion=per, aphelion=aph, inclination=tilt, active=active, atmosphere=atm)
-        newPla.save()
-        count += 1
     
     return StreamingHttpResponse(json.dumps({'status': 'done', 'count': count }), content_type="application/json")
 
