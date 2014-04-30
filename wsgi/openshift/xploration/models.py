@@ -11,10 +11,11 @@ class Targets(models.Model):
         )
     id              = models.AutoField(primary_key=True)
     name            = models.CharField(max_length=150)
+    slug            = models.CharField(max_length=50, null=True, blank=True)
     body_type       = models.IntegerField(max_length=3, choices=BODY_TYPE)  # planet, asteroids, outer space
     image_url       = models.CharField(max_length=150)
     characteristics = models.CharField(max_length=3000, null=True, blank=True, default='')
-    curiosities    = models.CharField(max_length=3000, null=True, blank=True, default='')
+    curiosities     = models.CharField(max_length=3000, null=True, blank=True, default='')
     sim_related     = models.CharField(max_length=3000, null=True, blank=True, default='')
 
     def __unicode__(self):
