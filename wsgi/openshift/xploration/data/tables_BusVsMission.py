@@ -25,27 +25,27 @@ earth_obs['struct_high_resist'] = True
 bus_vs_mission_type.append(earth_obs)
 
 
-body_obs = {}
-body_obs['name'] = 'Body observation'
-body_obs['slug'] = 'body_obs'
-body_obs['therm_active'] = True
-body_obs['therm_passive'] = True
-body_obs['pow_prim_panels'] = True
-body_obs['pow_prim_rtg'] = True
-body_obs['pow_sec_batt'] = True
-body_obs['pow_sec_fc'] = True
-body_obs['comm_mono'] = True
-body_obs['comm_omni'] = True
-body_obs['aodcs_robust'] = True
-body_obs['aodcs_simple'] = True
-body_obs['prop_electr'] = True
-body_obs['prop_chem'] = True
-body_obs['cdh_standard'] = True
-body_obs['cdh_optim'] = True
-body_obs['struct_stand'] = True
-body_obs['struct_high_resist'] = True
+cel_body_obs = {}
+cel_body_obs['name'] = 'Body observation'
+cel_body_obs['slug'] = 'body_obs'
+cel_body_obs['therm_active'] = True
+cel_body_obs['therm_passive'] = True
+cel_body_obs['pow_prim_panels'] = True
+cel_body_obs['pow_prim_rtg'] = True
+cel_body_obs['pow_sec_batt'] = True
+cel_body_obs['pow_sec_fc'] = True
+cel_body_obs['comm_mono'] = True
+cel_body_obs['comm_omni'] = True
+cel_body_obs['aodcs_robust'] = True
+cel_body_obs['aodcs_simple'] = True
+cel_body_obs['prop_electr'] = True
+cel_body_obs['prop_chem'] = True
+cel_body_obs['cdh_standard'] = True
+cel_body_obs['cdh_optim'] = True
+cel_body_obs['struct_stand'] = True
+cel_body_obs['struct_high_resist'] = True
 
-bus_vs_mission_type.append(body_obs)
+bus_vs_mission_type.append(cel_body_obs)
 
 
 

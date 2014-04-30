@@ -12,16 +12,16 @@ earth_obs['amplifier'] = False
 mission_type.append(earth_obs)
 
 
-body_obs = {}
-body_obs['name'] = 'Body observation'
-body_obs['slug'] = 'cel_body_obs'
-body_obs['opt_sensor'] = True
-body_obs['radio_sensor'] = True
-body_obs['spectrometer'] = True
-body_obs['probe'] = False
-body_obs['amplifier'] = False
+cel_body_obs = {}
+cel_body_obs['name'] = 'Body observation'
+cel_body_obs['slug'] = 'cel_body_obs'
+cel_body_obs['opt_sensor'] = True
+cel_body_obs['radio_sensor'] = True
+cel_body_obs['spectrometer'] = True
+cel_body_obs['probe'] = False
+cel_body_obs['amplifier'] = False
 
-mission_type.append(body_obs)
+mission_type.append(cel_body_obs)
 
 space_obs = {}
 space_obs['name'] = 'Space observation'
