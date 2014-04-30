@@ -102,8 +102,14 @@ def single_planet(request, p_id):
     '''
     if request.method == 'GET':
         mix = Planets.objects.get(target=p_id)
-        serializer = PlanetsSerializer(mix)
-        return JSONResponse(serializer.data)
+        name = Targets.objects.get(id=p_id).name
+        obj = {'target': mix.target.id, 'name': name, 'discover': mix.discover,
+            'rings': mix.rings, 'light': mix.light, 'mass': mix.mass, 'diameter': mix.diameter,
+            'density': mix.density, 'gravity': mix.gravity, 'l_day': mix.l_day, 'l_year': mix.l_year,
+            'eccent': mix.eccent, 'distance': mix.distance, 'perihelion': mix.perihelion, 
+            'aphelion': mix.aphelion, 'inclination': mix.inclination, 'atmosphere': mix.atmosphere }
+        serializer = json.dumps(obj)
+        return StreamingHttpResponse(serializer, content_type="application/json")
     else:
         mex = {'status': '404', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
         return JSONResponse(mex)
