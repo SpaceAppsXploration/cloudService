@@ -242,7 +242,8 @@ def simulation(request):
 
     # check compatibility planet/mission  
     if usr_planet[usr_mission_slug] != True :
-        results = {'code': 1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in mission type ' + usr_mission_slug }
+        results = {'code': 1, 'status': 'Error', 'message':'Error in simulation', 
+                   'type': 'Error in mission type ' + usr_mission_slug, 'content': 'null' }
         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
         
 
@@ -260,7 +261,8 @@ def simulation(request):
             #print k
             if k['slug'] == usr_mission_slug:
                 if k[e] != True: 
-                    results = { 'code': 1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in component ' + e }
+                    results = { 'code': 1, 'status': 'Error', 'message':'Error in simulation', 
+                                'type': 'Error in component ' + e, 'content': 'null' }
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
 
     
@@ -276,7 +278,8 @@ def simulation(request):
         if e['slug'] == usr_mission_slug:
             for k,v in busAll.iteritems():
                 if e[k] != v:
-                    results = {'code': 1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in BUS in system ' + k }
+                    results = {'code': 1, 'status': 'Error', 'message':'Error in simulation', 
+                               'type': 'Error in BUS in system ' + k, 'content': 'null' }
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json")
 
     
@@ -292,7 +295,8 @@ def simulation(request):
               if j < int(usr_distance):
                 for k,v in busAll.iteritems():
                     if e[k] != v:
-                        results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in BUS vs distance check ' + k }
+                        results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 
+                                    'type': 'Error in BUS vs distance check ' + k, 'content': 'null' }
                         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
 
 
@@ -303,10 +307,11 @@ def simulation(request):
         if e['slug'] == usr_mission_slug:
             for k,v in busAll.iteritems():
                 if e[k] != v:
-                    results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 'type': 'Error in BUS vs payload check ' + k }
+                    results = { 'message':'Error in simulation', 'type': 'Error in BUS vs payload check ' + k,
+                               'content': 'null', 'code':1, 'status': 'Error' }
                     return StreamingHttpResponse(json.dumps(results), content_type="application/json")
 
-    results = { 'code':0, 'status':'OK', 'message': 'Mission is way to go!', 'type': 'cheer' }
+    results = { 'code':0, 'status':'OK', 'message': 'Mission is way to go!', 'type': 'cheer', 'content': 'null' }
     return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
 
         
