@@ -14,9 +14,11 @@
     <div class="row">
         <div class="col-md-1"></div>
             <div class="col-md-2">
-                <div class="row" style="margin-top:25px;">
-                    <p style="min-height:170px;"><a class="navbar-brand" href="/"><img alt="" src="/static/images/logo145x150.png"></a></p>
-                 </div>
+                <div class="row our-clients" style="margin-top:25px;">
+                    <div class="client-item item">
+                        <p style="min-height:170px;"><a class="navbar-brand" href="/"><img alt="" src="/static/images/logo145x150.png"></a></p>
+                    </div>
+                </div>
             </div>
 <div class="col-md-4"></div>
             <div class="col-md-2">
@@ -24,7 +26,7 @@
                     <p><a href="https://twitter.com/XplorationApp" class="twitter-follow-button" data-show-count="false" data-size="medium">@XplorationApp</a></p>
                                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                   
-                    <p class="fb-like" data-href="https://www.facebook.com/pages/Xploration/241831932686033 " data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></p>
+                    <p class="fb-like" data-href="https://www.facebook.com/pages/Xploration/241831932686033" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></p>
                 </div>
             </div>
     </div>
@@ -32,16 +34,66 @@
     <div class="row">
         <div class="col-md-1"></div>
             <div class="col-md-6">
-                <div class="row" style="margin:3% 0 35px 0;">
-
-                    <div class="container" style="margin-top:3%;"> 
+                <div class="row our-clients" style="margin:3% 0 35px 0;">
+                  <div class="clients-carousel custom-carousel touch-carousel">
+                    <div class="container client-item item" style="margin-top:3%;"> 
                         <iframe style="min-height:350px;" class="col-lg-6 col-md-6 col-sm-12 col-xs-12" src="//www.youtube.com/embed/zDWpt1UCybc?rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
+                  </div>
                 </div>
             </div>
 
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+                <div class="row our-clients">
+                    
+                    <!-- Classic Heading -->
+                    
+                    
+                    <div class="clients-carousel custom-carousel touch-carousel">
+                        
+                        <!-- Client 1  -->
+                        <div class="col-md-3 client-item item sponsor">
+                            <a href="https://2014.spaceappschallenge.org/project/chronos/"><img class="img-thumbnail"  src="http://americanlivewire.com/wp-content/uploads/index14-300x300.jpg" alt="" /></a>
+                        </div>
+
+                        <div class="col-md-3 client-item item sponsor">
+                            <a target="_blank" href="http://www.nasa.gov"><img class="img-thumbnail" src="http://www.nasa.gov/sites/all/themes/custom/NASAOmegaHTML5/images/nasa-logo.png" alt="" /></a>
+                        </div>
+
+                        <div class="col-md-3 client-item item sponsor">
+                            <a href="http://www.esa.int"><img class="img-thumbnail" src="http://www.esa.int/esalogo/images/downloads/Logo_Fingerprint/Office_presentation/04_logo_white.bmp" alt="" /></a>
+                        </div>
+                        
+                        
+                        <!-- Client 4 -->
+                        <div class="col-md-3 client-item item sponsor">
+                            <a href="http://www.jaxa.jp/projects/index_e.html"><img class="img-thumbnail" src="http://www.isas.jaxa.jp/home/labam/image/jaxa2.png" alt="" /></a>
+                        </div>
+                        
+                      
+                       
+                    </div>
+                </div>
+                <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+            </div>
+
+    </div>
+    <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <p style="font-family: 'Lora', serif;font-weight:bold;text-align:center;"> We Are Developing Xploration App For Your Devices And As A REST Service For Developers Interested To Space Agencies' Activities. Coming soon May the 20th.<br/><a target="_blank" class="" href="https://www.facebook.com/pages/Xploration/241831932686033">Stay Tuned!</a>
+                </p>
+            <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+            </div>
+        </div>
+    </div>
+
 </div>
- </div>
 <style>
 body {
     background-image: url(/static/images/background.svg); background-size: cover; height: 100%;
@@ -54,6 +106,11 @@ body {
     margin-left: 5em;
 }
 
+.sponsor {
+
+
+
+}
 </style>
 
 {% endblock %}
