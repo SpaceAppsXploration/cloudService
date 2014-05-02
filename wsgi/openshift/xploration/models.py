@@ -103,7 +103,7 @@ class Planets(models.Model):
         return str(self.target.name)
 
     class Meta:
-        verbose_name_plural = 'Planets'
+        verbose_name_plural = 'Planets Physics'
         ordering = ['target__name']
 
 
