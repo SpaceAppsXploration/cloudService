@@ -140,7 +140,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Following several years of assessment studies by industry and ESA, the mission now called Solar Orbiter, was selected as one of the three candidates for the first two Cosmic Vision M-class mission launch slots (nominally 2017 and 2018) in February 2010. In October 2011, Solar Orbiter and Euclid were selected as the Cosmic Vision M1 and M2 missions"
+                "body": "Following several years of assessment studies by industry and ESA, the mission now called Solar Orbiter, was selected as one of the three candidates for the first two Cosmic Vision M-class mission launch slots (nominally 2017 and 2018) in Feb 2010. In Oct 2011, Solar Orbiter and Euclid were selected as the Cosmic Vision M1 and M2 missions"
             },
             {
                 "type": 8,
@@ -195,7 +195,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Cheops   for CHaracterising ExOPlanets Satellite   will target nearby, bright stars already known to have planets orbiting around them"
+                "body": "Cheops for CHaracterising ExOPlanets Satellite   will target nearby, bright stars already known to have planets orbiting around them"
             },
             {
                 "type": 8,
@@ -230,7 +230,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": " The mission was selected from 26 proposals submitted in response to the Call for Small Missions in March, highlighting the strong interest of the scientific community in dedicated, quick-turnaround missions focusing on key open issues in space science."
+                "body": " The mission was selected from 26 proposals submitted in response to the Call for Small Missions in Mar, highlighting the strong interest of the scientific community in dedicated, quick-turnaround missions focusing on key open issues in space science."
             },
             {
                 "type": 8,
@@ -265,63 +265,57 @@ missions = [
         ]
     },
     {
-        "name": "Exomars",
+        "name": "ExoMars Orbiter / EDM",
         "data": [
             {
-                "body": "Scientists favour four ExoMars landing sites",
+                "body": "<a href=\"http://exploration.esa.int/science-e/www/object/index.cfm?fobjectid=53941\">Scientists favour four ExoMars landing sites</a>",
                 "type": 5,
-                "date": " "
+                "date": "03 Apr 2014"
             },
             {
-                "body": "Mars yard ready for Red Planet rover",
+                "body": "<a href=\"http://exploration.esa.int/science-e/www/object/index.cfm?fobjectid=53642\">ExoMars orbiter core module completed</a>",
                 "type": 5,
-                "date": ""
+                "date": "03 Feb 2014"
+            },
+                        {
+                "body": "<a href=\"http://exploration.esa.int/science-e/www/object/index.cfm?fobjectid=53129\">Call for Applications for Membership of ExoMars 2018 Landing Site Selection Working Group</a>",
+                "type": 5,
+                "date": "17 Dec 2013"
+            }
+        ]
+    },
+    {
+        "name": "ExoMars Rover",
+        "data": [
+            {
+                "body": "<a href=\"http://exploration.esa.int/science-e/www/object/index.cfm?fobjectid=53145\">ExoMars lander module named Schiaparelli</a>",
+                "type": 5,
+                "date": "08 Nov 2013"
             },
             {
-                "body": " ExoMars orbiter core module completed",
+                "body": "<a href=\"http://exploration.esa.int/science-e/www/object/index.cfm?fobjectid=53462\">Call for ExoMars 2018 Landing Site Selection</a>",
                 "type": 5,
-                "date": ""
-            },
-            {
-                "body": "ExoMars lander module named Schiaparelli",
-                "type": 5,
-                "date": ""
-            },
-            {
-                "body": "Call for ExoMars 2018 Landing Site Selection",
-                "type": 5,
-                "date": ""
-            },
-            {
-                "body": "Call for Applications for Membership of ExoMars 2018 Landing Site Selection Working Group",
-                "type": 5,
-                "date": ""
-            },
+                "date": "01 Nov 2013"
+            }
         ]
     },
     {
         "name": "ADM-Aeolus",
         "data": [
             {
-                "date": "17 April 2014",
+                "date": "17 Apr 2014",
                 "type": 5,
                 "body": "Livas brings aerosols and clouds under one roof",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/tower_of_winds_athens/14480421-1-eng-GB/Tower_of_winds_Athens_newslist.jpg"
             },
             {
-                "date": "17 April 2014",
-                "type": 5,
-                "body": "Livas brings aerosols and clouds under one roof",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/tower_of_winds_athens/14480421-1-eng-GB/Tower_of_winds_Athens_newslist.jpg"
-            },
-            {
-                "date": "15 January 2014",
+                "date": "15 Jan 2014",
                 "type": 5,
                 "body": "Wind laser survives extremes",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/10/understanding_earth_s_winds/13366423-1-eng-GB/Understanding_Earth_s_winds_newslist.jpg"
             },
             {
-                "date": "16 April 2013",
+                "date": "16 Apr 2013",
                 "type": 5,
                 "body": "90 million laser shots bring wind satellite back on track",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/04/laser_pulse/12624490-1-eng-GB/Laser_pulse_newslist.jpg"
@@ -333,13 +327,13 @@ missions = [
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2010/05/volcano_plume_from_falcon_aircraft/10264911-2-eng-GB/Volcano_plume_from_Falcon_aircraft_newslist.jpg"
             },
             {
-                "date": "22 April 2010",
+                "date": "22 Apr 2010",
                 "type": 5,
                 "body": "New tools aid volcanic ash monitoring",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2010/04/ash_cloud_observed_by_lidar/10102193-2-eng-GB/Ash_cloud_observed_by_lidar_newslist.jpg"
             },
             {
-                "date": "18 March 2010",
+                "date": "18 Mar 2010",
                 "type": 5,
                 "body": "Campaign over ice sheets tests Aeolus technology",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2010/03/greenland_from_the_dlr_aircraft/9872846-3-eng-GB/Greenland_from_the_DLR_aircraft_newslist.jpg"
@@ -350,13 +344,13 @@ missions = [
         "name": "EarthCARE",
         "data": [
             {
-                "date": "17 April 2014",
+                "date": "17 Apr 2014",
                 "type": 5,
                 "body": "Livas brings aerosols and clouds under one roof",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/tower_of_winds_athens/14480421-1-eng-GB/Tower_of_winds_Athens_newslist.jpg"
             },
             {
-                "date": "14 November 2011",
+                "date": "14 Nov 2011",
                 "type": 5,
                 "body": "ESA calls for EarthCARE Mission Advisory Group members",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2005/06/megaphone_green/9518082-4-eng-GB/megaphone_green_newslist.jpg"
@@ -368,7 +362,7 @@ missions = [
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2010/05/volcano_plume_from_falcon_aircraft/10264911-2-eng-GB/Volcano_plume_from_Falcon_aircraft_newslist.jpg"
             },
             {
-                "date": "22 April 2010",
+                "date": "22 Apr 2010",
                 "type": 5,
                 "body": "New tools aid volcanic ash monitoring",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2010/04/ash_cloud_observed_by_lidar/10102193-2-eng-GB/Ash_cloud_observed_by_lidar_newslist.jpg"
@@ -403,7 +397,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Only NASA's Mariner 10 and Messenger have visited Mercury so far. Mariner 10 provided the first-ever close-up images of the planet when it flew past three times in 1974-1975. En route to its final destination in orbit around Mercury in 18 March 2011, Messenger flew past the planet 3 times (14 January 2008, 6 October 2008, and 29 September 2009), providing new data and images. Once BepiColombo arrives in 2023, it will help reveal information on the composition and history of Mercury. It should discover more about the formation and the history of the inner planets in general, including Earth"
+                "body": "Only NASA's Mariner 10 and Messenger have visited Mercury so far. Mariner 10 provided the first-ever close-up images of the planet when it flew past three times in 1974-1975. En route to its final destination in orbit around Mercury in 18 Mar 2011, Messenger flew past the planet 3 times (14 Jan 2008, 6 Oct 2008, and 29 Sep 2009), providing new data and images. Once BepiColombo arrives in 2023, it will help reveal information on the composition and history of Mercury. It should discover more about the formation and the history of the inner planets in general, including Earth"
             },
             {
                 "type": 8,
@@ -443,12 +437,12 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "A European mission to Mercury was first proposed in May 1993. Although an assessment showed it to be too costly for a medium-size mission, ESA made a Mercury orbiter one of its three new cornerstone missions when the Horizon 2000 science programme was extended in 1994. Gaia competed with BepiColombo for the fifth cornerstone mission. In October 2000, ESA approved a package of missions for 2008 2013 and both BepiColombo and Gaia were approved"
+                "body": "A European mission to Mercury was first proposed in May 1993. Although an assessment showed it to be too costly for a medium-size mission, ESA made a Mercury orbiter one of its three new cornerstone missions when the Horizon 2000 science programme was extended in 1994. Gaia competed with BepiColombo for the fifth cornerstone mission. In Oct 2000, ESA approved a package of missions for 2008 2013 and both BepiColombo and Gaia were approved"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "In February 2007, the mission was approved as part of the Cosmic Vision programme. Following an unavoidable increase in the mission s mass during 2008, the launch vehicle was changed from Soyuz-Fregat to Ariane 5. Final approval for the redesigned mission was given by ESA s Science Programme Committee in November 2009"
+                "body": "In Feb 2007, the mission was approved as part of the Cosmic Vision programme. Following an unavoidable increase in the mission s mass during 2008, the launch vehicle was changed from Soyuz-Fregat to Ariane 5. Final approval for the redesigned mission was given by ESA s Science Programme Committee in Nov 2009"
             },
             {
                 "type": 8,
@@ -483,7 +477,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "LISA Pathfinder was approved by the ESA Science Programme Committee (SPC) in November 2000. It was further reconfirmed by the same body and by the ESA Council in May 2002, as part of ESA s new 'Cosmic Vision' Scientific Programme"
+                "body": "LISA Pathfinder was approved by the ESA Science Programme Committee (SPC) in Nov 2000. It was further reconfirmed by the same body and by the ESA Council in May 2002, as part of ESA s new 'Cosmic Vision' Scientific Programme"
             },
             {
                 "type": 8,
@@ -671,37 +665,37 @@ missions = [
         "name": "Swarm",
         "data": [
             {
-                "date": "06 February 2014",
+                "date": "06 Feb 2014",
                 "type": 5,
                 "body": "Swarm heads for new heights",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2012/09/swarm_orbit_with_a_difference/11881806-3-eng-GB/Swarm_orbit_with_a_difference_newslist.png"
             },
             {
-                "date": "26 November 2013",
+                "date": "26 Nov 2013",
                 "type": 5,
                 "body": "End of the beginning for Swarm trio",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2012/09/swarm_a_new_constellation_in_the_sky/11881751-3-eng-GB/Swarm_a_new_constellation_in_the_sky_newslist.png"
             },
             {
-                "date": "23 November 2013",
+                "date": "23 Nov 2013",
                 "type": 5,
                 "body": "Swarm constellation deploys booms",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2012/09/swarm_launch_boom_deployment/11881531-3-eng-GB/Swarm_launch_boom_deployment_newslist.png"
             },
             {
-                "date": "22 November 2013",
+                "date": "22 Nov 2013",
                 "type": 5,
                 "body": "ESA s Swarm trio on its way to watch over our planet s magnetic shield",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/11/swarm_liftoff/13409816-3-eng-GB/Swarm_liftoff_newslist.jpg"
             },
             {
-                "date": "22 November 2013",
+                "date": "22 Nov 2013",
                 "type": 5,
                 "body": "Swarm ready for launch",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/11/update_from_plesetsk_day_before_launch_day/13410637-2-eng-GB/Update_from_Plesetsk_Day_before_launch_day_newslist.jpg"
             },
             {
-                "date": "19 November 2013",
+                "date": "19 Nov 2013",
                 "type": 5,
                 "body": "Swarm mission control ready for triple launch",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/11/swarm_mission_team_in_training/13404541-1-eng-GB/Swarm_mission_team_in_training_newslist.jpg"
@@ -712,19 +706,19 @@ missions = [
         "name": "Sentinel family",
         "data": [
             {
-                "date": "15 November 2013",
+                "date": "15 Nov 2013",
                 "type": 5,
                 "body": "Free access to Copernicus Sentinel satellite data",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/08/copernicus_logo/12881063-2-eng-GB/Copernicus_logo_newslist.jpg"
             },
             {
-                "date": "19 September 2013",
+                "date": "19 Sep 2013",
                 "type": 5,
                 "body": "Exploring the Sentinels  potential",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/09/the_sentinel_satellites/13035239-1-eng-GB/The_Sentinel_satellites_newslist.jpg"
             },
             {
-                "date": "13 September 2013",
+                "date": "13 Sep 2013",
                 "type": 5,
                 "body": "Satellites to serve",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/09/sentinel-1_the_first_satellite_for_copernicus/13013079-4-eng-GB/Sentinel-1_the_first_satellite_for_Copernicus_newslist.jpg"
@@ -772,7 +766,7 @@ missions = [
         ]
     },
     {
-        "name": "IXV",
+        "name": "Intermediate eXperimental Vehicle",
         "data": [
             {
                 "type": 8,
@@ -800,37 +794,37 @@ missions = [
         "name": "Vega",
         "data": [
             {
-                "date": "03 April 2014",
+                "date": "03 Apr 2014",
                 "type": 5,
                 "body": "Europe lofts first Copernicus environmental satellite",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/sentinel-1a_liftoff/14362347-2-eng-GB/Sentinel-1A_liftoff_newslist.jpg"
             },
             {
-                "date": "22 March 2014",
+                "date": "22 Mar 2014",
                 "type": 5,
                 "body": "Ariane 5 s second launch of 2014",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/ariane_liftoff_on_flight_va216/14333629-2-eng-GB/Ariane_liftoff_on_flight_VA216_newslist.jpg"
             },
             {
-                "date": "12 March 2014",
+                "date": "12 Mar 2014",
                 "type": 5,
                 "body": "Experimental simulator testing propulsion systems",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2008/07/ariane_5_eca_v184_climbout2/10127888-2-eng-GB/Ariane_5_ECA_V184_climbout_newslist.jpg"
             },
             {
-                "date": "06 February 2014",
+                "date": "06 Feb 2014",
                 "type": 5,
                 "body": "Ariane 5 s first launch of 2014",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/ariane_liftoff_on_flight_va217/14266098-1-eng-GB/Ariane_liftoff_on_flight_VA217_newslist.jpg"
             },
             {
-                "date": "20 December 2013",
+                "date": "20 Dec 2013",
                 "type": 5,
                 "body": "Deploying multiple satellites with Sylda and Vespa",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/10/three_launchers_at_europe_s_spaceport/12032026-1-eng-GB/Three_launchers_at_Europe_s_Spaceport_newslist.png"
             },
             {
-                "date": "19 December 2013",
+                "date": "19 Dec 2013",
                 "type": 5,
                 "body": "Liftoff for ESA s billion-star surveyor",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/gaia_liftoff4/13461896-2-eng-GB/Gaia_liftoff_newslist.jpg"
@@ -853,7 +847,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "On 21 October 2011 came the first two of four operational satellites designed to validate the Galileo concept in both space and on Earth. Two more followed on 12 October 2012. This In-Orbit Validation (IOV) phase is now being followed by additional satellite launches to reach Initial Operational Capability (IOC) by mid-decade"
+                "body": "On 21 Oct 2011 came the first two of four operational satellites designed to validate the Galileo concept in both space and on Earth. Two more followed on 12 Oct 2012. This In-Orbit Validation (IOV) phase is now being followed by additional satellite launches to reach Initial Operational Capability (IOC) by mid-decade"
             },
             {
                 "type": 8,
@@ -941,37 +935,37 @@ missions = [
         "name": "GOCE",
         "data": [
             {
-                "date": "09 January 2014",
+                "date": "09 Jan 2014",
                 "type": 5,
                 "body": "What lies beneath?",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/different_data_reveal_similar_patterns_under_the_ice/13476002-1-eng-GB/Different_data_reveal_similar_patterns_under_the_ice_newslist.gif"
             },
             {
-                "date": "03 December 2013",
+                "date": "03 Dec 2013",
                 "type": 5,
                 "body": "Earth s gravity scarred by earthquake",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/gravity_scar_over_japan/13434580-3-eng-GB/Gravity_scar_over_Japan_newslist.jpg"
             },
             {
-                "date": "11 November 2013",
+                "date": "11 Nov 2013",
                 "type": 5,
                 "body": "GOCE gives in to gravity",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/11/goce/13390440-1-eng-GB/GOCE_newslist.jpg"
             },
             {
-                "date": "28 October 2013",
+                "date": "28 Oct 2013",
                 "type": 5,
                 "body": "Radar altimetry catches new wave with GOCE",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/10/1993_2011_ocean_currents/13367840-2-eng-GB/1993_2011_ocean_currents_newslist.jpg"
             },
             {
-                "date": "23 October 2013",
+                "date": "23 Oct 2013",
                 "type": 5,
                 "body": "Orbiting on the edge yields insight into space weather",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2008/03/counteracting_drag/9999327-3-eng-GB/Counteracting_drag_newslist.jpg"
             },
             {
-                "date": "13 September 2013",
+                "date": "13 Sep 2013",
                 "type": 5,
                 "body": "ESA s GOCE mission to end this year",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2009/05/goce_in_orbit/9577054-3-eng-GB/GOCE_in_orbit_newslist.jpg"
@@ -982,25 +976,25 @@ missions = [
         "name": "Herschel",
         "data": [
             {
-                "date": "18 March 2014",
+                "date": "18 Mar 2014",
                 "type": 5,
                 "body": "Herschel completes largest survey of cosmic dust in local Universe",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/herschel_survey_in_infrared_and_visible/14328420-1-eng-GB/Herschel_survey_in_infrared_and_visible_newslist.jpg"
             },
             {
-                "date": "22 January 2014",
+                "date": "22 Jan 2014",
                 "type": 5,
                 "body": "Herschel discovers water vapour around dwarf planet Ceres",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/artist_s_impression_of_ceres/13498471-1-eng-GB/Artist_s_impression_of_Ceres_newslist.jpg"
             },
             {
-                "date": "01 October 2013",
+                "date": "01 Oct 2013",
                 "type": 5,
                 "body": "Herschel helps find elusive signals from the early Universe",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/10/deflecting_light_from_the_big_bang/13050261-1-eng-GB/Deflecting_light_from_the_Big_Bang_newslist.jpg"
             },
             {
-                "date": "17 June 2013",
+                "date": "17 Jun 2013",
                 "type": 5,
                 "body": "Herschel ends operations as orbiting testbed",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/herschel_last_command/12892772-2-eng-GB/Herschel_last_command_newslist.jpg"
@@ -1023,37 +1017,37 @@ missions = [
         "name": "Planck",
         "data": [
             {
-                "date": "23 October 2013",
+                "date": "23 Oct 2013",
                 "type": 5,
                 "body": "Last command sent to ESA s Planck space telescope",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/03/planck_and_the_cosmic_microwave_background/12585609-3-eng-GB/Planck_and_the_Cosmic_microwave_background_newslist.jpg"
             },
             {
-                "date": "21 October 2013",
+                "date": "21 Oct 2013",
                 "type": 5,
                 "body": "Planck on course for safe retirement",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/satellite_images/planck/12048848-1-eng-GB/PLANCK_newslist.jpg"
             },
             {
-                "date": "18 October 2013",
+                "date": "18 Oct 2013",
                 "type": 5,
                 "body": "Celebrating the legacy of ESA s Planck mission",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/10/planck_s_view_of_the_universe/13354719-1-eng-GB/Planck_s_view_of_the_Universe_newslist.jpg"
             },
             {
-                "date": "21 March 2013",
+                "date": "21 Mar 2013",
                 "type": 5,
                 "body": "Planck reveals an almost perfect Universe",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/03/planck_cmb/12583926-4-eng-GB/Planck_CMB_newslist.jpg"
             },
             {
-                "date": "13 March 2013",
+                "date": "13 Mar 2013",
                 "type": 5,
                 "body": "Call for Media: First cosmology results from ESA s Planck mission",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2010/04/artist_s_impression_of_the_planck_spacecraft/10281112-2-eng-GB/Artist_s_impression_of_the_Planck_spacecraft_newslist.jpg"
             },
             {
-                "date": "20 November 2012",
+                "date": "20 Nov 2012",
                 "type": 5,
                 "body": "Planck spots hot gas bridging galaxy cluster pair",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/galaxy_clusters_connected_by_gas_bridge/12117679-5-eng-GB/Galaxy_clusters_connected_by_gas_bridge_newslist.jpg"
@@ -1064,37 +1058,37 @@ missions = [
         "name": "SMOS",
         "data": [
             {
-                "date": "09 January 2014",
+                "date": "09 Jan 2014",
                 "type": 5,
                 "body": "What lies beneath?",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/different_data_reveal_similar_patterns_under_the_ice/13476002-1-eng-GB/Different_data_reveal_similar_patterns_under_the_ice_newslist.gif"
             },
             {
-                "date": "22 October 2013",
+                "date": "22 Oct 2013",
                 "type": 5,
                 "body": "SMOS sees triple superstorms",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/10/triple_storm/13358749-1-eng-GB/Triple_storm_newslist.jpg"
             },
             {
-                "date": "12 September 2013",
+                "date": "12 Sep 2013",
                 "type": 5,
                 "body": "Water mission versatility",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/09/soil_moisture_analysis/13023872-1-eng-GB/Soil_moisture_analysis_newslist.jpg"
             },
             {
-                "date": "21 June 2013",
+                "date": "21 Jun 2013",
                 "type": 5,
                 "body": "ESA s Earth satellites are stars",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/smos_tracks_hurricane_igor/12901834-1-eng-GB/SMOS_tracks_Hurricane_Igor_newslist.jpg"
             },
             {
-                "date": "07 June 2013",
+                "date": "07 Jun 2013",
                 "type": 5,
                 "body": "SMOS maps record soil water before flood",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/soil_moisture_from_smos/12872560-9-eng-GB/Soil_moisture_from_SMOS_newslist.gif"
             },
             {
-                "date": "22 April 2013",
+                "date": "22 Apr 2013",
                 "type": 5,
                 "body": "Taking two bites at ocean salinity ",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/04/freshwater_plume_from_smos_top_aquarius_bottom/12637457-1-eng-GB/Freshwater_plume_from_SMOS_top_Aquarius_bottom_newslist.jpg"
@@ -1105,37 +1099,37 @@ missions = [
         "name": "ATV",
         "data": [
             {
-                "date": "18 March 2014",
+                "date": "18 Mar 2014",
                 "type": 5,
                 "body": "ATV-5 set to test new rendezvous sensors",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/11/atv-4_undocking/13373412-1-eng-GB/ATV-4_undocking_newslist.jpg"
             },
             {
-                "date": "26 February 2014",
+                "date": "26 Feb 2014",
                 "type": 5,
                 "body": "Touchy-feely joystick heading to Space Station",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/body-mounted_astronaut_joystick/14294185-1-eng-GB/Body-mounted_astronaut_joystick_newslist.jpg"
             },
             {
-                "date": "13 January 2014",
+                "date": "13 Jan 2014",
                 "type": 5,
                 "body": "School's out for ATV training",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/docking_simulation/13480154-1-eng-GB/Docking_simulation_newslist.jpg"
             },
             {
-                "date": "22 November 2013",
+                "date": "22 Nov 2013",
                 "type": 5,
                 "body": "Orion milestone set for May ",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/01/orion9/12482085-1-eng-GB/Orion_newslist.jpg"
             },
             {
-                "date": "02 November 2013",
+                "date": "02 Nov 2013",
                 "type": 5,
                 "body": "A fiery end to a perfect mission: ATV Albert Einstein",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/11/atv-4_over_earth/13373505-1-eng-GB/ATV-4_over_Earth_newslist.jpg"
             },
             {
-                "date": "26 October 2013",
+                "date": "26 Oct 2013",
                 "type": 5,
                 "body": "ATV-4: all good missions must come to an end",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/atv-4_docking5/12895491-5-eng-GB/ATV-4_docking_newslist.jpg"
@@ -1147,37 +1141,37 @@ missions = [
         "name": "Columbus",
         "data": [
             {
-                "date": "03 April 2014",
+                "date": "03 Apr 2014",
                 "type": 5,
-                "body": "ESA ISS Science & System - Operations Status Report # 165 Increment 39: 15   28 March 2014",
+                "body": "ESA ISS Science & System - Operations Status Report # 165 Increment 39: 15   28 Mar 2014",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2007/11/columbus_logo/9612407-3-eng-GB/Columbus_logo_newslist.png"
             },
             {
-                "date": "12 February 2013",
+                "date": "12 Feb 2013",
                 "type": 5,
                 "body": "Five years of unique science on Columbus",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2009/10/columbus_installation_first_spacewalk/10218435-4-eng-GB/Columbus_installation_first_spacewalk_newslist.jpg"
             },
             {
-                "date": "07 February 2013",
+                "date": "07 Feb 2013",
                 "type": 5,
                 "body": "Five years of supporting Columbus science",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/02/esa_s_columbus_control_centre_oberpfaffenhofen/12516131-1-eng-GB/ESA_s_Columbus_Control_Centre_Oberpfaffenhofen_newslist.jpg"
             },
             {
-                "date": "28 November 2012",
+                "date": "28 Nov 2012",
                 "type": 5,
                 "body": "International Space Station salutes the Sun",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/international_space_station_salutes_the_sun/12140186-1-eng-GB/International_Space_Station_salutes_the_Sun_newslist.jpg"
             },
             {
-                "date": "05 October 2012",
+                "date": "05 Oct 2012",
                 "type": 5,
                 "body": "Capturing the Sun in a computer",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2011/10/soho_captures_solar_eruptions_-_18_march_2003/10168180-3-eng-GB/SOHO_captures_solar_eruptions_-_18_March_2003_newslist.jpg"
+                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2011/10/soho_captures_solar_eruptions_-_18_Mar_2003/10168180-3-eng-GB/SOHO_captures_solar_eruptions_-_18_Mar_2003_newslist.jpg"
             },
             {
-                "date": "22 June 2012",
+                "date": "22 Jun 2012",
                 "type": 5,
                 "body": "The toughest life on Earth",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/06/lichen/11251339-2-eng-GB/Lichen_newslist.jpg"
@@ -1188,150 +1182,77 @@ missions = [
         "name": "MetOp series",
         "data": [
             {
-                "date": "14 February 2014",
+                "date": "14 Feb 2014",
                 "type": 5,
                 "body": "Kelut volcano grounds air travel",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/sulphur_dioxide_from_kelut/14276084-4-eng-GB/Sulphur_dioxide_from_Kelut_newslist.jpg"
             },
             {
-                "date": "14 February 2014",
-                "type": 5,
-                "body": "Kelut volcano grounds air travel",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/sulphur_dioxide_from_kelut/14276084-4-eng-GB/Sulphur_dioxide_from_Kelut_newslist.jpg"
-            },
-            {
-                "date": "22 August 2013",
+                "date": "22 Aug 2013",
                 "type": 5,
                 "body": "Satellites improve air quality monitoring in South Africa",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/08/south_africa_s_nitrogen_dioxide/12992014-1-eng-GB/South_Africa_s_nitrogen_dioxide_newslist.jpg"
             },
             {
-                "date": "22 August 2013",
-                "type": 5,
-                "body": "Satellites improve air quality monitoring in South Africa",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/08/south_africa_s_nitrogen_dioxide/12992014-1-eng-GB/South_Africa_s_nitrogen_dioxide_newslist.jpg"
-            },
-            {
-                "date": "08 February 2013",
+                "date": "08 Feb 2013",
                 "type": 5,
                 "body": "Is the ozone layer on the road to recovery?",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/02/antarctic_ozone_hole_2011_and_2012/12514688-1-eng-GB/Antarctic_ozone_hole_2011_and_2012_newslist.jpg"
             },
             {
-                "date": "08 February 2013",
-                "type": 5,
-                "body": "Is the ozone layer on the road to recovery?",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/02/antarctic_ozone_hole_2011_and_2012/12514688-1-eng-GB/Antarctic_ozone_hole_2011_and_2012_newslist.jpg"
-            },
-            {
-                "date": "30 October 2012",
+                "date": "30 Oct 2012",
                 "type": 5,
                 "body": "MetOp-A captures Hurricane Sandy",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/10/hurricane_sandy_as_seen_by_metop-a/12060309-4-eng-GB/Hurricane_Sandy_as_seen_by_MetOp-A_newslist.jpg"
             },
             {
-                "date": "30 October 2012",
-                "type": 5,
-                "body": "MetOp-A captures Hurricane Sandy",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/10/hurricane_sandy_as_seen_by_metop-a/12060309-4-eng-GB/Hurricane_Sandy_as_seen_by_MetOp-A_newslist.jpg"
-            },
-            {
-                "date": "28 September 2012",
+                "date": "28 Sep 2012",
                 "type": 5,
                 "body": "Metop-B delivers first data from polar orbit",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/09/metop-b_first_data/11862432-1-eng-GB/MetOp-B_first_data_newslist.jpg"
             },
             {
-                "date": "28 September 2012",
-                "type": 5,
-                "body": "Metop-B delivers first data from polar orbit",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/09/metop-b_first_data/11862432-1-eng-GB/MetOp-B_first_data_newslist.jpg"
-            },
-            {
-                "date": "21 September 2012",
+                "date": "21 Sep 2012",
                 "type": 5,
                 "body": "ESA hands over control of the Metop-B weather satellite to EUMETSAT",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/09/metop/11852074-1-eng-GB/MetOp_newslist.jpg"
-            },
-            {
-                "date": "21 September 2012",
-                "type": 5,
-                "body": "ESA hands over control of the Metop-B weather satellite to EUMETSAT",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/09/metop/11852074-1-eng-GB/MetOp_newslist.jpg"
-            }
-        ]
+            }        ]
     },
     {
         "name": "CryoSat",
         "data": [
             {
-                "date": "21 January 2014",
+                "date": "21 Jan 2014",
                 "type": 5,
                 "body": "CryoSat detects hidden Antarctic pattern",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/antarctic_artefacts/13490351-2-eng-GB/Antarctic_artefacts_newslist.jpg"
             },
             {
-                "date": "21 January 2014",
-                "type": 5,
-                "body": "CryoSat detects hidden Antarctic pattern",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/antarctic_artefacts/13490351-2-eng-GB/Antarctic_artefacts_newslist.jpg"
-            },
-            {
-                "date": "16 December 2013",
+                "date": "16 Dec 2013",
                 "type": 5,
                 "body": "Arctic sea ice up from record low",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/autumn_sea-ice_thickness_from_cryosat_2010_2013/13453964-4-eng-GB/Autumn_sea-ice_thickness_from_CryoSat_2010_2013_newslist.gif"
             },
             {
-                "date": "16 December 2013",
-                "type": 5,
-                "body": "Arctic sea ice up from record low",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/autumn_sea-ice_thickness_from_cryosat_2010_2013/13453964-4-eng-GB/Autumn_sea-ice_thickness_from_CryoSat_2010_2013_newslist.gif"
-            },
-            {
-                "date": "11 December 2013",
+                "date": "11 Dec 2013",
                 "type": 5,
                 "body": "Antarctica s ice loss on the rise",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/thinning_ice/13447564-1-eng-GB/Thinning_ice_newslist.jpg"
             },
             {
-                "date": "11 December 2013",
-                "type": 5,
-                "body": "Antarctica s ice loss on the rise",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/thinning_ice/13447564-1-eng-GB/Thinning_ice_newslist.jpg"
-            },
-            {
-                "date": "09 December 2013",
+                "date": "09 Dec 2013",
                 "type": 5,
                 "body": "CryoSat measures European storm surge",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/measuring_the_storm_surge/13445829-1-eng-GB/Measuring_the_storm_surge_newslist.jpg"
             },
             {
-                "date": "09 December 2013",
-                "type": 5,
-                "body": "CryoSat measures European storm surge",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/measuring_the_storm_surge/13445829-1-eng-GB/Measuring_the_storm_surge_newslist.jpg"
-            },
-            {
-                "date": "11 September 2013",
+                "date": "11 Sep 2013",
                 "type": 5,
                 "body": "New dimensions on ice",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/09/arctic_ice_thickness_2010_13/13012999-5-eng-GB/Arctic_ice_thickness_2010_13_newslist.jpg"
             },
             {
-                "date": "11 September 2013",
-                "type": 5,
-                "body": "New dimensions on ice",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/09/arctic_ice_thickness_2010_13/13012999-5-eng-GB/Arctic_ice_thickness_2010_13_newslist.jpg"
-            },
-            {
-                "date": "02 July 2013",
-                "type": 5,
-                "body": "CryoSat maps largest-ever flood beneath Antarctica",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/site_of_crater/12920621-1-eng-GB/Site_of_crater_newslist.jpg"
-            },
-            {
-                "date": "02 July 2013",
+                "date": "02 Jul 2013",
                 "type": 5,
                 "body": "CryoSat maps largest-ever flood beneath Antarctica",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/site_of_crater/12920621-1-eng-GB/Site_of_crater_newslist.jpg"
@@ -1342,73 +1263,37 @@ missions = [
         "name": "Venus Express",
         "data": [
             {
-                "date": "11 March 2014",
+                "date": "11 Mar 2014",
                 "type": 5,
                 "body": "Venus glory",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/venus_glory/14315405-1-eng-GB/Venus_glory_newslist.jpg"
             },
             {
-                "date": "11 March 2014",
-                "type": 5,
-                "body": "Venus glory",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/venus_glory/14315405-1-eng-GB/Venus_glory_newslist.jpg"
-            },
-            {
-                "date": "18 June 2013",
+                "date": "18 Jun 2013",
                 "type": 5,
                 "body": "The fast winds of Venus are getting faster",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/tracking_clouds_on_venus/12894979-1-eng-GB/Tracking_clouds_on_Venus_newslist.jpg"
             },
             {
-                "date": "18 June 2013",
-                "type": 5,
-                "body": "The fast winds of Venus are getting faster",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/tracking_clouds_on_venus/12894979-1-eng-GB/Tracking_clouds_on_Venus_newslist.jpg"
-            },
-            {
-                "date": "29 January 2013",
+                "date": "29 Jan 2013",
                 "type": 5,
                 "body": "When a planet behaves like a comet",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/01/comet-like_ionosphere_at_venus/12499291-1-eng-GB/Comet-like_ionosphere_at_Venus_newslist.jpg"
             },
             {
-                "date": "29 January 2013",
-                "type": 5,
-                "body": "When a planet behaves like a comet",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/01/comet-like_ionosphere_at_venus/12499291-1-eng-GB/Comet-like_ionosphere_at_Venus_newslist.jpg"
-            },
-            {
-                "date": "03 December 2012",
+                "date": "03 Dec 2012",
                 "type": 5,
                 "body": "Have Venusian volcanoes been caught in the act?",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/is_venus_volcanically_active/12146731-1-eng-GB/Is_Venus_volcanically_active_newslist.jpg"
             },
             {
-                "date": "03 December 2012",
-                "type": 5,
-                "body": "Have Venusian volcanoes been caught in the act?",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/is_venus_volcanically_active/12146731-1-eng-GB/Is_Venus_volcanically_active_newslist.jpg"
-            },
-            {
-                "date": "01 October 2012",
+                "date": "01 Oct 2012",
                 "type": 5,
                 "body": "A curious cold layer in the atmosphere of Venus",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2006/07/venus_terminator/9752626-5-eng-GB/Venus_terminator_newslist.jpg"
             },
             {
-                "date": "01 October 2012",
-                "type": 5,
-                "body": "A curious cold layer in the atmosphere of Venus",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2006/07/venus_terminator/9752626-5-eng-GB/Venus_terminator_newslist.jpg"
-            },
-            {
-                "date": "06 June 2012",
-                "type": 5,
-                "body": "Transit of Venus wows astronomers worldwide",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/06/transit_of_venus_as_seen_from_canberra_australia/11249038-7-eng-GB/Transit_of_Venus_as_seen_from_Canberra_Australia_newslist.jpg"
-            },
-            {
-                "date": "06 June 2012",
+                "date": "06 Jun 2012",
                 "type": 5,
                 "body": "Transit of Venus wows astronomers worldwide",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/06/transit_of_venus_as_seen_from_canberra_australia/11249038-7-eng-GB/Transit_of_Venus_as_seen_from_Canberra_Australia_newslist.jpg"
@@ -1419,75 +1304,39 @@ missions = [
         "name": "Giove-a & b",
         "data": [
             {
-                "date": "19 January 2006",
+                "date": "19 Jan 2006",
                 "type": 5,
                 "body": "GIOVE. The clock is ticking",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2006/01/giofin_20060120/9850992-3-eng-GB/Giofin_20060120_newslist.jpg"
             },
             {
-                "date": "19 January 2006",
-                "type": 5,
-                "body": "GIOVE. The clock is ticking",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2006/01/giofin_20060120/9850992-3-eng-GB/Giofin_20060120_newslist.jpg"
-            },
-            {
-                "date": "13 January 2006",
+                "date": "13 Jan 2006",
                 "type": 5,
                 "body": "Contract for in-orbit validation of Galileo system",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2005/12/giove-a_in_orbit_artist_s_impression/10040579-2-eng-GB/GIOVE-A_in_orbit_artist_s_impression_newslist.jpg"
             },
             {
-                "date": "13 January 2006",
-                "type": 5,
-                "body": "Contract for in-orbit validation of Galileo system",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2005/12/giove-a_in_orbit_artist_s_impression/10040579-2-eng-GB/GIOVE-A_in_orbit_artist_s_impression_newslist.jpg"
-            },
-            {
-                "date": "12 January 2006",
+                "date": "12 Jan 2006",
                 "type": 5,
                 "body": "First Galileo signals transmitted by GIOVE-A",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2006/01/giove-a_in_orbit_artist_s_impression/9649165-3-eng-GB/GIOVE-A_in_orbit_artist_s_impression_newslist.jpg"
             },
             {
-                "date": "12 January 2006",
-                "type": 5,
-                "body": "First Galileo signals transmitted by GIOVE-A",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2006/01/giove-a_in_orbit_artist_s_impression/9649165-3-eng-GB/GIOVE-A_in_orbit_artist_s_impression_newslist.jpg"
-            },
-            {
-                "date": "28 December 2005",
+                "date": "28 Dec 2005",
                 "type": 5,
                 "body": "First Galileo satellite on orbit to demonstrate key technologies",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2005/12/giove-a_deploys_its_solar_arrays/10277462-2-eng-GB/GIOVE-A_deploys_its_solar_arrays_newslist.jpg"
             },
             {
-                "date": "28 December 2005",
-                "type": 5,
-                "body": "First Galileo satellite on orbit to demonstrate key technologies",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2005/12/giove-a_deploys_its_solar_arrays/10277462-2-eng-GB/GIOVE-A_deploys_its_solar_arrays_newslist.jpg"
-            },
-            {
-                "date": "28 December 2005",
+                "date": "28 Dec 2005",
                 "type": 5,
                 "body": "GIOVE-A launch news",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2005/12/lift_off_of_soyuz_carrying_giove-a/9828430-3-eng-GB/Lift_off_of_Soyuz_carrying_GIOVE-A_newslist.jpg"
             },
             {
-                "date": "28 December 2005",
+                "date": "28 Dec 2005",
                 "type": 5,
-                "body": "GIOVE-A launch news",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2005/12/lift_off_of_soyuz_carrying_giove-a/9828430-3-eng-GB/Lift_off_of_Soyuz_carrying_GIOVE-A_newslist.jpg"
-            },
-            {
-                "date": "28 December 2005",
-                "type": 5,
-                "body": "GIOVE-A lift-off from Baikonur Cosmodrome - 28 December 2005",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2005/12/galileo_launch_28dec2005_001/9827195-3-eng-GB/Galileo_Launch_28dec2005_001_newslist.jpg"
-            },
-            {
-                "date": "28 December 2005",
-                "type": 5,
-                "body": "GIOVE-A lift-off from Baikonur Cosmodrome - 28 December 2005",
+                "body": "GIOVE-A lift-off from Baikonur Cosmodrome - 28 Dec 2005",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2005/12/galileo_launch_28dec2005_001/9827195-3-eng-GB/Galileo_Launch_28dec2005_001_newslist.jpg"
             }
         ]
@@ -1500,73 +1349,37 @@ missions = [
         "name": "Rosetta",
         "data": [
             {
-                "date": "27 March 2014",
+                "date": "27 Mar 2014",
                 "type": 5,
                 "body": "Rosetta sets sights on destination comet ",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/rosetta_s_first_sighting_of_its_target_in_2014_narrow_angle_view/14348814-1-eng-GB/Rosetta_s_first_sighting_of_its_target_in_2014_narrow_angle_view_newslist.jpg"
             },
             {
-                "date": "27 March 2014",
-                "type": 5,
-                "body": "Rosetta sets sights on destination comet ",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/rosetta_s_first_sighting_of_its_target_in_2014_narrow_angle_view/14348814-1-eng-GB/Rosetta_s_first_sighting_of_its_target_in_2014_narrow_angle_view_newslist.jpg"
-            },
-            {
-                "date": "29 January 2014",
+                "date": "29 Jan 2014",
                 "type": 5,
                 "body": "The competition winners who helped us wake up Rosetta",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/i_helped_wake_up_rosetta/14238371-1-eng-GB/I_helped_wake_up_Rosetta_newslist.jpg"
             },
             {
-                "date": "29 January 2014",
-                "type": 5,
-                "body": "The competition winners who helped us wake up Rosetta",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/i_helped_wake_up_rosetta/14238371-1-eng-GB/I_helped_wake_up_Rosetta_newslist.jpg"
-            },
-            {
-                "date": "29 January 2014",
+                "date": "29 Jan 2014",
                 "type": 5,
                 "body": "Rosetta wide awake as check-up continues",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/rosetta_mission_control_team/14238146-1-eng-GB/Rosetta_mission_control_team_newslist.jpg"
             },
             {
-                "date": "29 January 2014",
-                "type": 5,
-                "body": "Rosetta wide awake as check-up continues",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/rosetta_mission_control_team/14238146-1-eng-GB/Rosetta_mission_control_team_newslist.jpg"
-            },
-            {
-                "date": "20 January 2014",
+                "date": "20 Jan 2014",
                 "type": 5,
                 "body": "ESA s  sleeping beauty  wakes up from deep space hibernation",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/rosetta_wake-up_signal/13492302-2-eng-GB/Rosetta_Wake-up_signal_newslist.jpg"
             },
             {
-                "date": "20 January 2014",
-                "type": 5,
-                "body": "ESA s  sleeping beauty  wakes up from deep space hibernation",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/rosetta_wake-up_signal/13492302-2-eng-GB/Rosetta_Wake-up_signal_newslist.jpg"
-            },
-            {
-                "date": "16 January 2014",
+                "date": "16 Jan 2014",
                 "type": 5,
                 "body": "The most important alarm clock in the Solar System",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/12/how_rosetta_wakes_up_from_deep_space_hibernation/13443141-1-eng-GB/How_Rosetta_wakes_up_from_deep_space_hibernation_newslist.jpg"
             },
             {
-                "date": "16 January 2014",
-                "type": 5,
-                "body": "The most important alarm clock in the Solar System",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/12/how_rosetta_wakes_up_from_deep_space_hibernation/13443141-1-eng-GB/How_Rosetta_wakes_up_from_deep_space_hibernation_newslist.jpg"
-            },
-            {
-                "date": "13 January 2014",
-                "type": 5,
-                "body": "Call for Media: Rosetta wake up event",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2014/01/rosetta_the_story_so_far/13473767-3-eng-GB/Rosetta_the_story_so_far_newslist.jpg"
-            },
-            {
-                "date": "13 January 2014",
+                "date": "13 Jan 2014",
                 "type": 5,
                 "body": "Call for Media: Rosetta wake up event",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2014/01/rosetta_the_story_so_far/13473767-3-eng-GB/Rosetta_the_story_so_far_newslist.jpg"
@@ -1577,73 +1390,37 @@ missions = [
         "name": "Mars Express",
         "data": [
             {
-                "date": "10 April 2014",
+                "date": "10 Apr 2014",
                 "type": 5,
                 "body": "Beauty from chaos ",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/osuga_valles/14367595-1-eng-GB/Osuga_valles_newslist.jpg"
             },
             {
-                "date": "10 April 2014",
-                "type": 5,
-                "body": "Beauty from chaos ",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/osuga_valles/14367595-1-eng-GB/Osuga_valles_newslist.jpg"
-            },
-            {
-                "date": "06 March 2014",
+                "date": "06 Mar 2014",
                 "type": 5,
                 "body": "Lava floods the ancient plains of Mars ",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/daedalia_planum/14306070-1-eng-GB/Daedalia_Planum_newslist.jpg"
             },
             {
-                "date": "06 March 2014",
-                "type": 5,
-                "body": "Lava floods the ancient plains of Mars ",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/daedalia_planum/14306070-1-eng-GB/Daedalia_Planum_newslist.jpg"
-            },
-            {
-                "date": "23 December 2013",
+                "date": "23 Dec 2013",
                 "type": 5,
                 "body": "Mars Express heading towards daring flyby of Phobos",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/12/phobos_360/13457740-1-eng-GB/Phobos_360_newslist.jpg"
             },
             {
-                "date": "23 December 2013",
-                "type": 5,
-                "body": "Mars Express heading towards daring flyby of Phobos",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/12/phobos_360/13457740-1-eng-GB/Phobos_360_newslist.jpg"
-            },
-            {
-                "date": "10 October 2013",
+                "date": "10 Oct 2013",
                 "type": 5,
                 "body": "Martian scars",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/10/hebes_chasma/13062673-1-eng-GB/Hebes_Chasma_newslist.jpg"
             },
             {
-                "date": "10 October 2013",
-                "type": 5,
-                "body": "Martian scars",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/10/hebes_chasma/13062673-1-eng-GB/Hebes_Chasma_newslist.jpg"
-            },
-            {
-                "date": "05 September 2013",
+                "date": "05 Sep 2013",
                 "type": 5,
                 "body": "A radiating beauty on Mars",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/09/becquerel_crater/13007489-1-eng-GB/Becquerel_Crater_newslist.jpg"
             },
             {
-                "date": "05 September 2013",
-                "type": 5,
-                "body": "A radiating beauty on Mars",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/09/becquerel_crater/13007489-1-eng-GB/Becquerel_Crater_newslist.jpg"
-            },
-            {
-                "date": "01 August 2013",
-                "type": 5,
-                "body": "Water in a martian desert",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/tagus_valles_colour_view/12974437-1-eng-GB/Tagus_Valles_colour_view_newslist.jpg"
-            },
-            {
-                "date": "01 August 2013",
+                "date": "01 Aug 2013",
                 "type": 5,
                 "body": "Water in a martian desert",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/tagus_valles_colour_view/12974437-1-eng-GB/Tagus_Valles_colour_view_newslist.jpg"
@@ -1654,73 +1431,37 @@ missions = [
         "name": "Envisat",
         "data": [
             {
-                "date": "07 February 2014",
+                "date": "07 Feb 2014",
                 "type": 5,
                 "body": "Is global warming hiding underwater?",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/sea-surface_temperature/14266619-1-eng-GB/Sea-surface_temperature_newslist.jpg"
             },
             {
-                "date": "07 February 2014",
-                "type": 5,
-                "body": "Is global warming hiding underwater?",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/sea-surface_temperature/14266619-1-eng-GB/Sea-surface_temperature_newslist.jpg"
-            },
-            {
-                "date": "13 January 2014",
+                "date": "13 Jan 2014",
                 "type": 5,
                 "body": "Taking Earth s temperature",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/land_surface_temperature/13479593-1-eng-GB/Land_surface_temperature_newslist.jpg"
             },
             {
-                "date": "13 January 2014",
-                "type": 5,
-                "body": "Taking Earth s temperature",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/01/land_surface_temperature/13479593-1-eng-GB/Land_surface_temperature_newslist.jpg"
-            },
-            {
-                "date": "25 October 2013",
+                "date": "25 Oct 2013",
                 "type": 5,
                 "body": "Earth from Space: Lands of change",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/10/lakes_and_mountains_of_western_uganda/13362052-1-eng-GB/Lakes_and_mountains_of_western_Uganda_newslist.jpg"
             },
             {
-                "date": "25 October 2013",
-                "type": 5,
-                "body": "Earth from Space: Lands of change",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/10/lakes_and_mountains_of_western_uganda/13362052-1-eng-GB/Lakes_and_mountains_of_western_Uganda_newslist.jpg"
-            },
-            {
-                "date": "06 September 2013",
+                "date": "06 Sep 2013",
                 "type": 5,
                 "body": "Reflecting on Earth s albedo",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/08/earth_s_albedo/12988883-4-eng-GB/Earth_s_albedo_newslist.jpg"
             },
             {
-                "date": "06 September 2013",
-                "type": 5,
-                "body": "Reflecting on Earth s albedo",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/videos/2013/08/earth_s_albedo/12988883-4-eng-GB/Earth_s_albedo_newslist.jpg"
-            },
-            {
-                "date": "04 September 2013",
+                "date": "04 Sep 2013",
                 "type": 5,
                 "body": "Our living planet: Earth s  carbon dioxide breathing  seen from space",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/09/carbon_dioxide_levels_2002_12/13003174-1-eng-GB/Carbon_dioxide_levels_2002_12_newslist.jpg"
             },
             {
-                "date": "04 September 2013",
-                "type": 5,
-                "body": "Our living planet: Earth s  carbon dioxide breathing  seen from space",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/09/carbon_dioxide_levels_2002_12/13003174-1-eng-GB/Carbon_dioxide_levels_2002_12_newslist.jpg"
-            },
-            {
-                "date": "19 July 2013",
-                "type": 5,
-                "body": "Earth from Space: Explosive land",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/virunga_mountains/12952041-1-eng-GB/Virunga_Mountains_newslist.jpg"
-            },
-            {
-                "date": "19 July 2013",
+                "date": "19 Jul 2013",
                 "type": 5,
                 "body": "Earth from Space: Explosive land",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/virunga_mountains/12952041-1-eng-GB/Virunga_Mountains_newslist.jpg"
@@ -1731,37 +1472,19 @@ missions = [
         "name": "MSG series",
         "data": [
             {
-                "date": "07 February 2013",
+                "date": "07 Feb 2013",
                 "type": 5,
                 "body": "Contract signed for Meteosat Third Generation lightning instruments",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/02/meteosat_third_generation/9943204-2-eng-GB/Meteosat_Third_Generation_newslist.jpg"
             },
             {
-                "date": "07 February 2013",
-                "type": 5,
-                "body": "Contract signed for Meteosat Third Generation lightning instruments",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/02/meteosat_third_generation/9943204-2-eng-GB/Meteosat_Third_Generation_newslist.jpg"
-            },
-            {
-                "date": "21 November 2012",
+                "date": "21 Nov 2012",
                 "type": 5,
                 "body": "Meteosat Third Generation agreement signed at Ministerial meeting",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/mtg_agreement_signed_at_ministerial_meeting/12125720-3-eng-GB/MTG_agreement_signed_at_Ministerial_meeting_newslist.jpg"
             },
             {
-                "date": "21 November 2012",
-                "type": 5,
-                "body": "Meteosat Third Generation agreement signed at Ministerial meeting",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/mtg_agreement_signed_at_ministerial_meeting/12125720-3-eng-GB/MTG_agreement_signed_at_Ministerial_meeting_newslist.jpg"
-            },
-            {
-                "date": "03 September 2012",
-                "type": 5,
-                "body": "Peek-a-blue Moon",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/09/earth_and_moon/11652724-3-eng-GB/Earth_and_Moon_newslist.jpg"
-            },
-            {
-                "date": "03 September 2012",
+                "date": "03 Sep 2012",
                 "type": 5,
                 "body": "Peek-a-blue Moon",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/09/earth_and_moon/11652724-3-eng-GB/Earth_and_Moon_newslist.jpg"
@@ -1772,25 +1495,13 @@ missions = [
         "name": "Artemis",
         "data": [
             {
-                "date": "18 February 2003",
+                "date": "18 Feb 2003",
                 "type": 5,
                 "body": "ESA's Artemis satellite reaches geostationary orbit - from total loss to full recovery",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2003/02/the_artemis_recovery_team/9856155-3-eng-GB/The_Artemis_recovery_team_newslist.jpg"
             },
             {
-                "date": "18 February 2003",
-                "type": 5,
-                "body": "ESA's Artemis satellite reaches geostationary orbit - from total loss to full recovery",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2003/02/the_artemis_recovery_team/9856155-3-eng-GB/The_Artemis_recovery_team_newslist.jpg"
-            },
-            {
-                "date": "26 March 2012",
-                "type": 5,
-                "body": "Artemis: the ATV whisperer",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2002/02/artemis_satellite_artist_s_view/9208271-5-eng-GB/Artemis_satellite_artist_s_view_newslist.jpg"
-            },
-            {
-                "date": "26 March 2012",
+                "date": "26 Mar 2012",
                 "type": 5,
                 "body": "Artemis: the ATV whisperer",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2002/02/artemis_satellite_artist_s_view/9208271-5-eng-GB/Artemis_satellite_artist_s_view_newslist.jpg"
@@ -1831,73 +1542,37 @@ missions = [
         "name": "Proba series",
         "data": [
             {
-                "date": "18 February 2014",
+                "date": "18 Feb 2014",
                 "type": 5,
                 "body": "Sharp-eyed Proba-V works around the clock",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/proba-v_s_olympic_view/14279962-1-eng-GB/Proba-V_s_Olympic_view_newslist.jpg"
             },
             {
-                "date": "18 February 2014",
-                "type": 5,
-                "body": "Sharp-eyed Proba-V works around the clock",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/proba-v_s_olympic_view/14279962-1-eng-GB/Proba-V_s_Olympic_view_newslist.jpg"
-            },
-            {
-                "date": "03 December 2013",
+                "date": "03 Dec 2013",
                 "type": 5,
                 "body": "Proba-V data ready for use",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/sicily/13434611-1-eng-GB/Sicily_newslist.jpg"
             },
             {
-                "date": "03 December 2013",
-                "type": 5,
-                "body": "Proba-V data ready for use",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/sicily/13434611-1-eng-GB/Sicily_newslist.jpg"
-            },
-            {
-                "date": "22 August 2013",
+                "date": "22 Aug 2013",
                 "type": 5,
                 "body": "Italy in an espresso cup",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/08/proba-2_s_x-cam_view_of_europe/12992333-1-eng-GB/Proba-2_s_X-Cam_view_of_Europe_newslist.jpg"
             },
             {
-                "date": "22 August 2013",
-                "type": 5,
-                "body": "Italy in an espresso cup",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/08/proba-2_s_x-cam_view_of_europe/12992333-1-eng-GB/Proba-2_s_X-Cam_view_of_Europe_newslist.jpg"
-            },
-            {
-                "date": "17 July 2013",
+                "date": "17 Jul 2013",
                 "type": 5,
                 "body": "Proba-2 eye-to-eye with Typhoon Soulik",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/proba-2_x-cam_image_of_typhoon_soulik/12950572-2-eng-GB/Proba-2_X-Cam_image_of_Typhoon_Soulik_newslist.jpg"
             },
             {
-                "date": "17 July 2013",
-                "type": 5,
-                "body": "Proba-2 eye-to-eye with Typhoon Soulik",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/proba-2_x-cam_image_of_typhoon_soulik/12950572-2-eng-GB/Proba-2_X-Cam_image_of_Typhoon_Soulik_newslist.jpg"
-            },
-            {
-                "date": "10 July 2013",
+                "date": "10 Jul 2013",
                 "type": 5,
                 "body": "Probing vegetation across the globe",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/proba-v_first_global_map/12938439-1-eng-GB/Proba-V_first_global_map_newslist.jpg"
             },
             {
-                "date": "10 July 2013",
-                "type": 5,
-                "body": "Probing vegetation across the globe",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/proba-v_first_global_map/12938439-1-eng-GB/Proba-V_first_global_map_newslist.jpg"
-            },
-            {
-                "date": "13 June 2013",
-                "type": 5,
-                "body": "Proba-V tracking aircraft in flight from orbit",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/04/proba-v2/12605972-2-eng-GB/Proba-V_newslist.jpg"
-            },
-            {
-                "date": "13 June 2013",
+                "date": "13 Jun 2013",
                 "type": 5,
                 "body": "Proba-V tracking aircraft in flight from orbit",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/04/proba-v2/12605972-2-eng-GB/Proba-V_newslist.jpg"
@@ -1980,7 +1655,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Before the late 1970s, only four galaxies had been detected emitting X-rays: the Milky Way, M31, and the Magellanic Clouds. Building on earlier work in the field, ESA s X-ray observatory, Exosat, was launched in May 1983. It was active until April 1986, by which time it had made 1780 X-ray observations"
+                "body": "Before the late 1970s, only four galaxies had been detected emitting X-rays: the Milky Way, M31, and the Magellanic Clouds. Building on earlier work in the field, ESA s X-ray observatory, Exosat, was launched in May 1983. It was active until Apr 1986, by which time it had made 1780 X-ray observations"
             },
             {
                 "type": 8,
@@ -1995,7 +1670,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "ESA approved the mission in this form in June 1998. One year later the selection of the instruments and the long hardware development programme began. The Survey Science Centre was selected by ESA in 1995 to develop the processing of the XMM data"
+                "body": "ESA approved the mission in this form in Jun 1998. One year later the selection of the instruments and the long hardware development programme began. The Survey Science Centre was selected by ESA in 1995 to develop the processing of the XMM data"
             },
             {
                 "type": 8,
@@ -2017,73 +1692,37 @@ missions = [
         "name": "Huygens",
         "data": [
             {
-                "date": "03 April 2014",
+                "date": "03 Apr 2014",
                 "type": 5,
                 "body": "Icy moon Enceladus has underground sea",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/inside_enceladus/14362027-1-eng-GB/Inside_Enceladus_newslist.jpg"
             },
             {
-                "date": "03 April 2014",
-                "type": 5,
-                "body": "Icy moon Enceladus has underground sea",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/inside_enceladus/14362027-1-eng-GB/Inside_Enceladus_newslist.jpg"
-            },
-            {
-                "date": "04 March 2013",
+                "date": "04 Mar 2013",
                 "type": 5,
                 "body": "Cassini Scientist for a Day 2012 Competition - Results",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/03/cassini_competition_logo/12548169-2-eng-GB/Cassini_competition_logo_newslist.jpg"
             },
             {
-                "date": "04 March 2013",
-                "type": 5,
-                "body": "Cassini Scientist for a Day 2012 Competition - Results",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/03/cassini_competition_logo/12548169-2-eng-GB/Cassini_competition_logo_newslist.jpg"
-            },
-            {
-                "date": "18 February 2013",
+                "date": "18 Feb 2013",
                 "type": 5,
                 "body": "Cassini sheds light on cosmic particle accelerators",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/02/saturn_bowshock/12528295-2-eng-GB/Saturn_bowshock_newslist.jpg"
             },
             {
-                "date": "18 February 2013",
-                "type": 5,
-                "body": "Cassini sheds light on cosmic particle accelerators",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/02/saturn_bowshock/12528295-2-eng-GB/Saturn_bowshock_newslist.jpg"
-            },
-            {
-                "date": "12 December 2012",
+                "date": "12 Dec 2012",
                 "type": 5,
                 "body": "Cassini spots mini Nile River on Saturn moon",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/titan_s_nile_river/12132838-1-eng-GB/Titan_s_Nile_River_newslist.jpg"
             },
             {
-                "date": "12 December 2012",
-                "type": 5,
-                "body": "Cassini spots mini Nile River on Saturn moon",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/titan_s_nile_river/12132838-1-eng-GB/Titan_s_Nile_River_newslist.jpg"
-            },
-            {
-                "date": "28 November 2012",
+                "date": "28 Nov 2012",
                 "type": 5,
                 "body": "Titan s seasons make sharp turn",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/vortex_on_titan_close_up/12137154-1-eng-GB/Vortex_on_Titan_close_up_newslist.jpg"
             },
             {
-                "date": "28 November 2012",
-                "type": 5,
-                "body": "Titan s seasons make sharp turn",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/11/vortex_on_titan_close_up/12137154-1-eng-GB/Vortex_on_Titan_close_up_newslist.jpg"
-            },
-            {
-                "date": "25 October 2012",
-                "type": 5,
-                "body": "After-effects of Saturn s super storm shine on",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/10/saturn_s_visible_storm/12045564-3-eng-GB/Saturn_s_visible_storm_newslist.jpg"
-            },
-            {
-                "date": "25 October 2012",
+                "date": "25 Oct 2012",
                 "type": 5,
                 "body": "After-effects of Saturn s super storm shine on",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/10/saturn_s_visible_storm/12045564-3-eng-GB/Saturn_s_visible_storm_newslist.jpg"
@@ -2151,7 +1790,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "The first pair of Cluster satellites lifted off on 16 July 2000, the second pair one month later. This gap allowed fewer people to be used for mission control in the European Space Operations Centre (ESOC) in Darmstadt (Germany)"
+                "body": "The first pair of Cluster satellites lifted off on 16 Jul 2000, the second pair one month later. This gap allowed fewer people to be used for mission control in the European Space Operations Centre (ESOC) in Darmstadt (Germany)"
             },
             {
                 "type": 8,
@@ -2166,12 +1805,12 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "The Cluster mission was first proposed in November 1982. The idea was developed into a proposal to study the 'cusp' and the  magnetotail  regions of the Earth's magnetosphere with a polar orbiting mission. The Cluster idea developed into a proposal and then a mission. In 1996, Cluster was ready for launch"
+                "body": "The Cluster mission was first proposed in Nov 1982. The idea was developed into a proposal to study the 'cusp' and the  magnetotail  regions of the Earth's magnetosphere with a polar orbiting mission. The Cluster idea developed into a proposal and then a mission. In 1996, Cluster was ready for launch"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Cluster was expected to benefit from a 'free' launch on the first test flight of the newly developed Ariane-5 booster. After several minor delays, Ariane-501 lifted off from Kourou, French Guiana on 4 June 1996, carrying its payload of four Cluster satellites. Unfortunately, intense aerodynamic loads resulted in its break-up and initiation of the automatic destruct system"
+                "body": "Cluster was expected to benefit from a 'free' launch on the first test flight of the newly developed Ariane-5 booster. After several minor delays, Ariane-501 lifted off from Kourou, French Guiana on 4 Jun 1996, carrying its payload of four Cluster satellites. Unfortunately, intense aerodynamic loads resulted in its break-up and initiation of the automatic destruct system"
             },
             {
                 "type": 8,
@@ -2186,12 +1825,12 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "On 10 February 2005, the ESA Science Programme Committee approved unanimously the extension of the Cluster mission, pushing back the end date from December 2005 to December 2009. This extension will allow the first measurements of space plasmas at both small and large scales simultaneously and the sampling of geospace regions never crossed before by four spacecraft flying in close formation"
+                "body": "On 10 Feb 2005, the ESA Science Programme Committee approved unanimously the extension of the Cluster mission, pushing back the end date from Dec 2005 to Dec 2009. This extension will allow the first measurements of space plasmas at both small and large scales simultaneously and the sampling of geospace regions never crossed before by four spacecraft flying in close formation"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "In October 2009 the mission was extended until end 2012"
+                "body": "In Oct 2009 the mission was extended until end 2012"
             },
             {
                 "type": 8,
@@ -2213,11 +1852,6 @@ missions = [
     {
         "name": "ISO",
         "data": [
-            {
-                "type": 8,
-                "header": "ESA Science",
-                "body": ""
-            },
             {
                 "type": 8,
                 "header": "ESA Science",
@@ -2246,7 +1880,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Observing the cool Universe requires cooled instruments which can work at temperatures close to absolute zero,  273 C. Keeping the temperature this low was the task of the large liquid-helium cryostat on board ISO, filled before launch with 2286 litres of superfluid helium. This cryostat made ISO one of the coldest objects in the universe. ISO s lifetime was limited by its helium supply, so nearly all observations had to stop when this coolant liquid was depleted on 8 April 1998"
+                "body": "Observing the cool Universe requires cooled instruments which can work at temperatures close to absolute zero,  273 C. Keeping the temperature this low was the task of the large liquid-helium cryostat on board ISO, filled before launch with 2286 litres of superfluid helium. This cryostat made ISO one of the coldest objects in the universe. ISO s lifetime was limited by its helium supply, so nearly all observations had to stop when this coolant liquid was depleted on 8 Apr 1998"
             },
             {
                 "type": 8,
@@ -2286,7 +1920,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "ISO was launched by an Ariane 44P launcher from Europe's spaceport in Kourou, French Guiana, on 17 November 1995. Initially it was supposed to be operational for 18 months, but thanks to meticulous engineering and some good fortune, the satellite's working life was stretched to more than 28 months until May 1998"
+                "body": "ISO was launched by an Ariane 44P launcher from Europe's spaceport in Kourou, French Guiana, on 17 Nov 1995. Initially it was supposed to be operational for 18 months, but thanks to meticulous engineering and some good fortune, the satellite's working life was stretched to more than 28 months until May 1998"
             },
             {
                 "type": 8,
@@ -2356,12 +1990,12 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Three years into its mission, in June 1998, contact was lost with SOHO after a sequence of incorrect commands during what should have been a routine manoeuvre. All attempts to re-establish contact with the spacecraft failed and no one knew where it was for four weeks"
+                "body": "Three years into its mission, in Jun 1998, contact was lost with SOHO after a sequence of incorrect commands during what should have been a routine manoeuvre. All attempts to re-establish contact with the spacecraft failed and no one knew where it was for four weeks"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "In August 1998, a powerful radar signal from Earth produced a faint echo from the spacecraft. SOHO was still in the right place and angled in such a way that sunlight would begin to fall on its solar cells again during the following months, so enabling it to resume normal operations"
+                "body": "In Aug 1998, a powerful radar signal from Earth produced a faint echo from the spacecraft. SOHO was still in the right place and angled in such a way that sunlight would begin to fall on its solar cells again during the following months, so enabling it to resume normal operations"
             },
             {
                 "type": 8,
@@ -2376,7 +2010,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "In June 1976, GRIST had been competing with a 'Solar Probe' as well as other studies involving other disciplines for further study. Solar Probe envisaged a set of instruments on a spacecraft that would get close to the Sun. Although its assessment study cited four scientific disciplines interested in the mission, Solar Probe was not followed up at the time"
+                "body": "In Jun 1976, GRIST had been competing with a 'Solar Probe' as well as other studies involving other disciplines for further study. Solar Probe envisaged a set of instruments on a spacecraft that would get close to the Sun. Although its assessment study cited four scientific disciplines interested in the mission, Solar Probe was not followed up at the time"
             },
             {
                 "type": 8,
@@ -2450,12 +2084,12 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "In March 2000, a computer and gyro control failure led to ERS-1 finally ending its operations, after far exceeding its planned lifetime"
+                "body": "In Mar 2000, a computer and gyro control failure led to ERS-1 finally ending its operations, after far exceeding its planned lifetime"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "In July 2011, ERS-2 was retired and the process of deorbiting the satellite began"
+                "body": "In Jul 2011, ERS-2 was retired and the process of deorbiting the satellite began"
             }
         ]
     },
@@ -2500,7 +2134,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "It launched in 1990 but the main mirror had a serious flaw: the edge was too flat by a mere fiftieth of the width of a human hair, preventing sharp images. Scientists and engineers from NASA and ESA worked together and came up with a corrective optics package, fitted during the first Hubble Servicing Mission (SM1) in December 1993"
+                "body": "It launched in 1990 but the main mirror had a serious flaw: the edge was too flat by a mere fiftieth of the width of a human hair, preventing sharp images. Scientists and engineers from NASA and ESA worked together and came up with a corrective optics package, fitted during the first Hubble Servicing Mission (SM1) in Dec 1993"
             },
             {
                 "type": 8,
@@ -2515,17 +2149,17 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Scheduled for October 2008, SM4 was delayed to build a replacement Science Instrument Command and Data Handling unit. In May 2009 veteran astronaut Scott Altman, commanded a crew on Atlantis, including Navy Capt. Gregory C. Johnson, spacewalkers John Grunsfeld and Mike Massimino, and first time space fliers Andrew Feustel, Michael Good and Megan McArthur. They completed an ambitious 11-day mission with five spacewalks, installing two new instruments: the Wide Field Camera 3 (WFC3) and the Cosmic Origins Spectrograph (COS), and repairing two inactive ones: the Space Telescope Imaging Spectrograph (STIS) and the Advanced Camera for Surveys (ACS). They installed the replacement Science Instrument Command and Data Handling Unit, a Fine Guidance Sensor, new batteries, gyros, and insulation. Hubble has resumed its scientific observations, with expanded science capabilities and an extended life"
+                "body": "Scheduled for Oct 2008, SM4 was delayed to build a replacement Science Instrument Command and Data Handling unit. In May 2009 veteran astronaut Scott Altman, commanded a crew on Atlantis, including Navy Capt. Gregory C. Johnson, spacewalkers John Grunsfeld and Mike Massimino, and first time space fliers Andrew Feustel, Michael Good and Megan McArthur. They completed an ambitious 11-day mission with five spacewalks, installing two new instruments: the Wide Field Camera 3 (WFC3) and the Cosmic Origins Spectrograph (COS), and repairing two inactive ones: the Space Telescope Imaging Spectrograph (STIS) and the Advanced Camera for Surveys (ACS). They installed the replacement Science Instrument Command and Data Handling Unit, a Fine Guidance Sensor, new batteries, gyros, and insulation. Hubble has resumed its scientific observations, with expanded science capabilities and an extended life"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Europe's contribution to HST entitles European astronomers to 15% of the telescope's observing time, but in June 2012 European scientists were awarded a record 26.5% of observing time"
+                "body": "Europe's contribution to HST entitles European astronomers to 15% of the telescope's observing time, but in Jun 2012 European scientists were awarded a record 26.5% of observing time"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "The European science archive for the Hubble Space Telescope is located at ESA s European Space Astronomy Centre (ESAC) in Villanueva de la Ca ada near Madrid, Spain. Until June 2012 it was hosted by the Space Telescope European Coordinating Facility (ST-ECF), located at the headquarters of the European Southern Observatory near Munich, Germany"
+                "body": "The European science archive for the Hubble Space Telescope is located at ESA s European Space Astronomy Centre (ESAC) in Villanueva de la Ca ada near Madrid, Spain. Until Jun 2012 it was hosted by the Space Telescope European Coordinating Facility (ST-ECF), located at the headquarters of the European Southern Observatory near Munich, Germany"
             }
         ]
     },
@@ -2560,7 +2194,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "After launch, Ulysses headed out to Jupiter, arriving in February 1992 for the gravity-assist manoeuvre that swung the craft into its unique solar orbit. It passed over the Sun s south pole in 1994, and the north pole in 1995. Beginning its second orbit of the Sun, Ulysses revisited the south pole in 2000 and the north a year later. At that time, the Sun was close to the peak of its 11-year cycle of activity. Ulysses then headed back out to the orbit of Jupiter on the long leg of its six-year circuit around the Sun"
+                "body": "After launch, Ulysses headed out to Jupiter, arriving in Feb 1992 for the gravity-assist manoeuvre that swung the craft into its unique solar orbit. It passed over the Sun s south pole in 1994, and the north pole in 1995. Beginning its second orbit of the Sun, Ulysses revisited the south pole in 2000 and the north a year later. At that time, the Sun was close to the peak of its 11-year cycle of activity. Ulysses then headed back out to the orbit of Jupiter on the long leg of its six-year circuit around the Sun"
             },
             {
                 "type": 8,
@@ -2575,7 +2209,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Europe and NASA studied the possibility of an  out-of-ecliptic  (OOE) mission in the early 1970s. The mission would consist of two spacecraft flying in formation out to Jupiter and then one of them heading for the northern region of the Sun and the other for the southern region. Two spacecraft at opposite poles from each other would be able to almost completely map the Sun. The mission was approved in 1976, the payload approved in 1977 and a provisional launch date set for February 1983"
+                "body": "Europe and NASA studied the possibility of an  out-of-ecliptic  (OOE) mission in the early 1970s. The mission would consist of two spacecraft flying in formation out to Jupiter and then one of them heading for the northern region of the Sun and the other for the southern region. Two spacecraft at opposite poles from each other would be able to almost completely map the Sun. The mission was approved in 1976, the payload approved in 1977 and a provisional launch date set for Feb 1983"
             },
             {
                 "type": 8,
@@ -2585,12 +2219,12 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Now renamed Ulysses, it was due to be launched on board a Space Shuttle in May 1986. In January 1986, the Ulysses spacecraft was shipped out to Kennedy Space Center to finally prepare for launch. On 28 January 1986, the Challenger disaster occurred and put an immediate stop to all Shuttle launches and therefore the Ulysses mission. The spacecraft had to be dismantled and shipped back to Europe"
+                "body": "Now renamed Ulysses, it was due to be launched on board a Space Shuttle in May 1986. In Jan 1986, the Ulysses spacecraft was shipped out to Kennedy Space Center to finally prepare for launch. On 28 Jan 1986, the Challenger disaster occurred and put an immediate stop to all Shuttle launches and therefore the Ulysses mission. The spacecraft had to be dismantled and shipped back to Europe"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "When Shuttle launches were restarted in 1989, Ulysses was given a new launch opportunity for 1990 and was launched successfully on 6 October 1990"
+                "body": "When Shuttle launches were restarted in 1989, Ulysses was given a new launch opportunity for 1990 and was launched successfully on 6 Oct 1990"
             },
             {
                 "type": 8,
@@ -2665,7 +2299,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Fortunately, the panels turned out to be more resistant to radiation than expected. Over the course of several months, the European Space Agency Project Team, the European Space Operations Centre (ESOC), members of industry, and the Hipparcos scientific consortia turned their collective attention to the observational and scheduling problems posed by the highly eccentric orbit. As a result of their efforts, the mission ran successfully from November 1989 to March 1993, gathering data 60% of the time"
+                "body": "Fortunately, the panels turned out to be more resistant to radiation than expected. Over the course of several months, the European Space Agency Project Team, the European Space Operations Centre (ESOC), members of industry, and the Hipparcos scientific consortia turned their collective attention to the observational and scheduling problems posed by the highly eccentric orbit. As a result of their efforts, the mission ran successfully from Nov 1989 to Mar 1993, gathering data 60% of the time"
             },
             {
                 "type": 8,
@@ -2720,7 +2354,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "ESA also developed Olympus, which was the largest civilian telecommunications satellite in the world at the time of its launch in 1989. Its design incorporated many key technologies that have later been incorporated in commercial satellites, including high-power transmitters, multi-spot beam Ka-band technology and on-board switching. Its direct-to-home TV broadcasting payload allowed national network programmes to be captured with dish antennas as small as 30 cm in diameter. Control of Olympus was accidentally lost in May 1991 but a major recovery action enabled it to resume full service by the following August. Two years later, the ambitious experimental mission ended when the spacecraft's fuel ran out"
+                "body": "ESA also developed Olympus, which was the largest civilian telecommunications satellite in the world at the time of its launch in 1989. Its design incorporated many key technologies that have later been incorporated in commercial satellites, including high-power transmitters, multi-spot beam Ka-band technology and on-board switching. Its direct-to-home TV broadcasting payload allowed national network programmes to be captured with dish antennas as small as 30 cm in diameter. Control of Olympus was accidentally lost in May 1991 but a major recovery action enabled it to resume full service by the following Aug. Two years later, the ambitious experimental mission ended when the spacecraft's fuel ran out"
             }
         ]
     },
@@ -2735,7 +2369,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Giotto had a number of very impressive  firsts  and achievements to its credit"
+                "body": "Giotto had a number of very impressive firsts and achievements to its credit"
             },
             {
                 "type": 8,
@@ -2795,12 +2429,12 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Giotto was initially injected into a geostationary transfer orbit. After three revolutions around the Earth, the on-board motor was fired to inject into an interplanetary orbit. After a cruise phase of 8 months, Giotto encountered Comet Halley on 14 March 1986. For its (initially unscheduled) visit to the second comet, Grigg-Skjellerup, Giotto was flown back to the direction of Earth for a gravity-assist to reach its new target"
+                "body": "Giotto was initially injected into a geostationary transfer orbit. After three revolutions around the Earth, the on-board motor was fired to inject into an interplanetary orbit. After a cruise phase of 8 months, Giotto encountered Comet Halley on 14 Mar 1986. For its (initially unscheduled) visit to the second comet, Grigg-Skjellerup, Giotto was flown back to the direction of Earth for a gravity-assist to reach its new target"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "To add more detail, the adventure began with Giotto almost 150 million kilometres from Earth. On 12 March 1986, the spacecraft's instruments first detected hydrogen ions 7.8 million kilometres from Comet Halley. 22 hours later, Giotto crossed the bow shock of the solar wind (the region where a shock wave is created as the supersonic solar particles slow to subsonic speed) and entered the densest part of the dusty coma. At this point, the camera was switched to tracking mode to follow the brightest object (the comet nucleus) in its field of view and began to send the first, fuzzy images back to Earth"
+                "body": "To add more detail, the adventure began with Giotto almost 150 million kilometres from Earth. On 12 Mar 1986, the spacecraft's instruments first detected hydrogen ions 7.8 million kilometres from Comet Halley. 22 hours later, Giotto crossed the bow shock of the solar wind (the region where a shock wave is created as the supersonic solar particles slow to subsonic speed) and entered the densest part of the dusty coma. At this point, the camera was switched to tracking mode to follow the brightest object (the comet nucleus) in its field of view and began to send the first, fuzzy images back to Earth"
             },
             {
                 "type": 8,
@@ -2815,22 +2449,22 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "The remarkably resilient little spacecraft continued to return scientific data for another 24 hours on the outward journey. The last dust impact was detected 49 minutes after closest approach. The historic encounter ended 15 March when Giotto s experiments were turned off"
+                "body": "The remarkably resilient little spacecraft continued to return scientific data for another 24 hours on the outward journey. The last dust impact was detected 49 minutes after closest approach. The historic encounter ended 15 Mar when Giotto s experiments were turned off"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "However, the spacecraft still had 60 kilograms of fuel available, so the option was open to continue Giotto s voyage of exploration. A series of three small orbital corrections ensured that it would return to Earth almost exactly five years after launch. On 2 April 1986, the spacecraft was placed into hibernation in the hope that it could be successfully revived and dispatched on another mission. 1419 days later, in February 1990, the signal was sent to reawaken Giotto. After such a long period without contact, controllers had no idea whether the harsh environment of space had damaged its systems. Another unknown was the direction in which the main antenna was pointing. The only hope was that an omni-directional low-gain antenna would detect the wake-up signal. Two hours later, a weak answer from Giotto was received at the NASA Deep Space Network ground station near Madrid, Spain. Within a week, full control was regained and the ESA team was able to assess its condition. Three science instruments proved fully operational, while four more were partially damaged but usable. Although the remaining three instruments, including the camera, were disabled, it was decided to redirect the spacecraft towards a second comet"
+                "body": "However, the spacecraft still had 60 kilograms of fuel available, so the option was open to continue Giotto s voyage of exploration. A series of three small orbital corrections ensured that it would return to Earth almost exactly five years after launch. On 2 Apr 1986, the spacecraft was placed into hibernation in the hope that it could be successfully revived and dispatched on another mission. 1419 days later, in Feb 1990, the signal was sent to reawaken Giotto. After such a long period without contact, controllers had no idea whether the harsh environment of space had damaged its systems. Another unknown was the direction in which the main antenna was pointing. The only hope was that an omni-directional low-gain antenna would detect the wake-up signal. Two hours later, a weak answer from Giotto was received at the NASA Deep Space Network ground station near Madrid, Spain. Within a week, full control was regained and the ESA team was able to assess its condition. Three science instruments proved fully operational, while four more were partially damaged but usable. Although the remaining three instruments, including the camera, were disabled, it was decided to redirect the spacecraft towards a second comet"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "On 2 July 1990, Giotto's orbit was altered as it flew past the Earth, just 22 730 kilometres above the cloud tops. This was the first time a spacecraft coming from deep space had used the Earth for a gravity-assist. During the fly-by, observations were made of the Earth s magnetic field and energetic particle environment"
+                "body": "On 2 Jul 1990, Giotto's orbit was altered as it flew past the Earth, just 22 730 kilometres above the cloud tops. This was the first time a spacecraft coming from deep space had used the Earth for a gravity-assist. During the fly-by, observations were made of the Earth s magnetic field and energetic particle environment"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "After another prolonged hibernation, Giotto's payload was switched on in the evening of 9 July 1992. The Grigg-Skjellerup fly-by took place the following day, about 215 million kilometres from Earth. Giotto crossed the bow shock and entered the dust coma about 17 000 kilometres from the comet. Aimed directly at the nucleus, Giotto missed by a mere 100 to 200 kilometres   the closest ever cometary fly-by"
+                "body": "After another prolonged hibernation, Giotto's payload was switched on in the evening of 9 Jul 1992. The Grigg-Skjellerup fly-by took place the following day, about 215 million kilometres from Earth. Giotto crossed the bow shock and entered the dust coma about 17 000 kilometres from the comet. Aimed directly at the nucleus, Giotto missed by a mere 100 to 200 kilometres   the closest ever cometary fly-by"
             },
             {
                 "type": 8,
@@ -2845,7 +2479,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "After the mission was given the go-ahead by ESA in 1980, it was put together very quickly. Originally envisaged as part of a dual launch by a powerful Ariane 3 rocket, it was eventually launched by an Ariane 1 rocket (flight V14) on 2 July 1985"
+                "body": "After the mission was given the go-ahead by ESA in 1980, it was put together very quickly. Originally envisaged as part of a dual launch by a powerful Ariane 3 rocket, it was eventually launched by an Ariane 1 rocket (flight V14) on 2 Jul 1985"
             },
             {
                 "type": 8,
@@ -2870,7 +2504,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Exosat s payload consisted of three instruments"
+                "body": "Exosat's payload consisted of three instruments"
             },
             {
                 "type": 8,
@@ -2880,7 +2514,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "By placing the satellite in an elliptical orbit, scientists were able to operate the instruments for 76 hours of each revolution, allowing long continuous observations. Exosat was actively making observations until April 1986 but the natural decay of the orbit caused the satellite to enter the Earth s atmosphere on 6 May 1986"
+                "body": "By placing the satellite in an elliptical orbit, scientists were able to operate the instruments for 76 hours of each revolution, allowing long continuous observations. Exosat was actively making observations until Apr 1986 but the natural decay of the orbit caused the satellite to enter the Earth s atmosphere on 6 May 1986"
             },
             {
                 "type": 8,
@@ -2920,7 +2554,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "ESA also developed Olympus, which was the largest civilian telecommunications satellite in the world at the time of its launch in 1989. Its design incorporated many key technologies that have later been incorporated in commercial satellites, including high-power transmitters, multi-spot beam Ka-band technology and on-board switching. Its direct-to-home TV broadcasting payload allowed national network programmes to be captured with dish antennas as small as 30 cm in diameter. Control of Olympus was accidentally lost in May 1991 but a major recovery action enabled it to resume full service by the following August. Two years later, the ambitious experimental mission ended when the spacecraft's fuel ran out"
+                "body": "ESA also developed Olympus, which was the largest civilian telecommunications satellite in the world at the time of its launch in 1989. Its design incorporated many key technologies that have later been incorporated in commercial satellites, including high-power transmitters, multi-spot beam Ka-band technology and on-board switching. Its direct-to-home TV broadcasting payload allowed national network programmes to be captured with dish antennas as small as 30 cm in diameter. Control of Olympus was accidentally lost in May 1991 but a major recovery action enabled it to resume full service by the following Aug. Two years later, the ambitious experimental mission ended when the spacecraft's fuel ran out"
             }
         ]
     },
@@ -2930,7 +2564,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "Europe s Spacelab was like a small reusable space station designed to fit in the Space Shuttle s cargo bay"
+                "body": "Europe's Spacelab was like a small reusable space station designed to fit in the Space Shuttle s cargo bay"
             },
             {
                 "type": 8,
@@ -2980,7 +2614,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "ESA also developed Olympus, which was the largest civilian telecommunications satellite in the world at the time of its launch in 1989. Its design incorporated many key technologies that have later been incorporated in commercial satellites, including high-power transmitters, multi-spot beam Ka-band technology and on-board switching. Its direct-to-home TV broadcasting payload allowed national network programmes to be captured with dish antennas as small as 30 cm in diameter. Control of Olympus was accidentally lost in May 1991 but a major recovery action enabled it to resume full service by the following August. Two years later, the ambitious experimental mission ended when the spacecraft's fuel ran out"
+                "body": "ESA also developed Olympus, which was the largest civilian telecommunications satellite in the world at the time of its launch in 1989. Its design incorporated many key technologies that have later been incorporated in commercial satellites, including high-power transmitters, multi-spot beam Ka-band technology and on-board switching. Its direct-to-home TV broadcasting payload allowed national network programmes to be captured with dish antennas as small as 30 cm in diameter. Control of Olympus was accidentally lost in May 1991 but a major recovery action enabled it to resume full service by the following Aug. Two years later, the ambitious experimental mission ended when the spacecraft's fuel ran out"
             }
         ]
     },
@@ -2988,73 +2622,37 @@ missions = [
         "name": "Ariane",
         "data": [
             {
-                "date": "03 April 2014",
+                "date": "03 Apr 2014",
                 "type": 5,
                 "body": "Europe lofts first Copernicus environmental satellite",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/sentinel-1a_liftoff/14362347-2-eng-GB/Sentinel-1A_liftoff_newslist.jpg"
             },
             {
-                "date": "03 April 2014",
-                "type": 5,
-                "body": "Europe lofts first Copernicus environmental satellite",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/04/sentinel-1a_liftoff/14362347-2-eng-GB/Sentinel-1A_liftoff_newslist.jpg"
-            },
-            {
-                "date": "22 March 2014",
+                "date": "22 Mar 2014",
                 "type": 5,
                 "body": "Ariane 5 s second launch of 2014",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/ariane_liftoff_on_flight_va216/14333629-2-eng-GB/Ariane_liftoff_on_flight_VA216_newslist.jpg"
             },
             {
-                "date": "22 March 2014",
-                "type": 5,
-                "body": "Ariane 5 s second launch of 2014",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/03/ariane_liftoff_on_flight_va216/14333629-2-eng-GB/Ariane_liftoff_on_flight_VA216_newslist.jpg"
-            },
-            {
-                "date": "12 March 2014",
+                "date": "12 Mar 2014",
                 "type": 5,
                 "body": "Experimental simulator testing propulsion systems",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2008/07/ariane_5_eca_v184_climbout2/10127888-2-eng-GB/Ariane_5_ECA_V184_climbout_newslist.jpg"
             },
             {
-                "date": "12 March 2014",
-                "type": 5,
-                "body": "Experimental simulator testing propulsion systems",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2008/07/ariane_5_eca_v184_climbout2/10127888-2-eng-GB/Ariane_5_ECA_V184_climbout_newslist.jpg"
-            },
-            {
-                "date": "06 February 2014",
+                "date": "06 Feb 2014",
                 "type": 5,
                 "body": "Ariane 5 s first launch of 2014",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/ariane_liftoff_on_flight_va217/14266098-1-eng-GB/Ariane_liftoff_on_flight_VA217_newslist.jpg"
             },
             {
-                "date": "06 February 2014",
-                "type": 5,
-                "body": "Ariane 5 s first launch of 2014",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2014/02/ariane_liftoff_on_flight_va217/14266098-1-eng-GB/Ariane_liftoff_on_flight_VA217_newslist.jpg"
-            },
-            {
-                "date": "20 December 2013",
+                "date": "20 Dec 2013",
                 "type": 5,
                 "body": "Deploying multiple satellites with Sylda and Vespa",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/10/three_launchers_at_europe_s_spaceport/12032026-1-eng-GB/Three_launchers_at_Europe_s_Spaceport_newslist.png"
             },
             {
-                "date": "20 December 2013",
-                "type": 5,
-                "body": "Deploying multiple satellites with Sylda and Vespa",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2012/10/three_launchers_at_europe_s_spaceport/12032026-1-eng-GB/Three_launchers_at_Europe_s_Spaceport_newslist.png"
-            },
-            {
-                "date": "19 December 2013",
-                "type": 5,
-                "body": "Liftoff for ESA s billion-star surveyor",
-                "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/gaia_liftoff4/13461896-2-eng-GB/Gaia_liftoff_newslist.jpg"
-            },
-            {
-                "date": "19 December 2013",
+                "date": "19 Dec 2013",
                 "type": 5,
                 "body": "Liftoff for ESA s billion-star surveyor",
                 "image_link": "http://esa.int/var/esa/storage/images/esa_multimedia/images/2013/12/gaia_liftoff4/13461896-2-eng-GB/Gaia_liftoff_newslist.jpg"
@@ -3137,7 +2735,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "IUE was placed into a geo-synchronous orbit above the Atlantic Ocean. Until October 1995, IUE was in continuous operation, controlled 16 hours daily from one observatory and ground station on the East coast of America and the remaining 8 hours from the ESA IUE Observatory near Madrid, Spain"
+                "body": "IUE was placed into a geo-synchronous orbit above the Atlantic Ocean. Until Oct 1995, IUE was in continuous operation, controlled 16 hours daily from one observatory and ground station on the East coast of America and the remaining 8 hours from the ESA IUE Observatory near Madrid, Spain"
             },
             {
                 "type": 8,
@@ -3147,12 +2745,12 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "In February 1996, the partners ESA, NASA, and PPARC decided to discontinue the operations. IUE remained operational until September 1996, when its hydrazine was deliberately vented, its batteries drained and its transmitter turned off, thereby ensuring that IUE would remain intact as a non-operational spacecraft and not risk an accidental disruption of the spacecraft"
+                "body": "In Feb 1996, the partners ESA, NASA, and PPARC decided to discontinue the operations. IUE remained operational until Sep 1996, when its hydrazine was deliberately vented, its batteries drained and its transmitter turned off, thereby ensuring that IUE would remain intact as a non-operational spacecraft and not risk an accidental disruption of the spacecraft"
             },
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "When IUE went into orbit around the Earth in January 1978, it was designed to last for three years. After 18 years in space, the operational complexity due to different equipment failures had become so large that the decision to switch it off in 1996 was fully justified. However, even at that time, astronomers were still queuing up to use the instrument. The objectives of IUE were observation of faint stars, quasars, comets, gas streams, and extragalactic objects. As the remit of its mission was wide, it was an ideal candidate for an ESA mission in the Agency s early days"
+                "body": "When IUE went into orbit around the Earth in Jan 1978, it was designed to last for three years. After 18 years in space, the operational complexity due to different equipment failures had become so large that the decision to switch it off in 1996 was fully justified. However, even at that time, astronomers were still queuing up to use the instrument. The objectives of IUE were observation of faint stars, quasars, comets, gas streams, and extragalactic objects. As the remit of its mission was wide, it was an ideal candidate for an ESA mission in the Agency s early days"
             },
             {
                 "type": 8,
@@ -3199,7 +2797,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "The end of the mission coincided with the end of its fuel supply, which had been conserved by careful choice of manoeuvres. The originally foreseen duration of the mission was two years, but Cos-B was finally switched off on 25th April 1982, having functioned successfully for more than 6.5 years"
+                "body": "The end of the mission coincided with the end of its fuel supply, which had been conserved by careful choice of manoeuvres. The originally foreseen duration of the mission was two years, but Cos-B was finally switched off on 25th Apr 1982, having functioned successfully for more than 6.5 years"
             },
             {
                 "type": 8,
@@ -3245,7 +2843,7 @@ missions = [
             {
                 "type": 8,
                 "header": "ESA Science",
-                "body": "ESRO-4, 1972: The ESRO-4 (European Space Research Organisation) satellite carried five experiments concentrating on Earth's ionosphere, atmosphere, radiation belts and penetration of solar particle radiation into the magnetosphere. It was launched on 22 November 1972, on a NASA Scout rocket from the Western Test Range in California, and reentered Earth's atmosphere after a successful mission on 15 April 1974"
+                "body": "ESRO-4, 1972: The ESRO-4 (European Space Research Organisation) satellite carried five experiments concentrating on Earth's ionosphere, atmosphere, radiation belts and penetration of solar particle radiation into the magnetosphere. It was launched on 22 Nov 1972, on a NASA Scout rocket from the Western Test Range in California, and reentered Earth's atmosphere after a successful mission on 15 Apr 1974"
             }
         ]
     },
@@ -3268,118 +2866,46 @@ missions = [
             "header": "ESA Science"
         },
         {
-            "date": "29 September 2011",
+            "date": "29 Sep 2011",
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/53755-euclid-industry-day-presentations/'>Read more</a></span>"
         },
         {
-            "date": "29 September 2011",
+            "date": "29 Sep 2011",
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/53755-euclid-industry-day-presentations/'>Read more</a></span>"
         },
         {
-            "date": "29 September 2011",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/53755-euclid-industry-day-presentations/'>Read more</a></span>"
-        },
-        {
-            "date": "29 September 2011",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/53755-euclid-industry-day-presentations/'>Read more</a></span>"
-        },
-        {
-            "date": "22 January 2010",
+            "date": "22 Jan 2010",
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/48983-euclid-definition-study-report-esa-sre-2011-12/'>Read more</a></span>"
         },
         {
-            "date": "22 January 2010",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/48983-euclid-definition-study-report-esa-sre-2011-12/'>Read more</a></span>"
-        },
-        {
-            "date": "22 January 2010",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/48983-euclid-definition-study-report-esa-sre-2011-12/'>Read more</a></span>"
-        },
-        {
-            "date": "22 January 2010",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/48983-euclid-definition-study-report-esa-sre-2011-12/'>Read more</a></span>"
-        },
-        {
-            "date": "22 January 2010",
+            "date": "22 Jan 2010",
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46349-euclid-mission-assessment-study-executive-summary-thales-alenia-space/'>Read more</a></span>"
         },
         {
-            "date": "22 January 2010",
+            "date": "22 Jan 2010",
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46349-euclid-mission-assessment-study-executive-summary-thales-alenia-space/'>Read more</a></span>"
         },
         {
-            "date": "22 January 2010",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46349-euclid-mission-assessment-study-executive-summary-thales-alenia-space/'>Read more</a></span>"
-        },
-        {
-            "date": "22 January 2010",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46349-euclid-mission-assessment-study-executive-summary-thales-alenia-space/'>Read more</a></span>"
-        },
-        {
-            "date": "14 December 2009",
+            "date": "14 Dec 2009",
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46347-euclid-mission-assessment-study-executive-summary-eads-astrium/'>Read more</a></span>"
         },
         {
-            "date": "14 December 2009",
+            "date": "14 Dec 2009",
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46347-euclid-mission-assessment-study-executive-summary-eads-astrium/'>Read more</a></span>"
-        },
-        {
-            "date": "14 December 2009",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46347-euclid-mission-assessment-study-executive-summary-eads-astrium/'>Read more</a></span>"
-        },
-        {
-            "date": "14 December 2009",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46347-euclid-mission-assessment-study-executive-summary-eads-astrium/'>Read more</a></span>"
-        },
-        {
-            
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46232-technical-review-report-euclid/'>Read more</a></span>"
-        },
-        {
-            
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46232-technical-review-report-euclid/'>Read more</a></span>"
-        },
-        {
-            
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/euclid/46232-technical-review-report-euclid/'>Read more</a></span>"
         },
         {
             
@@ -3410,49 +2936,13 @@ missions = [
             "header": "ESA Science"
         },
         {
-            "date": "18 December 2011",
+            "date": "18 Dec 2011",
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/juice/50320-juice-science-requirement-matrix/'>Read more</a></span>"
         },
         {
-            "date": "18 December 2011",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/juice/50320-juice-science-requirement-matrix/'>Read more</a></span>"
-        },
-        {
-            "date": "18 December 2011",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/juice/50320-juice-science-requirement-matrix/'>Read more</a></span>"
-        },
-        {
-            "date": "18 December 2011",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/juice/50320-juice-science-requirement-matrix/'>Read more</a></span>"
-        },
-        {
-            "date": "13 January 2012",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/juice/50167-juice-technical-and-programmatic-review-report/'>Read more</a></span>"
-        },
-        {
-            "date": "13 January 2012",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/juice/50167-juice-technical-and-programmatic-review-report/'>Read more</a></span>"
-        },
-        {
-            "date": "13 January 2012",
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/juice/50167-juice-technical-and-programmatic-review-report/'>Read more</a></span>"
-        },
-        {
-            "date": "13 January 2012",
+            "date": "13 Jan 2012",
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/juice/50167-juice-technical-and-programmatic-review-report/'>Read more</a></span>"
@@ -3468,18 +2958,6 @@ missions = [
             "header": "ESA Science",
             "type": 9,
             "body": "<span class='readMore'><a href='http://sci.esa.int/juice/49837-juice-assessment-study-report-yellow-book/'>Read more</a></span>"
-        },
-        {
-            
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'><a href='http://sci.esa.int/juice/49837-juice-assessment-study-report-yellow-book/'>Read more</a></span>"
-        },
-        {
-            
-            "header": "ESA Science",
-            "type": 9,
-            "body": "<span class='readMore'>n<a href='http://sci.esa.int/juice/49837-juice-assessment-study-report-yellow-book/'>Read more</a></span>"
         },
         {
             "date": "2014-04-27",

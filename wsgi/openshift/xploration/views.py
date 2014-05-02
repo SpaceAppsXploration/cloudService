@@ -195,7 +195,33 @@ def test(request):
 
 def clean(request):
 
+    from data.ESA_output_COMPLETE import missions
+
     count = 0
+    for m in missions:
+        name = m['name']
+        data = m['data']
+        mission_to_save = Missions.objects.all().filter(name=name).first()
+        print mission_to_save
+        for d in data:
+            if d['type'] == 5:
+                # type Fact
+                to_save = Details(mission=mission_to_save, detail_type=d['type'], date=datetime.datetime.strptime(d['date'], '%d %b %Y').date(),
+                    body=d['body'], header='Fact')
+                to_save.save()
+                count += 1
+            if d['type'] == 8 or d['type'] == 1:
+                # type event (news, headlines, key_dates)
+                to_save = Details(mission=mission_to_save, detail_type=d['type'], header=d['header'],
+                    body=d['body'])
+                to_save.save()
+                count += 1
+            if d['type'] == 9 or d['type'] == 10 or d['type'] == 11:
+                #type Goals, accomp
+                to_save = Details(mission=mission_to_save, detail_type=d['type'], header=d['header'],
+                    body=d['body'])
+                to_save.save()
+                count += 1
     
     return StreamingHttpResponse(json.dumps({'status': 'done', 'count': count }), content_type="application/json")
 
