@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^clean/', 'xploration.views.clean'),
 
     # REST endpoints
+    url(r'^api/docs/', include('rest_framework_swagger.urls')),
     url(r'^api/targets/(?P<t_id>[0-9]+)/$', 'xploration.views.target_detail'),
     url(r'^api/targets/$', 'xploration.views.targets_list'),    
     url(r'^api/missions/details/(?P<m_id>[0-9]+)/$', 'xploration.views.mission_detail'),

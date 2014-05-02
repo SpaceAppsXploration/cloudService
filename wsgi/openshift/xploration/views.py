@@ -10,6 +10,7 @@ import datetime
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
+from rest_framework.decorators import api_view
 
 '''
 import verity tables for mission's checking
@@ -40,6 +41,7 @@ class JSONResponse(HttpResponse):
         super(JSONResponse, self).__init__(content, **kwargs)
 
 @csrf_exempt
+@api_view(['GET'])
 def targets_list(request):
     '''
     List all possible Targets
@@ -53,6 +55,7 @@ def targets_list(request):
         return JSONResponse(mex)
 
 @csrf_exempt
+@api_view(['GET'])
 def target_detail(request, t_id):
     '''
     Reply with only one among Targets
@@ -70,6 +73,7 @@ def target_detail(request, t_id):
         return JSONResponse(mex)
 
 @csrf_exempt
+@api_view(['GET'])
 def missions_list(request):
     '''
     List all possible Missions
@@ -83,6 +87,7 @@ def missions_list(request):
         return JSONResponse(mex)
 
 @csrf_exempt
+@api_view(['GET'])
 def planets_list(request):
     '''
     List of all Planets physical values
@@ -96,6 +101,7 @@ def planets_list(request):
         return JSONResponse(mex)
 
 @csrf_exempt
+@api_view(['GET'])
 def single_planet(request, p_id):
     '''
     Get  single Planets physical values
@@ -115,6 +121,7 @@ def single_planet(request, p_id):
         return JSONResponse(mex)
 
 @csrf_exempt
+@api_view(['GET'])
 def single_mission(request, m_id):
     '''
     Get single mission by mission id
@@ -140,6 +147,7 @@ def single_mission(request, m_id):
 
 
 @csrf_exempt
+@api_view(['GET'])
 def mission_detail(request, m_id):
     '''
     Reply with all the data referred to one Missions.
@@ -157,6 +165,7 @@ def mission_detail(request, m_id):
         return JSONResponse(mex)
 
 @csrf_exempt
+@api_view(['GET'])
 def missions_by_target(request, t_id):
     '''
     Reply with all the data referred to one Targets.
@@ -171,7 +180,7 @@ def missions_by_target(request, t_id):
 
         target_missions = Missions.objects.all().filter(target=target)
            
-        serializer = MissionsSerializer(target_missions)
+        serializer = MissionsSerializer(target_missions, many=True)
         return JSONResponse(serializer.data)
     else:
         mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
