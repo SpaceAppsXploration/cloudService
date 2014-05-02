@@ -99,6 +99,12 @@ class Planets(models.Model):
     active      = models.BooleanField()         
     atmosphere  = models.CharField(max_length=50)
      
+    def __unicode__(self):
+        return str(self.target.name)
+
+    class Meta:
+        verbose_name_plural = 'Planets'
+        ordering = ['target__name']
 
 
 

@@ -10,8 +10,11 @@ class MissionsAdmin(admin.ModelAdmin):
 
 class DetailsAdmin(admin.ModelAdmin):
     pass
-        
+
+class PlanetsAdmin(admin.ModelAdmin):
+    pass    
     
 admin.site.register(Targets, TargetsAdmin)
 admin.site.register(Missions, MissionsAdmin)
 admin.site.register(Details, DetailsAdmin)
+admin.site.register(Planets, PlanetsAdmin)
