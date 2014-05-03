@@ -96,7 +96,7 @@ def simulation(request):
         for k,v in busAll.iteritems():
             # 3 check if BUS components are compatible with DISTANCE
             for e in bus_vs_dist:
-                j = float(e['range_min'])
+                j = float(e['range_max'])
                 
                 # return StreamingHttpResponse(json.dumps(j), content_type="application/json")
                 if j < usr_distance:
