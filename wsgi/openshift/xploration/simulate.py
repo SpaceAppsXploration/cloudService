@@ -102,11 +102,12 @@ def simulation(request):
                 if j < usr_distance:
                     pass
                 else:
-                    #print e['name'], j, usr_distance
+                    print e['name'], j, usr_distance
                     if e[k] != v:
                         results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 
                                     'type': 'Error in BUS vs distance check ' + k, 'content': 'null' }
                         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
+                    break
 
 
             # 4 check if BUS systems and subsystems are compatible with type of MISSION - bus_vs_mission_type
