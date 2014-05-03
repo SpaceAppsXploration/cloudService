@@ -84,7 +84,7 @@ def simulation(request):
             busAll[k] = True
 
     
-    usr_distance = usr_planet['distance']
+    usr_distance = float(usr_planet['distance'])
 
     if len(busAll) != 0:
         # check if no payload is choosen for the BUS
@@ -96,9 +96,13 @@ def simulation(request):
         for k,v in busAll.iteritems():
             # 3 check if BUS components are compatible with DISTANCE
             for e in bus_vs_dist:
-                j = e['range_min']
+                j = float(e['range_min'])
+                
                 # return StreamingHttpResponse(json.dumps(j), content_type="application/json")
-                if j < int(usr_distance):
+                if j < usr_distance:
+                    pass
+                else:
+                    #print e['name'], j, usr_distance
                     if e[k] != v:
                         results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 
                                     'type': 'Error in BUS vs distance check ' + k, 'content': 'null' }
@@ -109,7 +113,7 @@ def simulation(request):
      
             for f in bus_vs_mission_type:
                 if f['slug'] == usr_mission_slug:
-                        if f[k] != v:
+                        if f[k] != True:
                             results = {'code': 1, 'status': 'Error', 'message':'Error in simulation', 
                                        'type': 'Error in BUS in system ' + k, 'content': f[k][1] }
                             return StreamingHttpResponse(json.dumps(results), content_type="application/json")
@@ -117,7 +121,7 @@ def simulation(request):
             # 5 check if the PAYLOAD/BUS choices are compatible - pl_vs_bus
             for g in components: 
                 for x in pl_vs_bus_type:
-                #print k
+                  #print k
                   if x['slug'] == g:
                       if x[k] != True: 
                         results = { 'code': 1, 'status': 'Error', 'message':'Error in simulation', 
