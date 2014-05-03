@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^simulation/', 'xploration.views.simulation'),
+    url(r'^simulation/', 'xploration.simulate.simulation'),
     url(r'^webapp/start', 'webapp.views.start'),
 
     url(r'^test/', 'xploration.views.test'),

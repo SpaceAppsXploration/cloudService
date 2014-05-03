@@ -13,18 +13,6 @@ from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 
 '''
-import verity tables for mission's checking
-'''
-from data.tables_Bodies import destinations
-from data.tables_Missions import mission_type
-from data.tables_BusVsMission import bus_vs_mission_type
-from data.tables_BusVsDist import bus_vs_dist
-from data.tables_BusVsBus import bus_vs_bus
-#from data.missions import missions
-#from data.missions_details import missions_details
-
-
-'''
 import models and json serializers
 '''
 from models import Missions, Targets, Details, Planets
@@ -44,14 +32,16 @@ class JSONResponse(HttpResponse):
 @api_view(['GET'])
 def targets_list(request):
     '''
-    List all possible Targets
+    List all possible Targets.
+    These are different kinds of celestial bodies in the Solar system,
+    that can be the mission's destination.
     '''
     if request.method == 'GET':
         targets = Targets.objects.all()
         serializer = TargetsSerializer(targets, many=True)
         return JSONResponse(serializer.data)
     else:
-        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
 @csrf_exempt
@@ -69,35 +59,38 @@ def target_detail(request, t_id):
         serializer = TargetsSerializer(target)
         return JSONResponse(serializer.data)
     else:
-        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
 @csrf_exempt
 @api_view(['GET'])
 def missions_list(request):
     '''
-    List all possible Missions
+    List all possible Missions.
+    Use this call as few as possible, store the object in a local object,
+    and refresh it seldomly. Use the stored object for daily tasks in the app.
     '''
     if request.method == 'GET':
         mix = Missions.objects.all()
         serializer = MissionsSerializer(mix, many=True)
         return JSONResponse(serializer.data)
     else:
-        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
 @csrf_exempt
 @api_view(['GET'])
 def planets_list(request):
     '''
-    List of all Planets physical values
+    List of all Planets physical values.
+    'target' is the planet's id into Targets.
     '''
     if request.method == 'GET':
         mix = Planets.objects.all()
         serializer = PlanetsSerializer(mix, many=True)
         return JSONResponse(serializer.data)
     else:
-        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
 @csrf_exempt
@@ -105,6 +98,7 @@ def planets_list(request):
 def single_planet(request, p_id):
     '''
     Get  single Planets physical values
+    'target' is the planet's id into Targets.
     '''
     if request.method == 'GET':
         mix = Planets.objects.get(target=p_id)
@@ -117,19 +111,21 @@ def single_planet(request, p_id):
         serializer = json.dumps(obj)
         return StreamingHttpResponse(serializer, content_type="application/json")
     else:
-        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
 @csrf_exempt
 @api_view(['GET'])
 def single_mission(request, m_id):
     '''
-    Get single mission by mission id
+    Get single mission by mission id.
+    'targets' is an array of destinations' ids.
+    Era = (1, Past), (2, Present), (3, Future), (0, Concept)
     '''
     if request.method == 'GET':
         one_mission = Missions.objects.all().filter(id=m_id).first()
         if not one_mission:
-            res = json.dumps({'code':1, 'status':'Error', 'message': 'No mission with this id'})
+            res = json.dumps({'code':1, 'status':'Error', 'message': 'No mission with this id', 'type': 'null', 'content': 'null'})
             return StreamingHttpResponse(res, content_type="application/json") 
         name_mission = one_mission.name
         all_target = Missions.objects.all().filter(name=name_mission)
@@ -142,7 +138,7 @@ def single_mission(request, m_id):
         serializer = json.dumps(obj)
         return StreamingHttpResponse(serializer, content_type="application/json")
     else:
-        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
 
@@ -151,17 +147,18 @@ def single_mission(request, m_id):
 def mission_detail(request, m_id):
     '''
     Reply with all the data referred to one Missions.
-    Search by mission id
+    Search by mission id.
+    Response is an array of objects with different 'type'.
     '''
     if request.method == 'GET':
         mix_details = Details.objects.all().filter(mission=m_id)
         if len(mix_details) == 0:
-            res = json.dumps({'status': 'Error', 'code': 1, 'message': 'no mission with this id'})
+            res = json.dumps({'status': 'Error', 'code': 1, 'message': 'no mission with this id', 'type': 'null', 'content': 'null'})
             return StreamingHttpResponse(res, content_type="application/json")
         serializer = DetailsSerializer(mix_details)
         return JSONResponse(serializer.data)
     else:
-        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
 @csrf_exempt
@@ -169,13 +166,14 @@ def mission_detail(request, m_id):
 def missions_by_target(request, t_id):
     '''
     Reply with all the data referred to one Targets.
-    Search by target id
+    Search by target id.
+    Era = (1, Past), (2, Present), (3, Future), (0, Concept)
     '''
     if request.method == 'GET':
         try:
             target = Targets.objects.get(id=t_id)
         except:
-            res = json.dumps({'code':1, 'status':'Error', 'message': 'No destination with this id'})
+            res = json.dumps({'code':1, 'status':'Error', 'message': 'No destination with this id', 'type': 'null', 'content': 'null'})
             return StreamingHttpResponse(res, content_type="application/json")
 
         target_missions = Missions.objects.all().filter(target=target)
@@ -183,12 +181,12 @@ def missions_by_target(request, t_id):
         serializer = MissionsSerializer(target_missions, many=True)
         return JSONResponse(serializer.data)
     else:
-        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint'}
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
 
 def home(request):
-    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
+    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
     js = json.dumps(js)
     
     params = {}
@@ -217,117 +215,4 @@ def homeTEST(request):
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
     params['status'] = js
     return render_to_response('home/homeTEST.html', params)
-
-def simulation(request):
-
-    ''' 
-    GET example: 
-    /simulation/?
-        destination=mars
-        &mission=prop_chem
-        &opt_sensor=true
-        &radio_sensor=false
-        &spectrometer=true
-        &probe=true
-        &amplifierfier=false
-    '''
-
-    if 'destination' not in request.GET: # raise 404 if not destination in the URL
-        raise Http404
-
-    results = {}
-
-
-    usr_planet = request.GET['destination']
-
-
-    # cycles destinations in table_Bodies.py
-    for p in destinations:
-        if p['slug'] == usr_planet:
-            usr_planet = p
-    
-
-    if 'mission' not in request.GET: # raise 404 if not mission in the URL
-        raise Http404
-
-    usr_mission_slug = request.GET['mission']
-    #print  usr_planet['name'], usr_mission['name']
-
-    # check compatibility planet/mission  
-    if usr_planet[usr_mission_slug] != True :
-        results = {'code': 1, 'status': 'Error', 'message':'Error in simulation', 
-                   'type': 'Error in mission type ' + usr_mission_slug, 'content': 'null' }
-        return StreamingHttpResponse(json.dumps(results), content_type="application/json")
-        
-
-    # take components from URL and dump into a list
-    components = [k for k,v in request.GET.iteritems() if v == 'true']
-    
-
-    #components = ['opt_sensor', 'radio_sensor', 'spectrometer', 'probe', 'amplifier']
-    #comp_samples = random.sample(components, random.randint(1, len(components)))
-
-    # check components/mission compatibility - mission_type
-    for e in components:
-        #print e
-        for k in mission_type:
-            #print k
-            if k['slug'] == usr_mission_slug:
-                if k[e] != True: 
-                    results = { 'code': 1, 'status': 'Error', 'message':'Error in simulation', 
-                                'type': 'Error in component ' + e, 'content': 'null' }
-                    return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
-
-    
-    # get BUS components from URL
-    busAll = {}
-    for k,v in request.GET.iteritems():
-        if v == 'bustrue':
-            busAll[k] = True
-
-    # check if systems and subsystems are compatible with type of mission - bus_vs_mission_type
-    if len(busAll) != 0:
-      for e in bus_vs_mission_type:
-        if e['slug'] == usr_mission_slug:
-            for k,v in busAll.iteritems():
-                if e[k] != v:
-                    results = {'code': 1, 'status': 'Error', 'message':'Error in simulation', 
-                               'type': 'Error in BUS in system ' + k, 'content': 'null' }
-                    return StreamingHttpResponse(json.dumps(results), content_type="application/json")
-
-    
-
-    usr_distance = usr_planet['distance']
-
-    # check if destination's distance is compatible - bus_vs_dist
-    if len(busAll) != 0:
-        for e in bus_vs_dist:
-            j = e['range_min']
-            # return StreamingHttpResponse(json.dumps(j), content_type="application/json")
-            if isinstance(j, str):
-              if j < int(usr_distance):
-                for k,v in busAll.iteritems():
-                    if e[k] != v:
-                        results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 
-                                    'type': 'Error in BUS vs distance check ' + k, 'content': 'null' }
-                        return StreamingHttpResponse(json.dumps(results), content_type="application/json")
-
-
-    
-    # check if the payload is compatible - bus_vs_bus
-    if len(busAll) != 0:
-      for e in bus_vs_bus:
-        if e['slug'] == usr_mission_slug:
-            for k,v in busAll.iteritems():
-                if e[k] != v:
-                    results = { 'message':'Error in simulation', 'type': 'Error in BUS vs payload check ' + k,
-                               'content': 'null', 'code':1, 'status': 'Error' }
-                    return StreamingHttpResponse(json.dumps(results), content_type="application/json")
-
-    results = { 'code':0, 'status':'OK', 'message': 'Mission is way to go!', 'type': 'cheer', 'content': 'null' }
-    return StreamingHttpResponse(json.dumps(results), content_type="application/json") 
-
-        
-
-
 
