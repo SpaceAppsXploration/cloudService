@@ -39,25 +39,12 @@ if ON_OPENSHIFT:
             'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],             # Set to empty string for default. Not used with sqlite3.
        }
     }
-
-    CACHES = {
-	    'default': {
-		'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-		'LOCATION': os.environ['OPENSHIFT_DATA_DIR']+'django_cache',
-	    }
-    }
-    
-    '''MEM_URL = '%s:22322' % (os.environ['OPENSHIFT_INTERNAL_IP'])
     CACHES = {
         'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': MEM_URL,
-        'OPTIONS': {
-            'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
-            'PASSWORD': os.environ['S_REDIS_DB_PASSWORD'], # Optional
+	    'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+	    'LOCATION': os.environ['OPENSHIFT_DATA_DIR']+'django_cache',
         }
-        }
-    }'''
+    }
 else:
     DATABASES = {
         'default': {
@@ -69,20 +56,6 @@ else:
             'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
        }
     }
-    
-    '''CACHES = {
-        "default": {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        "LOCATION": "127.0.0.1:6379:1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "redis_cache.client.DefaultClient",
-        }
-        }
-    }'''
-
-#SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-#SESSION_CACHE_ALIAS = "default"
-
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -139,7 +112,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     #    CSS_DIR,
-    #os.path.join(PROJECT_DIR, '..', 'static', 'xploration'),
+    os.path.join(PROJECT_DIR, '..', 'static', 'xploration'),
 )
 
 # List of finder classes that know how to find static files in
@@ -217,7 +190,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Configuration for Django Swagger
 SWAGGER_SETTINGS = {
     "exclude_namespaces": [], # List URL namespaces to ignore
-    "api_version": '0.5',  # Specify your API's version
+    "api_version": '0.1',  # Specify your API's version
     "api_path": "/",  # Specify the path to your API not a root level
     "enabled_methods": [  # Specify which methods to enable in Swagger UI
         'get'
@@ -250,4 +223,3 @@ LOGGING = {
         },
     }
 }
-
