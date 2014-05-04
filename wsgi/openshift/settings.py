@@ -139,7 +139,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     #    CSS_DIR,
-    os.path.join(PROJECT_DIR, '..', 'static', 'xploration'),
+    #os.path.join(PROJECT_DIR, '..', 'static', 'xploration'),
 )
 
 # List of finder classes that know how to find static files in
