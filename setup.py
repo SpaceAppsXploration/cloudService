@@ -3,11 +3,13 @@
 from setuptools import setup
 
 setup(
-    name='Project Chronos',
+    name='Chronos',
     version='1.0',
-    description='Xploration Apps and REST',
-    author='Space Apps Rome 2014 Project Chronos',
-    author_email='@XplorationApp',
-    url='https://2014.spaceappschallenge.org/project/chronos/',
-    install_requires=['Django==1.6.2'],
+    description='Solar System Satellites Xploration!',
+    author='Chronos SpaceApps Rome Team 2014',
+    author_email='https://2014.spaceappschallenge.org/project/chronos/',
+    url='http://www.spacexplore.it',
+    install_requires=['djangorestframework==2.3.13', 'Django==1.6.2', 'django-cors-headers==0.12',
+                      'django-rest-swagger==0.1.14'],
 )
+

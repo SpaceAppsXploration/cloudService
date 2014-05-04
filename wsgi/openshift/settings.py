@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Django settings for OpenShift project.
+# Django settings for openshift project.
 import imp, os
 
 # a setting to determine whether we are running on OpenShift
 ON_OPENSHIFT = False
-if os.environ.has_key('OPENSHIFT_REPO_DIR'):
+if 'OPENSHIFT_REPO_DIR' in os.environ:
     ON_OPENSHIFT = True
 
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -14,10 +14,15 @@ if ON_OPENSHIFT:
         print("WARNING: The DEBUG environment is set to True.")
 else:
     DEBUG = True
+
+BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Lorenzo Moriondo', 'tunedconsulting@gmail.com'),
+    ('Claudio Pastorini', 'pastorini.claudio@gmail.com'),
+    ('Andrea Monti', 'monti.d.andrea@gmail.com'),
 )
 MANAGERS = ADMINS
 
@@ -26,25 +31,58 @@ if ON_OPENSHIFT:
     # with rhc cartridge add (see /README in this git repo)
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': os.path.join(os.environ['OPENSHIFT_DATA_DIR'], 'sqlite3.db'),  # Or path to database file if using sqlite3.
-            'USER': '',                      # Not used with sqlite3.
-            'PASSWORD': '',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        }
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'chronos',                                               # Or path to database file if using sqlite3.
+            'USER': os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],         # Not used with sqlite3.
+            'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],     # Not used with sqlite3.
+            'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],             # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],             # Set to empty string for default. Not used with sqlite3.
+       }
     }
+
+    CACHES = {
+	    'default': {
+		'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+		'LOCATION': os.environ['OPENSHIFT_DATA_DIR'],
+	    }
+    }
+    
+    '''MEM_URL = '%s:22322' % (os.environ['OPENSHIFT_INTERNAL_IP'])
+    CACHES = {
+        'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': MEM_URL,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
+            'PASSWORD': os.environ['S_REDIS_DB_PASSWORD'], # Optional
+        }
+        }
+    }'''
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': os.path.join(PROJECT_DIR, 'sqlite3.db'),  # Or path to database file if using sqlite3.
-            'USER': '',                      # Not used with sqlite3.
-            'PASSWORD': '',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        }
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'chronos',  # Or path to database file if using sqlite3.
+            'USER': 'postgres',                      # Not used with sqlite3.
+            'PASSWORD': 'poiuyt',                  # Not used with sqlite3.
+            'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
+       }
     }
+    
+    '''CACHES = {
+        "default": {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        "LOCATION": "127.0.0.1:6379:1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "redis_cache.client.DefaultClient",
+        }
+        }
+    }'''
+
+#SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+#SESSION_CACHE_ALIAS = "default"
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -53,7 +91,7 @@ else:
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/Rome'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -63,7 +101,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale
@@ -94,10 +132,14 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
+#CSS_DIR = os.path.join(PROJECT_DIR, '..', 'static', 'css')
+
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    #    CSS_DIR,
+    os.path.join(PROJECT_DIR, '..', 'static', 'xploration'),
 )
 
 # List of finder classes that know how to find static files in
@@ -109,7 +151,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make a dictionary of default keys
-default_keys = { 'SECRET_KEY': 'vm4rl5*ymb@2&d_(gc$gb-^twq9w(u69hi--%$5xrh!xk(t%hw' }
+default_keys = { 'SECRET_KEY': 'aajklsl452346_$' }
 
 # Replace default keys with dynamic values if we are in OpenShift
 use_keys = default_keys
@@ -120,6 +162,12 @@ if ON_OPENSHIFT:
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = use_keys['SECRET_KEY']
+
+# Hosts
+if DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    ALLOWED_HOSTS = ['*']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -134,9 +182,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 )
 
-ROOT_URLCONF = 'openshift.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -156,7 +205,28 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'corsheaders',
+    'rest_framework_swagger',
+    'xploration',
+    'webapp',
 )
+
+# Configuration for Django CORS Headers
+CORS_ORIGIN_ALLOW_ALL = True
+
+# Configuration for Django Swagger
+SWAGGER_SETTINGS = {
+    "exclude_namespaces": [], # List URL namespaces to ignore
+    "api_version": '0.1',  # Specify your API's version
+    "api_path": "/",  # Specify the path to your API not a root level
+    "enabled_methods": [  # Specify which methods to enable in Swagger UI
+        'get'
+    ],
+    "api_key": '', # An API key
+    "is_authenticated": False,  # Set to True to enforce user authentication,
+    "is_superuser": False,  # Set to True to enforce admin only access
+}
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -180,3 +250,4 @@ LOGGING = {
         },
     }
 }
+
