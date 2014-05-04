@@ -43,7 +43,7 @@ if ON_OPENSHIFT:
     CACHES = {
 	    'default': {
 		'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-		'LOCATION': os.environ['OPENSHIFT_DATA_DIR'],
+		'LOCATION': os.environ['OPENSHIFT_DATA_DIR']+'django_cache',
 	    }
     }
     
