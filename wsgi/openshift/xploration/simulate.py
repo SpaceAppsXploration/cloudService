@@ -131,6 +131,16 @@ def simulation(request):
 
 
             # 6 check if the NUMBER of PAYLOADS choices are compatible - npl_vs_bus
+            for h in npl_vs_bus_type:
+                j = int(h['check'])
+                
+                # return StreamingHttpResponse(json.dumps(j), content_type="application/json")
+                if j == len(busAll):
+                    if h[k] != True:
+                        results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 
+                                    'type': 'Error in number of payloads check ', 'content': h[k][1] }
+                        return StreamingHttpResponse(json.dumps(results), content_type="application/json")
+                    
 
 
             # 7 check if the payload is compatible - bus_vs_bus
