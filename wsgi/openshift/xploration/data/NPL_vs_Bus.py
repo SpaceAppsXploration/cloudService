@@ -5,6 +5,7 @@ npl_vs_bus_type = []
 PL1 = {}
 PL1['name'] = 'one payload'
 PL1['slug'] = 'PL1'
+PL1['check'] = 1
 PL1['therm_active'] = True
 PL1['therm_passive'] = True
 PL1['pow_prim_panels'] = True
@@ -28,6 +29,7 @@ npl_vs_bus_type.append(PL1)
 PL2 = {}
 PL2['name'] = 'two payload'
 PL2['slug'] = 'PL2'
+PL2['check'] = 2
 PL2['therm_active'] = True
 PL2['therm_passive'] = True
 PL2['pow_prim_panels'] = True
@@ -52,6 +54,7 @@ npl_vs_bus_type.append(PL2)
 PL3 = {}
 PL3['name'] = 'three payload'
 PL3['slug'] = 'PL3'
+PL3['check'] = 3
 PL3['therm_active'] = True
 PL3['therm_passive'] = True
 PL3['pow_prim_panels'] = True
@@ -76,6 +79,7 @@ npl_vs_bus_type.append(PL3)
 PL4 = {}
 PL4['name'] = 'four payload'
 PL4['slug'] = 'PL4'
+PL4['check'] = 4
 PL4['therm_active'] = True
 PL4['therm_passive'] = True
 PL4['pow_prim_panels'] = True
@@ -100,6 +104,7 @@ npl_vs_bus_type.append(PL4)
 PL5 = {}
 PL5['name'] = 'five payload'
 PL5['slug'] = 'PL5'
+PL5['check'] = 5
 PL5['therm_active'] = True
 PL5['therm_passive'] = True
 PL5['pow_prim_panels'] = True

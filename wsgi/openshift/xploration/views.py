@@ -1,5 +1,5 @@
 '''
-Homepage, Simulator and REST views
+Homepage and REST views
 '''
 import json
 from django.http import HttpResponse, StreamingHttpResponse

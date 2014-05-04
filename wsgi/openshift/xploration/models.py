@@ -107,4 +107,9 @@ class Planets(models.Model):
         ordering = ['target__name']
 
 
+class PayloadBusComp(models.Model):
+    pass
+
+class PayloadBusTypes(models.Model):
+    pass
 
