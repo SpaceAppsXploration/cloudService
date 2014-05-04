@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+    <div class="row" style="">
+        <div class="col-md-12">
+            <div class="container" style="margin-top:3%;"> 
+
+                <div class="b_white" style="">
+                    <b>
+                        <p>
+                        This is the page for choosing the mission's destination</p>
+                    </b>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+           <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>    
+                {% for t in targets %}
+                {% if forloop.first %}
+                    <div class="row">
+                {% endif %}
+                {% ifequal forloop.counter|divisibleby:3 1 %}
+                    <div class="row">
+                {% endifequal %}
+                 <!-- Start Icon Box 1-->
+                        <div class="col-md-3 service-box service-center">
+                            <div class="service-boxed">
+                                <div class="service-icon" style="margin-top:-30px;">
+                                 
+                                        <i class="glyphicon icon-medium-effect"></i>
+                             
+                                </div>
+                                <div class="service-content">
+                                    <h4>{{t.name}}</h4>
+                                    <div style="width:200px;height:200px;margin: auto auto;"><img src="{{t.image_url}}" style="margin: auto auto;"/></div>
+                                    <p style="margin-bottom:20px;">{{t.characteristics}}</p>
+                                    <p><a class="btn btn-default" href="/webapp/go/to/{{t.name|slugify}}">Choose</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Icon Box 1-->
+                        {% ifequal forloop.counter|divisibleby:3 1 %}
+                             </div>
+                        {% endifequal %}
+                        {% if forloop.last %}
+                             </div> 
+                        {% endif %}
+                        {% endfor %}
+                                          
+                </div>
+        </div>
+
+<style>
+
+</style>
+
+{% endblock %}
