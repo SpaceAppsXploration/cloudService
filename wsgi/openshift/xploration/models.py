@@ -32,9 +32,9 @@ class Missions(models.Model):
         (0, 'Concept')
         )
 
-    id              = models.AutoField(primary_key=True)
-    target          = models.ForeignKey(Targets)
-    era             = models.IntegerField(max_length=3, choices=ERA)
+    id              = models.AutoField(primary_key=True, db_index=True)
+    target          = models.ForeignKey(Targets, db_index=True)
+    era             = models.IntegerField(max_length=3, choices=ERA, db_index=True)
     name            = models.CharField(max_length=80)
     codename        = models.CharField(max_length=50, null=True, blank=True)
     hashed          = models.CharField(max_length=150)
@@ -63,12 +63,12 @@ class Details(models.Model):
         (11, 'news')
         )
 
-    id              = models.AutoField(primary_key=True)
-    mission         = models.ForeignKey(Missions)
+    id              = models.AutoField(primary_key=True, db_index=True)
+    mission         = models.ForeignKey(Missions, db_index=True)
     detail_type     = models.IntegerField(max_length=3, choices=DETAIL_TYPE)
-    header          = models.CharField(max_length=150)
+    header          = models.CharField(max_length=150, db_index=True)
     body            = models.CharField(max_length=3000)
-    date            = models.DateTimeField(null=True, blank=True)
+    date            = models.DateTimeField(null=True, blank=True, db_index=True)
     image_link      = models.CharField(max_length=250, null=True, blank=True)
 
     def __unicode__(self):
