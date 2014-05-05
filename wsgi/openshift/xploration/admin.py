@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Targets, Missions, Details, Planets
+from models import Targets, Missions, Details, Planets, PayloadBusTypes, PayloadBusComps
 from django.db.models import Q
 from django import forms
 
@@ -22,8 +22,18 @@ class DetailsAdmin(admin.ModelAdmin):
 
 class PlanetsAdmin(admin.ModelAdmin):
     pass    
-    
+
+class PayloadBusTypesAdmin(admin.ModelAdmin):
+    pass
+
+class PayloadBusCompsAdmin(admin.ModelAdmin):
+    pass
+ 
 admin.site.register(Targets, TargetsAdmin)
 admin.site.register(Missions, MissionsAdmin)
 admin.site.register(Details, DetailsAdmin)
 admin.site.register(Planets, PlanetsAdmin)
+admin.site.register(PayloadBusComps, PayloadBusCompsAdmin)
+admin.site.register(PayloadBusTypes, PayloadBusTypesAdmin)
+
+

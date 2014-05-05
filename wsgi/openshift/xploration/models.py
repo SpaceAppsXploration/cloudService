@@ -107,9 +107,38 @@ class Planets(models.Model):
         ordering = ['target__name']
 
 
-class PayloadBusComp(models.Model):
-    pass
-
 class PayloadBusTypes(models.Model):
-    pass
+    id          = models.AutoField(primary_key=True)
+    name        = models.CharField(max_length=100)
+    category    = models.CharField(max_length=10)
+    description = models.CharField(max_length=1500)
+    link        = models.CharField(max_length=300, null=True, blank=True)
+
+    def __unicode__(self):
+        return str(self.category)+' '+str(self.name)
+
+    class Meta:
+        verbose_name_plural = 'PL and BUS Types'
+        ordering = ['name']
+
+
+class PayloadBusComps(models.Model):
+    id          = models.AutoField(primary_key=True)
+    pbtype      = models.ManyToManyField(PayloadBusTypes)
+    name        = models.CharField(max_length=100)
+    category    = models.CharField(max_length=10) #payload or bus
+    description = models.CharField(max_length=1500)
+    slug        = models.CharField(max_length=80)
+    link        = models.CharField(max_length=300, null=True, blank=True)
+
+    def __unicode__(self):
+        return str(self.category)+' '+str(self.name)
+
+    class Meta:
+        verbose_name_plural = 'PL and BUS Components'
+        ordering = ['name']
+
+
+
+
 
