@@ -180,7 +180,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'corsheaders',
     'rest_framework_swagger',
-    'xploration',
+    'chronos',
     'webapp',
 )
 
