@@ -17,6 +17,7 @@ class Targets(models.Model):
     characteristics = models.CharField(max_length=3000, null=True, blank=True, default='')
     curiosities     = models.CharField(max_length=3000, null=True, blank=True, default='')
     sim_related     = models.CharField(max_length=3000, null=True, blank=True, default='')
+    use_in_sim      = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name

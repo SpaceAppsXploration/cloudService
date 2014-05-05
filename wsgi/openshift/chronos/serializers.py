@@ -4,7 +4,7 @@ from models import Targets, Missions, Details, Planets, PayloadBusTypes, Payload
 class TargetsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Targets
-        fields = ('id', 'name', 'slug', 'body_type', 'image_url', 'characteristics', 'curiosities', 'sim_related')
+        fields = ('id', 'name', 'slug', 'body_type', 'image_url', 'characteristics', 'curiosities', 'sim_related', 'use_in_sim')
 
 class MissionsSerializer(serializers.ModelSerializer):
     class Meta:
