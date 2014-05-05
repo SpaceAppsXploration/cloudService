@@ -1,5 +1,6 @@
 '''
 Homepage and REST views
+Need refactoring
 '''
 import json
 from django.http import HttpResponse, StreamingHttpResponse
@@ -7,6 +8,7 @@ from django.http import HttpResponse, StreamingHttpResponse
 from django.shortcuts import render_to_response
 from django.http import Http404
 import datetime
+from django.core.cache import cache
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
@@ -53,7 +55,8 @@ def target_detail(request, t_id):
     try:
         target = Targets.objects.get(id=t_id)
     except Targets.DoesNotExist:
-        return HttpResponse(status=404)
+        mex = {'status': 'Error', 'code': 1, 'message': 'No target with this id', 'type': 'null', 'content': 'null'}
+        return JSONResponse(mex)
 
     if request.method == 'GET':
         serializer = TargetsSerializer(target)
@@ -123,7 +126,7 @@ def single_mission(request, m_id):
     Era = (1, Past), (2, Present), (3, Future), (0, Concept)
     '''
     if request.method == 'GET':
-        one_mission = Missions.objects.all().filter(id=m_id).first()
+        one_mission = Missions.objects.all().get(id=m_id)
         if not one_mission:
             res = json.dumps({'code':1, 'status':'Error', 'message': 'No mission with this id', 'type': 'null', 'content': 'null'})
             return StreamingHttpResponse(res, content_type="application/json") 
@@ -151,11 +154,35 @@ def mission_detail(request, m_id):
     Response is an array of objects with different 'type'.
     '''
     if request.method == 'GET':
-        mix_details = Details.objects.all().filter(mission=m_id)
-        if len(mix_details) == 0:
-            res = json.dumps({'status': 'Error', 'code': 1, 'message': 'no mission with this id', 'type': 'null', 'content': 'null'})
+        try:
+            m = Missions.objects.get(id=m_id)
+            cdn = m.codename
+            print cdn
+        except:
+            res = json.dumps({'status': 'Error', 'code': 1, 'message': 'no details for this mission', 'type': 'null', 'content': 'null'})
             return StreamingHttpResponse(res, content_type="application/json")
-        serializer = DetailsSerializer(mix_details)
+        
+        # Missions are stored in the DB considering the (mission,target) coupling
+        # (Missions with multiple Targets are stored in multiple records)
+        # So it happens that Details are referred to only one of this couple
+        # Need to cycle into all these couples, to find the ForeignKey used by
+        # the Details referred to that mission
+        Allm = Missions.objects.all().filter(codename=cdn)
+        Alld = set()
+        for a in Allm:
+            try:
+                obj = Details.objects.all().filter(mission=a.id).first()
+                try:
+                    mix_details = Details.objects.all().filter(mission=obj.mission.id)
+                    for o in mix_details:
+                        Alld.add(o.id)
+                except:
+                    pass
+            except:
+                pass
+        
+        Alld = Details.objects.filter(id__in=Alld)
+        serializer = DetailsSerializer(Alld, many=True)
         return JSONResponse(serializer.data)
     else:
         mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
