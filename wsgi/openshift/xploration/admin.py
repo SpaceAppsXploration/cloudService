@@ -20,13 +20,15 @@ class DetailsAdmin(admin.ModelAdmin):
             formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
         return formfield
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        '''
+        Show only unique values from Missions, eg.(mission,target) coupling
+        '''
         if db_field.name == "mission":
             
             d = {}
             for a in Missions.objects.all():
                 if not d.get(a.codename):
                     d[a.codename] = a.id  
-            #Alldistinct.add((o.codename, o.id))
             
             Alldistinct = set(d.values())
             Alldistinct = Missions.objects.filter(id__in=Alldistinct)

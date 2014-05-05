@@ -109,7 +109,6 @@ def simulation(request):
                         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
                     break
 
-
             # 4 check if BUS systems and subsystems are compatible with type of MISSION - bus_vs_mission_type
      
             for f in bus_vs_mission_type:
@@ -129,7 +128,6 @@ def simulation(request):
                                     'type': 'Error in payload/bus compatibility', 'content': x[k][1] }
                         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
 
-
             # 6 check if the NUMBER of PAYLOADS choices are compatible - npl_vs_bus
             for h in npl_vs_bus_type:
                 j = int(h['check'])
@@ -141,8 +139,6 @@ def simulation(request):
                                     'type': 'Error in number of payloads check ', 'content': h[k][1] }
                         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
                     
-
-
             # 7 check if the payload is compatible - bus_vs_bus
 
             for i in bus_vs_bus:

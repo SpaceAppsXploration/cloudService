@@ -12,7 +12,6 @@ urlpatterns = patterns('',
     url(r'^simulation/', 'xploration.simulate.simulation'),
     url(r'^webapp/start', 'webapp.views.start'),
 
-    url(r'^test/', 'xploration.views.test'),
     url(r'^clean/', 'xploration.views.clean'),
 
     # REST endpoints
@@ -30,6 +29,8 @@ urlpatterns = patterns('',
     url(r'^api/components/(?P<c_id>[0-9]+)/$', 'xploration.views.single_component'),
     url(r'^api/components/$', 'xploration.views.components_list'),
     
+    # Test Endpoints
+    url(r'^test/db/entities/$', 'xploration.tests.db'),
 
     url(r'^hometest/$', 'xploration.views.homeTEST'),
     url(r'^$', 'xploration.views.home', name='home'),

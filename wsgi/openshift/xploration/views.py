@@ -151,7 +151,7 @@ def mission_detail(request, m_id):
     '''
     Reply with all the data referred to one Missions.
     Search by mission id.
-    Response is an array of objects with different 'type'.
+    Response is an array of objects with different 'detail_type'.
     '''
     if request.method == 'GET':
         try:
@@ -279,12 +279,6 @@ def home(request):
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
     params['status'] = js
     return render_to_response('home/home.html', params)
-
-def test(request):
-    #from data.ESA_output_COMPLETE import missions
-    count = 0 
-    
-    return StreamingHttpResponse(json.dumps({'status': 'finished', 'count': count}), content_type="application/json")
 
 def clean(request):
 
