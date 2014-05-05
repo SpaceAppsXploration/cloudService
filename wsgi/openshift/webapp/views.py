@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 import json
-from xploration.models import Targets
+from chronos.models import Targets
 from django.db.models import Q
 
 
