@@ -25,6 +25,10 @@ urlpatterns = patterns('',
     url(r'^api/missions/$', 'xploration.views.missions_list'),
     url(r'^api/planets/(?P<p_id>[0-9]+)/$', 'xploration.views.single_planet'),
     url(r'^api/planets/$', 'xploration.views.planets_list'),
+    url(r'^api/payloads/and/bus/(?P<type_id>[0-9]+)/$', 'xploration.views.single_pb_type'),
+    url(r'^api/payloads/and/bus/$', 'xploration.views.pb_list'),
+    url(r'^api/components/(?P<c_id>[0-9]+)/$', 'xploration.views.single_component'),
+    url(r'^api/components/$', 'xploration.views.components_list'),
     
 
     url(r'^hometest/$', 'xploration.views.homeTEST'),

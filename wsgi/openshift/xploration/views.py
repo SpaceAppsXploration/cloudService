@@ -15,8 +15,8 @@ from rest_framework.decorators import api_view
 '''
 import models and json serializers
 '''
-from models import Missions, Targets, Details, Planets
-from serializers import TargetsSerializer, MissionsSerializer, DetailsSerializer, PlanetsSerializer
+from models import Missions, Targets, Details, Planets, PayloadBusTypes, PayloadBusComps
+from serializers import TargetsSerializer, MissionsSerializer, DetailsSerializer, PlanetsSerializer, PayloadBusCompsSerializer, PayloadBusTypesSerializer
 
 
 class JSONResponse(HttpResponse):
@@ -184,6 +184,65 @@ def missions_by_target(request, t_id):
         mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
+@csrf_exempt
+@api_view(['GET'])
+def single_component(request, c_id):
+    '''
+    Get single PL and BUS Components from component id
+    'pbtype' is an id from PL and BUS types.
+    '''
+    if request.method == 'GET':
+        mix = PayloadBusComps.objects.get(id=c_id)
+        serializer = PayloadBusCompsSerializer(mix, many=False)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
+        return JSONResponse(mex)
+
+@csrf_exempt
+@api_view(['GET'])
+def components_list(request):
+    '''
+    List of all PL and BUS components.
+    'pbtype' contains ids from PL and BUS types.
+    '''
+    if request.method == 'GET':
+        mix = PayloadBusComps.objects.all()
+        serializer = PayloadBusCompsSerializer(mix, many=True)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
+        return JSONResponse(mex)
+
+@csrf_exempt
+@api_view(['GET'])
+def single_pb_type(request, type_id):
+    '''
+    Get single PL and BUS TYPES from type id
+    Useful to check the 'pbtype' from Components.
+    '''
+    if request.method == 'GET':
+        mix = PayloadBusTypes.objects.get(id=type_id)
+        serializer = PayloadBusTypesSerializer(mix, many=False)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
+        return JSONResponse(mex)
+
+@csrf_exempt
+@api_view(['GET'])
+def pb_list(request):
+    '''
+    List of all PL and BUS TYPES.
+    Useful to check the 'pbtype' from Components.
+    '''
+    if request.method == 'GET':
+        mix = PayloadBusTypes.objects.all()
+        serializer = PayloadBusTypesSerializer(mix, many=True)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
+        return JSONResponse(mex)
 
 def home(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}

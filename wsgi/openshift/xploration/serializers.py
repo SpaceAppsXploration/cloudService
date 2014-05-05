@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Targets, Missions, Details, Planets
+from models import Targets, Missions, Details, Planets, PayloadBusTypes, PayloadBusComps
 
 class TargetsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,3 +20,13 @@ class PlanetsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Planets
         fields = ('target', 'discover', 'rings', 'light', 'mass', 'diameter', 'density', 'gravity', 'l_day', 'l_year', 'eccent', 'distance', 'perihelion', 'aphelion', 'inclination', 'active', 'atmosphere')
+
+class PayloadBusTypesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PayloadBusTypes
+        fields = ('id', 'name', 'category', 'description', 'link')
+
+class PayloadBusCompsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PayloadBusComps
+        fields = ('id', 'pbtype', 'name', 'description', 'slug', 'link')

@@ -46,7 +46,7 @@ class Missions(models.Model):
 
     class Meta:
         verbose_name_plural = 'Missions'
-        ordering = ['name']
+        ordering = ['codename']
 
 class Details(models.Model):
     DETAIL_TYPE = (
