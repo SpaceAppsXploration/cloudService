@@ -10,9 +10,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^simulation/', 'chronos.simulate.simulation'),
-    url(r'^webapp/home/$', 'webapp.views.homeTEST'),
-    url(r'^webapp/start', 'webapp.views.start'),
-    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/$', 'webapp.views.mission'),
 
     url(r'^clean/', 'chronos.views.clean'),
 
@@ -31,6 +28,12 @@ urlpatterns = patterns('',
     url(r'^api/components/(?P<c_id>[0-9]+)/$', 'chronos.views.single_component'),
     url(r'^api/components/$', 'chronos.views.components_list'),
     
+    # Webapp
+    url(r'^webapp/home/$', 'webapp.views.homeTEST'),
+    url(r'^webapp/start', 'webapp.views.start'),
+    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/$', 'webapp.views.payload'),
+    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/$', 'webapp.views.mission'),
+
     # Test Endpoints
     url(r'^test/db/entities/$', 'chronos.tests.db'),
 

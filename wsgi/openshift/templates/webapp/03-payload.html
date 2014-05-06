@@ -3,27 +3,27 @@
 {% block body %}
 
 
-    <div class="row" style="">
-        <div class="col-md-12">
-            <div class="container" style="margin-top:3%;"> 
+<div class="row" style="">
+    <div class="col-md-12">
+        <div class="container" style="margin-top:3%;"> 
 
-                <div class="b_white" style="">
-                    <b>
-                        <p>
-                        Want to visit the neighbourhood?</p>
-                    </b>
-
-                </div>
+            <div class="b_white" style="">
+                <b>
+                    <p>
+                    Choose the instruments you want to carry outside Earth's atmoshpere:</p>
+                </b>
 
             </div>
+
         </div>
     </div>
+</div>
 
-    <div class="row" style="">
+<div class="row" style="">
         <div class="col-md-1"></div>
         <div class="col-md-10">
            <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>    
-                {% for t in targets %}
+                {% for p in payloads %}
                 {% if forloop.first %}
                     <div class="row">
                 {% endif %}
@@ -39,10 +39,10 @@
                              
                                 </div>
                                 <div class="service-content">
-                                    <h4>{{t.name}}</h4>
+                                    <h4>{{m.name}}</h4>
                                     <div style="width:200px;height:200px;margin: auto auto;"><img src="{{t.image_url}}" style="margin: auto auto;"/></div>
-                                    <p style="margin-bottom:20px;">{{t.characteristics}}</p>
-                                    <p><a class="btn btn-default" href="/webapp/go/to/{{t.slug}}">Choose</a></p>
+                                    <p style="margin-bottom:20px;">{{m.description}}</p>
+                                    <p><a class="btn btn-default" href="/webapp/go/to/{{destination}}/to/{{m.slug}}/">Choose</a></p>
                                 </div>
                             </div>
                         </div>
@@ -57,9 +57,5 @@
                                           
                 </div>
         </div>
-
-<style>
-
-</style>
 
 {% endblock %}

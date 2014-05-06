@@ -15,15 +15,22 @@ def homeTEST(request):
     return render_to_response('webapp/homeTEST.html', params)
 
 def start(request):
-    tg = Targets.objects.all().filter(use_in_sim=True)
+    tg = Targets.objects.all().filter(use_in_sim=True).order_by('name')
     params = {'targets': tg}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
     return render_to_response('webapp/01-destinations.html', params)
 
 def mission(request, p_slug):
-    dt = Targets.objects.all().filter(slug=p_slug)
-    params = {'missions': missions}
+    dt = Targets.objects.get(slug=p_slug)
+    params = {'missions': missions, 'destination': p_slug}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
     return render_to_response('webapp/02-mission.html', params)
+
+def payload(request, p_slug, m_slug):
+    dt = Targets.objects.get(slug=p_slug)
+    params = {'missions': missions, 'destination': dt}
+    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
+
+    return render_to_response('webapp/03-payload.html', params)
