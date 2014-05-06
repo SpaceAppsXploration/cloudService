@@ -6,7 +6,7 @@ missions = [
 },
 {
 'slug': 'cel_body_obs',
-'name': 'Solar System Observation',
+'name': 'Solar System\'s Bodies Observation',
 'description': 'We have nice neighbours, let\'s keep in touch witht them!'
 },
 {
