@@ -33,7 +33,7 @@ missions = [
 },
 {
 'slug': 'telecom',
-'name': 'Earth or Orbital Telecommunication',
+'name': 'Orbital Telecommunication',
 'description': 'What if I would like to talk to Antartics?',
 'image_url': '/static/images/webapp/Communication.png'
 }
