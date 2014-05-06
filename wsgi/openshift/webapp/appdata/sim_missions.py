@@ -11,7 +11,7 @@ missions = [
 },
 {
 'slug': 'deep_space_obs',
-'name': 'Deep Space Obseravtion',
+'name': 'Deep Space Observation',
 'description': 'We can learn a lot contemplating other systems'
 },
 {

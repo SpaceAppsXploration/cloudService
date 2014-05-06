@@ -14,6 +14,15 @@
     </div>
 </div>
 
+<div class="row" style="display:none;" id="show-row">
+    <div class="col-md-12">
+        <div class="container" style="margin-top:3%;"> 
+            <div id="show-message" style="width:45%; margin:auto auto; padding: 15px;border-radius:15px; border: 1px solid red;">
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row" style="">
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -37,7 +46,7 @@
                                     <h4>{{m.name}}</h4>
                                     <div style="width:200px;height:200px;margin: auto auto;"><img src="{{t.image_url}}" style="margin: auto auto;"/></div>
                                     <p style="margin-bottom:20px;">{{m.description}}</p>
-                                    <p><a id="to-go" mission="{{m.slug}}" class="btn btn-default" href="#">Choose</a></p>
+                                    <p><a mission="{{m.slug}}" class="submit btn btn-default" href="#">Choose</a></p>
                                 </div>
                             </div>
                         </div>
@@ -53,33 +62,46 @@
         </div>
 </div>
 
-
+{% block script %}
 <script>
-console.log('there')
 
-$('#to-go').on('click', function(){
-    alert( $( this ).text() );
-    console.log('here')
-    return
+$('.submit').on('click', function(){
+    mission = $(this).attr('mission');
+
     url = '/simulation/?destination={{destination}}&mission='+mission
-    
+
+    console.log(url)
+
     $.ajax({
     url: url,
     type: 'GET',
-    async: true,
+    async: false,
     success: function (data) {
         console.log(data)
+        if (data.code == 0) window.location.href = '/webapp/go/to/{{destination}}/to/'+mission
+        else { 
+            $('#show-row').fadeIn('slow')
+            $('#show-message').html('<p style="font-weight:bold;color:red;">'+data.content+'</p>')
+            $('#show-message').addClass('bg-danger')
+            setInterval(function () {
+                $('#show-message').html('')
+                $('#show-row').fadeOut();
 
-        window.location.href = '/webapp/go/to/{{destination}}/to/'+mission
+            }, 5999);
+
+        }
+
         
     },
     error: function (xhr, ajaxOptions, thrownError) {
-        alert('Errore:' + xhr.status);
-        alert(thrownError);
+        console.log('Errore:' + xhr.status);
+        console.log(thrownError);
     }
     });
-  
+
 });
 
 </script>
+{% endblock %}
+
 {% endblock %}

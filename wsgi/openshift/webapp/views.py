@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 import json
-from chronos.models import Targets
+from chronos.models import Targets, PayloadBusComps
 from django.db.models import Q
 
 from webapp.appdata.sim_missions import missions
@@ -29,8 +29,8 @@ def mission(request, p_slug):
     return render_to_response('webapp/02-mission.html', params)
 
 def payload(request, p_slug, m_slug):
-    dt = Targets.objects.get(slug=p_slug)
-    params = {'missions': missions, 'destination': dt}
+    pl = PayloadBusComps.objects.all().filter(category='payload')
+    params = {'missions': missions, 'payloads': pl}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
     return render_to_response('webapp/03-payload.html', params)
