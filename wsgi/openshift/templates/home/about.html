@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/it_IT/all.js#xfbml=1&appId=154575411336636";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="container" style="margin-left:5px;"> 
+    <div class="row">
+        <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <div class="row our-clients" style="margin-top:30px;">
+                    <div class="client-item item">
+                        <p style="min-height:170px;"><a class="navbar-brand" href="/"><img alt="" src="/static/images/logo145x150.png"></a></p>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+            <div class="col-md-8">
+                <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+                <p>
+                Our team is born thanks to Space Apps Challenge. We are nothing more than some random people, passionate about space, who met on a Saturday morning in Rome, Italy. We discovered the competition independently and went blindly to the event, moved by our passion for innovation and information sharing.</p><p>When teams had to be formed we found each other in a great confusion and, excited about our challenge, we started working. At first, we experienced the thrill of brainstorming and the preliminary disorganization that always strikes a new group of people working together for the first time. Soon we learned how our competencies fit together and we changed our pace. New ideas and new solutions came up, sub-teams started working in harmony: we truly were gears of the same mechanism! Our minds were so into our project that we barely slept that night (2 hours each, on the floor).</p><p>The next morning we still managed to continue our work, pushed by the creating environment surrounding us: people were helping each other all over the place and we were like all the others, exchanging programming tips and development strategies.</p><p>When the final presentation time came, we were exhausted and, even though we hoped to be selected for the next phase, all we could think about was a king sized bed and how great this experience was for all of us, how much we learned. The jury disappeared and a few minutes later everyone was awakened by their hearts, pumping like drums to keep their eyes open til the very end. It was like a flash: we were called as "Best Mission Concept" and all of a sudden we were launched into space! A new energy started flowing and we begun to celebrate with all our new friends met that weekend. It was A M A Z I N G!</p>
+                <br/>
+                <p>
+                But we could not stop! A video had to be presented within days and, despite how the competition would have evolved, we truly wanted to complete our project, something that we felt as our own. We decided to keep working on Project Chronos and the Xploration apps, to give every space enthusiast a taste of how great it is to design something complex, to provide everyone with a simple access to every space mission by international space agencies, to feel the joy of doing something that can change the perspective of many. And we hope to continue to do that, with your support. Because you can help us providing something unique, you can show the way, you can reach for the stars. You.<br/><br/>
+                </p>
+                <p>
+                Because anyone can be interested.                
+                </p>
+                <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+            </div>
+
+    </div>
+</div>
+
+<style>
+body {
+    background-image: url(/static/images/background.svg); background-size: cover; height: 100%;
+    overflow-x:hidden;
+
+
+}
+</style>
+
+{% endblock %}

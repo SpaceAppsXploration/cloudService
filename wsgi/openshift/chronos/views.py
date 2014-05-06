@@ -280,6 +280,15 @@ def home(request):
     params['status'] = js
     return render_to_response('home/home.html', params)
 
+def about(request):
+    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
+    js = json.dumps(js)
+    
+    params = {}
+    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
+    params['status'] = js
+    return render_to_response('home/about.html', params)
+
 def clean(request):
 
     count=0

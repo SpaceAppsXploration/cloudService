@@ -38,5 +38,6 @@ urlpatterns = patterns('',
     url(r'^test/db/entities/$', 'chronos.tests.db'),
 
     url(r'^$', 'chronos.views.home', name='home'),
+    url(r'^about/$', 'chronos.views.about', name='about'),
     url(r'^admin/', include(admin.site.urls)),
 )
