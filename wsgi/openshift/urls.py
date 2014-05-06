@@ -10,7 +10,9 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^simulation/', 'chronos.simulate.simulation'),
+    url(r'^webapp/home/$', 'webapp.views.homeTEST'),
     url(r'^webapp/start', 'webapp.views.start'),
+    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/$', 'webapp.views.mission'),
 
     url(r'^clean/', 'chronos.views.clean'),
 
@@ -22,17 +24,16 @@ urlpatterns = patterns('',
     url(r'^api/missions/by/target/(?P<t_id>[0-9]+)/$', 'chronos.views.missions_by_target'),
     url(r'^api/missions/(?P<m_id>[0-9]+)/$', 'chronos.views.single_mission'),
     url(r'^api/missions/$', 'chronos.views.missions_list'),
-    url(r'^api/planets/(?P<p_id>[0-9]+)/$', 'chronos.views.single_planet'),
-    url(r'^api/planets/$', 'chronos.views.planets_list'),
-    url(r'^api/payloads/and/bus/(?P<type_id>[0-9]+)/$', 'chronos.views.single_pb_type'),
-    url(r'^api/payloads/and/bus/$', 'chronos.views.pb_list'),
+    url(r'^api/physics/planets/(?P<p_id>[0-9]+)/$', 'chronos.views.single_planet'),
+    url(r'^api/physics/planets/$', 'chronos.views.planets_list'),
+    url(r'^api/components/types/(?P<type_id>[0-9]+)/$', 'chronos.views.single_pb_type'),
+    url(r'^api/components/types/$', 'chronos.views.pb_list'),
     url(r'^api/components/(?P<c_id>[0-9]+)/$', 'chronos.views.single_component'),
     url(r'^api/components/$', 'chronos.views.components_list'),
     
     # Test Endpoints
     url(r'^test/db/entities/$', 'chronos.tests.db'),
 
-    url(r'^hometest/$', 'chronos.views.homeTEST'),
     url(r'^$', 'chronos.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
 )
