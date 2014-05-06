@@ -23,14 +23,20 @@ def start(request):
 
 def mission(request, p_slug):
     dt = Targets.objects.get(slug=p_slug)
-    params = {'missions': missions, 'destination': p_slug}
+    params = {'missions': missions, 'destination': p_slug, 'd_obj': dt}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
     return render_to_response('webapp/02-mission.html', params)
 
 def payload(request, p_slug, m_slug):
+    dt = Targets.objects.get(slug=p_slug)
     pl = PayloadBusComps.objects.all().filter(category='payload')
-    params = {'missions': missions, 'payloads': pl}
+    for m in missions:
+        for k,v in m.iteritems():
+            if v == m_slug:
+                ms = m
+    params = {'missions': missions, 'payloads': pl, 'destination': p_slug, 'd_obj': dt,
+               'm_obj': ms}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
     return render_to_response('webapp/03-payload.html', params)
