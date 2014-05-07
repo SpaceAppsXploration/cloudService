@@ -105,7 +105,7 @@ $('.submit').on('click', function(){
         console.log(data)
         if (data.code == 0) {
             $('#loader').fadeIn();
-            setInterval (function () {
+            setTimeout (function () {
                 window.location.href = '/webapp/go/to/{{destination}}/to/'+mission
             }, 5999);
         }
@@ -113,7 +113,7 @@ $('.submit').on('click', function(){
             $('#show-row').fadeIn('slow')
             $('#show-message').html('<p style="font-weight:bold;color:red;"><span style="font-size: 80%;">The Tech Fellow says</span>: <span style="font-style: italic;">"'+data.content+'"</span></p>')
             $('#show-message').addClass('bg-danger')
-            setInterval(function () {
+            setTimeout(function () {
                 $('#show-message').html('')
                 $('#show-row').fadeOut();
 

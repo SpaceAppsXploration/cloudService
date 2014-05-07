@@ -128,7 +128,7 @@ var checkAndGo = function(payloads, base_url) {
                 $('#show-message').html('<p style="font-weight:bold;color:red;"><span style="font-size: 80%;">The Tech Fellow says</span>: <span style="font-style: italic;">"'+data.content+'"</span> ('+data.type+')</p>')
                 $('#show-message').addClass('bg-danger')
                 $('#show-message').fadeIn('slow')
-                setInterval(function () {
+                setTimeout(function () {
                     $('#show-message').fadeOut();
                     $('#show-message').html('')
                 }, 5999);
@@ -136,7 +136,7 @@ var checkAndGo = function(payloads, base_url) {
             }
             else {
                 $('#loader').fadeIn();
-                setInterval (function () {
+                setTimeout(function () {
                     to_go = payloads.join('-')
                     to_go = to_go.replace(/=true/g, '')
                     window.location.href = '/webapp/go/to/{{destination}}/to/{{m_obj.slug}}/payload/'+to_go
@@ -189,7 +189,7 @@ $('#submit').on('click', function(){
         $('#show-message').html('<p style="font-weight:bold;color:red;"><span style="font-size: 80%;">The Tech Fellow says</span>: <span style="font-style: italic;">"Designing a vehicle without payload.. Want to waste fuel and do some littering?"</span></p>')
         $('#show-message').addClass('bg-danger')
         $('#show-message').fadeIn('slow')
-        setInterval(function () {
+        setTimeout(function () {
             $('#show-message').fadeOut();
             $('#show-message').html('')
 
