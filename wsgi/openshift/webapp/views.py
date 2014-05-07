@@ -78,7 +78,7 @@ def bus(request, p_slug, m_slug, pl_slug):
 def results(request, p_slug, m_slug, pl_slug, bus_slug):
     dt = Targets.objects.get(slug=p_slug)
     pl = PayloadBusComps.objects.all().filter(category='payload')
-    bus = PayloadBusComps.objects.all().filter(category='bus').order_by('category__name')
+    bus = PayloadBusComps.objects.all().filter(category='bus')
     for m in missions:
         for k,v in m.iteritems():
             if v == m_slug:
@@ -94,8 +94,18 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
                 pl_assembled.add(p)
                 assembled_slugs = assembled_slugs+p.slug+'=true&'
     print pl_assembled
+
+    bus_assembled = set()
+    bus_slugs = bus_slug.split('-')
+    for b in bus:
+        for s in bus_slugs:
+            if b.slug == s:
+                 bus_assembled.add(b)
+    print bus_assembled
+
     params = {'missions': missions, 'payloads': pl, 'destination': p_slug, 'd_obj': dt,
-               'm_obj': ms, 'assembled': pl_assembled, 'assembled_slugs': assembled_slugs, 'bus': bus}
+               'm_obj': ms, 'assembled': pl_assembled, 'assembled_slugs': assembled_slugs, 'bus': bus,
+                'bus_assembled': bus_assembled}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
     return render_to_response('webapp/05-results.html', params)

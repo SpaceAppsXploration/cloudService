@@ -23,6 +23,20 @@
                                     {% endif %} 
                                 {% endfor %}</span>
                         </li>
+                        <li><i class="glyphicon glyphicon-ok"></i>
+                            <span>Bus: 
+                                {% for b in bus_assembled %}
+                                    {% if forloop.last %}
+                                    {{b.name}}
+                                    {% elif forloop.first %}
+                                    {{b.name}}<br/>
+                                    {% elif forloop.counter|divisibleby:2 %}
+                                    {{b.name}}
+                                    {% else %}
+                                    {{b.name}},
+                                    {% endif %} 
+                                {% endfor %}</span>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -41,6 +55,22 @@
 </div>
 
 
-Landing Page for Mission Results
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+            <h1 class="text-center">Mission is Go!</h1>
+            <div id="target" class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div style="width:99%;height:99%;margin: auto auto;"><img src="https://pbs.twimg.com/media/BgYG7GTCUAAG0Pt.jpg" style="margin: 10px auto 10px;" class="img-thumbnail"/></div>
+            <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 
 {% endblock %}
