@@ -124,7 +124,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make a dictionary of default keys
-default_keys = { 'SECRET_KEY': '230g3n5a6s-donwe_2' }
+default_keys = { 'SECRET_KEY': '*****************' }
 
 # Replace default keys with dynamic values if we are in OpenShift
 use_keys = default_keys

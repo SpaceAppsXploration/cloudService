@@ -1,19 +1,29 @@
-Chronos XSpaceApps Service
-==========================
+Chronos REST Service and Xploration Webapp
+===============================
 
 A REST-like service for serving data about mission planning at the front-end.
+With a Demo WebApp for mission design simulation.
 
-Back-end in `Django Python2.7`
+Back-end in `Django Python2.7`. this service is running on `Red Hat Openshift` at http://www.spacexplore.it
 
-All the tests that calculate/simulate the validity of the mission are in the views script:
-https://github.com/SpaceAppsXploration/cloudService/blob/master/wsgi/openshift/xploration/views.py
+REST docs at http://www.spacexplore.it/api/docs
 
+Code is not optimized, refactorying needed.
+The webapp is just a demo, different apps for different clients are to be implemented.
+Django Caching is in the project, but not implemented in the code yet.
 
-This service is running on Red Hat Openshift.
+`Service` back-end's code is in `wsgi/openshift/chronos`
+The missions' simulator code is in `simulate.py`
+The REST back-end and common views are in `views.py`
 
-License is `GNU GPL`
+`Webapp's` views are in `wsgi/openshift/webapp/views.py`
 
-Credits to `XSpaceApps-Rome Chronos/Xploration team`
+License is `GNU GPL`. This is Free Software.
+
+Thanks to `Django Framework`, `Django-REST Framework` and `Django-Swagger`.
+
+Credits to `2014 SpaceApps Challenge Rome Chronos/Xploration team`
+https://2014.spaceappschallenge.org/project/chronos/
 
 ---
 
