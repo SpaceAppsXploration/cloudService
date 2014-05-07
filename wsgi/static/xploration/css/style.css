@@ -36,7 +36,7 @@ body {
 	font-size: 13px;
 	line-height: 21px;
 	font-weight: 300;
-	color: #888;
+	color: #fff;
 	background-color:#000000;
 }
 strong, b {
@@ -99,7 +99,7 @@ h6 {
 	line-height: 18px;
 }
 p {
-	color: #888;
+	color: #fff;
 	font-size: 13px;
 	font-family: 'Open Sans', sans-serif;
 	line-height: 22px;
