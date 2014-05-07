@@ -1,0 +1,46 @@
+{% extends "applayout.html" %}
+
+{% block body %}
+<div class="row first-row">
+    <div class="col-md-12">
+        <div class="container" style=""> 
+            <div class="row">
+                <div class="col-md-6">
+                    <ul style="padding-left:10px;">
+                        <li><i class="glyphicon glyphicon-ok"></i>
+                            <span>Your mission is going to {{d_obj.name}}</span>
+                        </li>
+                        <li><i class="glyphicon glyphicon-ok"></i>
+                            <span>Goal: {{m_obj.name}}</span>
+                        </li>
+                        <li><i class="glyphicon glyphicon-ok"></i>
+                            <span>Payloads: 
+                                {% for a in assembled %}
+                                    {% if forloop.last %}
+                                    {{a.name}}
+                                    {% else %}
+                                    {{a.name}},
+                                    {% endif %} 
+                                {% endfor %}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                        <li><a href="/webapp/home">Start</a></li>
+                        <li><a href="/webapp/start">Define</li>
+                        <li><a href="/webapp/go/to/{{destination}}">Plan</a></li>
+                        <li><a href="/webapp/go/to/{{destination}}/to/{{m_obj.slug}}">Design I</a></li>
+                        <li><a href="/webapp/go/to/{{destination}}/to/{{m_obj.slug}}">Design II</a></li>
+                        <li>Results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+Landing Page for Mission Results
+
+{% endblock %}

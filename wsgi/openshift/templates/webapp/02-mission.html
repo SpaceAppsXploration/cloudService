@@ -104,7 +104,7 @@ $('.submit').on('click', function(){
     success: function (data) {
         console.log(data)
         if (data.code == 0) {
-                $('#loader').fadeIn();
+            $('#loader').fadeIn();
             setInterval (function () {
                 window.location.href = '/webapp/go/to/{{destination}}/to/'+mission
             }, 5999);

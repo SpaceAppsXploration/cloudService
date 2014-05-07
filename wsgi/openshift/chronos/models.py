@@ -138,7 +138,10 @@ class PayloadBusComps(models.Model):
     link        = models.CharField(max_length=300, null=True, blank=True)
 
     def __unicode__(self):
-        return str(self.category)+' '+str(self.name)
+        many = []
+        for s in self.pbtype.all():
+            many.append(str(s.name))
+        return str(self.category)+' '+str(many)+' ' +str(self.name)
 
     class Meta:
         verbose_name_plural = 'PL and BUS Components'

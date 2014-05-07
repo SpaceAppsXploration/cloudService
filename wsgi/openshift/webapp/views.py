@@ -35,8 +35,59 @@ def payload(request, p_slug, m_slug):
         for k,v in m.iteritems():
             if v == m_slug:
                 ms = m
+                break
     params = {'missions': missions, 'payloads': pl, 'destination': p_slug, 'd_obj': dt,
                'm_obj': ms}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
     return render_to_response('webapp/03-payload.html', params)
+
+def bus(request, p_slug, m_slug, pl_slug):
+    dt = Targets.objects.get(slug=p_slug)
+    pl = PayloadBusComps.objects.all().filter(category='payload')
+    bus = PayloadBusComps.objects.all().filter(category='bus').order_by('pbtype__name')
+    for m in missions:
+        for k,v in m.iteritems():
+            if v == m_slug:
+                ms = m
+                break
+    pl_slugs = pl_slug.split('-')
+    
+    pl_assembled = set()
+    assembled_slugs = '&'
+    for p in pl:
+        for l in pl_slugs:
+            if p.slug == l:
+                pl_assembled.add(p)
+                assembled_slugs = assembled_slugs+p.slug+'=true&'
+    print pl_assembled
+    params = {'missions': missions, 'payloads': pl, 'destination': p_slug, 'd_obj': dt,
+               'm_obj': ms, 'assembled': pl_assembled, 'assembled_slugs': assembled_slugs, 'bus': bus}
+    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
+
+    return render_to_response('webapp/04-bus.html', params)
+
+def results(request, p_slug, m_slug, pl_slug, bus_slug):
+    dt = Targets.objects.get(slug=p_slug)
+    pl = PayloadBusComps.objects.all().filter(category='payload')
+    bus = PayloadBusComps.objects.all().filter(category='bus').order_by('category__name')
+    for m in missions:
+        for k,v in m.iteritems():
+            if v == m_slug:
+                ms = m
+                break
+    pl_slugs = pl_slug.split('-')
+    
+    pl_assembled = set()
+    assembled_slugs = '&'
+    for p in pl:
+        for l in pl_slugs:
+            if p.slug == l:
+                pl_assembled.add(p)
+                assembled_slugs = assembled_slugs+p.slug+'=true&'
+    print pl_assembled
+    params = {'missions': missions, 'payloads': pl, 'destination': p_slug, 'd_obj': dt,
+               'm_obj': ms, 'assembled': pl_assembled, 'assembled_slugs': assembled_slugs, 'bus': bus}
+    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
+
+    return render_to_response('webapp/05-results.html', params)

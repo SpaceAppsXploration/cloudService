@@ -31,6 +31,8 @@ urlpatterns = patterns('',
     # Webapp
     url(r'^webapp/home/$', 'webapp.views.homeTEST'),
     url(r'^webapp/start', 'webapp.views.start'),
+    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/bus/(?P<bus_slug>[a-z_-]+)/$', 'webapp.views.results'),
+    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/$', 'webapp.views.bus'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/$', 'webapp.views.payload'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/$', 'webapp.views.mission'),
 

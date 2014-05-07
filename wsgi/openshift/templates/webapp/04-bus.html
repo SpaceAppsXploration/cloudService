@@ -13,6 +13,16 @@
                         <li><i class="glyphicon glyphicon-ok"></i>
                             <span>Goal: {{m_obj.name}}</span>
                         </li>
+                        <li><i class="glyphicon glyphicon-ok"></i>
+                            <span>Payloads: 
+                                {% for a in assembled %}
+                                    {% if forloop.last %}
+                                    {{a.name}}
+                                    {% else %}
+                                    {{a.name}},
+                                    {% endif %} 
+                                {% endfor %}</span>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-md-6">
@@ -20,7 +30,8 @@
                         <li><a href="/webapp/home">Start</a></li>
                         <li><a href="/webapp/start">Define</li>
                         <li><a href="/webapp/go/to/{{destination}}">Plan</a></li>
-                        <li>Design I</li>
+                        <li><a href="/webapp/go/to/{{destination}}/to/{{m_obj.slug}}">Design I</a></li>
+                        <li>Design II</li>
                     </ul>
                 </div>
             </div>
@@ -35,7 +46,7 @@
             <div class="b_white" style="">
                 <b>
                     <p>
-                    <h3>Payload:</h3> it&apos;is the basics of the mission: choose the instruments you want to carry outside Earth&apos;s atmoshpere.</p>
+                    <h3>Bus:</h3> it is the structure and navigation for the vehicle: choose which parts you want to use (max one per type).</p>
                 </b>
 
             </div>
@@ -48,13 +59,13 @@
     <div class="row">
         <div class="col-md-9">
             <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
-            <h1 class="text-center">Choose Payloads To Assemble</h1>
+            <h1 class="text-center">Choose Bus To Assemble</h1>
             <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
             <div id="show-message" style="max-width:60%; margin:auto auto; padding: 15px; padding-left:10px; border-radius:15px; border: 1px solid red;display:none;margin-bottom:30px;">
             </div>
         </div>
     </div>
-{% for p in payloads %}
+{% for b in bus %}
     <div class="row">
         <div class="col-md-9">
         
@@ -62,17 +73,19 @@
             <div class="list-group-item">
                 <div class="media col-md-3">
                     <figure class="pull-left">
-                        <img class="media-object img-rounded img-responsive"  src="http://placehold.it/80x80" alt="" >
+                        <i class="glyphicon glyphicon-plane icon-large-effect"></i>
                     </figure>
                 </div>
                 <div class="col-md-6">
-                    <h4 class="list-group-item-heading"> {{p.name}} </h4>
-                    <p class=""> {{p.description}}
+                    <h4 class="list-group-item-heading"> {{b.name}} </h4>
+                    <p class=""> {{b.description}}
+                    </p>
+                    <p style="font-weight:bold;"> Type: {% for i in b.pbtype.all %}{{i.name}} {% endfor %}
                     </p>
                 </div>
                 <div class="col-md-3 text-center">
 
-                        <input type="checkbox" id="{{forloop.counter}}" class="checkbox" data-slug="{{p.slug}}"/>
+                        <input type="checkbox" id="{{forloop.counter}}" class="checkbox" data-slug="{{b.slug}}"/>
                         <label for="{{forloop.counter}}">Assemble</label>
                 </div>
             </div>
@@ -83,7 +96,7 @@
      <div class="row">
         <div class="col-md-9">
              <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
-             <p style="text-align:right;"><a id="submit" class="btn btn-primary btn-lg">Payload Design Is Go</a></p>
+             <p style="text-align:right;"><a id="submit" class="btn btn-primary btn-lg">Bus Design Is Go</a></p>
              <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
         </div>
     </div>
@@ -101,8 +114,7 @@
 })($(window)); 
 
 var containsElem = function(obj, list) {
-    var i;
-    for (i = 0; i < list.length; i++) {
+    for (var i = 0; i < list.length; i++) {
         if (list[i] === obj) {
             return true;
         }
@@ -123,7 +135,7 @@ var checkAndGo = function(payloads, base_url) {
             console.log(data)
             if (data.code == 1) {
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
-                $('#show-message').html('<p style="font-weight:bold;color:red;"><span style="font-size: 80%;">The Tech Fellow says</span>: <span style="font-style: italic;">"'+data.content+'"</span> ('+data.type+')</p>')
+                $('#show-message').html('<p style="font-weight:bold;color:red;"><span style="font-size: 80%;">The Tech Fellow says</span>: <span style="font-style: italic;">"'+data.content+'"</span>  ('+data.type+')</p>')
                 $('#show-message').addClass('bg-danger')
                 $('#show-message').fadeIn('slow')
                 setInterval(function () {
@@ -136,8 +148,10 @@ var checkAndGo = function(payloads, base_url) {
                 $('#loader').fadeIn();
                 setInterval (function () {
                     to_go = payloads.join('-')
-                    to_go = to_go.replace(/=true/g, '')
-                    window.location.href = '/webapp/go/to/{{destination}}/to/{{m_obj.slug}}/payload/'+to_go
+                    to_go = to_go.replace(/=bustrue/g, '')
+                    home = window.location.href+'bus/'+to_go
+                    window.location.href = home
+                    console.log(home)
                 }, 5999);
             }
 
@@ -156,12 +170,16 @@ $(document).ready(function () {
 
 
 var payloads = []
-var base_url = '/simulation/?destination={{destination}}&mission={{m_obj.slug}}&'
+var base_url = '/simulation/?destination={{destination}}&mission={{m_obj.slug}}'
+var pl = '{{assembled_slugs|safe}}'
+
+base_url = base_url+pl
+console.log(base_url)
 
 $('.checkbox').on('change', function(){
     //console.log($(this).attr('checked'))
     //console.log($(this).attr('data-slug'))
-    var el = $(this).attr('data-slug')+'=true'
+    var el = $(this).attr('data-slug')+'=bustrue'
     var state = $(this).attr('checked')
     if ($(this).attr('checked') == 'checked'){
         payloads.push(el)
@@ -182,9 +200,9 @@ $('.checkbox').on('change', function(){
 $('#submit').on('click', function(){
 
     if (payloads.length == 0) {
-
+        console.log('there')
         document.body.scrollTop = document.documentElement.scrollTop = 0;
-        $('#show-message').html('<p style="font-weight:bold;color:red;"><span style="font-size: 80%;">The Tech Fellow says</span>: <span style="font-style: italic;">"Designing a vehicle without payload.. Want to waste fuel and do some littering?"</span></p>')
+        $('#show-message').html('<p style="font-weight:bold;color:red;"><span style="font-size: 80%;">The Tech Fellow says</span>: <span style="font-style: italic;">"Can&apos;t send payloads wrapped into a soap bubble..."</span></p>')
         $('#show-message').addClass('bg-danger')
         $('#show-message').fadeIn('slow')
         setInterval(function () {

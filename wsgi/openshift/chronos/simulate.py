@@ -103,9 +103,9 @@ def simulation(request):
                     pass
                 else:
                     print e['name'], j, usr_distance
-                    if e[k] != v:
+                    if e[k] != True:
                         results = { 'code':1, 'status': 'Error', 'message':'Error in simulation', 
-                                    'type': 'Error in BUS vs distance check ' + k, 'content': 'null' }
+                                    'type': 'Error in BUS vs distance check ' + k, 'content': e[k][1] }
                         return StreamingHttpResponse(json.dumps(results), content_type="application/json")
                     break
 
