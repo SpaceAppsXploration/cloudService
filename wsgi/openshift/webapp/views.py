@@ -1,7 +1,8 @@
 from django.shortcuts import render_to_response
 import json
 from chronos.models import Targets, PayloadBusComps
-from django.db.models import Q
+#from django.db.models import Q
+from django.core.cache import cache
 
 from webapp.appdata.sim_missions import missions
 
@@ -15,7 +16,14 @@ def homeTEST(request):
     return render_to_response('webapp/homeTEST.html', params)
 
 def start(request):
-    tg = Targets.objects.all().filter(use_in_sim=True).order_by('name')
+    if cache.get('destinations') is not None:
+        tg = cache.get('destinations')
+        print 'found'
+    else:
+        tg = Targets.objects.all().filter(use_in_sim=True).order_by('name')
+        cache.set('destinations', tg, 7200)
+        print 'not found'
+
     params = {'targets': tg}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 

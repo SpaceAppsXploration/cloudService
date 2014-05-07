@@ -1,25 +1,28 @@
-# Django Template for OpenShift
+Chronos REST Service and Xploration Webapp
+===============================
 
-## Template App Information
-Product: Django  
-Version: 1.4  
-Source:  https://github.com/django/django.git  
-Commit:  2591fb8d4c0246f68b79554976c012039df75359
+A REST-like service for serving data about mission planning at the front-end.
+With a Demo WebApp for mission design simulation.
 
-## Maintenance
-This folder contains a diff file that includes the changes made to the
-stock Django app in order to make it OpenShift-Template-ready. If
-you are a maintainer tasked with updating the Django template, you
-may be able to use this patch file on the updated Django code to
-automatically reapply these changes.
+Back-end in `Django Python2.7`, this service is running on `Red Hat Openshift` at http://www.spacexplore.it
 
-Here are the steps involved:
+REST docs at http://www.spacexplore.it/api/docs
 
-1. Under the 'wsgi' directory, apply any patches required to update the 'openshift' Django app.
-2. From the template root directory, run 'git apply --check .openshift/template.patch' to test for patching problems.
-3. Next run 'git am --signoff < .openshift/template.patch' to apply the patch to the template.
+Code is not optimized, refactorying needed.
+The webapp is just a demo, different apps for different clients are to be implemented.
+Django Caching is in the project, but not implemented in the code yet.
 
-If this process succeeds, then the changes have been automatically
-applied. Otherwise it may be necessary to manually apply the
-changes. If the base package has changed enough, you may need to
-re-audit the base code and generate a new patch file.
+`Service` back-end's code is in `wsgi/openshift/chronos`
+The missions' simulator code is in `simulate.py`
+The REST back-end and common views are in `views.py`
+
+`Webapp's` views are in `wsgi/openshift/webapp/views.py`
+
+License is `GNU GPL`
+
+Credits to `2014 SpaceApps Challenge Rome Chronos/Xploration team`
+https://2014.spaceappschallenge.org/project/chronos/
+
+---
+
+
