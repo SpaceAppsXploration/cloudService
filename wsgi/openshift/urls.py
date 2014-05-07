@@ -41,5 +41,6 @@ urlpatterns = patterns('',
 
     url(r'^$', 'chronos.views.home', name='home'),
     url(r'^about/$', 'chronos.views.about', name='about'),
+    url(r'^promo/$', 'chronos.views.promo', name='promo'),
     url(r'^admin/', include(admin.site.urls)),
 )
