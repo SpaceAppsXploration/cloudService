@@ -49,7 +49,7 @@
         <div class="col-md-9">
             <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
             <h1 class="text-center">Choose Payloads To Assemble For {{m_obj.name}}</h1>
-            <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+            <div id="target" class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
             <div id="show-message" style="max-width:60%; margin:auto auto; padding: 15px; padding-left:10px; border-radius:15px; border: 1px solid red;display:none;margin-bottom:30px;">
             </div>
         </div>
@@ -122,7 +122,9 @@ var checkAndGo = function(payloads, base_url) {
         success: function (data) {
             console.log(data)
             if (data.code == 1) {
-                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                $('html, body').animate({
+                    scrollTop: $("#target").offset().top
+                }, 800);
                 $('#show-message').html('<p style="font-weight:bold;color:red;"><span style="font-size: 80%;">The Tech Fellow says</span>: <span style="font-style: italic;">"'+data.content+'"</span> ('+data.type+')</p>')
                 $('#show-message').addClass('bg-danger')
                 $('#show-message').fadeIn('slow')
