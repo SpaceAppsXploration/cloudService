@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 import json
-from chronos.models import Targets, PayloadBusComps, Missions
+from chronos.models import Targets, PayloadBusComps, Missions, Details
 #from django.db.models import Q
 from django.core.cache import cache
 
@@ -123,7 +123,7 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
 
     cost_index = int(round(ratings[p_slug][1]*.5 + pl_cost*.2 + bus_cost*.3))
 
-    risk_index = int(round(ratings[p_slug][2]*.5 + ratings[m_slug][2]))
+    risk_index = int(round(ratings[p_slug][2]*.5 + ratings[m_slug][2]*.5))
     
     print int_index, cost_index, risk_index
     
@@ -141,4 +141,10 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
     params['risk_level']     = risk
     params['agencies']       = agencies
 
+    details = set()
+    for a in agencies:
+        d = Details.objects.all().filter(mission=a).first()
+        details.add(d)
+
+    params['details']       = details
     return render_to_response('webapp/05-results.html', params)
