@@ -93,16 +93,16 @@ saturn['sample_collect'] = (False, 'You could, but once you land it is nearly im
 saturn['telecom'] = (False, 'Telecom is intended for Earth, thus stay close to Gaia.')
 
 
-#uranus = {}
-#uranus['name'] = 'Uranus'
-#uranus['slug'] = 'uranus'
-#uranus['distance'] = 19.2
-#uranus['earth_obs'] = (False, 'Why go this far when you have a nice view in Low Earth Orbit?')
-#uranus['cel_body_obs'] = True
-#uranus['deep_space_obs'] = (False, 'To observe outer space, either you travel outside the Solar System to have a "full immersion", or you stay close to Earth to send back more data.')
-#uranus['atm_analysis'] = True
-#uranus['sample_collect'] = (False, 'You could, but once you land it is nearly impossible to go back due to gravity.')
-#uranus['telecom'] = (False, 'Telecom is intended for Earth, thus stay close to Gaia.')
+uranus = {}
+uranus['name'] = 'Uranus'
+uranus['slug'] = 'uranus'
+uranus['distance'] = 19.2
+uranus['earth_obs'] = (False, 'Why go this far when you have a nice view in Low Earth Orbit?')
+uranus['cel_body_obs'] = True
+uranus['deep_space_obs'] = (False, 'To observe outer space, either you travel outside the Solar System to have a "full immersion", or you stay close to Earth to send back more data.')
+uranus['atm_analysis'] = True
+uranus['sample_collect'] = (False, 'You could, but once you land it is nearly impossible to go back due to gravity.')
+uranus['telecom'] = (False, 'Telecom is intended for Earth, thus stay close to Gaia.')
 
 
 neptune = {}
@@ -205,7 +205,7 @@ destinations.append(mars)
 destinations.append(asteroids)
 destinations.append(jupiter)
 destinations.append(saturn)
-#destinations.append(uranus)
+destinations.append(uranus)
 destinations.append(neptune)
 #destinations.append(comets)
 destinations.append(beyond)
