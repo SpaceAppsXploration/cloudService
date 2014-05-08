@@ -22,6 +22,15 @@ class Targets(models.Model):
     def __unicode__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        if not self.characteristics:
+            self.characteristics = None
+        if not self.curiosities:
+            self.curiosities = None
+        if not self.sim_related:
+            self.sim_related = None
+        super(Targets, self).save(*args, **kwargs)
+
     class Meta:
         verbose_name_plural = 'Targets'
 
@@ -49,6 +58,15 @@ class Missions(models.Model):
 
     def __unicode__(self):
         return self.codename
+
+    def save(self, *args, **kwargs):
+        if not self.launch_dates:
+            self.launch_dates = None
+        if not self.twitter:
+            self.twitter = None
+        if not self.fb_page:
+            self.fb_page = None
+        super(Missions, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Missions'

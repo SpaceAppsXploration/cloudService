@@ -31,7 +31,7 @@
                                     {% elif forloop.first %}
                                     {{b.name}}<br/>
                                     {% elif forloop.counter|divisibleby:2 %}
-                                    {{b.name}}
+                                    {{b.name}},
                                     {% else %}
                                     {{b.name}},
                                     {% endif %} 
@@ -76,9 +76,9 @@
             <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
             <h1 class="text-center">Rating of your mission</h1>
             <div id="target" class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
-            scientific interest rate: {{interest_level}}<br/> 
-            cost rate: {{cost_level}}<br/>
-            risk rate: {{risk_level}}
+            scientific interest rate: ({{interest_level.0}}) - {{interest_level.1}} <br/> 
+            cost rate: ({{cost_level.0}}) - {{cost_level.1}}<br/>
+            risk rate: ({{risk_level.0}}) - {{risk_level.1}}
         </div>
     </div>
 
@@ -89,7 +89,24 @@
             <h1 class="text-center">Similar Missions from Space Agencies</h1>
             <div id="target" class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
             {% for j in agencies %}
-                  <a target="_blanck" href="http://solarsystem.nasa.gov/missions/profile.cfm?Sort=Target&Target={{destination}}&MCode={{j.hashed}}">{{j.codename}}</a> - {{j.name}}<br/>
+            <div class="row">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <div class="media col-md-3">
+                            <figure class="pull-left">
+                                <img class="media-object img-rounded img-responsive"  src="{{j.image_url}}" alt="" style="width=auto; height:80px;" >
+                            </figure>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="list-group-item-heading"> {{j.codename}} </h4>
+                            <p class=""> <a target="_blanck" href="http://solarsystem.nasa.gov/missions/profile.cfm?Sort=Target&Target={{destination}}&MCode={{j.hashed}}"> {{j.name}} </a> 
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+                  
             {% endfor %}
 
             <div id="target" class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
@@ -98,5 +115,17 @@
 
 
 </div>
+
+<style>
+div.list-group-item {
+    height:auto;
+    min-height:110px;
+    background-color: transparent;
+}
+div.list-group-item.active small {
+    color:#fff;
+}
+
+</style>
 
 {% endblock %}

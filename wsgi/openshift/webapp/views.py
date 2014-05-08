@@ -18,13 +18,8 @@ def homeTEST(request):
     return render_to_response('webapp/homeTEST.html', params)
 
 def start(request):
-    if cache.get('destinations') is not None:
-        tg = cache.get('destinations')
-        print 'found'
-    else:
-        tg = Targets.objects.all().filter(use_in_sim=True).order_by('name')
-        cache.set('destinations', tg, 7200)
-        print 'not found'
+    tg = Targets.objects.all().filter(use_in_sim=True).order_by('name')
+
 
     params = {'targets': tg}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
