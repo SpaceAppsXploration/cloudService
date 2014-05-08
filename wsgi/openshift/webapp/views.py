@@ -4,7 +4,7 @@ from chronos.models import Targets, PayloadBusComps, Missions, Details, Planets
 #from django.db.models import Q
 from django.core.cache import cache
 from django.http import Http404
-from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from webapp.appdata.sim_missions import missions
 from data import ratings
@@ -156,6 +156,17 @@ def datavis(request, what):
 
     elif what == 'missions':
         bodies = Missions.objects.all().order_by('name')
+        paginator = Paginator(bodies, 10) # Show 25 contacts per page
+
+        page = request.GET.get('page')
+        try:
+            bodies = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            bodies = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            bodies = paginator.page(paginator.num_pages)
 
     elif what == 'components':
         bodies = PayloadBusComps.objects.all()

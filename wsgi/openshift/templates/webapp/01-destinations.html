@@ -1,5 +1,7 @@
 {% extends "applayout.html" %}
 
+{% load filters %}
+
 {% block body %}
 
     <div class="row first-row">
@@ -39,14 +41,10 @@
             <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
             <h1 class="text-center"> Choose Target </h1>
             <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>    
-                {% for t in targets %}
-                {% if forloop.first %}
-                    <div class="row">
-                {% endif %}
-                {% ifequal forloop.counter|divisibleby:3 1 %}
-                    <div class="row">
-                {% endifequal %}
-                 <!-- Start Icon Box 1-->
+                {% for o in targets|group_by:3 %}
+                    <div class="row" style="">
+                      {% for t in o %}
+
                         <div class="col-md-3 service-box service-center">
                             <div class="service-boxed">
                                 <div class="service-icon" style="margin-top:-30px;">
@@ -63,14 +61,9 @@
                             </div>
                         </div>
                         <!-- End Icon Box 1-->
-                        {% ifequal forloop.counter|divisibleby:3 1 %}
-                             </div>
-                        {% endifequal %}
-                        {% if forloop.last %}
-                             </div> 
-                        {% endif %}
                         {% endfor %}
-                                          
+                    </div>
+                  {% endfor %}                        
                 </div>
         </div>
 
