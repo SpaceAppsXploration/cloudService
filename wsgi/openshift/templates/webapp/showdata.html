@@ -48,7 +48,7 @@
                             <div class="space"></div>
                             </div>
                         </div>
-                        <div class="row first-row">
+                        <div class="row first-row" style="margin-top:3px;">
                         <ul class="list-group">
                             <li class="list-group-item on"><span class="glyphicon glyphicon-ok"></span>Light: {{obj.light}}</li>
                             <li class="list-group-item on"><span class="glyphicon   glyphicon-ok"></span>Mass: {{obj.mass}}</li>
@@ -81,12 +81,11 @@
 
         <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
 
-    
+        <!--
         <div class="row">
         <div class="col-md-3">
             <form action="#" method="get">
                 <div class="input-group">
-                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
                     <input class="form-control" id="system-search" name="q" placeholder="Search for" required>
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
@@ -95,6 +94,7 @@
             </form>
         </div>
         </div>
+        -->
         <div class="row first-row">
         <div class="col-md-12">
                 <table class="table table-list-search">
@@ -131,17 +131,29 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-1"></div>
+        <div class="col-md-9">
             <ul class="pagination pagination-lg">
                 {% if bodies.has_previous %}
                     <li><a href="?page={{ bodies.previous_page_number }}">previous</a></li>
+                {% endif %}
+                {% if bodies.number > 4 %}
+                <li><a href="?page={{ bodies.number|add:"-4"}}">{{bodies.number|add:"-4" }}</a></li>
+                <li><a href="?page={{ bodies.number|add:"-3"}}">{{ bodies.number|add:"-3" }}</a></li>
+                <li><a href="?page={{ bodies.number|add:"-2"}}">{{ bodies.number|add:"-2"}}</a></li>
+                <li><a href="?page={{ bodies.number|add:"-1"}}">{{ bodies.number|add:"-1" }}</a></li>
                 {% endif %}
 
                 <li><span class="current">
                     Page {{ bodies.number }} of {{ bodies.paginator.num_pages }}.
                 </span></li>
 
+                {% if bodies.number <  bodies.paginator.num_pages|add:"-4" %}
+                <li><a href="?page={{ bodies.number|add:1 }}">{{ bodies.number|add:1 }}</a></li>
+                <li><a href="?page={{ bodies.number|add:2 }}">{{ bodies.number|add:2 }}</a></li>
+                <li><a href="?page={{ bodies.number|add:3 }}">{{ bodies.number|add:3 }}</a></li>
+                <li><a href="?page={{ bodies.number|add:4 }}">{{ bodies.number|add:4 }}</a></li>
+                {% endif %}
                 {% if bodies.has_next %}
                     <li><a href="?page={{ bodies.next_page_number }}">next</a></li>
                 {% endif %}
@@ -271,6 +283,8 @@ div.pagination { color: #eee; }
 .list-group-item:first-child { border-top-right-radius: 0px; border-top-left-radius: 0px; }
 .btn { float: right;  font-weight:500;}
 .on { color: rgb(86,86,86); }
-.space {height: 2px; background-color: #000;}
+.space {height: -25px; background-color: #000;}
+
+.first-row {margin-left:1%;}
 </style>
 {% endblock %}
