@@ -1,5 +1,7 @@
 {% extends "applayout.html" %}
 
+{% load filters %}
+
 {% block body %}
 <div class="row first-row">
     <div class="col-md-12">
@@ -52,14 +54,10 @@
             <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
             <h1 class="text-center"> Choose Mission&apos;s Goal </h1>
             <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>     
-                {% for m in missions %}
-                {% if forloop.first %}
-                    <div class="row">
-                {% endif %}
-                {% ifequal forloop.counter|divisibleby:3 1 %}
-                    <div class="row">
-                {% endifequal %}
-                 <!-- Start Icon Box 1-->
+                {% for m in missions|group_by:3 %}
+                 <div class="row">
+                    {% for obj in m %}
+                     <!-- Start Icon Box 1-->
                         <div class="col-md-3 service-box service-center">
                             <div class="service-boxed">
                                 <div class="service-icon" style="margin-top:-30px;">
@@ -68,21 +66,18 @@
                              
                                 </div>
                                 <div class="service-content">
-                                    <h4>{{m.name}}</h4>
-                                    <div style="width:200px;height:200px;margin: auto auto;"><img src="{{m.image_url}}" style="margin: 10px auto 10px;" class="media-object img-rounded img-responsive"/></div>
-                                    <p style="margin-bottom:20px;margin-top:20px;">{{m.description}}</p>
-                                    <p><a mission="{{m.slug}}" class="submit btn btn-default" href="#">Choose</a></p>
+                                    <h4>{{obj.name}}</h4>
+                                    <div style="width:200px;height:200px;margin: auto auto;"><img src="{{obj.image_url}}" style="margin: 10px auto 10px;" class="media-object img-rounded img-responsive"/></div>
+                                    <p style="margin-bottom:20px;margin-top:20px;">{{obj.description}}</p>
+                                    <p><a mission="{{obj.slug}}" class="submit btn btn-default" href="#">Choose</a></p>
                                 </div>
                             </div>
                         </div>
                         <!-- End Icon Box 1-->
-                        {% ifequal forloop.counter|divisibleby:3 1 %}
-                             </div>
-                        {% endifequal %}
-                        {% if forloop.last %}
-                             </div> 
-                        {% endif %}
+                     
                         {% endfor %}
+                     </div>
+                    {% endfor %}
                                           
         </div>
 </div>

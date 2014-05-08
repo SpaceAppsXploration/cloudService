@@ -1,8 +1,10 @@
 from django.shortcuts import render_to_response
 import json
-from chronos.models import Targets, PayloadBusComps, Missions, Details
+from chronos.models import Targets, PayloadBusComps, Missions, Details, Planets
 #from django.db.models import Q
 from django.core.cache import cache
+from django.http import Http404
+from django.db.models import Q
 
 from webapp.appdata.sim_missions import missions
 from data import ratings
@@ -143,3 +145,27 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
 
     params['details']       = details
     return render_to_response('webapp/05-results.html', params)
+
+
+def datavis(request, what):
+    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
+    js = json.dumps(js)
+    
+    if what == 'planets':
+       bodies = Planets.objects.all()
+
+    elif what == 'missions':
+        bodies = Missions.objects.all().order_by('name')
+
+    elif what == 'components':
+        bodies = PayloadBusComps.objects.all()
+    else:
+        raise Http404
+
+
+    params = {}
+    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
+    params['status'] = js
+    params['bodies'] = bodies
+    params['what'] = what
+    return render_to_response('webapp/showdata.html', params)

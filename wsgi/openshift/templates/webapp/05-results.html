@@ -18,6 +18,10 @@
                                 {% for a in assembled %}
                                     {% if forloop.last %}
                                     {{a.name}}
+                                    {% elif forloop.first %}
+                                    {{a.name}}<br/>
+                                    {% elif forloop.counter|divisibleby:2 %}
+                                    {{a.name}},
                                     {% else %}
                                     {{a.name}},
                                     {% endif %} 
