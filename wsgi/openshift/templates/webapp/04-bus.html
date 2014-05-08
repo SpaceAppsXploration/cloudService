@@ -1,5 +1,7 @@
 {% extends "applayout.html" %}
 
+{% load filters %} 
+
 {% block body %}
 <div class="row first-row">
     <div class="col-md-12">
@@ -65,31 +67,38 @@
             </div>
         </div>
     </div>
-{% for b in bus %}
-    <div class="row">
-        <div class="col-md-9">
-        
-        <div class="list-group">
-            <div class="list-group-item">
-                <div class="media col-md-3">
-                    <figure class="pull-left">
-                        <i class="glyphicon glyphicon-plane icon-large-effect"></i>
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="list-group-item-heading"> {{b.name}} </h4>
-                    <p style="font-weight:bold;"> Type: {% for i in b.pbtype.all %}{{i.name}} {% endfor %}
-                    </p>
-                    <p class=""> {{b.description}}
-                    </p>
-                </div>
-                <div class="col-md-3 text-center">
 
-                        <input type="checkbox" id="{{forloop.counter}}" class="checkbox" data-slug="{{b.slug}}"/>
-                        <label for="{{forloop.counter}}">Assemble</label>
-                </div>
-            </div>
-        </div>
+{% for group in bus|group_by:2 %}
+    
+    <div class="col-md-10">
+        <div class="row list-group-item" id="row{{forloop.counter}}">
+            
+                {% for b in group %}
+                    <div class="col-md-6" id="check{{forloop.counter}}" >
+                        {% if forloop.counter == 1%}
+                        <div class="media col-md-3">
+                            <h4 class="list-group-item-heading"> Type: </h4>
+                            <p style="font-weight:bold;"> {% for i in b.pbtype.all %}{{i.name}} {% endfor %}
+                            </p>
+                        </div>
+                        {% else %}
+                        <div class="media col-md-3">
+                            
+                        </div>
+                        {% endif %}
+                        <div class="col-md-6">
+                            <h4 class="list-group-item-heading"> {{b.name}} </h4>
+                            
+                            <p class=""> {{b.description}}
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                                <input type="checkbox" id="{{b.slug}}" class="checkbox" data-slug="{{b.slug}}"/>
+                                <label for="{{b.slug}}">Assemble</label>
+                        </div>
+                    </div>
+                {% endfor %}
+          
         </div>
     </div>
      {% endfor %}
@@ -181,12 +190,31 @@ base_url = base_url+pl
 console.log(base_url)
 
 $('.checkbox').on('change', function(){
+    var div = $(this).parent().parent()
+    
     //console.log($(this).attr('checked'))
     //console.log($(this).attr('data-slug'))
     var el = $(this).attr('data-slug')+'=bustrue'
     var state = $(this).attr('checked')
-    if ($(this).attr('checked') == 'checked'){
+    if (state == 'checked'){
         payloads.push(el)
+        //console.log(div1)
+        if (div.attr('id') == 'check1') {
+              //console.log('left checkbox')
+              box = div.next().find('input[type="checkbox"]')
+              console.log(box)
+              box.prop('disabled', true)
+              console.log(box)
+
+        }
+        else if(div.attr('id') == 'check2') {
+            //console.log('right checkbox')
+            box = div.prev().find('input[type="checkbox"]')
+            console.log(box)
+            box.prop('disabled', true)
+            console.log(box.attr('disabled'))
+
+            }
     }
     else {
         if (containsElem(el, payloads)){
@@ -195,9 +223,26 @@ $('.checkbox').on('change', function(){
                 payloads.splice(index, 1);
             }
         }
+        //console.log(div1)
+        if (div.attr('id') == 'check1') {
+              //console.log('left checkbox')
+              box = div.next().find('input[type="checkbox"]')
+              console.log(box)
+              box.removeAttr('disabled')
+              console.log(box)
+
+        }
+        else if(div.attr('id') == 'check2') {
+            //console.log('right checkbox')
+            box = div.prev().find('input[type="checkbox"]')
+            console.log(box)
+            box.removeAttr('disabled')
+            console.log(box.attr('disabled'))
+
+            }
     }
     
-    console.log(payloads)
+    //console.log(payloads)
     
 });
 
