@@ -6,7 +6,7 @@ earth_obs['slug'] = 'earth_obs'
 earth_obs['opt_sensor'] = True
 earth_obs['radio_sensor'] = True
 earth_obs['spectrometer'] = True
-earth_obs['probe'] = (False, 'remember that you are here to observe')
+earth_obs['probe'] = (False, 'Remember that you are here to observe')
 earth_obs['amplifier'] = (False, 'Maybe in the BUS')
 
 mission_type.append(earth_obs)
@@ -18,7 +18,7 @@ cel_body_obs['slug'] = 'cel_body_obs'
 cel_body_obs['opt_sensor'] = True
 cel_body_obs['radio_sensor'] = True
 cel_body_obs['spectrometer'] = True
-cel_body_obs['probe'] = (False, 'remember that you are here to observe')
+cel_body_obs['probe'] = (False, 'Remember that you are here to observe')
 cel_body_obs['amplifier'] = (False, 'Maybe in the BUS')
 
 mission_type.append(cel_body_obs)

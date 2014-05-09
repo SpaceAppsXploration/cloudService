@@ -50,6 +50,7 @@ class Missions(models.Model):
     hashed          = models.CharField(max_length=150)
     image_url       = models.CharField(max_length=250)
     launch_dates    = models.CharField(max_length=80, null=True, blank=True)
+    link_url        = models.CharField(max_length=250, null=True, blank=True)
     twitter         = models.CharField(max_length=45, null=True, blank=True)
     fb_page         = models.CharField(max_length=150, null=True, blank=True)
     
@@ -60,6 +61,8 @@ class Missions(models.Model):
         return self.codename
 
     def save(self, *args, **kwargs):
+        if not self.launch_dates:
+            self.link_url = None
         if not self.launch_dates:
             self.launch_dates = None
         if not self.twitter:
