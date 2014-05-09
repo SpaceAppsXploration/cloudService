@@ -53,9 +53,13 @@ class Missions(models.Model):
     link_url        = models.CharField(max_length=250, null=True, blank=True)
     twitter         = models.CharField(max_length=45, null=True, blank=True)
     fb_page         = models.CharField(max_length=150, null=True, blank=True)
-    
+    nasa            = models.BooleanField(default=False)
+    esa             = models.BooleanField(default=False)
+    jaxa            = models.BooleanField(default=False)
+
     # ALTER TABLE xploration_missions ADD COLUMN twitter character varying(45);
-    #ALTER TABLE xploration_missions ADD COLUMN fb_page character varying(150);
+    # ALTER TABLE xploration_missions ADD COLUMN fb_page character varying(150);
+    # ALTER TABLE chronos_missions  ADD COLUMN link_url character varying(250);
 
     def __unicode__(self):
         return self.codename

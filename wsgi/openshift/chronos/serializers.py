@@ -9,7 +9,7 @@ class TargetsSerializer(serializers.ModelSerializer):
 class MissionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Missions
-        fields = ('id', 'target', 'era', 'name', 'codename', 'hashed', 'image_url', 'launch_dates', 'twitter', 'fb_page')
+        fields = ('id', 'target', 'era', 'name', 'codename', 'hashed', 'image_url', 'link_url', 'launch_dates', 'twitter', 'fb_page')
 
 class DetailsSerializer(serializers.ModelSerializer):
     class Meta:
