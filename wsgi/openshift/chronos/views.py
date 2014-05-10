@@ -3,6 +3,7 @@ Homepage and REST views
 Need refactoring
 '''
 import json
+import re
 from django.http import HttpResponse, StreamingHttpResponse
 #import random
 from django.shortcuts import render_to_response

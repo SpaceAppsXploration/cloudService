@@ -51,7 +51,7 @@ jaxa_missions = [
         "name": "Global Precipitation Measurement/Dual-frequency Precipitation Radar (GPM/DPR)",
         "target": 2,
         "jaxa": True,
-        "hashed": "gpm"
+        "hashed": "gpm",
 	"date": ""
     },
     {
@@ -62,7 +62,7 @@ jaxa_missions = [
         "name": "Advanced Land Observing Satellite-2 \"DAICHI-2\" (ALOS-2)",
         "target": 2,
         "jaxa": True,
-        "hashed": "alos2"
+        "hashed": "alos2",
 	"date": "May 24 2014"
     },
     {
@@ -73,7 +73,7 @@ jaxa_missions = [
         "name": "Global Change Observation Mission 1st - Climate (GCOM-C1)",
         "target": 2,
         "jaxa": True,
-        "hashed": "gcom_c"
+        "hashed": "gcom_c",
 	"date": ""
     },
     {
@@ -85,7 +85,7 @@ jaxa_missions = [
         "name": "Advanced Land Observing Satellite \"DAICHI\" (ALOS)",
         "target": 2,
         "jaxa": True,
-        "hashed": "alos"
+        "hashed": "alos",
     },
     {
         "era": 2,
@@ -96,7 +96,7 @@ jaxa_missions = [
         "name": "Solar Physics Satellite \"HINODE\" (SOLAR-B)",
         "target": 2,
         "jaxa": True,
-        "hashed": "solar_b"
+        "hashed": "solar_b",
     },
     {
         "era": 2,
@@ -106,7 +106,7 @@ jaxa_missions = [
         "name": "X-ray Astronomy Satellite \"Suzaku\" (ASTRO-EII)",
         "target": 2,
         "jaxa": True,
-        "hashed": "astro_e2"
+        "hashed": "astro_e2",
 	"date": " July 10 2005"
     },
     {
@@ -117,7 +117,7 @@ jaxa_missions = [
         "name": "Spectroscopic Planet Observatory for Recognition of Interaction of Atmosphere \"HISAKI\" (SPRINT-A)",
         "target": 2,
         "jaxa": True,
-        "hashed": "sprint_a"
+        "hashed": "sprint_a",
 	"date": "September 14 2013"
     },
     {
@@ -128,7 +128,7 @@ jaxa_missions = [
         "name": "X-ray Astronomy Satellite \"ASTRO-H\"",
         "target": 2,
         "jaxa": True,
-        "hashed": "astro_h"
+        "hashed": "astro_h",
 	"date": ""
     },
     {
@@ -172,7 +172,7 @@ jaxa_missions = [
         "name": "Small Demonstration Satellite-4 (SDS-4)",
         "target": 2,
         "jaxa": True,
-        "hashed": "sds4"
+        "hashed": "sds4",
 	"date": ""
     },
     {
