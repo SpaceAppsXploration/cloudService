@@ -39,7 +39,7 @@ def targets_list(request):
     that can be the mission's destination.
     '''
     if request.method == 'GET':
-        targets = Targets.objects.all()
+        targets = Targets.objects.all().order_by('id')
         serializer = TargetsSerializer(targets, many=True)
         return JSONResponse(serializer.data)
     else:
