@@ -303,6 +303,7 @@ def promo(request):
 def clean(request):
     count = 0
     
+    '''
     for m in jaxa_missions:
 
         t = Targets.objects.all().get(id=m["target"])
@@ -316,7 +317,7 @@ def clean(request):
 
         count += 1
         new.save()
-    
+    '''
     return StreamingHttpResponse(json.dumps({'status': 'done', 'count': count }), content_type="application/json")
 
 
