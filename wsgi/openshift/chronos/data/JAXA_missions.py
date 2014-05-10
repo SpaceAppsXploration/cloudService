@@ -52,6 +52,7 @@ jaxa_missions = [
         "target": 2,
         "jaxa": True,
         "hashed": "gpm"
+	"date": ""
     },
     {
         "era": 2,
@@ -62,6 +63,7 @@ jaxa_missions = [
         "target": 2,
         "jaxa": True,
         "hashed": "alos2"
+	"date": "May 24 2014"
     },
     {
         "era": 2,
@@ -72,16 +74,7 @@ jaxa_missions = [
         "target": 2,
         "jaxa": True,
         "hashed": "gcom_c"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/earthcare/images/earthcare_main_001.jpg",
-        "link": "http://global.jaxa.jp/projects/sat/earthcare/index.html",
-        "codename": "earthcare",
-        "name": "Earth Cloud, Aerosol and Radiation Explorer (EarthCARE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "earthcare"
+	"date": ""
     },
     {
         "era": 2,
@@ -114,6 +107,7 @@ jaxa_missions = [
         "target": 2,
         "jaxa": True,
         "hashed": "astro_e2"
+	"date": " July 10 2005"
     },
     {
         "era": 2,
@@ -124,6 +118,7 @@ jaxa_missions = [
         "target": 2,
         "jaxa": True,
         "hashed": "sprint_a"
+	"date": "September 14 2013"
     },
     {
         "era": 2,
@@ -134,6 +129,7 @@ jaxa_missions = [
         "target": 2,
         "jaxa": True,
         "hashed": "astro_h"
+	"date": ""
     },
     {
         "era": 2,
@@ -177,6 +173,7 @@ jaxa_missions = [
         "target": 2,
         "jaxa": True,
         "hashed": "sds4"
+	"date": ""
     },
     {
         "era": 2,
@@ -224,26 +221,6 @@ jaxa_missions = [
     },
     {
         "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/bepi/images/bepi_main_001.jpg",
-        "link": "http://global.jaxa.jp/projects/sat/bepi/index.html",
-        "codename": "bepi",
-        "name": "Mercury Exploration Mission \"BepiColombo\"",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "bepi"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/hayabusa2/images/hayabusa2_main_001.jpg",
-        "link": "http://global.jaxa.jp/projects/sat/hayabusa2/index.html",
-        "codename": "hayabusa2",
-        "name": "Asteroid Explorer \"Hayabusa2\"",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "hayabusa2"
-    },
-    {
-        "era": 2,
         "img": "http://global.jaxa.jp/projects/sat/muses_c/images/hayabusa_main_001.jpg",
         "date": "May 9 2003 ",
         "link": "http://global.jaxa.jp/projects/sat/muses_c/index.html",
@@ -264,114 +241,4 @@ jaxa_missions = [
         "jaxa": True,
         "hashed": "selene"
     },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    },
-    {
-        "era": 2,
-        "img": "http://global.jaxa.jp/projects/sat/selene/images/selene_main_001.jpg",
-        "date": "September 14 2007 ",
-        "link": "http://global.jaxa.jp/projects/sat/selene/index.html",
-        "codename": "selene",
-        "name": "SELenological and ENgineering Explorer \"KAGUYA\" (SELENE)",
-        "target": 2,
-        "jaxa": True,
-        "hashed": "selene"
-    }
 ]

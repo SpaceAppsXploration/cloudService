@@ -305,10 +305,13 @@ def clean(request):
     for m in jaxa_missions:
 
         t = Targets.objects.all().get(id=m["target"])
-        string = m["date"]
-        date = re.search("\d{4}", string).group(0)
+	if m.get("date"):
+	    string = m["date"]
+	    date = [re.search("\d{4}", string).group(0)]
+	else:
+	    date = ""
         
-        new = Missions(target=t, era=2, name=m["name"], codename=m["codename"], hashed=m["hashed"], image_url=m["img"], launch_dates=str([date]), link_url=m["link"], jaxa=m["jaxa"])
+        new = Missions(target=t, era=2, name=m["name"], codename=m["codename"], hashed=m["hashed"], image_url=m["img"], launch_dates=str(date), link_url=m["link"], jaxa=m["jaxa"])
 
         count += 1
         new.save()
