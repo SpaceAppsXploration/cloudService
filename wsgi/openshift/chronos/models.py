@@ -113,7 +113,7 @@ class Details(models.Model):
     def save(self, *args, **kwargs):
         if not self.image_link:
             self.image_link = None
-        super(Missions, self).save(*args, **kwargs)
+        super(Details, self).save(*args, **kwargs)
 
 class Planets(models.Model):
 
