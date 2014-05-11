@@ -30,15 +30,15 @@
                     </div>
                     <div class="col-md-4">
                         {% if d.detail_type == 3 %}
-                        <a target="_blank" href="{{d.body}">Read news</a>
+                            <a target="_blank" href="{{d.body}}">Read news</a>
                         {% elif d.detail_type == 4 %}
-                        <a target="_blank" href="{{d.body}">Website</a>
+                            <a target="_blank" href="{{d.body}}">Website</a>
                         {% else %}
-                        {% if d.header == 'ESA Science' %}
-                        <a target="_blank" href="{{d.body}}">Go To Page</a>
-                        {% else %}
-                        {{d.body}}
-                        {% endif %}
+                            {% if d.header == 'ESA Science' %}
+                                <a target="_blank" href="{{d.body}}">Go To Page</a>
+                            {% else %}
+                                {{d.body}}
+                            {% endif %}
                         {% endif %}
                     </div>
 
