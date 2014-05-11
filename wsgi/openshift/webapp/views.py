@@ -173,10 +173,42 @@ def datavis(request, what):
     else:
         raise Http404
 
-
+    if request.GET.get('page') is None:
+        page = 1
     params = {}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
     params['status'] = js
     params['bodies'] = bodies
     params['what'] = what
+    params['page'] = page
     return render_to_response('webapp/showdata.html', params)
+
+def details_page(request, m_id):
+    params = {}
+
+    m = Missions.objects.all().get(id=m_id)
+    name = m.name
+    print name
+
+    page = request.GET.get('page')
+
+    Allm = Missions.objects.all().filter(name=name)
+    Alld = set()
+    for a in Allm:
+        try:
+            obj = Details.objects.all().filter(mission=a.id).first()
+            try:
+                mix_details = Details.objects.all().filter(mission=obj.mission.id)
+                for o in mix_details:
+                    Alld.add(o.id)
+            except:
+                pass
+        except:
+            pass
+        
+    details = Details.objects.filter(id__in=Alld)
+    
+    params['details'] = details
+    params['back_page'] = page
+
+    return render_to_response('webapp/details.html', params)

@@ -114,13 +114,19 @@
                         {% for m in bodies %}
                         <tr>
                             <td><div style="width:200px;height:200px;margin: auto auto;"><img src="{{m.image_url}}" style="margin: auto auto;" class="media-object img-rounded img-responsive"/></div></td>
-                            <td>{{m.codename}}</td>
-                            <td>{{m.name}}</td>
-                            <td>{{m.target.name}}</td>
+                            <td><a href="/webapp/data/missions/details/{{m.id}}/?page={{page}}">{{m.codename}}</a></td>
+                            <td><a href="/webapp/data/missions/details/{{m.id}}/?page={{page}}">{{m.name}}</a></td>
+                            <td><u>{{m.target.name}}</u></td>
                             <td>{{m.get_era_display}}</td>
+                            {% if m.launch_dates|safe != 'None' %}
                             <td>{{m.launch_dates}}</td>
+                            {% endif %}
+                            {% if m.twitter|safe != 'None' %}
                             <td>{{m.twitter}}</td>
+                            {% endif %}
+                            {% if m.fb_page|safe != 'None' %}
                             <td>{{m.fb_page}}</td>
+                            {% endif %}
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -132,7 +138,7 @@
 
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-9">
+        <div class="col-md-11">
             <ul class="pagination pagination-lg">
                 {% if bodies.has_previous %}
                     <li><a href="?page={{ bodies.previous_page_number }}">previous</a></li>
