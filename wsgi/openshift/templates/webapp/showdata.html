@@ -119,13 +119,13 @@
                             <td><a href="/webapp/data/missions/details/{{m.id}}/?page={{page}}">{{m.name}}</a></td>
                             <td><u>{{m.target.name}}</u></td>
                             <td>{{m.get_era_display}}</td>
-                            <td>{% if m.nasa|safe = 'True' %}
+                            <td>{% if m.nasa|safe == 'True' %}
                                     NASA&nbsp;
                                 {% endif %}    
-                                {% if m.esa|safe = 'True' %}
+                                {% if m.esa|safe == 'True' %}
                                     ESA&nbsp;
                                 {% endif %}
-                                {% if m.jaxa|safe = 'True' %}
+                                {% if m.jaxa|safe == 'True' %}
                                    JAXA&nbsp;
                                 {% endif %}
                             </td>
