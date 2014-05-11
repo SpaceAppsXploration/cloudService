@@ -56,6 +56,7 @@ class Missions(models.Model):
     nasa            = models.BooleanField(default=False)
     esa             = models.BooleanField(default=False)
     jaxa            = models.BooleanField(default=False)
+    #payloads        = models.ManyToManyField(PayloadBusComps)
 
     # ALTER TABLE xploration_missions ADD COLUMN twitter character varying(45);
     # ALTER TABLE xploration_missions ADD COLUMN fb_page character varying(150);
@@ -108,6 +109,11 @@ class Details(models.Model):
     class Meta:
         verbose_name_plural = 'Details'
         ordering = ['mission__name']
+
+    def save(self, *args, **kwargs):
+        if not self.image_link:
+            self.image_link = None
+        super(Missions, self).save(*args, **kwargs)
 
 class Planets(models.Model):
 
