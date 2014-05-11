@@ -14,7 +14,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
-from data.JAXA_missions import jaxa_missions
+from data.JAXA_output_goals import J_details
 
 '''
 import models and json serializers
@@ -303,21 +303,21 @@ def promo(request):
 def clean(request):
     count = 0
     
-    '''
-    for m in jaxa_missions:
+
+    for m in J_details:
 
         t = Targets.objects.all().get(id=m["target"])
-	if m.get("date"):
-	    string = m["date"]
-	    date = [re.search("\d{4}", string).group(0)]
-	else:
-	    date = ""
+    	if m.get("date"):
+    	    string = m["date"]
+    	    date = [re.search("\d{4}", string).group(0)]
+    	else:
+	       date = ""
         
         new = Missions(target=t, era=2, name=m["name"], codename=m["codename"], hashed=m["hashed"], image_url=m["img"], launch_dates=str(date), link_url=m["link"], jaxa=m["jaxa"])
 
         count += 1
         new.save()
-    '''
+
     return StreamingHttpResponse(json.dumps({'status': 'done', 'count': count }), content_type="application/json")
 
 
