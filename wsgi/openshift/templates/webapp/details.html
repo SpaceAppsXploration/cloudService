@@ -3,7 +3,7 @@
 
 {% block body %}
 
-<div class="col-md-9">
+<div class="col-md-12">
         <div class="row">
             <p><h1>About this mission</h1></p>
         </div>
@@ -15,24 +15,26 @@
             <div class="col-md-10">
              {% for d in details %}
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         {% if d.image_link|safe == 'None' %}
 
                         {% else %}
-                        <img style="margin: 10px auto 10px;" class="media-object img-rounded img-responsive" src="{{d.image_link}}" />
+                        <img style="margin: 5px auto 5px;" class="media-object img-rounded img-responsive" src="{{d.image_link}}" />
                         {% endif %}
                     </div>
                     <div class="col-md-1"  style="border-bottom:2px solid #eee;">
                         {{d.detail_type}}
                     </div>
-                    <div class="col-md-4"  style="border-bottom:2px solid #eee;">
+                    <div class="col-md-3"  style="border-bottom:2px solid #eee;">
                         {{d.header}}
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="border-bottom:2px solid #eee;">
                         {% if d.detail_type == 3 %}
                             <a target="_blank" href="{{d.body}}">Read news</a>
                         {% elif d.detail_type == 4 %}
                             <a target="_blank" href="{{d.body}}">Website</a>
+                        {% elif d.detail_type == 8 %}
+                            {{d.body}}
                         {% else %}
                             {% if d.header == 'ESA Science' %}
                                 <a target="_blank" href="{{d.body}}">Go To Page</a>
@@ -41,7 +43,13 @@
                             {% endif %}
                         {% endif %}
                     </div>
-
+                    <div class="col-md-2">
+                        {% if d.date|safe != 'None' %}
+                        <p style="font-size:10px;;">{{d.date|date:"d M Y"}}</p>
+                        {% else %}
+                        &nbsp;
+                        {% endif %}
+                    </div>
 
                 </div>
              {% endfor %}
