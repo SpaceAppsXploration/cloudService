@@ -302,7 +302,6 @@ def promo(request):
 
 def clean(request):
     count = 0
-    
     '''
     for j in J_details:
 
@@ -314,7 +313,6 @@ def clean(request):
         count += 1
         new.save()
     '''
-    
     for j in details:               #DETAILS JAXA'S MISSIONS
         codename = j["mission"]
         #print(codename)
@@ -332,7 +330,6 @@ def clean(request):
 
         count += 1
         new.save()
-
 
     return StreamingHttpResponse(json.dumps({'status': 'done', 'count': count }), content_type="application/json")
 
