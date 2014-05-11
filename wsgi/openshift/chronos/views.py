@@ -21,7 +21,7 @@ import models and json serializers
 '''
 from models import Missions, Targets, Details, Planets, PayloadBusTypes, PayloadBusComps
 from serializers import TargetsSerializer, MissionsSerializer, DetailsSerializer, PlanetsSerializer, PayloadBusCompsSerializer, PayloadBusTypesSerializer
-
+from data.JAXA_output_goals import details
 
 class JSONResponse(HttpResponse):
     """
@@ -314,6 +314,19 @@ def clean(request):
         count += 1
         new.save()
     '''
+    
+    for j in details:               #DETAILS JAXA'S MISSIONS
+        codename = j["mission"]
+        #print(codename)
+        m = Missions.objects.all().filter(codename=codename).first()
+
+        new = Details(mission=m, detail_type=j["detail_type"], header=j["header"], 
+                       body=j["body"], date=None, image_link=j["image_link"])
+
+        count += 1
+        new.save()
+
+
     return StreamingHttpResponse(json.dumps({'status': 'done', 'count': count }), content_type="application/json")
 
 
