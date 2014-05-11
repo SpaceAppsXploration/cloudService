@@ -320,8 +320,15 @@ def clean(request):
         #print(codename)
         m = Missions.objects.all().filter(codename=codename).first()
 
+        b = j['body'].strip()
+
+        if j.get('image_link') is not None:
+            img = j["image_link"]
+        else:
+            img = None
+
         new = Details(mission=m, detail_type=j["detail_type"], header=j["header"], 
-                       body=j["body"], date=None, image_link=j["image_link"])
+                       body=b, date=None, image_link=img)
 
         count += 1
         new.save()
