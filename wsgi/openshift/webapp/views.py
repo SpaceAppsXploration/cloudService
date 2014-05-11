@@ -210,5 +210,6 @@ def details_page(request, m_id):
     
     params['details'] = details
     params['back_page'] = page
+    params['m_name'] = name
 
     return render_to_response('webapp/details.html', params)

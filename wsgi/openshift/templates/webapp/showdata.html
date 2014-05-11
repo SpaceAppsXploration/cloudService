@@ -121,9 +121,9 @@
                             <td>{{m.get_era_display}}</td>
                             <td>{% if m.nasa|safe = 'True' %}
                                     NASA&nbsp;
-                                {% elif m.esa|safe = 'True' %}
+                                {% if m.esa|safe = 'True' %}
                                     ESA&nbsp;
-                                {% elif m.jaxa|safe = 'True' %}
+                                {% if m.jaxa|safe = 'True' %}
                                    JAXA&nbsp;
                                 {% endif %}
                             </td>
