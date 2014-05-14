@@ -203,9 +203,9 @@ SWAGGER_SETTINGS = {
 
 # Email Sending Variables
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.live.com'
-EMAIL_HOST_USER = 'dev.xploration@outlook.com'
-EMAIL_HOST_PASSWORD = 'Xploration2014'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'chronosprojectserver@gmail.com'
+EMAIL_HOST_PASSWORD = 'chr78255'
 EMAIL_PORT = 587
 
 # A sample logging configuration. The only tangible logging

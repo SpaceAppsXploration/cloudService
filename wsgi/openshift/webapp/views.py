@@ -248,7 +248,7 @@ def wphoneregister(request):
         subscriber = request.POST['subscriber']
 
         to = "dev.xploration@outlook.com"
-        sender = "Xploration Page <dev.xploration@outlook.com>"
+        sender = "Chronos Project <chronosprojectserver@gmail.com>"
         subject = "BETA ENROLLMENT REQUEST"
         content_txt = '''Somebody asked to enroll: \n
                        Email: '''+subscriber+'''\n
@@ -258,5 +258,5 @@ def wphoneregister(request):
         message.send()
 
         msg = {'message': 'Thanks for enrolling, you will receive an email with further instructions from our developers soon.'}
-        return render_to_response('users/register.html', msg,
+        return render_to_response('webapp/wphonebeta.html', msg,
                               context_instance=RequestContext(request))
