@@ -124,7 +124,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make a dictionary of default keys
-default_keys = { 'SECRET_KEY': '143bha_sdnioafbqwe_' }
+default_keys = { 'SECRET_KEY': '2534923_ajanalsnuglfis-vvv' }
 
 # Replace default keys with dynamic values if we are in OpenShift
 use_keys = default_keys
@@ -200,6 +200,13 @@ SWAGGER_SETTINGS = {
     "is_superuser": False,  # Set to True to enforce admin only access
 }
 
+
+# Email Sending Variables
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.live.com'
+EMAIL_HOST_USER = 'dev.xploration@outlook.com'
+EMAIL_HOST_PASSWORD = 'Xploration2014'
+EMAIL_PORT = 587
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

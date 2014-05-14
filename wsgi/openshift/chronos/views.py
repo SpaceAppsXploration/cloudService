@@ -14,14 +14,14 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
-#from data.JAXA_output_goals import J_details
+
 
 '''
 import models and json serializers
 '''
 from models import Missions, Targets, Details, Planets, PayloadBusTypes, PayloadBusComps
 from serializers import TargetsSerializer, MissionsSerializer, DetailsSerializer, PlanetsSerializer, PayloadBusCompsSerializer, PayloadBusTypesSerializer
-from data.JAXA_output_goals import details
+
 
 class JSONResponse(HttpResponse):
     """
@@ -312,7 +312,7 @@ def clean(request):
 
         count += 1
         new.save()
-    '''
+
     for j in details:               #DETAILS JAXA'S MISSIONS
         codename = j["mission"]
         #print(codename)
@@ -330,6 +330,7 @@ def clean(request):
 
         count += 1
         new.save()
+    '''
 
     return StreamingHttpResponse(json.dumps({'status': 'done', 'count': count }), content_type="application/json")
 

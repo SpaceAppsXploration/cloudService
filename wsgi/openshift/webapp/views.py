@@ -5,6 +5,7 @@ from chronos.models import Targets, PayloadBusComps, Missions, Details, Planets
 from django.core.cache import cache
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import EmailMessage
 
 from webapp.appdata.sim_missions import missions
 from data import ratings
@@ -144,6 +145,10 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
         details.add(d)
 
     params['details']       = details
+
+    if request.GET.get('page') is not None:
+        params['ref'] = request.GET.get('ref')
+
     return render_to_response('webapp/05-results.html', params)
 
 
@@ -211,5 +216,47 @@ def details_page(request, m_id):
     params['details'] = details
     params['back_page'] = page
     params['m_name'] = name
+    
+    if request.GET.get('page') is not None:
+        params['ref'] = request.GET.get('ref')
 
     return render_to_response('webapp/details.html', params)
+
+def instructions(request):
+    params = {}
+
+    return render_to_response('webapp/instructions.html', params)
+
+
+from django.template import RequestContext
+from django.views.decorators.csrf import ensure_csrf_cookie
+
+@ensure_csrf_cookie
+def wphoneregister(request):
+
+    from django.template import RequestContext
+    from django.core.context_processors import csrf
+
+    if request.method == 'GET':
+        params = {}
+
+        return render_to_response('webapp/wphonebeta.html', params,
+                              context_instance=RequestContext(request))
+
+
+    if request.method == 'POST':
+        subscriber = request.POST['subscriber']
+
+        to = "dev.xploration@outlook.com"
+        sender = "Xploration Page <dev.xploration@outlook.com>"
+        subject = "BETA ENROLLMENT REQUEST"
+        content_txt = '''Somebody asked to enroll: \n
+                       Email: '''+subscriber+'''\n
+                       '''
+        message = EmailMessage(subject, content_txt, from_email=sender, to=[to])
+            
+        message.send()
+
+        msg = {'message': 'Thanks for enrolling, you will receive an email with further instructions from our developers soon.'}
+        return render_to_response('users/register.html', msg,
+                              context_instance=RequestContext(request))

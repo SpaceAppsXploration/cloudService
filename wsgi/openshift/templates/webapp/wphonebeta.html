@@ -1,0 +1,131 @@
+{% extends "applayout.html" %}
+
+{% block body %}
+
+
+<div class="row first-row" style="margin-top:80px;">
+<div class="container">
+      <p>Wanna be part of innovation? Wanna contribute to something new and exciting? Well, now you have the chance: help us with the beta testing phase of Xploration for Windows Phone platforms! You'll contribute to develop something stimulating, exciting and knowledge-bringing for every space enthusiast!
+Anyone can be interested! Are you?</p>
+      <div class="text">
+        <p>Beware: You need a Microsoft account and a Windows Phone in order to enter the beta!</p>
+      </div>
+    </div>            
+    <div class="sub_field">
+        <form action="/webapp/wphonebeta/" method="POST">
+          {% csrf_token %} 
+        <input type="text" name="subscriber" value="account@example.com"> 
+        <input type="submit" class="subutton" value="Enroll!"/>
+        </form>
+    </div>
+    <div class="disclaimer">
+      <div class="text">
+        <p>Available for</p>
+      </div>
+      <img src="/static/images/wphonebeta/WP.png">     
+      </div>
+      <div class="row">
+      <p>{{message}}</p>
+      </div>
+<div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+</div>
+
+
+<style type="text/css">
+.subutton, .subutton:visited, .subutton:focus, .subutton:active {
+  background-color: #0092d3;
+  min-width: 100px;
+  color: #FFFFFF;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  text-decoration: none;
+  border: solid 3px #0092d3;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1em;
+  font-family: sans-serif;
+}
+
+.sub_field {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.subutton:hover {
+  background-color: #285b80;
+  outline: none;
+  border: solid 3px #0092d3;
+  box-shadow: 0 0 20px #0092d3;
+  
+}
+
+input[type=text] {
+  background-color: #D9D9D9;
+  color: #636363;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  padding-left: 8px;
+  border: solid 0px #D9D9D9;
+  min-width: 400px;
+  font-size: large;
+  vertical-align: bottom;
+}
+
+input[type=text]:focus {
+  outline: none;
+  border: 2px #9ecaed;
+  box-shadow: 0 0 10px #9ecaed;
+}
+
+.wrapper {
+  margin-top: 3%;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  margin-left: 12%;
+  text-align: center;
+  margin-right: 12%;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.66);
+}
+
+
+.image-one {
+  background: url(./images/Icon2.png) no-repeat center center;
+  height: 220px;
+  margin-top: 2%;
+}
+
+.disclaimer {
+  background: url(./images/WP.png) no-repeat center;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 44%;
+  margin-right: 30%;
+}
+.text {
+  position: relative;
+  color: white;
+  text-decoration: underline;
+  font-family: sans-serif;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.disclaimer .text {
+  margin-left: -40%;
+  text-align: left;
+  color: white;
+  text-decoration: none;
+  top: 14px;
+}
+
+
+</style>
+
+{% endblock %}

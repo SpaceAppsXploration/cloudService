@@ -1,0 +1,80 @@
+{% extends "applayout.html" %}
+
+{% block body %}
+
+<div class="row first-row">
+    <div class="col-md-12">
+        <div class="container" style=""> 
+
+             <ul class="breadcrumbs">
+                <li><a href="/webapp/home">Start</a></li>
+                <li><a href="/webapp/data/planets">Data</a></li>
+                <li>Instructions</li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+            <div class="container" style="margin-top:3%;">
+<div class="col-md-2">
+        <div class="row">
+            <a href="/webapp/data/planets">Planets</a>
+        </div>
+        <div class="row">
+            <a href="/webapp/data/missions">Missions</a>
+        </div>    
+        <div class="row">
+            <a href="/webapp/data/components">Components</a>
+        </div>
+        <div class="row">
+            <a href="/webapp/instructions">Instructions</a>
+        </div>
+    </div>
+
+
+ <div class="row" style="">
+        <div class="col-md-12">
+
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    
+                        <h1>Science Instruments In Space</h1>
+
+                        <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+                  
+                   
+                        <h2>Detectors</h2>
+                 
+               
+                        <h5>Optical Detectors</h5>
+                 
+                    <p>Think of the human eye: it can be considered as a light detector: the collected light infringes on the retina, an electrical impulse is propagated through the optic nerve to the brain, which interprets it as an information regarding the environment we are in: this is what we call <em>vision</em>. However, the light our eyes collect, the <em>visible</em> light, is not the only one it exists. The heat that lets the skin sunburn in summer or the microwaves cooking food in few minutes are other types of light, which we are not able to see. A whole spectrum of light exists, the <a target="_blank" href='http://missionscience.nasa.gov/ems/01_intro.html'> electromagnetic spectrum</a>:</p>
+
+                    <p>It is clear from the picture that light is (one should better say, is <em>also</em>) a <a target="_blank" href='http://missionscience.nasa.gov/ems/02_anatomy.html'>wave</a>, like those you get when you pull a rope up and down: only, you don't have the rope, but something called the <a target="_blank" href='http://en.wikipedia.org/wiki/Electromagnetic_field'>electromagnetic field</a>. From all this light (Radio, Microwave, Infrared...) it is possible to extract information about the surroundings. That's what <em>spectrometers</em> mounted on spacecrafts do, and the working principle is the same as for our eyes: light infringes on a surface, an electrical current is generated, read out and analyzed with the due electronics.</p>
+
+                    <p>The picture shows some spacecrafts having detectors for specific wavelengths.</p>
+                    
+                    <h2>Visual sensors: the Spectrometers</h2>
+                    <p>
+                    But how do they work? The basic fact is rather simple, although the guy who discovered it was Albert Einstein, in 1905. Not that simple then... This fact is called <em>Photoelectric Effect</em>. Basically, light is <em>also</em> a particle. When it hits a surface with due energy it is able to kick off electrons. And a travelling electron is already an electrical current, isn't it?
+                    <br/>
+                    Do you want to know more about how light does it? Look at this video!</p>
+
+                    <div class="row our-clients" style="margin:3% 0 35px 0;">
+                      <div class="clients-carousel custom-carousel touch-carousel">
+                        <div class="container client-item item" style="margin-top:3%;"> 
+                            <iframe style="min-height:350px;" class="col-lg-6 col-md-6 col-sm-12 col-xs-12" src="//www.youtube.com/embed/wFY9ZvUmM5o?rel=0" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                      </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+{% endblock %}

@@ -31,6 +31,9 @@
         <div class="row">
             <a href="/webapp/data/components">Components</a>
         </div>
+        <div class="row">
+            <a href="/webapp/instructions">Instructions</a>
+        </div>
     </div>
 
 {% if what|safe == 'planets' %}
@@ -115,8 +118,8 @@
                         {% for m in bodies %}
                         <tr>
                             <td><div style="width:200px;height:200px;margin: auto auto;"><img src="{{m.image_url}}" style="margin: auto auto;" class="media-object img-rounded img-responsive"/></div></td>
-                            <td><a href="/webapp/data/missions/details/{{m.id}}/?page={{page}}">{{m.codename}}</a></td>
-                            <td><a href="/webapp/data/missions/details/{{m.id}}/?page={{page}}">{{m.name}}</a></td>
+                            <td><a href="/webapp/data/missions/details/{{m.id}}/?page={{page}}&ref=missions">{{m.codename}}</a></td>
+                            <td><a href="/webapp/data/missions/details/{{m.id}}/?page={{page}}&ref=missions">{{m.name}}</a></td>
                             <td><u>{{m.target.name}}</u></td>
                             <td>{{m.get_era_display}}</td>
                             <td>{% if m.nasa|safe == 'True' %}

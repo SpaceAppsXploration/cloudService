@@ -30,8 +30,10 @@ urlpatterns = patterns('',
     
     # Webapp
     url(r'^webapp/home/$', 'webapp.views.homeTEST'),
+    url(r'^webapp/wphonebeta/$', 'webapp.views.wphoneregister'),
     url(r'^webapp/start/$', 'webapp.views.start'),
     url(r'^webapp/data/missions/details/(?P<m_id>[0-9]+)/$', 'webapp.views.details_page'),
+    url(r'^webapp/instructions/$', 'webapp.views.instructions'),
     url(r'^webapp/data/(?P<what>[a-z]+)/$', 'webapp.views.datavis'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/bus/(?P<bus_slug>[a-z_-]+)/$', 'webapp.views.results'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/$', 'webapp.views.bus'),
