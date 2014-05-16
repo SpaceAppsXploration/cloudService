@@ -74,117 +74,259 @@
 {% endif %}
 
 {% if what|safe == 'missions'%}
+
+<script src="/static/js/isotope.pkgd.min.js"></script>
    <div class="col-md-1"></div>
     <div class="col-md-10">
         <div class="row row-first">
-   
+                 			<h1>Missions</h1>
         </div>
 
         <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
 
-        <!--
-        <div class="row">
-        <div class="col-md-3">
-            <form action="#" method="get">
-                <div class="input-group">
-                    <input class="form-control" id="system-search" name="q" placeholder="Search for" required>
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-                    </span>
-                </div>
-            </form>
-        </div>
-        </div>
-        -->
         <div class="row first-row">
         <div class="col-md-12">
-                <table class="table table-list-search">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Codename</th>
-                            <th>Name</th>
-                            <th>Target</th>
-                            <th>Era</th>
-                            <th>Agency</th>
-                            <th>Launches</th>
-                            <th>Twitter</th>
-                            <th>FB</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for m in bodies %}
-                        <tr>
-                            <td><div style="width:200px;height:200px;margin: auto auto;"><img src="{{m.image_url}}" style="margin: auto auto;" class="media-object img-rounded img-responsive"/></div></td>
-                            <td><a href="/webapp/data/missions/details/{{m.id}}/?page={{page}}&ref=missions">{{m.codename}}</a></td>
-                            <td><a href="/webapp/data/missions/details/{{m.id}}/?page={{page}}&ref=missions">{{m.name}}</a></td>
-                            <td><u>{{m.target.name}}</u></td>
-                            <td>{{m.get_era_display}}</td>
-                            <td>{% if m.nasa|safe == 'True' %}
-                                    NASA&nbsp;
-                                {% endif %}    
-                                {% if m.esa|safe == 'True' %}
-                                    ESA&nbsp;
-                                {% endif %}
-                                {% if m.jaxa|safe == 'True' %}
-                                   JAXA&nbsp;
-                                {% endif %}
-                            </td>
-                            <td>
-                            {% if m.launch_dates|safe != 'None' %}
-                                {{m.launch_dates}}
-                            {% endif %}
-                            </td>
-                             <td>
-                            {% if m.twitter|safe != 'None' %}
-                               {{m.twitter}}
-                            {% endif %}
-                            </td>
-                            <td>
-                            {% if m.fb_page|safe != 'None' %}
-                                {{m.fb_page}}
-                            {% endif %}
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-        </div>
+
+
+
+<div id="sorts" class="button-group">
+  <button class="button is-checked" data-sort-value="original-order">pk</button>
+  <button class="button" data-sort-value="name">name</button>
+ <!-- <button class="button" data-sort-value="symbol">agency</button> -->
+  <button class="button" data-sort-value="category">era</button>
+</div>
+
+<div class="isotope">
+
+    {% for k,v in bodies.iteritems %}
+
+  <div class="element-item {{v.obj.get_era_display|lower}} " data-category="{{v.obj.get_era_display|lower}}">
+    <h3 class="name">{{k}}</h3>
+   <p class="symbol"> {% if v.obj.nasa|safe == 'True' or v.obj.esa|safe == 'True' or v.obj.jaxa|safe == 'True' %}
+    	{% if v.obj.nasa|safe == 'True' %}
+            NASA&nbsp;
+        {% endif %}    
+        {% if v.obj.esa|safe == 'True' %}
+           ESA&nbsp;
+        {% endif %}
+        {% if v.obj.jaxa|safe == 'True' %}
+           JAXA&nbsp;
+        {% endif %}
+    {% endif %}</p>
+    </p>
+    <p class="number">{{v.obj.get_era_display}}</p>
+    <p class="weight">{{v.targets|safeseq|join:", "}}</p>
+  </div>
+
+
+
+
+    {% endfor %}
+
+</div>
+
 
          <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
     </div>
 
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-11">
-            <ul class="pagination pagination-lg">
-                {% if bodies.has_previous %}
-                    <li><a href="?page={{ bodies.previous_page_number }}">previous</a></li>
-                {% endif %}
-                {% if bodies.number > 4 %}
-                <li><a href="?page={{ bodies.number|add:"-4"}}">{{bodies.number|add:"-4" }}</a></li>
-                <li><a href="?page={{ bodies.number|add:"-3"}}">{{ bodies.number|add:"-3" }}</a></li>
-                <li><a href="?page={{ bodies.number|add:"-2"}}">{{ bodies.number|add:"-2"}}</a></li>
-                <li><a href="?page={{ bodies.number|add:"-1"}}">{{ bodies.number|add:"-1" }}</a></li>
-                {% endif %}
 
-                <li><span class="current">
-                    Page {{ bodies.number }} of {{ bodies.paginator.num_pages }}.
-                </span></li>
+<style>
 
-                {% if bodies.number <  bodies.paginator.num_pages|add:"-4" %}
-                <li><a href="?page={{ bodies.number|add:1 }}">{{ bodies.number|add:1 }}</a></li>
-                <li><a href="?page={{ bodies.number|add:2 }}">{{ bodies.number|add:2 }}</a></li>
-                <li><a href="?page={{ bodies.number|add:3 }}">{{ bodies.number|add:3 }}</a></li>
-                <li><a href="?page={{ bodies.number|add:4 }}">{{ bodies.number|add:4 }}</a></li>
-                {% endif %}
-                {% if bodies.has_next %}
-                    <li><a href="?page={{ bodies.next_page_number }}">next</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-</div>
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+
+/* ---- button ---- */
+
+.button {
+  display: inline-block;
+  padding: 0.5em 1.0em;
+  background: #EEE;
+  border: none;
+  border-radius: 7px;
+  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+  color: #222;
+  font-family: sans-serif;
+  font-size: 16px;
+  text-shadow: 0 1px white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #8CF;
+  text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
+  color: #222;
+}
+
+.button:active,
+.button.is-checked {
+  background-color: #28F;
+}
+
+.button.is-checked {
+  color: white;
+  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
+}
+
+.button:active {
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+}
+
+/* ---- button-group ---- */
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.button-group .button {
+  float: left;
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 1px;
+}
+
+.button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
+.button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
+
+/* ---- isotope ---- */
+
+.isotope {
+  border: 1px solid #333;
+  max-width: 1200px;
+}
+
+/* clear fix */
+.isotope:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .element-item ---- */
+
+.element-item {
+  position: relative;
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  padding: 10px;
+  background: #888;
+  color: #262524;
+}
+
+.element-item > * {
+  margin: 0;
+  padding: 0;
+}
+
+.element-item .name {
+  padding-top:6px;
+  position: absolute;
+  line-height:13px;
+  left: 10px;
+  top: 15px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.element-item .symbol {
+  position: absolute;
+  line-height:13px;
+  left: 10px;
+  top: 100px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+
+/*
+.element-item .symbol {
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 42px;
+  font-weight: bold;
+  color: white;
+}
+*/
+
+.element-item .number {
+  position: absolute;
+  right: 8px;
+  top: 5px;
+  color: #000;
+  line-height:13px;
+}
+
+.element-item .weight {
+  position: absolute;
+  left: 10px;
+  top: 50px;
+  font-size: 12px;
+  color: #000;
+  line-height:13px;
+}
+
+.element-item.future          { background: #eee; /* background: hsl(   0, 100%, 50%); */ }
+.element-item.present  { background: #888; /* background: hsl(  36, 100%, 50%); */}
+.element-item.past      { background: #08F; /*background: hsl(  72, 100%, 50%);*/ }
+.element-item.concept        { background: #F80; background: hsl(  36, 100%, 50%);  }
+.element-item.transition      { background: #0F8; background: hsl( 144, 100%, 50%); }
+.element-item.post-transition { background: #0FF; background: hsl( 180, 100%, 50%); }
+.element-item.metalloid       { background: #08F; background: hsl( 216, 100%, 50%); }
+.element-item.diatomic        { background: #00F; background: hsl( 252, 100%, 50%); }
+.element-item.halogen         { background: #F0F; background: hsl( 288, 100%, 50%); }
+.element-item.noble-gas       { background: #F08; background: hsl( 324, 100%, 50%); }
+
+</style>
+<script>
+$( function() {
+  // init Isotope
+  var $container = $('.isotope').isotope({
+    itemSelector: '.element-item',
+    layoutMode: 'fitRows',
+    getSortData: {
+      name: '.name',
+      symbol: '.symbol',
+      number: '.number parseInt',
+      category: '[data-category]',
+      weight: function( itemElem ) {
+        var weight = $( itemElem ).find('.weight').text();
+        return parseFloat( weight.replace( /[\(\)]/g, '') );
+      }
+    }
+  });
+
+  // bind sort button click
+  $('#sorts').on( 'click', 'button', function() {
+    var sortValue = $(this).attr('data-sort-value');
+    $container.isotope({ sortBy: sortValue });
+  });
+
+  // change is-checked class on buttons
+  $('.button-group').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $( this ).addClass('is-checked');
+    });
+  });
+  
+});
+</script>
+
+
 {% endif %}
 
 {% if what|safe == 'components'%}

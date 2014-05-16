@@ -167,18 +167,16 @@ def datavis(request, what):
        bodies = Planets.objects.all()
 
     elif what == 'missions':
-        bodies = Missions.objects.all().order_by('name')
-        paginator = Paginator(bodies, 10) # Show 25 contacts per page
-
-        page = request.GET.get('page')
-        try:
-            bodies = paginator.page(page)
-        except PageNotAnInteger:
-            # If page is not an integer, deliver first page.
-            bodies = paginator.page(1)
-        except EmptyPage:
-            # If page is out of range (e.g. 9999), deliver last page of results.
-            bodies = paginator.page(paginator.num_pages)
+        bodies = {}
+        all_target = Missions.objects.all()
+        mission_targets = []
+        for a in all_target:
+            if bodies.get(a.codename) is not None:
+                b = bodies[a.codename]['targets']
+                b.append(a.target.name)
+            else:
+                bodies[a.codename] = { 'obj': a, 'targets': [a.target.name] }
+        #print bodies
 
     elif what == 'components':
         bodies = PayloadBusComps.objects.all()
@@ -195,7 +193,7 @@ def datavis(request, what):
     params['status'] = js
     params['bodies'] = bodies
     params['what'] = what
-    params['page'] = page
+    #params['page'] = page
     return render_to_response('webapp/showdata.html', params,
                               context_instance=RequestContext(request))
 
