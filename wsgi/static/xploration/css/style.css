@@ -291,6 +291,11 @@ input[type="submit"] {
     }
 
 
+.row-first {
+   margin-top: 100px;
+   margin-left: 80px;
+}
+
 /*------------------------------------------*/
 /*	     02 - Header & Navigation
 /*------------------------------------------*/
@@ -493,7 +498,7 @@ ul.social-list li:last-child a i {
 	-o-transition: all 0.3s ease-in-out;
 }
 .navbar-default .navbar-nav > li > a.active, .navbar-default .navbar-nav > li:hover > a {
-	border-bottom: 2px solid;
+	/*border-bottom: 2px solid;*/
 }
 .navbar-default .navbar-nav > li > a i {
 	margin: 0 -2px 0 -5px;

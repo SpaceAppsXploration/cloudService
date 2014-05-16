@@ -1,18 +1,15 @@
-from django.conf.urls import patterns, include, url
-
+from django.conf.urls import include, patterns, url
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.conf import settings
+
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'spaceServer.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-    # url(r'^blog/', include('blog.urls')),
+urlpatterns = i18n_patterns('',
 
     url(r'^simulation/', 'chronos.simulate.simulation'),
 
-    url(r'^clean/', 'chronos.views.clean'),
-
+    
     # REST endpoints
     url(r'^api/docs/', include('rest_framework_swagger.urls')),
     url(r'^api/targets/(?P<t_id>[0-9]+)/$', 'chronos.views.target_detail'),
@@ -28,23 +25,30 @@ urlpatterns = patterns('',
     url(r'^api/components/(?P<c_id>[0-9]+)/$', 'chronos.views.single_component'),
     url(r'^api/components/$', 'chronos.views.components_list'),
     
+    # home
+    url(r'^webapp/wphonebeta/$', 'home.views.wphoneregister'),
+    url(r'^about/$', 'home.views.about', name='about'),
+    url(r'^promo/$', 'home.views.promo', name='promo'),
+    url(r'^$', 'home.views.home', name='home'),
+
     # Webapp
     url(r'^webapp/home/$', 'webapp.views.homeTEST'),
-    url(r'^webapp/wphonebeta/$', 'webapp.views.wphoneregister'),
     url(r'^webapp/start/$', 'webapp.views.start'),
     url(r'^webapp/data/missions/details/(?P<m_id>[0-9]+)/$', 'webapp.views.details_page'),
-    url(r'^webapp/instructions/$', 'webapp.views.instructions'),
     url(r'^webapp/data/(?P<what>[a-z]+)/$', 'webapp.views.datavis'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/bus/(?P<bus_slug>[a-z_-]+)/$', 'webapp.views.results'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/$', 'webapp.views.bus'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/$', 'webapp.views.payload'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/$', 'webapp.views.mission'),
 
-    # Test Endpoints
-    url(r'^test/db/entities/$', 'chronos.tests.db'),
-
-    url(r'^$', 'chronos.views.home', name='home'),
-    url(r'^about/$', 'chronos.views.about', name='about'),
-    url(r'^promo/$', 'chronos.views.promo', name='promo'),
+    #admin and CMS
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('cms.urls')),
 )
+
+if settings.DEBUG:
+    urlpatterns = patterns('',
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    url(r'', include('django.contrib.staticfiles.urls')),
+) + urlpatterns

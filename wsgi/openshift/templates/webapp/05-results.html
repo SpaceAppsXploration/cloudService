@@ -1,10 +1,12 @@
-{% extends "applayout.html" %}
+{% extends "base.html" %}
+{% load cms_tags %}
 
 {% block body %}
 <div class="row first-row">
     <div class="col-md-12">
         <div class="container" style=""> 
             <div class="row">
+                <div class="col-md-2"></div>
                 <div class="col-md-6">
                     <ul style="padding-left:10px;">
                         <li><i class="glyphicon glyphicon-ok"></i>
@@ -43,7 +45,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <ul class="breadcrumbs">
                         <li><a href="/webapp/home">Start</a></li>
                         <li><a href="/webapp/start">Define</li>
@@ -105,11 +107,11 @@
                             <p class=""> 
                                 {% if j.link_url|safe == '' or j.link_url|safe == 'None'  %}<a target="_blank" href="http://solarsystem.nasa.gov/missions/profile.cfm?Sort=Target&Target={{destination}}&MCode={{j.hashed}}"> {{j.name}} </a> 
                                 {% else %}
-                                <a target="_blank" href="{{j.link_url}}"> {{j.name}} </a> 
+                                <a target="_blank" href="{{j.link_url}}"> {{j.name}} Website</a> 
                                 {% endif %}
                             </p>
                             <p>
-                                <a href="/webapp/data/missions/details/{{j.id}}?ref=results">Read More</a>
+                                <a href="/webapp/data/missions/details/{{j.id}}?ref=results">See Details</a>
                             </p>
                         </div>
 

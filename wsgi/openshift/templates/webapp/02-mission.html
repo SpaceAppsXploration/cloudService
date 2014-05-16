@@ -1,20 +1,22 @@
-{% extends "applayout.html" %}
+{% extends "base.html" %}
+{% load cms_tags %}
 
 {% load filters %}
 
 {% block body %}
-<div class="row first-row">
+<div class="row">
     <div class="col-md-12">
         <div class="container" style=""> 
             <div class="row">
+                <div class="col-md-2"></div>
                 <div class="col-md-6">
-                    <ul style="padding-left:10px;">
+                    <ul style="">
                         <li><i class="glyphicon glyphicon-ok"></i>
                             <span>Your mission is going to {{d_obj.name}}</span>
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <ul class="breadcrumbs">
                         <li><a href="/webapp/home">Start</a></li>
                         <li><a href="/webapp/start">Define</a></li>
@@ -27,14 +29,14 @@
 </div>
 
 
-<div class="row" style="">
+<div class="row row-first" style="">
     <div class="col-md-12">
         <div class="container" style="margin-top:3%;"> 
-                    <p>
-                        <b>
-                        <h3>Mission:</h3> What are you going to do in space?
-                        </b>
-                    </p>
+            <p>
+                <b>
+                 What are you going to do in space?
+                </b>
+            </p>
         </div>
     </div>
 </div>
@@ -82,7 +84,16 @@
         </div>
 </div>
 
-{% block script %}
+<div id="loader" style="display:none;" >
+    <div class="orbital">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+</div>  
+</div>
+
+
 <script>
 
 $('.submit').on('click', function(){
@@ -127,7 +138,7 @@ $('.submit').on('click', function(){
 });
 
 </script>
-{% endblock %}
+
 
 <style type="text/css">
 body {

@@ -1,0 +1,156 @@
+{% load cms_tags sekizai_tags %}
+<!DOCTYPE HTML>
+<!--[if IE 8 ]><html class="ie ie8" lang="it"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="it" class="no-js"> <![endif]-->
+<html lang="en">
+	<head>
+	    <title>Project Chronos - Xploration Apps</title> 
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	    <meta name="keywords" content="{{keywords}}">
+	    <meta name="description" content="{{keywords}}">
+
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+            <!-- Favicon -->
+	    <link rel="shortcut icon" href="/static/images/favicon.png">
+
+	    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" media="screen">
+	    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css" media="screen">
+	    <link rel="stylesheet" type="text/css" href="/static/css/style.css" media="screen">
+
+	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+            {% render_block "css" %}
+        </head>
+<body>
+      {% cms_toolbar %}
+
+
+	<!-- Container -->
+	<div class="row">
+	    <div class="col-md-12">
+	    <!-- Start Header -->
+		
+		        <div class="container">
+		            <div class="row" style="">
+
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" style="font-family: 'Lora', serif;font-weight:bold;letter-spacing:15px;font-size:12px;" href="#"><img alt="" src="/static/images/logo145x150.png"></a>
+	    </div>
+
+
+	 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav" style="margin-bottom:10px;border-bottom:2px solid #fff;">
+		<li><a href="/">Home</a></li>
+
+					            <li style="margin-bottom:5px;"><a href="/webapp/start/">
+					                <span>Demo</span>
+					                </a>
+					            </li>
+                                                    <li style="margin-bottom:5px;"><a href="/webapp/wphonebeta/">
+					                <span>Beta</span>
+					                </a>
+					            </li>
+						    <li style="margin-bottom:5px;"><a href="/webapp/home">
+					                <span>Apps</span>
+					                </a>
+					            </li>
+					            <li style="margin-bottom:5px;"><a href="/api/docs">
+					                <span>Developers</span>
+					                </a>
+					            </li>
+					            <li style="margin-bottom:5px;"><a href="/promo">
+					                <span>Promos</span>
+					                </a>
+					            </li>
+                                                    <li style="margin-bottom:5px;"><a href="/about">
+					                <span>About</span>
+					                </a>
+					            </li>
+					        </ul>
+				     
+					</div>
+				    </div>
+                	</nav>
+	        </div>
+        </div>
+    
+	   
+	</div>
+ </div>
+
+      {% block body %}{% endblock %} <!-- Custom Block in Template -->
+      {% placeholder base_content %} <!-- CMS Placeholder -->
+      {% block base_content %}{% endblock %} <!-- CMS Block Content -->
+
+	<div class="row" style="">
+	    <div class="col-md-12">
+	    <!-- Start Header -->
+		<header class="clearfix">
+		    <div class="navbar-fixed-bottom">
+		        <div class="container">
+		            <div class="row" style="">
+		                <div class="col-md-6">
+		                    <p style="font-family: 'Lora', serif;font-weight:bold;letter-spacing:15px;">
+		                        xploration
+		                    </p>
+		                </div>
+		                <div class="col-md-6">
+		                    <p><ul class="social-list">
+		                            <li><a href="/webapp/start/" class="login-social" data-placement="top">
+		                                <span class="label label-default">demo</span>
+		                                </a>
+		                            </li>
+		                            <li><a href="/api/docs" class="login-social" data-placement="top">
+		                                <span class="label label-default">developers</span>
+		                                </a>
+		                            </li>
+		                            <li><a href="/webapp/wphonebeta/" class="login-social" data-placement="top">
+		                                <span class="label label-default">beta</span>
+		                                </a>
+		                            </li>
+		                        </ul>
+		                    </p>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</header>
+	    </div>
+	</div>
+
+
+
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-50314218-1', 'spacexplore.it');
+	  ga('send', 'pageview');
+
+
+</script>
+	     
+
+	 {% render_block "js" %}
+
+{% block script %}{% endblock %}
+
+ </body>
+</html>

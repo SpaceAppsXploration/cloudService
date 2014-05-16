@@ -6,6 +6,7 @@ from django.core.cache import cache
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import EmailMessage
+from django.template import RequestContext
 
 from webapp.appdata.sim_missions import missions
 from data import ratings
@@ -18,7 +19,8 @@ def homeTEST(request):
     params = {}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
     params['status'] = js
-    return render_to_response('webapp/homeTEST.html', params)
+    return render_to_response('webapp/homeTEST.html', params,
+                              context_instance=RequestContext(request))
 
 def start(request):
     tg = Targets.objects.all().filter(use_in_sim=True).order_by('name')
@@ -27,14 +29,16 @@ def start(request):
     params = {'targets': tg}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
-    return render_to_response('webapp/01-destinations.html', params)
+    return render_to_response('webapp/01-destinations.html', params,
+                              context_instance=RequestContext(request))
 
 def mission(request, p_slug):
     dt = Targets.objects.get(slug=p_slug)
     params = {'missions': missions, 'destination': p_slug, 'd_obj': dt}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
-    return render_to_response('webapp/02-mission.html', params)
+    return render_to_response('webapp/02-mission.html', params,
+                              context_instance=RequestContext(request))
 
 def payload(request, p_slug, m_slug):
     dt = Targets.objects.get(slug=p_slug)
@@ -48,7 +52,8 @@ def payload(request, p_slug, m_slug):
                'm_obj': ms}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
-    return render_to_response('webapp/03-payload.html', params)
+    return render_to_response('webapp/03-payload.html', params,
+                              context_instance=RequestContext(request))
 
 def bus(request, p_slug, m_slug, pl_slug):
     dt = Targets.objects.get(slug=p_slug)
@@ -73,7 +78,8 @@ def bus(request, p_slug, m_slug, pl_slug):
                'm_obj': ms, 'assembled': pl_assembled, 'assembled_slugs': assembled_slugs, 'bus': bus}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
-    return render_to_response('webapp/04-bus.html', params)
+    return render_to_response('webapp/04-bus.html', params,
+                              context_instance=RequestContext(request))
 
 def results(request, p_slug, m_slug, pl_slug, bus_slug):
     dt = Targets.objects.get(slug=p_slug)
@@ -149,7 +155,8 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
     if request.GET.get('page') is not None:
         params['ref'] = request.GET.get('ref')
 
-    return render_to_response('webapp/05-results.html', params)
+    return render_to_response('webapp/05-results.html', params,
+                              context_instance=RequestContext(request))
 
 
 def datavis(request, what):
@@ -175,6 +182,9 @@ def datavis(request, what):
 
     elif what == 'components':
         bodies = PayloadBusComps.objects.all()
+
+    elif what == 'instructions':
+        bodies = None
     else:
         raise Http404
 
@@ -186,7 +196,8 @@ def datavis(request, what):
     params['bodies'] = bodies
     params['what'] = what
     params['page'] = page
-    return render_to_response('webapp/showdata.html', params)
+    return render_to_response('webapp/showdata.html', params,
+                              context_instance=RequestContext(request))
 
 def details_page(request, m_id):
     params = {}
@@ -220,22 +231,16 @@ def details_page(request, m_id):
     if request.GET.get('page') is not None:
         params['ref'] = request.GET.get('ref')
 
-    return render_to_response('webapp/details.html', params)
+    return render_to_response('webapp/details.html', params,
+                              context_instance=RequestContext(request))
 
-def instructions(request):
-    params = {}
-
-    return render_to_response('webapp/instructions.html', params)
-
-
-from django.template import RequestContext
+from django.core.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 @ensure_csrf_cookie
 def wphoneregister(request):
 
-    from django.template import RequestContext
-    from django.core.context_processors import csrf
+
 
     if request.method == 'GET':
         params = {}

@@ -1,4 +1,5 @@
-{% extends "applayout.html" %}
+{% extends "base.html" %}
+{% load cms_tags %}
 
 {% load filters %} 
 
@@ -7,8 +8,9 @@
     <div class="col-md-12">
         <div class="container" style=""> 
             <div class="row">
+                <div class="col-md-2"></div>
                 <div class="col-md-6">
-                    <ul style="padding-left:10px;">
+                    <ul style="">
                         <li><i class="glyphicon glyphicon-ok"></i>
                             <span>Your mission is going to {{d_obj.name}}</span>
                         </li>
@@ -27,7 +29,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <ul class="breadcrumbs">
                         <li><a href="/webapp/home">Start</a></li>
                         <li><a href="/webapp/start">Define</li>
@@ -48,7 +50,7 @@
             <div class="b_white" style="">
                 <b>
                     <p>
-                    <h3>Bus:</h3> it is the structure and navigation for the vehicle: choose which parts you want to use (max one per type).</p>
+                    Bus: is the structure and navigation for the vehicle: choose which parts you want to use.</p>
                 </b>
 
             </div>
@@ -105,11 +107,21 @@
      <div class="row">
         <div class="col-md-9">
              <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
-             <p style="text-align:right;"><a id="submit" class="btn btn-primary btn-lg">Bus Design Is Go</a></p>
+             <p style="text-align:right;"><a id="submit" class="btn btn-primary btn-lg">Bus Design Is A Go</a></p>
              <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
         </div>
     </div>
 </div>
+
+<div id="loader" style="display:none;">
+    <div class="orbital">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+    </div>  
+</div>
+
 
 {% block script %}
 <script type="text/javascript">

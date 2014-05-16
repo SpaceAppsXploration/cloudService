@@ -1,48 +1,53 @@
-{% extends "applayout.html" %}
+{% extends "base.html" %}
+{% load cms_tags %}
 
 {% block body %}
 
 
-<div class="row first-row" style="margin-top:80px;">
+
+
 <div class="container">
-      <div class="row">
+      <div class="first-row" style="margin-top:80px;">
         <p style="color: red; font-weight:bold;">{{message}}</p>
       </div>
-        <p>Wanna be part of innovation? Wanna contribute to something new and exciting? Well, now you have the chance: help us with the beta testing phase of Xploration for Windows Phone platforms! You'll contribute to develop something stimulating, exciting and knowledge-bringing for every space enthusiast!
-Anyone can be interested! Are you?</p>
-      <div class="text">
-        <p>Beware: You need a Microsoft account and a Windows Phone in order to enter the beta!</p>
+      <div class="row">
+        <p style="font-size: x-large; line-height: initial;">Wanna be part of innovation? Wanna contribute to something new and exciting? Well, now you have the chance: help us with the beta testing phase of Xploration for Windows Phone platforms! You'll contribute to develop something stimulating, exciting and knowledge-bringing for every space enthusiast!
+        Anyone can be interested! Are you?</p>
       </div>
-    </div>            
+
     <div class="sub_field">
         <form action="/webapp/wphonebeta/" method="POST">
-          {% csrf_token %} 
-        <input type="text" name="subscriber" value="account@example.com"> 
-        <input type="submit" class="subutton" value="Enroll!"/>
+        {% csrf_token %} 
+        <input type="text" name="subscriber" placeholder="account@example.com">
+        <input type="submit" value="ENROLL" class="subutton" style="margin-left: 5px;border: solid 2px #0092D3;">
         </form>
     </div>
-    <div class="disclaimer">
-      <div class="text">
-        <p>Available for</p>
-      </div>
-      <img src="/static/images/wphonebeta/WP.png">     
-      </div>
+    
       
     <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
     <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-bottom: 30px;">
             <div class="row">
-                <p><a href="/webapp/home">Back</a></p>
+                <p style="font-size: initial;font-weight: bold;">Keep in mind that you need a Microsoft account and a Windows Phone 8.0 device in order to enter the beta! Future versions on other platforms are under development.</p>
+                <p style="font-size: 15px;padding-top:20px;">We will use your account just to add you as a beta-tester on the Windows Phone Store. You will receive a confirmation email as soon as possible by our developers.</p>
             </div>
          </div>
+      
+     <div class="disclaimer">
+      
+      <img src="/static/images/wphonebeta/WP.png" style="margin-top: 35px;margin-left: -50px;margin-bottom:40px;">
+     </div>
+    
 
-</div>
+
+   </div>
+
 
 
 <style type="text/css">
 .subutton, .subutton:visited, .subutton:focus, .subutton:active {
   background-color: #0092d3;
-  min-width: 100px;
+  min-height: 44px;
   color: #FFFFFF;
   padding-left: 20px;
   padding-right: 20px;
@@ -103,13 +108,13 @@ input[type=text]:focus {
 
 
 .image-one {
-  background: url(./images/Icon2.png) no-repeat center center;
+
   height: 220px;
   margin-top: 2%;
 }
 
 .disclaimer {
-  background: url(./images/WP.png) no-repeat center;
+
   height: 50px;
   margin-top: 20px;
   margin-left: 44%;
@@ -118,7 +123,7 @@ input[type=text]:focus {
 .text {
   position: relative;
   color: white;
-  text-decoration: underline;
+  text-decoration: none;
   font-family: sans-serif;
   font-size: large;
   font-weight: bold;
@@ -135,5 +140,4 @@ input[type=text]:focus {
 
 
 </style>
-
 {% endblock %}

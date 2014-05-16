@@ -32,7 +32,7 @@ if ON_OPENSHIFT:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'chronos',                                               # Or path to database file if using sqlite3.
+            'NAME': 'test',                                               # Or path to database file if using sqlite3.
             'USER': os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],         # Not used with sqlite3.
             'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],     # Not used with sqlite3.
             'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],             # Set to empty string for localhost. Not used with sqlite3.
@@ -49,7 +49,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'chronos',  # Or path to database file if using sqlite3.
+            'NAME': 'test',  # Or path to database file if using sqlite3.
             'USER': 'postgres',                      # Not used with sqlite3.
             'PASSWORD': 'poiuyt',                  # Not used with sqlite3.
             'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -82,12 +82,13 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.environ.get('OPENSHIFT_DATA_DIR', '')
+MEDIA_ROOT = os.path.join(os.environ.get('OPENSHIFT_DATA_DIR', ''), 'media')
+print MEDIA_ROOT
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = "/media/"
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -147,6 +148,8 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
     #'django.template.loaders.eggs.Loader',
+    #'django.template.loaders.app_directories.load_template_source',
+    #'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -156,6 +159,23 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.doc.XViewMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'cms.context_processors.cms_settings',
+    'sekizai.context_processors.sekizai',
 )
 
 ROOT_URLCONF = 'urls'
@@ -167,6 +187,16 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
 )
 
+CMS_TEMPLATES = (
+    ('base.html', 'Base'),
+    ('template_1.html', 'Template One'),
+    ('template_2.html', 'Template Two'),
+)
+
+LANGUAGES = [
+    ('en', 'English'),
+]
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -175,6 +205,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
+    'djangocms_admin_style',  # for the admin skin. You **must** add 'djangocms_admin_style' in the list before 'django.contrib.admin'.
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -182,6 +213,16 @@ INSTALLED_APPS = (
     'rest_framework_swagger',
     'chronos',
     'webapp',
+    'djangocms_text_ckeditor',  # note this needs to be above the 'cms' entry
+    'cms',  # django CMS itself
+    'mptt',  # utilities for implementing a modified pre-order traversal tree
+    'menus',  # helper for model independent hierarchical website navigation
+    'south',  # intelligent schema and data migrations
+    'sekizai',  # for javascript and css management
+    'django.contrib.messages',
+    #'cms.plugins.teaser',
+    'djangocms_link',
+    #'cms.plugins.video',
 )
 
 # Configuration for Django CORS Headers

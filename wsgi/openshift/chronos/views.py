@@ -1,5 +1,5 @@
 '''
-Homepage and REST views
+REST views
 Need refactoring
 '''
 import json
@@ -272,67 +272,4 @@ def pb_list(request):
     else:
         mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
-
-def home(request):
-    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
-    js = json.dumps(js)
-    
-    params = {}
-    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
-    params['status'] = js
-    return render_to_response('home/home.html', params)
-
-def about(request):
-    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
-    js = json.dumps(js)
-    
-    params = {}
-    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
-    params['status'] = js
-    return render_to_response('home/about.html', params)
-
-def promo(request):
-    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
-    js = json.dumps(js)
-    
-    params = {}
-    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
-    params['status'] = js
-    return render_to_response('home/promo.html', params)
-
-def clean(request):
-    count = 0
-    '''
-    for j in J_details:
-
-        m = Missions.objects.all().get(codename=j['mission'])
-        
-        
-        new = Missions(target=t, era=2, name=m["name"], codename=m["codename"], hashed=m["hashed"], image_url=m["img"], launch_dates=str(date), link_url=m["link"], jaxa=m["jaxa"])
-
-        count += 1
-        new.save()
-
-    for j in details:               #DETAILS JAXA'S MISSIONS
-        codename = j["mission"]
-        #print(codename)
-        m = Missions.objects.all().filter(codename=codename).first()
-
-        b = j['body'].strip()
-
-        if j.get('image_link') is not None:
-            img = j["image_link"]
-        else:
-            img = None
-
-        new = Details(mission=m, detail_type=j["detail_type"], header=j["header"], 
-                       body=b, date=None, image_link=img)
-
-        count += 1
-        new.save()
-    '''
-
-    return StreamingHttpResponse(json.dumps({'status': 'done', 'count': count }), content_type="application/json")
-
-
 

@@ -7,6 +7,7 @@ def grouped(l, n):
     for i in xrange(0, len(l), n):
         yield l[i:i+n]
 
-@register.filter()
 def group_by(value, arg):
     return grouped(value, arg)
+
+register.filter('group_by', group_by)

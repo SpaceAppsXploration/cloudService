@@ -1,4 +1,5 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
+{% load cms_tags %}
 
 {% block body %}
 <div id="fb-root"></div>
@@ -11,25 +12,36 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="container" style="margin-left:5px;"> 
+    
+
     <div class="row">
-        <div class="col-md-1"></div>
-            <div class="col-md-2">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+                <p class="click"><a class="btn btn-primary" href="/webapp/home">Try Out The Demo</a></p>
+                <p class="click"><a class="btn btn-primary" href="/webapp/wphonebeta/">Enroll For WindowsPhone Beta</a></p>
+                <p style="font-family: 'Lora', serif;font-weight:bold;text-align:center;padding-top:25px;"> We Are Developing Xploration App For Your Devices And A REST Service For Developers Interested In Space Agencies' Activities.<br/><a target="_blank" class="" href="https://www.facebook.com/pages/Xploration/241831932686033">Stay Tuned!</a>
+                </p>
+            </div>
+
+            <div class="col-md-4">
                 <div class="row our-clients" style="margin-top:30px;">
-                    <div class="client-item item">
+                   <!-- <div class="client-item item">
                         <p style="min-height:170px;"><a class="navbar-brand" href="/"><img alt="" src="/static/images/logo145x150.png"></a></p>
-                    </div>
+                    </div> -->
                 </div>
+
+            <div class="row" style="margin-top:45px;">
+                <p><a href="https://twitter.com/XplorationApp" class="twitter-follow-button" data-show-count="false" data-size="medium">@XplorationApp</a></p>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+              
+                <p class="fb-like" data-href="https://www.facebook.com/pages/Xploration/241831932686033" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></p>
             </div>
-<div class="col-md-4"></div>
-            <div class="col-md-2">
-                <div class="row" style="margin-top:45px;">
-                    <p><a href="https://twitter.com/XplorationApp" class="twitter-follow-button" data-show-count="false" data-size="medium">@XplorationApp</a></p>
-                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                  
-                    <p class="fb-like" data-href="https://www.facebook.com/pages/Xploration/241831932686033" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></p>
-                </div>
+     
             </div>
+           
     </div>
+
 
     <div class="row">
         <div class="col-md-1"></div>
@@ -44,25 +56,15 @@
                     </div>
                   </div>
                 </div>
+             <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
             </div>
 
     </div>
 
-    <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-6">
-                <p class="click"><a class="btn btn-primary" href="/webapp/home">Try Out The Demo</a></p>
-                <p class="click"><a class="btn btn-primary" href="/webapp/wphonebeta/">Enroll For WindowsPhone Beta</a></p>
-                <p style="font-family: 'Lora', serif;font-weight:bold;text-align:center;padding-top:25px;"> We Are Developing Xploration App For Your Devices And A REST Service For Developers Interested In Space Agencies' Activities.<br/><a target="_blank" class="" href="https://www.facebook.com/pages/Xploration/241831932686033">Stay Tuned!</a>
-                </p>
-            <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
-            </div>
-    </div>
 
     <div class="row">
         <div class="col-md-1"></div>
             <div class="col-md-6">
-                <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
                 <div class="row our-clients">
                     
                     <!-- Classic Heading -->
@@ -100,12 +102,21 @@
     
 </div>
 
+<div id="loader">
+    <div class="orbital">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+    <div class="four"></div>
+</div>  
+</div>
+
 
 <style>
 body {
     background-image: url(/static/images/background.svg); background-size: cover; height: 100%;
     overflow-x:hidden;
-    overflow-y:hidden;
+
     background-repeat: no-repeat;
 }
 
@@ -118,5 +129,16 @@ body {
     text-align:center;
 }
 </style>
+
+<script>
+$(window).load(function(){
+    setInterval (function () {
+        $('#loader').fadeOut();
+    }, 5999);
+    setInterval (function () {
+        $('body').css({ 'overflow-y': 'scroll'})
+    }, 5999);
+});
+</script>
 
 {% endblock %}
