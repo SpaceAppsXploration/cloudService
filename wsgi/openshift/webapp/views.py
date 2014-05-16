@@ -181,7 +181,7 @@ def datavis(request, what):
     elif what == 'components':
         bodies = PayloadBusComps.objects.all()
 
-    elif what == 'instructions':
+    elif what == 'instruments':
         bodies = None
     else:
         raise Http404
