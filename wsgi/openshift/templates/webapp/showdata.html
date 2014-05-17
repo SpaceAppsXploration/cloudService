@@ -6,10 +6,10 @@
 {% block body %}
  <div class="col-md-12">
        <div class="row">  
-              <div class="col-md-2"></div>
-              <div class="col-md-4">
+              <div class="col-md-1"></div>
+              <div class="col-md-5">
                    <ol class="button-group">
-                          <li><a href="/webapp/data/instruments" class="btn"">Instruments</a></li>
+                          <li><a href="/webapp/data/instruments" class="btn"">Instrumentation</a></li>
                           <li><a href="/webapp/data/components" class="btn"">Components</a></li>
 			  <li><a href="/webapp/data/missions" class="btn"">Missions</a></li>
 			  <li><a href="/webapp/data/planets" class="btn"">Planets</a></li>
@@ -89,9 +89,9 @@
 
 
 <div id="sorts" class="button-group">
-  <button class="button is-checked" data-sort-value="original-order">pk</button>
+  <!-- <button class="button is-checked" data-sort-value="original-order">pk</button>-->
   <button class="button" data-sort-value="name">name</button>
- <!-- <button class="button" data-sort-value="symbol">agency</button> -->
+  <button class="button" data-sort-value="agency">agency</button>
   <button class="button" data-sort-value="category">era</button>
 </div>
 
@@ -99,17 +99,28 @@
 
     {% for k,v in bodies.iteritems %}
 
-  <div class="element-item {{v.obj.get_era_display|lower}} " data-category="{{v.obj.get_era_display|lower}}">
-    <h3 class="name">{{k}}</h3>
-   <p class="symbol"> {% if v.obj.nasa|safe == 'True' or v.obj.esa|safe == 'True' or v.obj.jaxa|safe == 'True' %}
+  <div class="element-item {{v.obj.get_era_display|lower}} " data-category="{{v.obj.get_era_display|lower}}" data-agency="
+        {% if v.obj.nasa|safe == 'True' or v.obj.esa|safe == 'True' or v.obj.jaxa|safe == 'True' %}
     	{% if v.obj.nasa|safe == 'True' %}
-            NASA&nbsp;
+            nasa
         {% endif %}    
         {% if v.obj.esa|safe == 'True' %}
-           ESA&nbsp;
+           esa
         {% endif %}
         {% if v.obj.jaxa|safe == 'True' %}
-           JAXA&nbsp;
+           jaxa 
+        {% endif %}
+    {% endif %}">
+    <h3 class="name"><a style="color:#000;" href="/webapp/data/missions/details/{{v.obj.id}}?ref=missions">{{k}}</a></h3>
+   <p class="symbol"> {% if v.obj.nasa|safe == 'True' or v.obj.esa|safe == 'True' or v.obj.jaxa|safe == 'True' %}
+    	{% if v.obj.nasa|safe == 'True' %}
+            <a style="color:#000;" href="{{link_url}}">NASA</a>&nbsp;
+        {% endif %}    
+        {% if v.obj.esa|safe == 'True' %}
+            <a style="color:#000;" href="{{link_url}}">ESA</a>&nbsp;
+        {% endif %}
+        {% if v.obj.jaxa|safe == 'True' %}
+            <a style="color:#000;" href="{{link_url}}">JAXA</a>&nbsp;
         {% endif %}
     {% endif %}</p>
     </p>
@@ -177,6 +188,10 @@
 
 /* ---- button-group ---- */
 
+.button-group {
+    margin-bottom:15px;
+}
+
 .button-group:after {
   content: '';
   display: block;
@@ -188,6 +203,9 @@
   border-radius: 0;
   margin-left: 0;
   margin-right: 1px;
+background: none;
+  border: 1px solid #fff;
+  color: #fff;
 }
 
 .button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
@@ -196,7 +214,7 @@
 /* ---- isotope ---- */
 
 .isotope {
-  border: 1px solid #333;
+  /*border: 1px solid #333;*/
   max-width: 1200px;
 }
 
@@ -218,6 +236,7 @@
   padding: 10px;
   background: #888;
   color: #262524;
+border-radius: 10px;;
 }
 
 .element-item > * {
@@ -242,7 +261,7 @@
   position: absolute;
   line-height:13px;
   left: 10px;
-  top: 100px;
+  top: 120px;
   text-transform: none;
   letter-spacing: 0;
   font-size: 12px;
@@ -272,14 +291,14 @@
 .element-item .weight {
   position: absolute;
   left: 10px;
-  top: 50px;
+  top: 75px;
   font-size: 12px;
   color: #000;
   line-height:13px;
 }
 
 .element-item.future          { background: #eee; /* background: hsl(   0, 100%, 50%); */ }
-.element-item.present  { background: #888; /* background: hsl(  36, 100%, 50%); */}
+.element-item.concept  { background: #ccc; /* background: hsl(  36, 100%, 50%); */}
 .element-item.past      { background: #08F; /*background: hsl(  72, 100%, 50%);*/ }
 
 
@@ -292,7 +311,7 @@ $( function() {
     layoutMode: 'fitRows',
     getSortData: {
       name: '.name',
-      symbol: '.symbol',
+      agency: '[data-agency]',
       number: '.number parseInt',
       category: '[data-category]',
       weight: function( itemElem ) {

@@ -163,19 +163,30 @@ def datavis(request, what):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
     js = json.dumps(js)
     
+    
+    
     if what == 'planets':
        bodies = Planets.objects.all()
 
     elif what == 'missions':
-        bodies = {}
-        all_target = Missions.objects.all()
-        mission_targets = []
-        for a in all_target:
-            if bodies.get(a.codename) is not None:
-                b = bodies[a.codename]['targets']
-                b.append(a.target.name)
-            else:
-                bodies[a.codename] = { 'obj': a, 'targets': [a.target.name] }
+        check = cache.get('[data]missions')
+        if check is None: # or check['number'] != Missions.objects.count():
+                print 'no cache'
+                bodies = {}
+		all_target = Missions.objects.all()
+		mission_targets = []
+		for a in all_target:
+		    if bodies.get(a.codename) is not None:
+		        b = bodies[a.codename]['targets']
+		        b.append(a.target.name)
+		    else:
+		        bodies[a.codename] = { 'obj': a, 'targets': [a.target.name] }
+                bodies['number'] = Missions.objects.count()
+	        cache.set('[data]missions', bodies, 36000)
+        else:
+                print 'yes cache'
+                bodies =  cache.get('[data]missions')
+
         #print bodies
 
     elif what == 'components':
