@@ -32,9 +32,16 @@
    
 
 {% if what|safe == 'planets' %}
+   <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="row row-first">
+              	<h1>Planets</h1>
+        </div>
+
+ <hr>
     <div class="col-md-1"></div>
     <div class="col-md-9">
-        <div class="row row-first">
+        <div class="row">
    
         </div>
         {% for b in bodies|group_by:3 %}
@@ -78,10 +85,10 @@
    <div class="col-md-1"></div>
     <div class="col-md-10">
         <div class="row row-first">
-                 			<h1>Missions</h1>
+              	<h1>Missions</h1>
         </div>
 
-        <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+ <hr>
 
         <div class="row first-row">
         <div class="col-md-12">
@@ -354,12 +361,13 @@ $( function() {
 {% endif %}
 
 {% if what|safe == 'components'%}
-     <div class="col-md-1"></div>
-    <div class="col-md-9">
+   <div class="col-md-1"></div>
+    <div class="col-md-10">
         <div class="row row-first">
-   
+              	<h1>Components: Bus And Payloads</h1>
         </div>
-        <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
+
+ <hr>
 
     
         <div class="row">
@@ -462,18 +470,19 @@ $(document).ready(function() {
 {% endif %}
 
 {% if what|safe == 'instruments'%}
- <div class="col-md-1"></div>
-    <div class="col-md-9">
+
+   <div class="col-md-1"></div>
+    <div class="col-md-10">
         <div class="row row-first">
-   
+              	<h1>Scientific Instruments In space</h1>
         </div>
 
- <div class="row" style="">
-                    
-                <h1>Science Instruments In Space</h1>
+ <hr>
 
-                <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
-          
+    
+        <div class="row">
+        <div class="col-md-3"></div>
+           <div class="col-md-10">
            
                 <h2>Detectors</h2>
          
@@ -498,8 +507,10 @@ $(document).ready(function() {
                     <iframe style="min-height:350px;" class="col-lg-6 col-md-6 col-sm-12 col-xs-12" src="//www.youtube.com/embed/wFY9ZvUmM5o?rel=0" frameborder="0" allowfullscreen></iframe>
                 </div>
               
-        </div>
-    </div>
+	      </div>
+	    </div>
+          </div>
+	</div>
 
 
 {% endif %}
