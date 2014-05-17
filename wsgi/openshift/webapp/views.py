@@ -170,7 +170,7 @@ def datavis(request, what):
 
     elif what == 'missions':
         check = cache.get('[data]missions')
-        if check is None: # or check['number'] != Missions.objects.count():
+        if check is None or check['number'] != Missions.objects.count():
                 print 'no cache'
                 bodies = {}
 		all_target = Missions.objects.all()

@@ -98,18 +98,21 @@
 <div class="isotope">
 
     {% for k,v in bodies.iteritems %}
+    {% if k != 'number' %}
 
   <div class="element-item {{v.obj.get_era_display|lower}} " data-category="{{v.obj.get_era_display|lower}}" data-agency="
         {% if v.obj.nasa|safe == 'True' or v.obj.esa|safe == 'True' or v.obj.jaxa|safe == 'True' %}
     	{% if v.obj.nasa|safe == 'True' %}
-            nasa
+            1
         {% endif %}    
         {% if v.obj.esa|safe == 'True' %}
-           esa
+           2
         {% endif %}
         {% if v.obj.jaxa|safe == 'True' %}
-           jaxa 
+           3 
         {% endif %}
+        {% else %}
+           4
     {% endif %}">
     <h3 class="name"><a style="color:#000;" href="/webapp/data/missions/details/{{v.obj.id}}?ref=missions">{{k}}</a></h3>
    <p class="symbol"> {% if v.obj.nasa|safe == 'True' or v.obj.esa|safe == 'True' or v.obj.jaxa|safe == 'True' %}
@@ -122,7 +125,10 @@
         {% if v.obj.jaxa|safe == 'True' %}
             <a style="color:#000;" href="{{link_url}}">JAXA</a>&nbsp;
         {% endif %}
-    {% endif %}</p>
+    {% else %}
+     others
+    {% endif %}
+    </p>
     </p>
     <p class="number">{{v.obj.get_era_display}}</p>
     <p class="weight">{{v.targets|safeseq|join:", "}}</p>
@@ -130,7 +136,7 @@
 
 
 
-
+    {% endif %}
     {% endfor %}
 
 </div>
