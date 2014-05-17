@@ -88,9 +88,9 @@
 
 
 
-<div id="sorts" class="button-group">
+<div id="sorts" class="button-group"><h5 style="margin-bottom:5px;">Sort By:</h5>
   <!-- <button class="button is-checked" data-sort-value="original-order">pk</button>-->
-  <button class="button" data-sort-value="name">name</button>
+  <button class="button is-checked" data-sort-value="name">name</button>
   <button class="button" data-sort-value="agency">agency</button>
   <button class="button" data-sort-value="category">era</button>
 </div>
@@ -100,7 +100,15 @@
     {% for k,v in bodies.iteritems %}
     {% if k != 'number' %}
 
-  <div class="element-item {{v.obj.get_era_display|lower}} " data-category="{{v.obj.get_era_display|lower}}" data-agency="
+  <div class="element-item {{v.obj.get_era_display|lower}} " data-category="{% if v.obj.era|safe == '0' %}
+                   0
+                {% elif v.obj.era|safe == '1' %}
+                   3
+                {% elif v.obj.era|safe == '2' %}
+                   2
+                {% elif v.obj.era|safe == '3' %}
+                   1
+                {% endif %}" data-agency="
         {% if v.obj.nasa|safe == 'True' or v.obj.esa|safe == 'True' or v.obj.jaxa|safe == 'True' %}
     	{% if v.obj.nasa|safe == 'True' %}
             1
@@ -318,12 +326,9 @@ $( function() {
     getSortData: {
       name: '.name',
       agency: '[data-agency]',
-      number: '.number parseInt',
+      number: '.number',
       category: '[data-category]',
-      weight: function( itemElem ) {
-        var weight = $( itemElem ).find('.weight').text();
-        return parseFloat( weight.replace( /[\(\)]/g, '') );
-      }
+      weight: '.weight'
     }
   });
 
