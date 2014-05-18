@@ -3,6 +3,13 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.conf import settings
 
+from django.views.decorators.cache import cache_page
+
+from home.views import wphoneregister
+from home.views import home
+from webapp.views import details_page
+from webapp.views import datavis
+
 admin.autodiscover()
 
 urlpatterns = i18n_patterns('',
@@ -26,16 +33,16 @@ urlpatterns = i18n_patterns('',
     url(r'^api/components/$', 'chronos.views.components_list'),
     
     # home
-    url(r'^webapp/wphonebeta/$', 'home.views.wphoneregister'),
+    url(r'^webapp/wphonebeta/$', cache_page(60 * 180)(wphoneregister)),
     url(r'^about/$', 'home.views.about', name='about'),
     url(r'^promo/$', 'home.views.promo', name='promo'),
-    url(r'^$', 'home.views.home', name='home'),
+    url(r'^$', cache_page(60 * 30)(home), name='home'),
 
     # Webapp
     url(r'^webapp/home/$', 'webapp.views.homeTEST'),
     url(r'^webapp/start/$', 'webapp.views.start'),
-    url(r'^webapp/data/missions/details/(?P<m_id>[0-9]+)/$', 'webapp.views.details_page'),
-    url(r'^webapp/data/(?P<what>[a-z]+)/$', 'webapp.views.datavis'),
+    url(r'^webapp/data/missions/details/(?P<m_id>[0-9]+)/$',  cache_page(60 * 180)(details_page)),
+    url(r'^webapp/data/(?P<what>[a-z]+)/$', cache_page(60 * 180)(datavis)),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/bus/(?P<bus_slug>[a-z_-]+)/$', 'webapp.views.results'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/$', 'webapp.views.bus'),
     url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/$', 'webapp.views.payload'),
