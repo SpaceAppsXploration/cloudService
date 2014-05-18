@@ -342,6 +342,8 @@ $( function() {
   // bind sort button click
   $('#sorts').on( 'click', 'button', function() {
     var sortValue = $(this).attr('data-sort-value');
+    if (sortValue == 'agency') sortValue = ['agency', 'name']
+    if (sortValue == 'category') sortValue = ['category', 'name']
     $container.isotope({ sortBy: sortValue });
   });
 
