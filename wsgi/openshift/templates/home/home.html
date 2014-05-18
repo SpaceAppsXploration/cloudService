@@ -13,7 +13,7 @@
 
 
 
-    <div class="business-header" style="margin-top:110px;">
+    <div class="business-header jumbotron" style="margin-top:0px;border-round:25px;border:2px solid #000;">
 
     <div class="container">
 
@@ -21,14 +21,12 @@
             <div class="col-lg-8 col-sm-8">
                 <!-- <h2>What We Do</h2> -->
                 <div class="row" style="padding-left:2%;">
-		        <p style="font-family: 'Lora', serif;font-weight:bold;"> We Are Developing Xploration App For Your Devices And A REST Service For Developers Interested In Space Agencies' Activities. 
+		        <p style="font-family: 'Lora', serif;font-weight:bold;fotn-size:16px;"> We Are Developing Xploration App For Your Devices And A REST Service For Developers Interested In Space Agencies' Activities. 
 		          We integrated informations from Space Agencies, that was the aim of <a target="_blank" class="" href="https://2014.spaceappschallenge.org/project/chronos/">SpaceApps' Road-Map Challenge</a></p>
 		         <p style="font-family: 'Lora', serif;font-weight:bold;text-align:center;"><a target="_blank" class="" href="https://www.facebook.com/pages/Xploration/241831932686033">Stay Tuned!</a></p>
                 </div>
                 <div class="row" style="margin-top:15px;">
-		        <div class="col-md-3 col-sm-3"><p class=""><a class="btn btn-default btn-large" href="/webapp/start">Simulation Demo &raquo;</a></p></div>
-		        <div class="col-md-5 col-sm-5"><p class=""><a class="btn btn-default btn-large" href="/webapp/wphonebeta/">Enroll For WindowsPhone Beta &raquo;</a></p></div>
-		        <div class="col-md-4 col-sm-4"><p class=""><a class="btn btn-default btn-large" href="/webapp/data/planets">Browse Data Demo &raquo;</a></p></div>
+	
                 </div>
             </div>
             <div class="col-lg-4 col-sm-4">
@@ -43,19 +41,19 @@
 
         <div class="row">
             <div class="col-sm-4">
-                <img class="img-thumbnail img-responsive text-center" src="http://placehold.it/300x300">
-                <h2>Marketing Box #1</h2>
-                <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
+                <img class="img-thumbnail img-responsive text-center" src="/static/images/simulator.png">
+                <p style=""><a style="margin-top:-125px;margin-left:70px;" class="btn btn-primary btn-large" href="/webapp/start">Simulation Demo &raquo;</a></p>
+                <p>Play and go in-depth about space missions with your browser.</p>
             </div>
             <div class="col-sm-4">
-                <img class="img-thumbnail img-responsive" src="http://placehold.it/300x300">
-                <h2>Marketing Box #2</h2>
-                <p>The images are set to be circular and responsive. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+                <img class="img-thumbnail img-responsive" src="/static/images/wphone.png">
+                <p style=""><a style="margin-top:-125px;margin-left:60px;" class="btn btn-primary btn-large" href="/webapp/wphonebeta/">WindowsPhone Beta &raquo;</a></p>
+                <p>Play and be up-to-date everywhere you are.</p>
             </div>
             <div class="col-sm-4">
                 <img class="img-thumbnail img-responsive" src="/static/images/browse.png">
-                <h2>Browse Data</h2>
-                <p>Navigate intuitively missions&apos;, aerospatial and physical data.</p>
+                 <p style=""><a style="margin-top:-125px;margin-left:70px;" class="btn btn-primary btn-large" href="/webapp/data/planets">Browse Data Demo &raquo;</a></p>
+                <p>Navigate intuitively missions, aerospatial and physical data.</p>
             </div>
         </div>
 
@@ -151,9 +149,9 @@ body {
 }
 
 .business-header {
-        padding-top:50px;
-	height: 400px;
-	background: url(/static/images/1920x400.png) center center no-repeat;
+        padding-top:100px;
+	height: 450px;
+	background: url({{rand}}) center center no-repeat;
 	background-size: cover;
 }
 

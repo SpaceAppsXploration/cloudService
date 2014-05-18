@@ -2,8 +2,9 @@
 {% load cms_tags %}
 
 {% block body %}
-<script src="/static/js/isotope.pkgd.min.js"></script>
 
+
+      
         <div class="row row-first">
             <div class="col-md-1"></div>
             <div class="col-md-10">
@@ -54,6 +55,7 @@
                 </div>
              {% endfor %}
             </div>
+            </div>
         </div>
         <div class="col-md-3"></div>
         <div class="col-md-6">
@@ -70,73 +72,6 @@
     </div>
  </div>
 
-<div class="row row-first">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-        <p><h2>About {{m_name}}</h2></p>
-    </div>
 
-        <div class="hr5" style="margin-top:40px; margin-bottom:40px;"></div>
-
-	<div class="isotope js-isotope" data-isotope-options='{ "itemSelector": ".item", "masonry": { "columnWidth": 100 } }'>
-	  <div class="item width2"></div>
-	  <div class="item height2"></div>
-	  <div class="item"></div>
-	  <div class="item"></div>
-	  <div class="item width2 height2"></div>
-	  <div class="item width2"></div>
-	  <div class="item width2"></div>
-	  <div class="item height2"></div>
-	  <div class="item"></div>
-	  <div class="item width2"></div>
-	  <div class="item height2"></div>
-	  <div class="item"></div>
-	  <div class="item"></div>
-	</div>
-
-</div>
-
-{% block script %}
-<style>
-* {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-}
-
-
-/* ---- isotope ---- */
-
-.isotope {
-  background: #DDD;
-  max-width: 1200px;
-}
-
-/* clear fix */
-.isotope:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-/* ---- .item ---- */
-
-.item {
-  float: left;
-  width: 100px;
-  height: 100px;
-  background: #0D8;
-  border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.7);
-}
-
-.item.width2 { width: 200px; }
-.item.height2 { height: 200px; }
-</style>
-{% endblock %}
 
 {% endblock %}
