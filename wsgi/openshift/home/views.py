@@ -15,10 +15,10 @@ def home(request):
     params = {}
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
     params['status'] = js
-    rand = str(randrange(1, 9))
+    rand = str(randrange(1, 8))
     r_dict = { '1': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA15630-1920x1200.jpg', '2': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17838-1920x1200.jpg', '3': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17999-1920x1200.jpg', '4': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA18048-1920x1200.jpg', '5': '/static/images/home/saturn_a.jpg',
-                  '6': 'http://www.spacetelescope.org/static/archives/images/wallpaper4/s125e009232.jpg', '8': '/static/images/home/hubble_a.jpg',
-                   '9': 'http://www.spacetelescope.org/static/archives/images/wallpaper3/opo9818a.jpg'}
+                  '6': 'http://www.spacetelescope.org/static/archives/images/wallpaper4/s125e009232.jpg', '7': '/static/images/home/hubble_a.jpg',
+                   '8': 'http://www.spacetelescope.org/static/archives/images/wallpaper3/opo9818a.jpg'}
     params['rand'] = r_dict[rand]
     return render_to_response('home/home.html', params, context_instance=RequestContext(request))
 
