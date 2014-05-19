@@ -45,7 +45,7 @@ class Missions(models.Model):
     id              = models.AutoField(primary_key=True, db_index=True)
     target          = models.ForeignKey(Targets, db_index=True)
     era             = models.IntegerField(max_length=3, choices=ERA, db_index=True)
-    name            = models.CharField(max_length=80)
+    name            = models.CharField(max_length=150)
     codename        = models.CharField(max_length=50, null=True, blank=True)
     hashed          = models.CharField(max_length=150)
     image_url       = models.CharField(max_length=250)
