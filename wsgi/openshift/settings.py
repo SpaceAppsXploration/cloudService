@@ -131,7 +131,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make a dictionary of default keys
-default_keys = { 'SECRET_KEY': '2534923_ajana-lsnuglfis-vvv' }
+default_keys = { 'SECRET_KEY': '25ccg-923_ajghfdga-lsnfis-vvv' }
 
 # Replace default keys with dynamic values if we are in OpenShift
 use_keys = default_keys
@@ -252,7 +252,7 @@ SWAGGER_SETTINGS = {
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'chronosprojectserver@gmail.com'
-EMAIL_HOST_PASSWORD = 'chr78255'
+EMAIL_HOST_PASSWORD = 'chr78255hhh'
 EMAIL_PORT = 587
 
 # A sample logging configuration. The only tangible logging
