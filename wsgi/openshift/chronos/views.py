@@ -106,7 +106,11 @@ def single_planet(request, p_id):
     'target' is the planet's id into Targets.
     '''
     if request.method == 'GET':
-        mix = Planets.objects.get(target=p_id)
+        try:
+            mix = Planets.objects.get(target=p_id)
+        except:
+            mex = {'status': 'Error', 'code': 1, 'message': '404', 'type': 'null', 'content': 'null'}
+            return JSONResponse(mex)
         name = Targets.objects.get(id=p_id).name
         obj = {'target': mix.target.id, 'name': name, 'discover': mix.discover,
             'rings': mix.rings, 'light': mix.light, 'mass': mix.mass, 'diameter': mix.diameter,
