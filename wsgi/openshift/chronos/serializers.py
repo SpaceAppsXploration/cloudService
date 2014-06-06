@@ -29,4 +29,4 @@ class PayloadBusTypesSerializer(serializers.ModelSerializer):
 class PayloadBusCompsSerializer(serializers.ModelSerializer):
     class Meta:
         model = PayloadBusComps
-        fields = ('id', 'pbtype', 'name', 'description', 'slug', 'link')
+        fields = ('id', 'pbtype', 'name', 'description', 'slug', 'link', 'category')
