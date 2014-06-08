@@ -240,7 +240,7 @@ def components_list(request):
     'pbtype' contains ids from PL and BUS types.
     '''
     if request.method == 'GET':
-        mix = PayloadBusComps.objects.all()
+        mix = PayloadBusComps.objects.all().order_by('pbtype__name')
         serializer = PayloadBusCompsSerializer(mix, many=True)
         return JSONResponse(serializer.data)
     else:

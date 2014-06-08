@@ -9,7 +9,7 @@ missions = [
 {
 'slug': 'cel_body_obs',
 'name': 'Solar System\'s Bodies Observation',
-'description': 'We have nice neighbours, let\'s keep in touch witht them!',
+'description': 'We have nice neighbours, let\'s keep in touch with them!',
 'image_url': '/static/images/webapp/Near.png'
 
 },
