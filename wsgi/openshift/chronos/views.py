@@ -203,11 +203,18 @@ def missions_by_target(request, t_id):
     Era = (1, Past), (2, Present), (3, Future), (0, Concept)
     '''
     if request.method == 'GET':
-        try:
-            target = Targets.objects.get(id=t_id)
-        except:
-            res = json.dumps({'code':1, 'status':'Error', 'message': 'No destination with this id', 'type': 'null', 'content': 'null'})
-            return StreamingHttpResponse(res, content_type="application/json")
+        if t_id.isdigit():
+            try:
+                target = Targets.objects.get(id=t_id)
+            except:
+                res = json.dumps({'code':1, 'status':'Error', 'message': 'No destination with this id', 'type': 'null', 'content': 'null'})
+                return StreamingHttpResponse(res, content_type="application/json")
+        else:
+            try:
+                target = Targets.objects.get(slug=t_id)
+            except:
+                res = json.dumps({'code':1, 'status':'Error', 'message': 'No destination with this slug', 'type': 'null', 'content': 'null'})
+                return StreamingHttpResponse(res, content_type="application/json")
 
         target_missions = Missions.objects.all().filter(target=target)
            
