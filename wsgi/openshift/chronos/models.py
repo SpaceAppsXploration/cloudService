@@ -191,3 +191,10 @@ class SciData(models.Model):
     mission     = models.ForeignKey(Missions, db_index=True, null=True, blank=True)
     body        = models.CharField(max_length=3000)
 
+    def __unicode__(self):
+        return str(self.header)
+
+    class Meta:
+        verbose_name_plural = 'Scientific Data'
+        ordering = ['header']
+
