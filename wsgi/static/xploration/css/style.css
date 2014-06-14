@@ -274,20 +274,20 @@ input[type="submit"] {
     border-radius: 0;
     }
 .orbital .one {
-    -webkit-animation: outer 8s 0s infinite;
-    animation: outer 8s 0s infinite;
+    -webkit-animation: outer 1s 0s infinite;
+    animation: outer 1s 0s infinite;
     }
 .orbital .two {
-    -webkit-animation: outer 8s 0.5s infinite;
-    animation: outer 8s 0.5s infinite;
+    -webkit-animation: outer 1s 0.4s infinite;
+    animation: outer 1s 0.2s infinite;
     }
 .orbital .three {
-    -webkit-animation: outer 8s 1s infinite;
-    animation: outer 8s 1s infinite;
+    -webkit-animation: outer 1s 0.6s infinite;
+    animation: outer 1s 0.4s infinite;
     }
 .orbital .four {
-    -webkit-animation: outer 8s 2s infinite;
-    animation: outer 8s 2s infinite;
+    -webkit-animation: outer 1s 0.8s infinite;
+    animation: outer 1s 0.6s infinite;
     }
 
 
