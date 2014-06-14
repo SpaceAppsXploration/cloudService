@@ -28,7 +28,11 @@ ratings = {
 
     'opt_sensor': (None, 4, None),
     'radio_sensor': (None, 4, None),
-    'spectrometer': (None, 5, None),
+    'microwave': (None, 5, None),
+    'infrared': (None, 5, None),
+    'ultraviolet': (None, 5, None),
+    'x_rays': (None, 5, None),
+    'gamma_rays': (None, 5, None),
     'probe': (None, 5, None),
     'amplifier': (None, 3, None),
 

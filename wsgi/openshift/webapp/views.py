@@ -132,7 +132,7 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
     print int_index, cost_index, risk_index
     
     interest = (int_index, levels['interest'][int_index])
-    cost     = (cost_index, levels['cost'][cost_index])
+    cost     = (5-cost_index, levels['cost'][cost_index])
     risk     = (risk_index, levels['risk'][risk_index])
 
     params = {'missions': missions, 'payloads': pl, 'destination': p_slug, 'd_obj': dt,
