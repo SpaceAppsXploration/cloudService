@@ -1,6 +1,7 @@
 from django.contrib import admin
-from models import Targets, Missions, Details, Planets, PayloadBusTypes, PayloadBusComps
-from django.db.models import Q
+from models import Targets, Missions, Details, Planets, PayloadBusTypes, PayloadBusComps, SciData
+
+#from django.db.models import Q
 from django import forms
 
 class TargetsAdmin(admin.ModelAdmin):
@@ -51,12 +52,20 @@ class PayloadBusCompsAdmin(admin.ModelAdmin):
         if db_field.name == 'description':
             formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
         return formfield
- 
+
+class SciDataAdmin(admin.ModelAdmin):
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        formfield = super(SciDataAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+        if db_field.name == 'body':
+            formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
+        return formfield
+
 admin.site.register(Targets, TargetsAdmin)
 admin.site.register(Missions, MissionsAdmin)
 admin.site.register(Details, DetailsAdmin)
 admin.site.register(Planets, PlanetsAdmin)
 admin.site.register(PayloadBusComps, PayloadBusCompsAdmin)
 admin.site.register(PayloadBusTypes, PayloadBusTypesAdmin)
+admin.site.register(SciData, SciDataAdmin)
 
 

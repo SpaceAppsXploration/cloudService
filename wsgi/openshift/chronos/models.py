@@ -63,7 +63,7 @@ class Missions(models.Model):
     # ALTER TABLE chronos_missions  ADD COLUMN link_url character varying(250);
 
     def __unicode__(self):
-        return self.codename
+        return str(self.codename) + ' - ' + str(self.target.name)
 
     def save(self, *args, **kwargs):
         if not self.launch_dates:
@@ -177,3 +177,17 @@ class PayloadBusComps(models.Model):
     class Meta:
         verbose_name_plural = 'PL and BUS Components'
         ordering = ['name']
+
+class SciData(models.Model):
+    DATA_SCOPE = (
+        (1, 'scientific'),
+        (2, 'engineering'),
+        (3, 'mission_specific'),
+    )
+    id          = models.AutoField(primary_key=True)
+    data_scope  = models.IntegerField(max_length=3, choices=DATA_SCOPE)
+    header      = models.CharField(max_length=150, db_index=True)
+    component   = models.ForeignKey(PayloadBusComps, db_index=True)
+    mission     = models.ForeignKey(Missions, db_index=True, null=True, blank=True)
+    body        = models.CharField(max_length=3000)
+
