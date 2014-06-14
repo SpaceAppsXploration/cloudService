@@ -26,6 +26,9 @@ cel_body_obs['infrared'] = True
 cel_body_obs['ultraviolet'] = True
 cel_body_obs['x_rays'] = True
 cel_body_obs['gamma_rays'] = True
+cel_body_obs['satellite'] = True
+cel_body_obs['lander_orbiter'] = True
+cel_body_obs['lander_rover'] = True
 cel_body_obs['probe'] = (False, 'Remember that you are here to observe')
 cel_body_obs['amplifier'] = (False, 'Maybe in the BUS')
 
@@ -41,6 +44,9 @@ space_obs['infrared'] = True
 space_obs['ultraviolet'] = True
 space_obs['x_rays'] = True
 space_obs['gamma_rays'] = True
+space_obs['satellite'] = True
+space_obs['lander_orbiter'] = (False, 'Cannot land or orbit deep space')
+space_obs['lander_rover'] = (False, 'Cannot land or orbit deep space)
 space_obs['probe'] = (False, 'Space dust doesn''t help you observe') 
 space_obs['amplifier'] = True
 
@@ -56,6 +62,9 @@ atm_analysis['infrared'] = True
 atm_analysis['ultraviolet'] = True
 atm_analysis['x_rays'] = True
 atm_analysis['gamma_rays'] = True
+atm_analysis['satellite'] = True
+atm_analysis['lander_orbiter'] = True
+atm_analysis['lander_rover'] = True
 atm_analysis['probe'] = (False, 'It''s difficult to collect and bring back gases')
 atm_analysis['amplifier'] = (False, 'Maybe in the BUS')
 
@@ -71,6 +80,9 @@ sample_collect['infrared'] = True
 sample_collect['ultraviolet'] = True
 sample_collect['x_rays'] = True
 sample_collect['gamma_rays'] = True
+sample_collect['satellite'] = (False, 'Cannot sample collect')
+sample_collect['lander_orbiter'] = True
+sample_collect['lander_rover'] = True
 sample_collect['probe'] = True
 sample_collect['amplifier'] = (False, 'You have to bring the sample back')
 
@@ -86,6 +98,9 @@ telecom['infrared'] = (False, 'You do not need to analyze but only to send a sig
 telecom['ultraviolet'] = (False, 'You do not need to analyze but only to send a signal')
 telecom['x_rays'] = (False, 'You do not need to analyze but only to send a signal')
 telecom['gamma_rays'] = (False, 'You do not need to analyze but only to send a signal')
+telecom['satellite'] = True
+telecom['lander_orbiter'] = (False, 'No need for a lander for telecom')
+telecom['lander_rover'] = (False, 'No need for a lander for telecom')
 telecom['probe'] = (False, 'You do not need to analyze but only to send a signal')
 telecom['amplifier'] = True
 

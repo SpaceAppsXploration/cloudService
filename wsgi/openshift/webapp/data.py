@@ -33,6 +33,9 @@ ratings = {
     'ultraviolet': (None, 4, None),
     'x_rays': (None, 4, None),
     'gamma_rays': (None, 4, None),
+    'satellite': (None, 4, None),
+    'lander_orbiter': (None, 4, None),
+    'lander_rover': (None, 4, None),
     'probe': (None, 5, None),
     'amplifier': (None, 3, None),
 
