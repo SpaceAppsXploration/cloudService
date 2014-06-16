@@ -46,7 +46,7 @@ space_obs['x_rays'] = True
 space_obs['gamma_rays'] = True
 space_obs['satellite'] = True
 space_obs['lander_orbiter'] = (False, 'Cannot land or orbit deep space')
-space_obs['lander_rover'] = (False, 'Cannot land or orbit deep space)
+space_obs['lander_rover'] = (False, 'Cannot land or orbit deep space')
 space_obs['probe'] = (False, 'Space dust doesn''t help you observe') 
 space_obs['amplifier'] = True
 
