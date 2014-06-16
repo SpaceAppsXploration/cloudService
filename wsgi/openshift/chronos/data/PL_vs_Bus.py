@@ -49,27 +49,121 @@ pl_vs_bus_type.append(radio_sensor)
 
 
 
-spectrometer = {}
-spectrometer['name'] = 'Spectrometer'
-spectrometer['slug'] = 'spectrometer'
-spectrometer['therm_active'] = True
-spectrometer['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
-spectrometer['pow_prim_panels'] = True
-spectrometer['pow_prim_rtg'] = True
-spectrometer['pow_sec_batt'] = True
-spectrometer['pow_sec_fc'] = True
-spectrometer['comm_mono'] = True
-spectrometer['comm_omni'] = True
-spectrometer['aodcs_robust'] = True
-spectrometer['aodcs_simple'] = True
-spectrometer['prop_electr'] = True
-spectrometer['prop_chem'] = True
-spectrometer['cdh_standard'] = True
-spectrometer['cdh_optim'] = True
-spectrometer['struct_stand'] = True
-spectrometer['struct_high_resist'] = True
+microwave = {}
+microwave['name'] = 'Microwave'
+microwave['slug'] = 'microwave'
+microwave['therm_active'] = True
+microwave['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
+microwave['pow_prim_panels'] = True
+microwave['pow_prim_rtg'] = True
+microwave['pow_sec_batt'] = True
+microwave['pow_sec_fc'] = True
+microwave['comm_mono'] = True
+microwave['comm_omni'] = True
+microwave['aodcs_robust'] = True
+microwave['aodcs_simple'] = True
+microwave['prop_electr'] = True
+microwave['prop_chem'] = True
+microwave['cdh_standard'] = True
+microwave['cdh_optim'] = True
+microwave['struct_stand'] = True
+microwave['struct_high_resist'] = True
 
-pl_vs_bus_type.append(spectrometer)
+pl_vs_bus_type.append(microwave)
+
+
+
+infrared = {}
+infrared['name'] = 'Infrared'
+infrared['slug'] = 'infrared'
+infrared['therm_active'] = True
+infrared['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
+infrared['pow_prim_panels'] = True
+infrared['pow_prim_rtg'] = True
+infrared['pow_sec_batt'] = True
+infrared['pow_sec_fc'] = True
+infrared['comm_mono'] = True
+infrared['comm_omni'] = True
+infrared['aodcs_robust'] = True
+infrared['aodcs_simple'] = True
+infrared['prop_electr'] = True
+infrared['prop_chem'] = True
+infrared['cdh_standard'] = True
+infrared['cdh_optim'] = True
+infrared['struct_stand'] = True
+infrared['struct_high_resist'] = True
+
+pl_vs_bus_type.append(infrared)
+
+
+
+ultraviolet = {}
+ultraviolet['name'] = 'Ultravioet'
+ultraviolet['slug'] = 'ulraviolet'
+ultraviolet['therm_active'] = True
+ultraviolet['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
+ultraviolet['pow_prim_panels'] = True
+ultraviolet['pow_prim_rtg'] = True
+ultraviolet['pow_sec_batt'] = True
+ultraviolet['pow_sec_fc'] = True
+ultraviolet['comm_mono'] = True
+ultraviolet['comm_omni'] = True
+ultraviolet['aodcs_robust'] = True
+ultraviolet['aodcs_simple'] = True
+ultraviolet['prop_electr'] = True
+ultraviolet['prop_chem'] = True
+ultraviolet['cdh_standard'] = True
+ultraviolet['cdh_optim'] = True
+ultraviolet['struct_stand'] = True
+ultraviolet['struct_high_resist'] = True
+
+pl_vs_bus_type.append(ultraviolet)
+
+x_rays = {}
+x_rays['name'] = 'X_rays'
+x_rays['slug'] = 'x_rays'
+x_rays['therm_active'] = True
+x_rays['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
+x_rays['pow_prim_panels'] = True
+x_rays['pow_prim_rtg'] = True
+x_rays['pow_sec_batt'] = True
+x_rays['pow_sec_fc'] = True
+x_rays['comm_mono'] = True
+x_rays['comm_omni'] = True
+x_rays['aodcs_robust'] = True
+x_rays['aodcs_simple'] = True
+x_rays['prop_electr'] = True
+x_rays['prop_chem'] = True
+x_rays['cdh_standard'] = True
+x_rays['cdh_optim'] = True
+x_rays['struct_stand'] = True
+x_rays['struct_high_resist'] = True
+
+pl_vs_bus_type.append(x_rays)
+
+
+
+gamma_rays = {}
+gamma_rays['name'] = 'Gamma_rays'
+gamma_rays['slug'] = 'gamma_rays'
+gamma_rays['therm_active'] = True
+gamma_rays['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
+gamma_rays['pow_prim_panels'] = True
+gamma_rays['pow_prim_rtg'] = True
+gamma_rays['pow_sec_batt'] = True
+gamma_rays['pow_sec_fc'] = True
+gamma_rays['comm_mono'] = True
+gamma_rays['comm_omni'] = True
+gamma_rays['aodcs_robust'] = True
+gamma_rays['aodcs_simple'] = True
+gamma_rays['prop_electr'] = True
+gamma_rays['prop_chem'] = True
+gamma_rays['cdh_standard'] = True
+gamma_rays['cdh_optim'] = True
+gamma_rays['struct_stand'] = True
+gamma_rays['struct_high_resist'] = True
+
+pl_vs_bus_type.append(gamma_rays)
 
 
 
