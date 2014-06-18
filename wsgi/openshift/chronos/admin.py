@@ -1,8 +1,10 @@
 from django.contrib import admin
+from django.db import models
 from models import Targets, Missions, Details, Planets, PayloadBusTypes, PayloadBusComps, SciData
 
 #from django.db.models import Q
 from django import forms
+from django.forms import SelectMultiple
 
 class TargetsAdmin(admin.ModelAdmin):
     def formfield_for_dbfield(self, db_field, **kwargs):
@@ -54,9 +56,12 @@ class PayloadBusCompsAdmin(admin.ModelAdmin):
         return formfield
 
 class SciDataAdmin(admin.ModelAdmin):
+    formfield_overrides = { models.ManyToManyField: {'widget': SelectMultiple(attrs={'size':'12'})}, }
     def formfield_for_dbfield(self, db_field, **kwargs):
         formfield = super(SciDataAdmin, self).formfield_for_dbfield(db_field, **kwargs)
         if db_field.name == 'body':
+            formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
+        if db_field.name == 'comment':
             formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
         return formfield
 
