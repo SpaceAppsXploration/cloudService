@@ -13,10 +13,10 @@ from webapp.views import datavis
 admin.autodiscover()
 
 urlpatterns = i18n_patterns('',
-
     url(r'^simulation/', 'chronos.simulate.simulation'),
 
-    
+    url(r'^robots.txt$', 'webapp.views.Robots'),
+
     # REST endpoints
     url(r'^api/docs/', include('rest_framework_swagger.urls')),
     url(r'^api/targets/(?P<t_id>[0-9]+)/$', 'chronos.views.target_detail'),

@@ -3,7 +3,7 @@ import json
 from chronos.models import Targets, PayloadBusComps, Missions, Details, Planets
 #from django.db.models import Q
 from django.core.cache import cache
-from django.http import Http404
+from django.http import Http404, StreamingHttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import EmailMessage
 from django.template import RequestContext
@@ -274,3 +274,9 @@ def wphoneregister(request):
         msg = {'message': 'Thanks for enrolling, you will receive an email with further instructions from our developers soon.'}
         return render_to_response('webapp/wphonebeta.html', msg,
                               context_instance=RequestContext(request))
+
+def Robots(request):
+
+    html = 'User-agent: * Disallow: /admin/ Disallow: /simulation/'
+    return StreamingHttpResponse(html, content_type="text/html")
+
