@@ -277,6 +277,6 @@ def wphoneregister(request):
 
 def Robots(request):
 
-    html = 'User-agent: * Disallow: /admin/ Disallow: /simulation/'
+    html = 'User-agent: * Disallow: /admin/ Disallow: /simulation/ Disallow: /api/doc/'
     return StreamingHttpResponse(html, content_type="text/html")
 
