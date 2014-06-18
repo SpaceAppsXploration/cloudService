@@ -184,12 +184,19 @@ class SciData(models.Model):
         (2, 'engineering'),
         (3, 'mission_specific'),
     )
+    DATA_TYPE = (
+        (1, 'link'),
+        (2, 'data'),
+        (3, 'text'),
+    )
     id          = models.AutoField(primary_key=True)
     data_scope  = models.IntegerField(max_length=3, choices=DATA_SCOPE)
+    data_type   = models.IntegerField(max_length=3, choices=DATA_TYPE, null=True, blank=True)
     header      = models.CharField(max_length=150, db_index=True)
     component   = models.ForeignKey(PayloadBusComps, db_index=True)
     mission     = models.ForeignKey(Missions, db_index=True, null=True, blank=True)
     body        = models.CharField(max_length=3000)
+    comment     = models.CharField(max_length=1000, null=True, blank=True)
 
     def __unicode__(self):
         return str(self.header)
