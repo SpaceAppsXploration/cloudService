@@ -77,7 +77,7 @@ infrared = {}
 infrared['name'] = 'Infrared'
 infrared['slug'] = 'infrared'
 infrared['therm_active'] = True
-infrared['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
+infrared['therm_passive'] = (False, 'the infrared detector needs a quasi-constant thermal environment')
 infrared['pow_prim_panels'] = True
 infrared['pow_prim_rtg'] = True
 infrared['pow_sec_batt'] = True
@@ -98,10 +98,10 @@ pl_vs_bus_type.append(infrared)
 
 
 ultraviolet = {}
-ultraviolet['name'] = 'Ultravioet'
+ultraviolet['name'] = 'Ultraviolet'
 ultraviolet['slug'] = 'ulraviolet'
 ultraviolet['therm_active'] = True
-ultraviolet['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
+ultraviolet['therm_passive'] = (False, 'the ultraviolet detector needs a quasi-constant thermal environment')
 ultraviolet['pow_prim_panels'] = True
 ultraviolet['pow_prim_rtg'] = True
 ultraviolet['pow_sec_batt'] = True
@@ -123,7 +123,7 @@ x_rays = {}
 x_rays['name'] = 'X_rays'
 x_rays['slug'] = 'x_rays'
 x_rays['therm_active'] = True
-x_rays['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
+x_rays['therm_passive'] = (False, 'the x-rays detector needs a quasi-constant thermal environment')
 x_rays['pow_prim_panels'] = True
 x_rays['pow_prim_rtg'] = True
 x_rays['pow_sec_batt'] = True
@@ -147,7 +147,7 @@ gamma_rays = {}
 gamma_rays['name'] = 'Gamma_rays'
 gamma_rays['slug'] = 'gamma_rays'
 gamma_rays['therm_active'] = True
-gamma_rays['therm_passive'] = (False, 'the spectrometer needs a quasi-constant thermal environment')
+gamma_rays['therm_passive'] = (False, 'the gamma-rays detector needs a quasi-constant thermal environment')
 gamma_rays['pow_prim_panels'] = True
 gamma_rays['pow_prim_rtg'] = True
 gamma_rays['pow_sec_batt'] = True
@@ -165,7 +165,73 @@ gamma_rays['struct_high_resist'] = True
 
 pl_vs_bus_type.append(gamma_rays)
 
+laser_alt = {}
+laser_alt['name'] = 'Laser_altimeter'
+laser_alt['slug'] = 'laser_alt'
+laser_alt['therm_active'] = True
+laser_alt['therm_passive'] = True
+laser_alt['pow_prim_panels'] = True
+laser_alt['pow_prim_rtg'] = True
+laser_alt['pow_sec_batt'] = True
+laser_alt['pow_sec_fc'] = True
+laser_alt['comm_mono'] = True
+laser_alt['comm_omni'] = True
+laser_alt['aodcs_robust'] = True
+laser_alt['aodcs_simple'] = True
+laser_alt['prop_electr'] = True
+laser_alt['prop_chem'] = True
+laser_alt['cdh_standard'] = True
+laser_alt['cdh_optim'] = True
+laser_alt['struct_stand'] = True
+laser_alt['struct_high_resist'] = True
 
+pl_vs_bus_type.append(laser_alt)
+
+
+mag = {}
+mag['name'] = 'Magnetometer'
+mag['slug'] = 'mag'
+mag['therm_active'] = True
+mag['therm_passive'] = True
+mag['pow_prim_panels'] = True
+mag['pow_prim_rtg'] = True
+mag['pow_sec_batt'] = True
+mag['pow_sec_fc'] = True
+mag['comm_mono'] = True
+mag['comm_omni'] = True
+mag['aodcs_robust'] = True
+mag['aodcs_simple'] = True
+mag['prop_electr'] = True
+mag['prop_chem'] = True
+mag['cdh_standard'] = True
+mag['cdh_optim'] = True
+mag['struct_stand'] = True
+mag['struct_high_resist'] = True
+
+pl_vs_bus_type.append(mag)
+
+
+grav = {}
+grav['name'] = 'Gravitational_detector'
+grav['slug'] = 'grav'
+grav['therm_active'] = True
+grav['therm_passive'] = True
+grav['pow_prim_panels'] = True
+grav['pow_prim_rtg'] = True
+grav['pow_sec_batt'] = True
+grav['pow_sec_fc'] = True
+grav['comm_mono'] = True
+grav['comm_omni'] = True
+grav['aodcs_robust'] = True
+grav['aodcs_simple'] = True
+grav['prop_electr'] = True
+grav['prop_chem'] = True
+grav['cdh_standard'] = True
+grav['cdh_optim'] = True
+grav['struct_stand'] = True
+grav['struct_high_resist'] = True
+
+pl_vs_bus_type.append(grav)
 
 probe = {}
 probe['name'] = 'Probe'

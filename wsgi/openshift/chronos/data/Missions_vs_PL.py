@@ -10,6 +10,9 @@ earth_obs['infrared'] = True
 earth_obs['ultraviolet'] = True
 earth_obs['x_rays'] = True
 earth_obs['gamma_rays'] = True
+earth_obs['laser_alt'] = True
+earth_obs['mag'] = True
+earth_obs['grav'] = True
 earth_obs['probe'] = (False, 'Remember that you are here to observe')
 earth_obs['amplifier'] = (False, 'Maybe in the BUS')
 
@@ -27,8 +30,9 @@ cel_body_obs['ultraviolet'] = True
 cel_body_obs['x_rays'] = True
 cel_body_obs['gamma_rays'] = True
 cel_body_obs['satellite'] = True
-cel_body_obs['lander_orbiter'] = True
-cel_body_obs['lander_rover'] = True
+cel_body_obs['laser_alt'] = True
+cel_body_obs['mag'] = True
+cel_body_obs['grav'] = True
 cel_body_obs['probe'] = (False, 'Remember that you are here to observe')
 cel_body_obs['amplifier'] = (False, 'Maybe in the BUS')
 
@@ -45,9 +49,10 @@ space_obs['ultraviolet'] = True
 space_obs['x_rays'] = True
 space_obs['gamma_rays'] = True
 space_obs['satellite'] = True
-space_obs['lander_orbiter'] = (False, 'Cannot land or orbit deep space')
-space_obs['lander_rover'] = (False, 'Cannot land or orbit deep space')
-space_obs['probe'] = (False, 'Space dust doesn''t help you observe') 
+space_obs['laser_alt'] = (False, 'Too far to measure')
+space_obs['mag'] = True
+space_obs['grav'] = True
+space_obs['probe'] = (False, 'Space dust doesn''t help you observe')
 space_obs['amplifier'] = True
 
 mission_type.append(space_obs)
@@ -63,8 +68,9 @@ atm_analysis['ultraviolet'] = True
 atm_analysis['x_rays'] = True
 atm_analysis['gamma_rays'] = True
 atm_analysis['satellite'] = True
-atm_analysis['lander_orbiter'] = True
-atm_analysis['lander_rover'] = True
+atm_analysis['laser_alt'] = (False, 'This is for surface measurement')
+atm_analysis['mag'] = True
+atm_analysis['grav'] = (False, 'Gravitation is not an atmospheric issue')
 atm_analysis['probe'] = (False, 'It''s difficult to collect and bring back gases')
 atm_analysis['amplifier'] = (False, 'Maybe in the BUS')
 
@@ -81,8 +87,9 @@ sample_collect['ultraviolet'] = True
 sample_collect['x_rays'] = True
 sample_collect['gamma_rays'] = True
 sample_collect['satellite'] = (False, 'Cannot sample collect')
-sample_collect['lander_orbiter'] = True
-sample_collect['lander_rover'] = True
+sample_collect['laser_alt'] = True
+sample_collect['mag'] = True
+sample_collect['grav'] = True
 sample_collect['probe'] = True
 sample_collect['amplifier'] = (False, 'You have to bring the sample back')
 
@@ -99,8 +106,9 @@ telecom['ultraviolet'] = (False, 'You do not need to analyze but only to send a 
 telecom['x_rays'] = (False, 'You do not need to analyze but only to send a signal')
 telecom['gamma_rays'] = (False, 'You do not need to analyze but only to send a signal')
 telecom['satellite'] = True
-telecom['lander_orbiter'] = (False, 'No need for a lander for telecom')
-telecom['lander_rover'] = (False, 'No need for a lander for telecom')
+telecom['laser_alt'] = (False, 'Not needed for telecom')
+telecom['mag'] = (False, 'Not needed for telecom')
+telecom['grav'] = (False, 'Not needed for telecom')
 telecom['probe'] = (False, 'You do not need to analyze but only to send a signal')
 telecom['amplifier'] = True
 
