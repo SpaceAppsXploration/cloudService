@@ -1,7 +1,7 @@
-'''
+"""
 REST views
 Need refactoring
-'''
+"""
 import json
 import re
 from django.http import HttpResponse, StreamingHttpResponse
@@ -16,11 +16,11 @@ from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view
 
 
-'''
+"""
 import models and json serializers
-'''
-from models import Missions, Targets, Details, Planets, PayloadBusTypes, PayloadBusComps
-from serializers import TargetsSerializer, MissionsSerializer, DetailsSerializer, PlanetsSerializer, PayloadBusCompsSerializer, PayloadBusTypesSerializer
+"""
+from models import Missions, Targets, Details, Planets, PayloadBusTypes, PayloadBusComps, SciData
+from serializers import TargetsSerializer, MissionsSerializer, DetailsSerializer, PlanetsSerializer, PayloadBusCompsSerializer, PayloadBusTypesSerializer, SciDataSerializer
 
 
 class JSONResponse(HttpResponse):
@@ -35,11 +35,11 @@ class JSONResponse(HttpResponse):
 @csrf_exempt
 @api_view(['GET'])
 def targets_list(request):
-    '''
+    """
     List all possible Targets.
     These are different kinds of celestial bodies in the Solar system,
     that can be the mission's destination.
-    '''
+    """
     if request.method == 'GET':
         targets = Targets.objects.all().order_by('id')
         serializer = TargetsSerializer(targets, many=True)
@@ -51,9 +51,9 @@ def targets_list(request):
 @csrf_exempt
 @api_view(['GET'])
 def target_detail(request, t_id):
-    '''
+    """
     Reply with only one among Targets
-    '''
+    """
     try:
         target = Targets.objects.get(id=t_id)
     except Targets.DoesNotExist:
@@ -70,11 +70,11 @@ def target_detail(request, t_id):
 @csrf_exempt
 @api_view(['GET'])
 def missions_list(request):
-    '''
+    """
     List all possible Missions.
     Use this call as few as possible, store the object in a local object,
     and refresh it seldomly. Use the stored object for daily tasks in the app.
-    '''
+    """
     if request.method == 'GET':
         mix = Missions.objects.all()
         serializer = MissionsSerializer(mix, many=True)
@@ -86,10 +86,10 @@ def missions_list(request):
 @csrf_exempt
 @api_view(['GET'])
 def planets_list(request):
-    '''
+    """
     List of all Planets physical values.
     'target' is the planet's id into Targets.
-    '''
+    """
     if request.method == 'GET':
         mix = Planets.objects.all()
         serializer = PlanetsSerializer(mix, many=True)
@@ -101,10 +101,10 @@ def planets_list(request):
 @csrf_exempt
 @api_view(['GET'])
 def single_planet(request, p_id):
-    '''
+    """
     Get  single Planets physical values
     'target' is the planet's id into Targets.
-    '''
+    """
     if request.method == 'GET':
         try:
             mix = Planets.objects.get(target=p_id)
@@ -126,11 +126,11 @@ def single_planet(request, p_id):
 @csrf_exempt
 @api_view(['GET'])
 def single_mission(request, m_id):
-    '''
+    """
     Get single mission by mission id.
     'targets' is an array of destinations' ids.
     Era = (1, Past), (2, Present), (3, Future), (0, Concept)
-    '''
+    """
     if request.method == 'GET':
         one_mission = Missions.objects.all().get(id=m_id)
         if not one_mission:
@@ -154,11 +154,11 @@ def single_mission(request, m_id):
 @csrf_exempt
 @api_view(['GET'])
 def mission_detail(request, m_id):
-    '''
+    """
     Reply with all the data referred to one Missions.
     Search by mission id.
     Response is an array of objects with different 'detail_type'.
-    '''
+    """
     if request.method == 'GET':
         try:
             m = Missions.objects.get(id=m_id)
@@ -197,11 +197,11 @@ def mission_detail(request, m_id):
 @csrf_exempt
 @api_view(['GET'])
 def missions_by_target(request, t_id):
-    '''
+    """
     Reply with all the data referred to one Targets.
     Search by target id.
     Era = (1, Past), (2, Present), (3, Future), (0, Concept)
-    '''
+    """
     if request.method == 'GET':
         if t_id.isdigit():
             try:
@@ -227,10 +227,10 @@ def missions_by_target(request, t_id):
 @csrf_exempt
 @api_view(['GET'])
 def single_component(request, c_id):
-    '''
+    """
     Get single PL and BUS Components from component id
     'pbtype' is an id from PL and BUS types.
-    '''
+    """
     if request.method == 'GET':
         mix = PayloadBusComps.objects.get(id=c_id)
         serializer = PayloadBusCompsSerializer(mix, many=False)
@@ -242,10 +242,10 @@ def single_component(request, c_id):
 @csrf_exempt
 @api_view(['GET'])
 def components_list(request):
-    '''
+    """
     List of all PL and BUS components.
     'pbtype' contains ids from PL and BUS types.
-    '''
+    """
     if request.method == 'GET':
         mix = PayloadBusComps.objects.all()
         serializer = PayloadBusCompsSerializer(mix, many=True)
@@ -257,10 +257,10 @@ def components_list(request):
 @csrf_exempt
 @api_view(['GET'])
 def single_pb_type(request, type_id):
-    '''
+    """
     Get single PL and BUS TYPES from type id
     Useful to check the 'pbtype' from Components.
-    '''
+    """
     if request.method == 'GET':
         mix = PayloadBusTypes.objects.get(id=type_id)
         serializer = PayloadBusTypesSerializer(mix, many=False)
@@ -272,10 +272,10 @@ def single_pb_type(request, type_id):
 @csrf_exempt
 @api_view(['GET'])
 def pb_list(request):
-    '''
+    """
     List of all PL and BUS TYPES.
     Useful to check the 'pbtype' from Components.
-    '''
+    """
     if request.method == 'GET':
         mix = PayloadBusTypes.objects.all()
         serializer = PayloadBusTypesSerializer(mix, many=True)
@@ -284,3 +284,32 @@ def pb_list(request):
         mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
+@csrf_exempt
+@api_view(['GET'])
+def data_by_comps(request, comp_id):
+    """
+    List of SciData filtered by components.
+    Useful to retrieve data about certain components.
+    """
+    if request.method == 'GET':
+        mix = SciData.objects.all().filter(component=comp_id)
+        serializer = SciDataSerializer(mix, many=True)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
+        return JSONResponse(mex)
+
+@csrf_exempt
+@api_view(['GET'])
+def data_by_mission(request, m_id):
+    """
+    List of SciData filtered by mission.
+    Useful to retrieve data about certain mission.
+    """
+    if request.method == 'GET':
+        mix = SciData.objects.all().filter(mission=m_id)
+        serializer = SciDataSerializer(mix, many=True)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
+        return JSONResponse(mex)

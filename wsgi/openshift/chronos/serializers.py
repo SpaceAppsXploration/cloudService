@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Targets, Missions, Details, Planets, PayloadBusTypes, PayloadBusComps
+from models import Targets, Missions, Details, Planets, PayloadBusTypes, PayloadBusComps, SciData
 
 class TargetsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -7,6 +7,7 @@ class TargetsSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'slug', 'body_type', 'image_url', 'characteristics', 'curiosities', 'sim_related', 'use_in_sim')
 
 class MissionsSerializer(serializers.ModelSerializer):
+    # target = serializers.RelatedField(many=True)
     class Meta:
         model = Missions
         fields = ('id', 'target', 'era', 'name', 'codename', 'hashed', 'image_url', 'link_url', 'launch_dates', 'twitter', 'fb_page', 'nasa', 'esa', 'jaxa')
@@ -27,6 +28,16 @@ class PayloadBusTypesSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'category', 'description', 'link')
 
 class PayloadBusCompsSerializer(serializers.ModelSerializer):
+    # pbtype = serializers.RelatedField(many=True)
     class Meta:
         model = PayloadBusComps
         fields = ('id', 'pbtype', 'name', 'description', 'slug', 'link', 'category')
+
+class SciDataSerializer(serializers.ModelSerializer):
+    component = PayloadBusCompsSerializer(many=True)
+    mission = MissionsSerializer(many=False)
+
+    class Meta:
+        model = SciData
+        fields = ('id', 'data_scope', 'data_type', 'header', 'component', 'mission', 'body', 'comment')
+
