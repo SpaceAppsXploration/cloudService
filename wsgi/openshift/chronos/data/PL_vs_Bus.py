@@ -119,6 +119,27 @@ particles['struct_high_resist'] = True
 pl_vs_bus_type.append(particles)
 
 
+plasma = {}
+plasma['name'] = 'plasma_analyzer'
+plasma['slug'] = 'plasma'
+plasma['therm_active'] = True
+plasma['therm_passive'] = (False, 'the plasma detector needs a quasi-constant thermal environment')
+plasma['pow_prim_panels'] = True
+plasma['pow_prim_rtg'] = True
+plasma['pow_sec_batt'] = True
+plasma['pow_sec_fc'] = True
+plasma['comm_mono'] = True
+plasma['comm_omni'] = True
+plasma['aodcs_robust'] = True
+plasma['aodcs_simple'] = True
+plasma['prop_electr'] = True
+plasma['prop_chem'] = True
+plasma['cdh_standard'] = True
+plasma['cdh_optim'] = True
+plasma['struct_stand'] = True
+plasma['struct_high_resist'] = True
+
+pl_vs_bus_type.append(plasma)
 
 ultraviolet = {}
 ultraviolet['name'] = 'Ultraviolet'

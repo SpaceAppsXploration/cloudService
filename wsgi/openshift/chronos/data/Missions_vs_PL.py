@@ -14,6 +14,7 @@ earth_obs['laser_alt'] = True
 earth_obs['mag'] = True
 earth_obs['grav'] = True
 earth_obs['particles'] = True
+earth_obs['plasma'] = True
 earth_obs['probe'] = (False, 'Remember that you are here to observe')
 earth_obs['amplifier'] = (False, 'Maybe in the BUS')
 
@@ -35,6 +36,7 @@ cel_body_obs['laser_alt'] = True
 cel_body_obs['mag'] = True
 cel_body_obs['grav'] = True
 cel_body_obs['particles'] = True
+cel_body_obs['plasma'] = True
 cel_body_obs['probe'] = (False, 'Remember that you are here to observe')
 cel_body_obs['amplifier'] = (False, 'Maybe in the BUS')
 
@@ -55,6 +57,7 @@ space_obs['laser_alt'] = (False, 'Too far to measure')
 space_obs['mag'] = (False, 'Too far to measure')
 space_obs['grav'] = True
 space_obs['particles'] = True
+space_obs['plasma'] = True
 space_obs['probe'] = (False, 'Space dust doesn''t help you observe')
 space_obs['amplifier'] = True
 
@@ -74,6 +77,7 @@ atm_analysis['satellite'] = True
 atm_analysis['laser_alt'] = (False, 'This is for surface measurement')
 atm_analysis['mag'] = True
 atm_analysis['particles'] = True
+atm_analysis['plasma'] = True
 atm_analysis['grav'] = (False, 'Gravitation is not an atmospheric issue')
 atm_analysis['probe'] = (False, 'It''s difficult to collect and bring back gases')
 atm_analysis['amplifier'] = (False, 'Maybe in the BUS')
@@ -95,6 +99,7 @@ sample_collect['laser_alt'] = True
 sample_collect['mag'] = True
 sample_collect['grav'] = True
 sample_collect['probe'] = True
+sample_collect['plasma'] = (False, 'It\'s definetly not necessary')
 sample_collect['particles'] = (False, 'It\'s definetly not necessary')
 sample_collect['amplifier'] = (False, 'You have to bring the sample back')
 
@@ -115,6 +120,7 @@ telecom['laser_alt'] = (False, 'Not needed for telecom')
 telecom['mag'] = (False, 'Not needed for telecom')
 telecom['grav'] = (False, 'Not needed for telecom')
 telecom['particles'] = (False, 'It\'s definetly not necessary')
+telecom['plasma'] = (False, 'It\'s definetly not necessary')
 telecom['probe'] = (False, 'You do not need to analyze but only to send a signal')
 telecom['amplifier'] = True
 
