@@ -96,6 +96,29 @@ infrared['struct_high_resist'] = True
 pl_vs_bus_type.append(infrared)
 
 
+particles = {}
+particles['name'] = 'particles_detector'
+particles['slug'] = 'particles'
+particles['therm_active'] = True
+particles['therm_passive'] = (False, 'the particles detector needs a quasi-constant thermal environment')
+particles['pow_prim_panels'] = True
+particles['pow_prim_rtg'] = True
+particles['pow_sec_batt'] = True
+particles['pow_sec_fc'] = True
+particles['comm_mono'] = True
+particles['comm_omni'] = True
+particles['aodcs_robust'] = True
+particles['aodcs_simple'] = True
+particles['prop_electr'] = True
+particles['prop_chem'] = True
+particles['cdh_standard'] = True
+particles['cdh_optim'] = True
+particles['struct_stand'] = True
+particles['struct_high_resist'] = True
+
+pl_vs_bus_type.append(particles)
+
+
 
 ultraviolet = {}
 ultraviolet['name'] = 'Ultraviolet'
