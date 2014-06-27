@@ -32,7 +32,8 @@ urlpatterns = i18n_patterns('',
     url(r'^api/components/(?P<c_id>[0-9]+)/$', 'chronos.views.single_component'),
     url(r'^api/components/$', 'chronos.views.components_list'),
     url(r'^api/scidata/by/components/(?P<comp_id>[0-9]+)/$', 'chronos.views.data_by_comps'),
-    url(r'^api/scidata/by/mission/(?P<m_id>[0-9]+)/$', 'chronos.views.data_by_mission'),
+    url(r'^api/scidata/by/target/(?P<t_id>[0-9]+)/by/comps/(?P<c_id>[0-9]+)/$', 'chronos.views.data_by_target_by_comps'),
+    url(r'^api/scidata/by/target/(?P<t_id>[0-9]+)/$', 'chronos.views.data_by_target'),
     
     # home
     url(r'^webapp/wphonebeta/$', cache_page(60 * 180)(wphoneregister)),

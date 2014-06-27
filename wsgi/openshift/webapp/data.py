@@ -23,7 +23,7 @@ ratings = {
     'deep_space_obs': (5, None, 2.5),
     'atm_analysis': (5, None, 2),
     'sample_collect': (5, None, 5),
-    'telecom':(1.5, None, 1),
+    'telecom': (1.5, None, 1),
     
 
     'opt_sensor': (None, 3, None),
