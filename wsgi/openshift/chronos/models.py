@@ -183,11 +183,13 @@ class SciData(models.Model):
         (1, 'scientific'),
         (2, 'engineering'),
         (3, 'mission_specific'),
+        (4, 'field_of_research'),
     )
     DATA_TYPE = (
         (1, 'link'),
         (2, 'data'),
         (3, 'text'),
+        (4, 'field'),
     )
     id          = models.AutoField(primary_key=True)
     data_scope  = models.IntegerField(max_length=3, choices=DATA_SCOPE)
@@ -195,7 +197,7 @@ class SciData(models.Model):
     header      = models.CharField(max_length=150, db_index=True)
     component   = models.ManyToManyField(PayloadBusComps, db_index=True)
     mission     = models.ForeignKey(Missions, db_index=True, null=True, blank=True)
-    body        = models.CharField(max_length=3000)
+    body        = models.CharField(max_length=3000, null=True, blank=True)
     comment     = models.CharField(max_length=1000, null=True, blank=True)
     related_to  = models.ForeignKey('self', default=None, null=True, blank=True)
 
