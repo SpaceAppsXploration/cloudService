@@ -197,6 +197,7 @@ class SciData(models.Model):
     mission     = models.ForeignKey(Missions, db_index=True, null=True, blank=True)
     body        = models.CharField(max_length=3000)
     comment     = models.CharField(max_length=1000, null=True, blank=True)
+    related_to  = models.ForeignKey('self', default=None, null=True, blank=True)
 
     def __unicode__(self):
         return str(self.header)
