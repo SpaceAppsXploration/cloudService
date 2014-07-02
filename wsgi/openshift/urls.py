@@ -42,14 +42,9 @@ urlpatterns = i18n_patterns('',
     url(r'^$', cache_page(60 * 30)(home), name='home'),
 
     # Webapp
-    url(r'^webapp/home/$', 'webapp.views.homeTEST'),
-    url(r'^webapp/start/$', 'webapp.views.start'),
+
     url(r'^webapp/data/missions/details/(?P<m_id>[0-9]+)/$',  cache_page(60 * 180)(details_page)),
     url(r'^webapp/data/(?P<what>[a-z]+)/$', cache_page(60 * 180)(datavis)),
-    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/bus/(?P<bus_slug>[a-z_-]+)/$', 'webapp.views.results'),
-    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/payload/(?P<pl_slug>[a-z_-]+)/$', 'webapp.views.bus'),
-    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/to/(?P<m_slug>[a-z_]+)/$', 'webapp.views.payload'),
-    url(r'^webapp/go/to/(?P<p_slug>[a-z]+)/$', 'webapp.views.mission'),
 
     #admin and CMS
     url(r'^admin/', include(admin.site.urls)),

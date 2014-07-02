@@ -1,6 +1,10 @@
 from django.db import models
 
+
 class Targets(models.Model):
+    """
+    Describes possible targets for space missions
+    """
     BODY_TYPE = ((1, "planet"), 
         (2, "asteroid"),
         (3, "comet"),
@@ -34,7 +38,11 @@ class Targets(models.Model):
     class Meta:
         verbose_name_plural = 'Targets'
 
+
 class Missions(models.Model):
+    """
+    Describes completed, running and designed real missions from space agencies
+    """
     ERA = (
         (1, 'Past'),
         (2, 'Present'),
@@ -80,7 +88,11 @@ class Missions(models.Model):
         verbose_name_plural = 'Missions'
         ordering = ['codename']
 
+
 class Details(models.Model):
+    """
+    Describes details realted to space missions, as crawled from agencies' websites
+    """
     DETAIL_TYPE = (
         (1, 'goal'),
         (2, 'accomplishment'),
@@ -115,8 +127,11 @@ class Details(models.Model):
             self.image_link = None
         super(Details, self).save(*args, **kwargs)
 
-class Planets(models.Model):
 
+class Planets(models.Model):
+    """
+    Physical characteristics of planets in the Solar System
+    """
     id          = models.AutoField(primary_key=True)
     target      = models.ForeignKey(Targets)
     discover    = models.CharField(max_length=20, null=True, blank=True)
@@ -145,6 +160,9 @@ class Planets(models.Model):
 
 
 class PayloadBusTypes(models.Model):
+    """
+    List of possible payload and bus types
+    """
     id          = models.AutoField(primary_key=True)
     name        = models.CharField(max_length=100)
     category    = models.CharField(max_length=10)
@@ -160,10 +178,13 @@ class PayloadBusTypes(models.Model):
 
 
 class PayloadBusComps(models.Model):
+    """
+    Describes payloads and bus components in a spacecraft
+    """
     id          = models.AutoField(primary_key=True)
     pbtype      = models.ManyToManyField(PayloadBusTypes)
     name        = models.CharField(max_length=100)
-    category    = models.CharField(max_length=10) #payload or bus
+    category    = models.CharField(max_length=10)  # payload or bus
     description = models.CharField(max_length=1500)
     slug        = models.CharField(max_length=80)
     link        = models.CharField(max_length=300, null=True, blank=True)
@@ -178,7 +199,11 @@ class PayloadBusComps(models.Model):
         verbose_name_plural = 'PL and BUS Components'
         ordering = ['name']
 
+
 class SciData(models.Model):
+    """
+    Describes scientific data related to components. Group and Field of data can be recursively created
+    """
     DATA_SCOPE = (
         (1, 'scientific'),
         (2, 'engineering'),
@@ -199,7 +224,7 @@ class SciData(models.Model):
     mission     = models.ForeignKey(Missions, db_index=True, null=True, blank=True)
     body        = models.CharField(max_length=3000, null=True, blank=True)
     comment     = models.CharField(max_length=1000, null=True, blank=True)
-    related_to  = models.ForeignKey('self', default=None, null=True, blank=True)
+    related_to  = models.ForeignKey('self', default=None, null=True, blank=True) # relation to groups and fileds of data
 
     def __unicode__(self):
         return str(self.header)
