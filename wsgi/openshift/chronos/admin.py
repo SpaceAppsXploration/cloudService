@@ -54,6 +54,7 @@ class PayloadBusTypesAdmin(admin.ModelAdmin):
             formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
         return formfield
 
+
 class PayloadBusCompsAdmin(admin.ModelAdmin):
     def formfield_for_dbfield(self, db_field, **kwargs):
         formfield = super(PayloadBusCompsAdmin, self).formfield_for_dbfield(db_field, **kwargs)
