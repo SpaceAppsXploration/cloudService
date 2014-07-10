@@ -162,9 +162,7 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
 def datavis(request, what):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
     js = json.dumps(js)
-    
-    
-    
+
     if what == 'planets':
        bodies = Planets.objects.all()
 
@@ -249,8 +247,6 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 @ensure_csrf_cookie
 def wphoneregister(request):
 
-
-
     if request.method == 'GET':
         params = {}
 
@@ -275,8 +271,8 @@ def wphoneregister(request):
         return render_to_response('webapp/wphonebeta.html', msg,
                               context_instance=RequestContext(request))
 
+
 def Robots(request):
 
     html = 'User-agent: * Disallow: /admin/ Disallow: /simulation/ Disallow: /api/doc/'
     return StreamingHttpResponse(html, content_type="text/html")
-

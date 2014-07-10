@@ -1,5 +1,5 @@
 """
-REST views
+REST views and Map Generator
 Need refactoring
 """
 import json
@@ -328,3 +328,89 @@ def data_by_target(request, t_id):
     else:
         mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
+
+
+def arbormap(request, state):
+    from django.template import RequestContext
+    payloads = PayloadBusComps.objects.all().filter(category='payload')
+    if request.method == 'GET':
+        if state == '0':
+            params = dict()
+            params['payloads'] = payloads
+            params['state'] = state
+            return render_to_response('webapp/map.html', params,
+                              context_instance=RequestContext(request))
+
+        else:
+            params = dict()
+            params['payloads'] = payloads
+            params['state'] = state
+
+            data = {"edges": {}, "nodes": {}}
+
+            ### Pre-create nodes and empty edges for Components ###
+            for comp in payloads:
+                c_key = 'P'+str(comp.id)
+                c_value = {"label": comp.name, "id": c_key, "type": "component"}
+                data['nodes'][c_key] = c_value
+                data['edges'][c_key] = dict()
+
+            fields = SciData.objects.all().filter(data_type=4)
+            if not fields:
+                raise Http404
+
+            ### Pre-create nodes and empty edges for Fields ###
+            for field in fields:
+                f_key = 'F'+str(field.id)
+                f_value = {"label": field.header, "id": f_key, "type": "field"}
+                data['nodes'][f_key] = f_value
+                data['edges'][f_key] = dict()
+
+
+            ### Query Data ###
+            scidata = SciData.objects.all().filter(component__id=int(state))
+            if not scidata:
+                raise Http404
+
+            for s in scidata:
+                ### Processing a single Datum 's' ###
+                d_key = None
+                m_key = None
+                f_key = None
+                f_key_in_c = None
+
+                ### Datum is not of type Field (already pre-processed) ###
+                if s.data_type != 4:
+                    d_key = 'D'+str(s.id)
+                    d_value = {"label": s.header, "id": d_key, "type": "datum"}
+                    data['nodes'][d_key] = d_value
+
+                    ### Datum has a relation to a Mission ###
+                    if s.mission is not None:
+                        m_key = 'M'+str(s.mission.id)
+                        m_value = {"label": s.mission.codename, "id": m_key, "type": "mission"}
+                        if m_key not in data['nodes'].keys():
+                            data['nodes'][m_key] = m_value
+                        if m_key not in data['edges'].keys():
+                            data['edges'][m_key] = dict()
+                            data['edges'][m_key][d_key] = d_value  # M < D
+
+                    ### Datum has a relation to a Field ###
+                    if s.related_to is not None:
+                        f_key_in_c = 'F'+str(s.related_to.id)
+
+                    ### Generating edges from components to datum ###
+                    for comp in s.component.all():
+                        c_key = 'C'+str(comp.id)
+
+                        # Basic relation Component - Datum
+                        data['edges'][c_key] = dict()
+                        data['edges'][c_key][d_key] = d_value
+                        # Side relation Field - Datum
+                        if f_key_in_c is not None:
+                            data['edges'][f_key_in_c][d_key] = d_value
+
+            params['data'] = json.dumps(data)
+
+            return render_to_response('webapp/map.html', params,
+                              context_instance=RequestContext(request))
