@@ -224,6 +224,7 @@ class SciData(models.Model):
         (5, 'Facts Sheet'),
         (6, 'Mission images and videos'),
         (7, 'Mission Overview'),
+        (8, 'Celestial Bodies'),
     )
 
     id          = models.AutoField(primary_key=True)

@@ -355,17 +355,15 @@ def arbormap(request, state):
             data['nodes'][c_key] = c_value
             data['edges'][c_key] = dict()
 
-            '''fields = SciData.objects.all().filter(data_type=4)
+            fields = SciData.objects.all().filter(data_type=4)
             if not fields:
                 raise Http404
 
             ### Pre-create nodes and empty edges for Fields ###
             for field in fields:
                 f_key = 'F'+str(field.id)
-                f_value = {"label": field.header, "id": f_key, "type": "field"}
-                data['nodes'][f_key] = f_value
                 data['edges'][f_key] = dict()
-            '''
+
 
             ### Query Data ###
             scidata = SciData.objects.all().filter(component__id=int(state))
@@ -390,9 +388,6 @@ def arbormap(request, state):
                     print c_key
                     print d_key
 
-                    # Basic relation Component - Datum
-                    data['edges'][c_key][d_key] = d_value
-
                     ### Datum has a relation to a Mission ###
                     if s.mission is not None:
                         m_key = 'M'+str(s.mission.id)
@@ -410,7 +405,14 @@ def arbormap(request, state):
                         f_value = {"label": header_f, "id": f_key_in_c, "type": "field"}
                         data['nodes'][f_key_in_c] = f_value
                         data['edges'][c_key][f_key_in_c] = f_value
+                        data['edges'][f_key_in_c][d_key] = d_value
+                    else:
+                        # Basic relation Component - Datum
+                        data['edges'][c_key][d_key] = d_value
 
+            for i in data['edges'].keys():
+                if data['edges'][i] == {}:
+                    del data['edges'][i]
             params['data'] = json.dumps(data)
             print params['data']
 
