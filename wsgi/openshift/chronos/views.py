@@ -383,8 +383,12 @@ def arbormap(request, state):
                 ### Datum is not of type Field ###
                 if s.data_type != 4:
                     d_key = 'D'+str(s.id)
-                    d_value = {"label": s.header, "id": d_key, "type": "datum"}
+                    header = s.header[0:25]
+                    d_value = {"label": header, "id": d_key, "type": "datum"}
                     data['nodes'][d_key] = d_value
+
+                    print c_key
+                    print d_key
 
                     # Basic relation Component - Datum
                     data['edges'][c_key][d_key] = d_value
@@ -406,7 +410,7 @@ def arbormap(request, state):
                         data['nodes'][f_key_in_c] = f_value
 
             params['data'] = json.dumps(data)
-            #print params['data']
+            print params['data']
 
             return render_to_response('webapp/map.html', params,
                               context_instance=RequestContext(request))
