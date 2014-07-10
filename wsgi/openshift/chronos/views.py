@@ -349,13 +349,13 @@ def arbormap(request, state):
             data = {"edges": {}, "nodes": {}}
 
             ### Pre-create nodes and empty edges for Components ###
-            for comp in payloads:
-                c_key = 'P'+str(comp.id)
-                c_value = {"label": comp.name, "id": c_key, "type": "component"}
-                data['nodes'][c_key] = c_value
-                data['edges'][c_key] = dict()
+            comp = payloads.filter(id=int(state)).first()
+            c_key = 'P'+str(comp.id)
+            c_value = {"label": comp.name, "id": c_key, "type": "component"}
+            data['nodes'][c_key] = c_value
+            data['edges'][c_key] = dict()
 
-            fields = SciData.objects.all().filter(data_type=4)
+            '''fields = SciData.objects.all().filter(data_type=4)
             if not fields:
                 raise Http404
 
@@ -365,13 +365,14 @@ def arbormap(request, state):
                 f_value = {"label": field.header, "id": f_key, "type": "field"}
                 data['nodes'][f_key] = f_value
                 data['edges'][f_key] = dict()
-
+            '''
 
             ### Query Data ###
             scidata = SciData.objects.all().filter(component__id=int(state))
             if not scidata:
                 raise Http404
 
+            print scidata.count()
             for s in scidata:
                 ### Processing a single Datum 's' ###
                 d_key = None
@@ -379,11 +380,14 @@ def arbormap(request, state):
                 f_key = None
                 f_key_in_c = None
 
-                ### Datum is not of type Field (already pre-processed) ###
+                ### Datum is not of type Field ###
                 if s.data_type != 4:
                     d_key = 'D'+str(s.id)
                     d_value = {"label": s.header, "id": d_key, "type": "datum"}
                     data['nodes'][d_key] = d_value
+
+                    # Basic relation Component - Datum
+                    data['edges'][c_key][d_key] = d_value
 
                     ### Datum has a relation to a Mission ###
                     if s.mission is not None:
@@ -398,19 +402,11 @@ def arbormap(request, state):
                     ### Datum has a relation to a Field ###
                     if s.related_to is not None:
                         f_key_in_c = 'F'+str(s.related_to.id)
-
-                    ### Generating edges from components to datum ###
-                    for comp in s.component.all():
-                        c_key = 'C'+str(comp.id)
-
-                        # Basic relation Component - Datum
-                        data['edges'][c_key] = dict()
-                        data['edges'][c_key][d_key] = d_value
-                        # Side relation Field - Datum
-                        if f_key_in_c is not None:
-                            data['edges'][f_key_in_c][d_key] = d_value
+                        f_value = {"label": s.related_to.header, "id": f_key_in_c, "type": "field"}
+                        data['nodes'][f_key_in_c] = f_value
 
             params['data'] = json.dumps(data)
+            #print params['data']
 
             return render_to_response('webapp/map.html', params,
                               context_instance=RequestContext(request))
