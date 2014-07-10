@@ -406,8 +406,10 @@ def arbormap(request, state):
                     ### Datum has a relation to a Field ###
                     if s.related_to is not None:
                         f_key_in_c = 'F'+str(s.related_to.id)
-                        f_value = {"label": s.related_to.header, "id": f_key_in_c, "type": "field"}
+                        header_f = s.related_to.header
+                        f_value = {"label": header_f, "id": f_key_in_c, "type": "field"}
                         data['nodes'][f_key_in_c] = f_value
+                        data['edges'][c_key][f_key_in_c] = f_value
 
             params['data'] = json.dumps(data)
             print params['data']

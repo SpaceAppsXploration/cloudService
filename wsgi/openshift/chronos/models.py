@@ -216,9 +216,20 @@ class SciData(models.Model):
         (3, 'text'),
         (4, 'field'),
     )
+    DATA_CONTENT = (
+        (1, 'null'),
+        (2, 'Arts Neighbourhood'),
+        (3, 'Difficult Topics'),
+        (4, 'Easy Topics'),
+        (5, 'Facts Sheet'),
+        (6, 'Mission images and videos'),
+        (7, 'Mission Overview'),
+    )
+
     id          = models.AutoField(primary_key=True)
     data_scope  = models.IntegerField(max_length=3, choices=DATA_SCOPE)
     data_type   = models.IntegerField(max_length=3, choices=DATA_TYPE)
+    data_content= models.IntegerField(max_length=3, choices=DATA_CONTENT)
     header      = models.CharField(max_length=150, db_index=True)
     component   = models.ManyToManyField(PayloadBusComps, db_index=True)
     mission     = models.ForeignKey(Missions, db_index=True, null=True, blank=True)
