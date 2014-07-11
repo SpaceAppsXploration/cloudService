@@ -45,7 +45,9 @@ urlpatterns = i18n_patterns('',
 
     url(r'^webapp/data/missions/details/(?P<m_id>[0-9]+)/$',  cache_page(60 * 180)(details_page)),
     url(r'^webapp/data/(?P<what>[a-z]+)/$', cache_page(60 * 180)(datavis)),
-    url(r'^map/(?P<state>[0-9]+)/$', 'chronos.views.arbormap', name='map'),
+    url(r'^cytomap/(?P<state>[0-9]+)/$', 'chronos.views.cytomap', name='cytomap'),
+    url(r'^map/(?P<state>[0-9]+)/$', 'chronos.views.arbormap', name='arbormap'),
+
 
     #admin and CMS
     url(r'^admin/', include(admin.site.urls)),

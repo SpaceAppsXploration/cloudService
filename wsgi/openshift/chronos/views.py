@@ -364,7 +364,6 @@ def arbormap(request, state):
                 f_key = 'F'+str(field.id)
                 data['edges'][f_key] = dict()
 
-
             ### Query Data ###
             scidata = SciData.objects.all().filter(component__id=int(state))
             if not scidata:
@@ -392,11 +391,11 @@ def arbormap(request, state):
                     if s.mission is not None:
                         m_key = 'M'+str(s.mission.id)
                         m_value = {"label": s.mission.codename, "id": m_key, "type": "mission"}
-                        if m_key not in data['nodes'].keys():
-                            data['nodes'][m_key] = m_value
                         if m_key not in data['edges'].keys():
                             data['edges'][m_key] = dict()
-                            data['edges'][m_key][d_key] = d_value  # M < D
+                        if m_key not in data['nodes'].keys():
+                            data['nodes'][m_key] = m_value
+                        data['edges'][m_key][d_key] = d_value  # M < D
 
                     ### Datum has a relation to a Field ###
                     if s.related_to is not None:
@@ -417,4 +416,97 @@ def arbormap(request, state):
             print params['data']
 
             return render_to_response('webapp/map.html', params,
+                              context_instance=RequestContext(request))
+
+
+def cytomap(request, state):
+    from django.template import RequestContext
+    payloads = PayloadBusComps.objects.all().filter(category='payload')
+    if request.method == 'GET':
+        if state == '0':
+            params = dict()
+            params['payloads'] = payloads
+            params['state'] = state
+            return render_to_response('webapp/cytomap.html', params,
+                              context_instance=RequestContext(request))
+
+        else:
+            params = dict()
+            params['payloads'] = payloads
+            params['state'] = state
+
+            data = {"edges": [], "nodes": []}
+
+            ### Pre-create nodes and empty edges for Component ###
+            comp = payloads.filter(id=int(state)).first()
+            c_key = 'P'+str(comp.id)
+            c_node = {"data": {"name": comp.name, "id": c_key, "type": "component"},
+                      "position": {"x": 540, "y": 420}, "locked": True }
+            data['nodes'].append(c_node)
+
+            fields = SciData.objects.all().filter(data_type=4)
+            if not fields:
+                raise Http404
+
+            ### Pre-create nodes and empty edges for Fields ###
+            for field in fields:
+                f_key = 'F'+str(field.id)
+                f_node = {"data": {"name": field.header, "id": f_key, "type": "field"}}
+                data['nodes'].append(f_node)
+                f_edge = {"data": {"source": f_key, "target": c_key}}
+                data['edges'].append(f_edge)
+
+
+
+            ### Query Data ###
+            scidata = SciData.objects.all().filter(component__id=int(state))
+            if not scidata:
+                raise Http404
+
+            print scidata.count()
+            for s in scidata:
+                ### Processing a single Datum 's' ###
+                d_key = None
+                m_key = None
+                f_key = None
+                f_key_in_c = None
+
+                ### Datum is not of type Field ###
+                if s.data_type != 4:
+                    d_key = 'D'+str(s.id)
+                    header = s.header
+                    d_node = {"data": {"name": header, "id": d_key, "href": s.body, "type": "datum"}}
+                    d_edge = {"data": {"source": d_key, "target": c_key}}
+                    data['nodes'].append(d_node)
+
+
+                    #print c_key
+                    #print d_key
+
+                    ### Datum has a relation to a Mission ###
+                    if s.mission is not None:
+                        m_key = 'M'+str(s.mission.id)
+                        m_node = {"data": {"name": s.mission.codename, "id": m_key, "type": "mission"}}
+                        m_edge = {"data": {"source": m_key, "target": d_key}}
+                        if m_node not in data['nodes']:
+                            data['nodes'].append(m_node)
+                        if m_edge not in data['edges']:
+                            data['edges'].append(m_edge)  # M < D
+
+                    ### Datum has a relation to a Field ###
+                    if s.related_to is not None:
+                        f_key = 'F'+str(s.related_to.id)
+
+                        data['edges'].append({"data": {"source": d_key, "target": f_key}})
+                    else:
+                        # Basic relation Component - Datum
+                        data['edges'].append(d_edge)
+
+            '''for i in data['edges']:
+                if data['edges'][i] == {}:
+                    del data['edges'][i]'''
+            params['data'] = json.dumps(data)
+            #print params['data']
+
+            return render_to_response('webapp/cytomap.html', params,
                               context_instance=RequestContext(request))

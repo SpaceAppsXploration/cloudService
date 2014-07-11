@@ -1,0 +1,167 @@
+
+
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+ <script src="//cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+
+ <div class="col-md-12" style="margin-top:100px; margin-bottom:50px;">
+     <div class="col-md-3">
+         <ol class="button-group">
+               {% for p in payloads %}
+                  <li><a href="/cytomap/{{p.id}}" class="btn btn-sm">{{p.name}}</a></li>
+               {% endfor %}
+         </ol>
+     </div>
+     <div class="col-md-8">
+<div id="cy">
+
+{% if state == '0' %}
+     <p>Click to choose a payload</p>
+    </div>
+     {% else %}
+
+
+         <script type="application/javascript">
+                 $(function(){ // on dom ready
+                    $('#cy').cytoscape({
+
+                      style: cytoscape.stylesheet()
+                        .selector('node')
+                          .css({
+                            'font-size': 5,
+                            'text-valign': 'center',
+                            'color': 'white',
+                            'text-outline-width': 1,
+                            'text-outline-color': '#888',
+                            'min-zoomed-font-size': 8,
+                            'width': 'mapData(score, 0, 1, 20, 50)',
+                            'height': 'mapData(score, 0, 1, 20, 50)',
+                            'content': 'data(id)'
+                          })
+                        .selector('node[type = "component"]')
+                          .css({
+                            'background-color': 'red',
+                            'text-outline-color': '#666',
+                            'content': 'data(name)'
+                          })
+                         .selector('node[type = "field"]')
+                          .css({
+                            'background-color': '#4d4d4d',
+                            'text-outline-color': '#333'
+                          })
+                        .selector('node[type = "datum"]')
+                          .css({
+                            'background-color': 'green',
+                            'text-outline-color': '#333'
+                          })
+                        .selector('node[type = "mission"]')
+                          .css({
+                            'background-color': '#000',
+                            'text-outline-color': '#333'
+                          })
+                        .selector('edge')
+                          .css({
+                            'curve-style': 'haystack',
+                            'opacity': 0.666,
+                            'width': 'mapData(normalized_max_weight, 0, 0.01, 1, 2)'
+                          })
+                        .selector('edge[data_type = "Predicted"]')
+                          .css({
+                            'line-color': '#F6C28C'
+                          })
+                        .selector('edge[data_type = "Physical interactions"]')
+                          .css({
+                            'line-color': '#EAA2A3'
+                          })
+                        .selector('edge[data_type = "Shared protein domains"]')
+                          .css({
+                            'line-color': '#DAD4A8'
+                          })
+                        .selector('edge[data_type = "Co-expression"]')
+                          .css({
+                            'line-color': '#D0B7D3'
+                          })
+                        .selector('edge[data_type = "Pathway"]')
+                          .css({
+                            'line-color': '#9BD8DD'
+                          })
+                        .selector('edge[data_type = "Co-localization"]')
+                          .css({
+                            'line-color': '#A0B3D8'
+                          }),
+
+                      elements: cy3json,
+
+                      layout: {
+                        name: 'concentric',
+                        concentric: function(){
+                          return this.data('id');
+                        },
+                        levelWidth: function(nodes){
+                          return nodes.maxDegree() / 4;
+                        },
+                        padding: 10
+                      },
+
+                      ready: function(){
+                        window.cy = this;
+
+                        // giddy up...
+
+                        cy.elements().unselectify();
+
+                        cy.on('tap', 'node', function(){
+                          cy.elements().addClass('faded');
+                          window.open( this.data('href') );
+                        });
+
+                        cy.on('mouseover', 'node', function(e){
+                            var node = e.cyTarget;
+                            if (node.element()._private.data.type != "component") {
+                                node.css('content', 'data(name)');
+                            }
+
+                        });
+                        cy.on('mouseout', 'node', function(e){
+                            var node = e.cyTarget;
+                            //console.log(node.element()._private.data.type);
+                            if (node.element()._private.data.type != "component") {
+                                node.css('content', 'data(id)');
+                            }
+                            else {
+                                node.css('content', 'data(name)');
+                            }
+                        });
+                      }
+                    });
+
+                    }); // on dom ready
+
+                    var cy3json = {{data|safe}}
+         </script>
+
+
+   </div>
+{% endif %}
+
+
+     </div>
+</div>
+
+<style type="text/css">
+#cy {
+  height: 850px;
+  width: 85%;
+  position: absolute;
+  left: 250px;
+  top: 0;
+}
+
+#info {
+  color: #c88;
+  font-size: 1em;
+  position: absolute;
+  z-index: -1;
+  left: 1em;
+  top: 1em;
+}
+</style>
