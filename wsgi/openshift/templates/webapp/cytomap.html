@@ -1,27 +1,57 @@
+<!DOCTYPE HTML>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html lang="en">
+	<head>
+	    <title>Project Chronos - Cytomaps</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
- <script src="//cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+            <!-- Favicon -->
+	    <link rel="shortcut icon" href="/static/images/favicon.png">
 
+	    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" media="screen">
+	    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css" media="screen">
+	    <link rel="stylesheet" type="text/css" href="/static/css/style.css" media="screen">
+
+	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+        <script src="//cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+    </head>
+
+    <body>
  <div class="col-md-12" style="margin-top:100px; margin-bottom:50px;">
      <div class="col-md-3">
          <ol class="button-group">
+             <li style="color: #000;">Click to choose a payload</li>
                {% for p in payloads %}
                   <li><a href="/cytomap/{{p.id}}" class="btn btn-sm">{{p.name}}</a></li>
                {% endfor %}
+             <li>&nbsp;</li>
+             <li>&nbsp;</li>
+             <li style="color: #000;">RED: Component</li>
+             <li style="color: #000;">GREEN: Datum</li>
+             <li style="color: #000;">BLACK: Mission</li>
+             <li style="color: #000;">GREY: Field</li>
+             <li style="color: #000;">Zoom with mousewheel</li>
+             <li style="color: #000;">Hover on nodes for more info</li>
+             <li style="color: #000;">Drag nodes to clear edges</li>
+             <li style="color: #000;">Double-click on nodes to visit the link</li>
          </ol>
      </div>
      <div class="col-md-8">
 <div id="cy">
 
 {% if state == '0' %}
-     <p>Click to choose a payload</p>
+
     </div>
      {% else %}
 
 
          <script type="application/javascript">
-                 $(function(){ // on dom ready
+                 $(window).ready(function(){ // on dom ready
                     $('#cy').cytoscape({
 
                       style: cytoscape.stylesheet()
@@ -35,7 +65,6 @@
                             'min-zoomed-font-size': 8,
                             'width': 'mapData(score, 0, 1, 20, 50)',
                             'height': 'mapData(score, 0, 1, 20, 50)',
-                            'content': 'data(id)'
                           })
                         .selector('node[type = "component"]')
                           .css({
@@ -102,6 +131,9 @@
                         padding: 10
                       },
 
+                      textureOnViewport: true,
+                      hideEdgesOnViewport: true,
+
                       ready: function(){
                         window.cy = this;
 
@@ -125,7 +157,7 @@
                             var node = e.cyTarget;
                             //console.log(node.element()._private.data.type);
                             if (node.element()._private.data.type != "component") {
-                                node.css('content', 'data(id)');
+                                node.css('content', '');
                             }
                             else {
                                 node.css('content', 'data(name)');
@@ -148,11 +180,12 @@
 </div>
 
 <style type="text/css">
+body { background-color: #ffffff;}
 #cy {
   height: 850px;
-  width: 85%;
+  width: 99%;
   position: absolute;
-  left: 250px;
+  left: 0;
   top: 0;
 }
 
@@ -165,3 +198,6 @@
   top: 1em;
 }
 </style>
+
+    </body>
+</html>

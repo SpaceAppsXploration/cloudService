@@ -441,7 +441,7 @@ def cytomap(request, state):
             comp = payloads.filter(id=int(state)).first()
             c_key = 'P'+str(comp.id)
             c_node = {"data": {"name": comp.name, "id": c_key, "type": "component"},
-                      "position": {"x": 540, "y": 420}, "locked": True }
+                      "position": {"x": 410, "y": 450}, "locked": True }
             data['nodes'].append(c_node)
 
             fields = SciData.objects.all().filter(data_type=4)
