@@ -57,14 +57,14 @@
                       style: cytoscape.stylesheet()
                         .selector('node')
                           .css({
-                            'font-size': 5,
+                            'font-size': 7,
                             'text-valign': 'center',
-                            'color': 'white',
-                            'text-outline-width': 1,
-                            'text-outline-color': '#888',
-                            'min-zoomed-font-size': 8,
-                            'width': 'mapData(score, 0, 1, 20, 50)',
-                            'height': 'mapData(score, 0, 1, 20, 50)',
+                            'color': '#888',
+                            //'text-outline-width': 1,
+                            //'text-outline-color': '#888',
+                            'min-zoomed-font-size': 7,
+                            //'width': 'mapData(score, 0, 1, 20, 50)',
+                            //'height': 'mapData(score, 0, 1, 20, 50)',
                           })
                         .selector('node[type = "component"]')
                           .css({
@@ -123,7 +123,8 @@
                       layout: {
                         name: 'concentric',
                         concentric: function(){
-                          return this.data('id');
+                            console.log(this.data('weight'))
+                          return this.data('weight');
                         },
                         levelWidth: function(nodes){
                           return nodes.maxDegree() / 4;
@@ -131,7 +132,7 @@
                         padding: 10
                       },
 
-                      textureOnViewport: true,
+                      //textureOnViewport: true,
                       hideEdgesOnViewport: true,
 
                       ready: function(){

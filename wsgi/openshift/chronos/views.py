@@ -440,7 +440,7 @@ def cytomap(request, state):
             ### Pre-create nodes and empty edges for Component ###
             comp = payloads.filter(id=int(state)).first()
             c_key = 'P'+str(comp.id)
-            c_node = {"data": {"name": comp.name, "id": c_key, "type": "component"},
+            c_node = {"data": {"name": comp.name, "id": c_key, "type": "component", "weight": 99},
                       "position": {"x": 410, "y": 450}, "locked": True }
             data['nodes'].append(c_node)
 
@@ -451,9 +451,9 @@ def cytomap(request, state):
             ### Pre-create nodes and empty edges for Fields ###
             for field in fields:
                 f_key = 'F'+str(field.id)
-                f_node = {"data": {"name": field.header, "id": f_key, "type": "field"}}
+                f_node = {"data": {"name": field.header, "id": f_key, "type": "field", "weight": 68}}
                 data['nodes'].append(f_node)
-                f_edge = {"data": {"source": f_key, "target": c_key}}
+                f_edge = {"data": {"source": f_key, "target": c_key, "weight": 68}}
                 data['edges'].append(f_edge)
 
 
@@ -475,8 +475,8 @@ def cytomap(request, state):
                 if s.data_type != 4:
                     d_key = 'D'+str(s.id)
                     header = s.header
-                    d_node = {"data": {"name": header, "id": d_key, "href": s.body, "type": "datum"}}
-                    d_edge = {"data": {"source": d_key, "target": c_key}}
+                    d_node = {"data": {"name": header, "id": d_key, "href": s.body, "type": "datum", "weight": 50}}
+                    d_edge = {"data": {"source": d_key, "target": c_key, "weight": 50}}
                     data['nodes'].append(d_node)
 
 
@@ -486,8 +486,8 @@ def cytomap(request, state):
                     ### Datum has a relation to a Mission ###
                     if s.mission is not None:
                         m_key = 'M'+str(s.mission.id)
-                        m_node = {"data": {"name": s.mission.codename, "id": m_key, "type": "mission"}}
-                        m_edge = {"data": {"source": m_key, "target": d_key}}
+                        m_node = {"data": {"name": s.mission.codename, "id": m_key, "type": "mission", "weight": 12}}
+                        m_edge = {"data": {"source": m_key, "target": d_key, "weight": 12}}
                         if m_node not in data['nodes']:
                             data['nodes'].append(m_node)
                         if m_edge not in data['edges']:
@@ -497,7 +497,7 @@ def cytomap(request, state):
                     if s.related_to is not None:
                         f_key = 'F'+str(s.related_to.id)
 
-                        data['edges'].append({"data": {"source": d_key, "target": f_key}})
+                        data['edges'].append({"data": {"source": d_key, "target": f_key, "weight": 68}})
                     else:
                         # Basic relation Component - Datum
                         data['edges'].append(d_edge)
