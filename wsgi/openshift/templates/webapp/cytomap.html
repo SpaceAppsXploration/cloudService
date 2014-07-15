@@ -38,7 +38,8 @@
              <li style="color: #000;">Zoom with mousewheel</li>
              <li style="color: #000;">Hover on nodes for more info</li>
              <li style="color: #000;">Drag nodes to clear edges</li>
-             <li style="color: #000;">Double-click on nodes to visit the link</li>
+             <li style="color: #000;">Double-click on Data to visit the link</li>
+             <li style="color: #000;">Hold button and move to pan</li>
          </ol>
      </div>
      <div class="col-md-8">
@@ -59,8 +60,8 @@
                           .css({
                             'font-size': 7,
                             'text-valign': 'center',
-                            'color': '#888',
-                            //'text-outline-width': 1,
+                            'color': '#fff',
+                            'text-outline-width': 1,
                             //'text-outline-color': '#888',
                             'min-zoomed-font-size': 7,
                             //'width': 'mapData(score, 0, 1, 20, 50)',
@@ -123,7 +124,6 @@
                       layout: {
                         name: 'concentric',
                         concentric: function(){
-                            console.log(this.data('weight'))
                           return this.data('weight');
                         },
                         levelWidth: function(nodes){
@@ -141,6 +141,7 @@
                         // giddy up...
 
                         cy.elements().unselectify();
+
 
                         cy.on('tap', 'node', function(){
                           cy.elements().addClass('faded');

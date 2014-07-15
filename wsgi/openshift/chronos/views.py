@@ -247,7 +247,7 @@ def components_list(request):
     'pbtype' contains ids from PL and BUS types.
     """
     if request.method == 'GET':
-        mix = PayloadBusComps.objects.all()
+        mix = PayloadBusComps.objects.all().order_by('pbtype')
         serializer = PayloadBusCompsSerializer(mix, many=True)
         return JSONResponse(serializer.data)
     else:
@@ -441,7 +441,7 @@ def cytomap(request, state):
             comp = payloads.filter(id=int(state)).first()
             c_key = 'P'+str(comp.id)
             c_node = {"data": {"name": comp.name, "id": c_key, "type": "component", "weight": 99},
-                      "position": {"x": 410, "y": 450}, "locked": True }
+                      "grabbable": False }
             data['nodes'].append(c_node)
 
             fields = SciData.objects.all().filter(data_type=4)

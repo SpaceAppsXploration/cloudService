@@ -28,11 +28,12 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Orbitron:500);
 /*------------------------------------------*/
 /*	     01 - General & Basic Styles
 /*------------------------------------------*/
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Orbitron';
 	font-size: 13px;
 	line-height: 21px;
 	font-weight: 300;
@@ -69,7 +70,7 @@ i {
 	font-size: 1.1em;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	font-weight: 600;
 	margin: 0;
 	color: #eee;
@@ -100,8 +101,8 @@ h6 {
 }
 p {
 	color: #fff;
-	font-size: 13px;
-	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-family: 'Open Sans';
 	line-height: 22px;
 	margin: 0;
 }
@@ -134,7 +135,7 @@ a.main-button, input[type="submit"] {
 	text-decoration: none;
 	color: #fff;
 	font-size: 12px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	font-weight: 300;
 	text-transform: uppercase;
 	padding: 6px 16px;
@@ -708,7 +709,7 @@ ul.breadcrumbs {
 	margin-top: 4px;
 }
 ul.breadcrumbs li {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Orbitron', sans-serif;
 	font-size: 13px;
 	font-weight: 300;
 	margin-left: 3px;

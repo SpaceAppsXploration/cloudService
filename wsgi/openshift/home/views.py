@@ -7,13 +7,16 @@ from django.core.mail import EmailMessage
 
 from random import randrange
 
+KEYWORKDS = 'explore space planets star journey satellites exploration solar system simulation play learning NASA ' \
+            'ESA JAXA spacecraft scientific payload bus sensor maps rocket'
+
 
 def home(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
     js = json.dumps(js)
     
-    params = {}
-    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
+    params = dict()
+    params['keywords'] = KEYWORKDS
     params['status'] = js
     rand = str(randrange(1, 8))
     r_dict = { '1': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA15630-1920x1200.jpg', '2': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17838-1920x1200.jpg', '3': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17999-1920x1200.jpg', '4': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA18048-1920x1200.jpg', '5': '/static/images/home/saturn_a.jpg',
@@ -22,21 +25,23 @@ def home(request):
     params['rand'] = r_dict[rand]
     return render_to_response('home/home.html', params, context_instance=RequestContext(request))
 
+
 def about(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
     js = json.dumps(js)
     
-    params = {}
-    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
+    params = dict()
+    params['keywords'] = KEYWORKDS
     params['status'] = js
     return render_to_response('home/about.html', params, context_instance=RequestContext(request))
+
 
 def promo(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
     js = json.dumps(js)
     
-    params = {}
-    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
+    params = dict()
+    params['keywords'] = KEYWORKDS
     params['status'] = js
     return render_to_response('home/promo.html', params, context_instance=RequestContext(request))
 
@@ -44,11 +49,10 @@ def promo(request):
 @ensure_csrf_cookie
 def wphoneregister(request):
     if request.method == 'GET':
-        params = {}
+        params = dict()
 
         return render_to_response('home/wphonebeta.html', params,
                               context_instance=RequestContext(request))
-
 
     if request.method == 'POST':
         subscriber = request.POST['subscriber']
@@ -66,3 +70,27 @@ def wphoneregister(request):
         msg = {'message': 'Thanks for enrolling, you will receive an email with further instructions from our developers soon.'}
         return render_to_response('home/wphonebeta.html', msg,
                               context_instance=RequestContext(request))
+
+
+def campaign(request):
+    params = dict()
+    params['keywords'] = KEYWORKDS
+    params['title'] = 'Chronos - Campaign Pre-Launch'
+
+    return render_to_response('home/campaign.html', params, context_instance=RequestContext(request))
+
+
+def tools(request):
+    params = dict()
+    params['keywords'] = KEYWORKDS
+    params['title'] = 'Chronos - Early Demos'
+
+    return render_to_response('home/tools.html', params, context_instance=RequestContext(request))
+
+
+def blog(request):
+    params = dict()
+    params['keywords'] = KEYWORKDS
+    params['title'] = 'Chronos - Blog - Follow The Quest'
+
+    return render_to_response('home/blog.html', params, context_instance=RequestContext(request))

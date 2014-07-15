@@ -39,7 +39,11 @@ urlpatterns = i18n_patterns('',
     url(r'^webapp/wphonebeta/$', cache_page(60 * 180)(wphoneregister)),
     url(r'^about/$', 'home.views.about', name='about'),
     url(r'^promo/$', 'home.views.promo', name='promo'),
+    url(r'^campaign/$', 'home.views.campaign', name='campaign'),
+    url(r'^tools/$', 'home.views.tools', name='tools'),
+    url(r'^blog/$', 'home.views.blog', name='blog'),
     url(r'^$', cache_page(60 * 30)(home), name='home'),
+    # cache_page(60 * 30)(home)
 
     # Webapp
 

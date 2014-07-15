@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block body %}
+
+
+<div class="container" style="margin-left:5px;">
+     <div class="row">
+        <div class="col-lg-3 col-sm-3"></div>
+            <div class="col-lg-6 col-sm-7" id="content">
+                <div class="row">
+                    <h2>Early Demos</h2>
+
+                    <p>Surfing a well-drive gravity momentum, some little piece of knowledge are assembling into some
+                        solid but still shapeless entities. Here the <b>early demos</b> we are working on, scattered matter into a nebula,
+                        developing into something that, by now, can be only foreseen:
+                    </p>
+                    <p><ul style="">
+                        <li>
+                            codename <a target="_blank" href="/webapp/data/missions">kmissions</a>: missions HUD
+                        </li>
+                        <li>
+                            codename <a target="_blank" href="/cytomap/0/">kmap</a>: crowd-sourced knowledge maps
+                        </li>
+                        <li>
+                            codename <a target="_blank" href="http://simulation.spacexplore.it">simulator</a>: design your own mission
+                        </li>
+                    </ul></p>
+
+                    <p>... just few, very short, billions of years and they will become gorgeous stars or binary system with their own fascinating
+                        attitude ready to be studied.</p>
+
+                    <p>Follow them!</p>
+
+                 </div>
+
+           <div class="row" id="share">
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_googleplus_large' displayText='Google +'></span>
+                <span class='st_sharethis_large' displayText='ShareThis'></span>
+                <p><a href="https://twitter.com/XplorationApp" class="twitter-follow-button" data-show-count="false" data-size="medium">@XplorationApp</a></p>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+           </div>
+        </div>
+     </div>
+</div>
+
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "729c3d19-f531-469b-abdc-c3003eb199f5", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+<style type="text/css">
+    #content > div > p {
+        margin-top:25px;
+    }
+    #share {
+        text-align:right;
+    }
+</style>
+{% endblock %}
