@@ -29,9 +29,8 @@
 
 {% if state == '0' %}
         <script type="application/javascript">
-            $(window).ready(function() { // on dom ready
-                $('#imglogo').hide();
-            });
+          $('#imglogo').children('img').remove();
+          $('#imglogo').append('<div style="width:145px;"></div>');
         </script>
     </div>
      {% else %}
