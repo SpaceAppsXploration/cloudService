@@ -4,23 +4,23 @@
 {% load filters %}
 
 {% block body %}
+<script type="application/javascript">
+          $('#imglogo').children('img').remove();
+          $('#imglogo').append('<div style="width:145px;"></div>');
+</script>
+
  <div class="col-md-12">
        <div class="row">  
               <div class="col-md-1"></div>
-              <div class="col-md-5">
+              <div class="col-md-10">
                    <ol class="button-group">
-                          <li><a href="/webapp/data/instruments" class="btn"">Instrumentation</a></li>
-                          <li><a href="/webapp/data/components" class="btn"">Components</a></li>
-			  <li><a href="/webapp/data/missions" class="btn"">Missions</a></li>
-			  <li><a href="/webapp/data/planets" class="btn"">Planets</a></li>
-		   </ol>
+                      <li><a href="/webapp/data/instruments" class="btn"">Instrumentation</a></li>
+                      <li><a href="/webapp/data/components" class="btn"">Components</a></li>
+                      <li><a href="/webapp/data/missions" class="btn"">Missions</a></li>
+                      <li><a href="/webapp/data/planets" class="btn"">Planets</a></li>
+                   </ol>
               </div>
-            <div class="col-md-3">
-                 <ul class="breadcrumbs">
-                    <li><a href="/webapp/home">Start</a></li>
-                    <li>Data</li>
-                 </ul>
-             </div>
+
        </div>
 </div>
 
@@ -518,8 +518,9 @@ $(document).ready(function() {
 {% endif %}
 
 
-</div>
+    </div>
 
+</div>
 
 <style type="text/css">
 #home-box > h2 { color: #eee; float:right;}
@@ -534,4 +535,5 @@ div.pagination { color: #eee; }
 
 .first-row {margin-left:1%;}
 </style>
+
 {% endblock %}
