@@ -5,6 +5,8 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core.context_processors import csrf
 from django.core.mail import EmailMessage
 
+from django.views.decorators.cache import cache_page
+
 from random import randrange
 
 KEYWORKDS = 'explore space planets star journey satellites exploration solar system simulation play learning NASA ' \
@@ -19,17 +21,45 @@ def home(request):
     params['keywords'] = KEYWORKDS
     params['status'] = js
     rand = str(randrange(1, 8))
-    r_dict = { '1': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA15630-1920x1200.jpg', '2': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17838-1920x1200.jpg', '3': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17999-1920x1200.jpg', '4': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA18048-1920x1200.jpg', '5': '/static/images/home/saturn_a.jpg',
-                  '6': 'http://www.spacetelescope.org/static/archives/images/wallpaper4/s125e009232.jpg', '7': '/static/images/home/hubble_a.jpg',
-                   '8': 'http://www.spacetelescope.org/static/archives/images/wallpaper3/opo9818a.jpg'}
+    r_dict = { '1': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA15630-1920x1200.jpg',
+               '2': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17838-1920x1200.jpg',
+               '3': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17999-1920x1200.jpg',
+               '4': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA18048-1920x1200.jpg',
+               '5': '/static/images/home/saturn_a.jpg',
+               '6': 'http://www.spacetelescope.org/static/archives/images/wallpaper4/s125e009232.jpg',
+               '7': '/static/images/home/hubble_a.jpg',
+               '8': 'http://www.spacetelescope.org/static/archives/images/wallpaper3/opo9818a.jpg'}
     params['rand'] = r_dict[rand]
     return render_to_response('home/home.html', params, context_instance=RequestContext(request))
 
 
+def campaign(request):
+    params = dict()
+    params['keywords'] = KEYWORKDS
+    params['title'] = 'Chronos - Campaign Pre-Launch'
+
+    return render_to_response('home/campaign.html', params, context_instance=RequestContext(request))
+
+
+def tools(request):
+    params = dict()
+    params['keywords'] = KEYWORKDS
+    params['title'] = 'Chronos - Early Demos'
+
+    return render_to_response('home/tools.html', params, context_instance=RequestContext(request))
+
+def blog(request):
+    params = dict()
+    params['keywords'] = KEYWORKDS
+    params['title'] = 'Chronos - Blog - Follow The Quest'
+
+    return render_to_response('home/blog.html', params, context_instance=RequestContext(request))
+
+"""
 def about(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
     js = json.dumps(js)
-    
+
     params = dict()
     params['keywords'] = KEYWORKDS
     params['status'] = js
@@ -39,7 +69,7 @@ def about(request):
 def promo(request):
     js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
     js = json.dumps(js)
-    
+
     params = dict()
     params['keywords'] = KEYWORKDS
     params['status'] = js
@@ -64,33 +94,10 @@ def wphoneregister(request):
                        Email: '''+subscriber+'''\n
                        '''
         message = EmailMessage(subject, content_txt, from_email=sender, to=to)
-            
+
         message.send()
 
         msg = {'message': 'Thanks for enrolling, you will receive an email with further instructions from our developers soon.'}
         return render_to_response('home/wphonebeta.html', msg,
                               context_instance=RequestContext(request))
-
-
-def campaign(request):
-    params = dict()
-    params['keywords'] = KEYWORKDS
-    params['title'] = 'Chronos - Campaign Pre-Launch'
-
-    return render_to_response('home/campaign.html', params, context_instance=RequestContext(request))
-
-
-def tools(request):
-    params = dict()
-    params['keywords'] = KEYWORKDS
-    params['title'] = 'Chronos - Early Demos'
-
-    return render_to_response('home/tools.html', params, context_instance=RequestContext(request))
-
-
-def blog(request):
-    params = dict()
-    params['keywords'] = KEYWORKDS
-    params['title'] = 'Chronos - Blog - Follow The Quest'
-
-    return render_to_response('home/blog.html', params, context_instance=RequestContext(request))
+"""

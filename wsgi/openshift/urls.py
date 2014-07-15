@@ -5,8 +5,9 @@ from django.conf import settings
 
 from django.views.decorators.cache import cache_page
 
-from home.views import wphoneregister
-from home.views import home
+#from home.views import wphoneregister
+from home.views import home, blog, tools, campaign
+from chronos.views import cytomap
 from webapp.views import details_page
 from webapp.views import datavis
 
@@ -36,12 +37,12 @@ urlpatterns = i18n_patterns('',
     url(r'^api/scidata/by/target/(?P<t_id>[0-9]+)/$', 'chronos.views.data_by_target'),
     
     # home
-    url(r'^webapp/wphonebeta/$', cache_page(60 * 180)(wphoneregister)),
-    url(r'^about/$', 'home.views.about', name='about'),
-    url(r'^promo/$', 'home.views.promo', name='promo'),
-    url(r'^campaign/$', 'home.views.campaign', name='campaign'),
-    url(r'^tools/$', 'home.views.tools', name='tools'),
-    url(r'^blog/$', 'home.views.blog', name='blog'),
+    #url(r'^webapp/wphonebeta/$', cache_page(60 * 180)(wphoneregister)),
+    #url(r'^about/$', 'home.views.about', name='about'),
+    #url(r'^promo/$', 'home.views.promo', name='promo'),
+    url(r'^campaign/$', cache_page(60 * 60 * 24)(campaign), name='campaign'),
+    url(r'^tools/$', cache_page(60 * 60 * 24)(tools), name='tools'),
+    url(r'^blog/$', cache_page(60 * 60 * 24)(blog), name='blog'),
     url(r'^$', cache_page(60 * 30)(home), name='home'),
     # cache_page(60 * 30)(home)
 
@@ -49,7 +50,7 @@ urlpatterns = i18n_patterns('',
 
     url(r'^webapp/data/missions/details/(?P<m_id>[0-9]+)/$',  cache_page(60 * 180)(details_page)),
     url(r'^webapp/data/(?P<what>[a-z]+)/$', cache_page(60 * 180)(datavis)),
-    url(r'^cytomap/(?P<state>[0-9]+)/$', 'chronos.views.cytomap', name='cytomap'),
+    url(r'^cytomap/(?P<state>[0-9]+)/$', cache_page(60 * 3)(cytomap), name='cytomap'),
     url(r'^map/(?P<state>[0-9]+)/$', 'chronos.views.arbormap', name='arbormap'),
 
 

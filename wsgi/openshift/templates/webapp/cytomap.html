@@ -1,29 +1,11 @@
-<!DOCTYPE HTML>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
-<html lang="en">
-	<head>
-	    <title>Project Chronos - Cytomaps</title>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+{% extends "base.html" %}
+{% load cms_tags %}
 
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-            <!-- Favicon -->
-	    <link rel="shortcut icon" href="/static/images/favicon.png">
-
-	    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" media="screen">
-	    <link rel="stylesheet" type="text/css" href="/static/css/responsive.css" media="screen">
-	    <link rel="stylesheet" type="text/css" href="/static/css/style.css" media="screen">
-
-	    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
-        <script src="//cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
-    </head>
-
-    <body>
+{% block body %}
+    <script src="//cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
  <div class="col-md-12" style="margin-top:100px; margin-bottom:50px;">
      <div class="col-md-3">
+
          <ol class="button-group">
              <li style="color: #000;">Click to choose a payload</li>
                {% for p in payloads %}
@@ -46,13 +28,18 @@
 <div id="cy">
 
 {% if state == '0' %}
-
+        <script type="application/javascript">
+            $(window).ready(function() { // on dom ready
+                $('#imglogo').hide();
+            });
+        </script>
     </div>
      {% else %}
 
 
          <script type="application/javascript">
                  $(window).ready(function(){ // on dom ready
+                    $('#imglogo').hide();
                     $('#cy').cytoscape({
 
                       style: cytoscape.stylesheet()
@@ -201,5 +188,4 @@ body { background-color: #ffffff;}
 }
 </style>
 
-    </body>
-</html>
+{% endblock %}

@@ -12,21 +12,12 @@ from webapp.appdata.sim_missions import missions
 from data import ratings
 from data import levels
 
-def homeTEST(request):
-    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0}
-    js = json.dumps(js)
-    
-    params = {}
-    params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
-    params['status'] = js
-    return render_to_response('webapp/homeTEST.html', params,
-                              context_instance=RequestContext(request))
 
 def start(request):
     tg = Targets.objects.all().filter(use_in_sim=True).order_by('name')
 
-
-    params = {'targets': tg}
+    params = dict()
+    params['targets'] = tg
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
 
     return render_to_response('webapp/01-destinations.html', params,
@@ -100,7 +91,6 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
             if p.slug == l:
                 pl_assembled.add(p)
                 assembled_slugs = assembled_slugs+p.slug+'=true&'
-    
 
     bus_assembled = set()
     bus_slugs = bus_slug.split('-')
@@ -117,13 +107,13 @@ def results(request, p_slug, m_slug, pl_slug, bus_slug):
     for pl in pl_slugs:
         pl_cost += ratings[pl][1]
 
-    pl_cost = pl_cost / len(pl_slugs)
+    pl_cost /= len(pl_slugs)
     
     bus_cost = 0
     for bus in bus_slugs:
         bus_cost +=  ratings[bus][1]
 
-    bus_cost = bus_cost / len(bus_slugs)
+    bus_cost /= len(bus_slugs)
 
     cost_index = int(round(ratings[p_slug][1]*.5 + pl_cost*.2 + bus_cost*.3))
 
@@ -164,26 +154,26 @@ def datavis(request, what):
     js = json.dumps(js)
 
     if what == 'planets':
-       bodies = Planets.objects.all()
+        bodies = Planets.objects.all()
 
     elif what == 'missions':
         check = cache.get('[data]missions')
         if check is None or check['number'] != Missions.objects.count():
                 print 'no cache'
                 bodies = {}
-		all_target = Missions.objects.all()
-		mission_targets = []
-		for a in all_target:
-		    if bodies.get(a.codename) is not None:
-		        b = bodies[a.codename]['targets']
-		        b.append(a.target.name)
-		    else:
-		        bodies[a.codename] = { 'obj': a, 'targets': [a.target.name] }
-                bodies['number'] = Missions.objects.count()
-	        cache.set('[data]missions', bodies, 36000)
+                all_target = Missions.objects.all()
+                mission_targets = []
+                for a in all_target:
+                    if bodies.get(a.codename) is not None:
+                        b = bodies[a.codename]['targets']
+                        b.append(a.target.name)
+                    else:
+                        bodies[a.codename] = { 'obj': a, 'targets': [a.target.name] }
+                        bodies['number'] = Missions.objects.count()
+                    cache.set('[data]missions', bodies, 36000)
         else:
                 print 'yes cache'
-                bodies =  cache.get('[data]missions')
+                bodies = cache.get('[data]missions')
 
         #print bodies
 
@@ -197,7 +187,7 @@ def datavis(request, what):
 
     if request.GET.get('page') is None:
         page = 1
-    params = {}
+    params = dict()
     params['keywords'] = 'explore space planets star journey satellites exploration solar system simulation play'
     params['status'] = js
     params['bodies'] = bodies
@@ -205,6 +195,7 @@ def datavis(request, what):
     #params['page'] = page
     return render_to_response('webapp/showdata.html', params,
                               context_instance=RequestContext(request))
+
 
 def details_page(request, m_id):
     params = {}
