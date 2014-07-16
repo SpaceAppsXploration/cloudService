@@ -23,6 +23,7 @@ def start(request):
     return render_to_response('webapp/01-destinations.html', params,
                               context_instance=RequestContext(request))
 
+
 def mission(request, p_slug):
     dt = Targets.objects.get(slug=p_slug)
     params = {'missions': missions, 'destination': p_slug, 'd_obj': dt}
@@ -30,6 +31,7 @@ def mission(request, p_slug):
 
     return render_to_response('webapp/02-mission.html', params,
                               context_instance=RequestContext(request))
+
 
 def payload(request, p_slug, m_slug):
     dt = Targets.objects.get(slug=p_slug)
