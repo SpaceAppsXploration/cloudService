@@ -485,8 +485,9 @@ def cytomap(request, state):
 
                     ### Datum has a relation to a Mission ###
                     if s.mission is not None:
+                        m_link = "/webapp/data/missions/details/"+str(s.mission.id)
                         m_key = 'M'+str(s.mission.id)
-                        m_node = {"data": {"name": s.mission.codename, "id": m_key, "type": "mission", "weight": 12}}
+                        m_node = {"data": {"name": s.mission.codename, "id": m_key, "href": m_link, "type": "mission", "weight": 12}}
                         m_edge = {"data": {"source": m_key, "target": d_key, "weight": 12}}
                         if m_node not in data['nodes']:
                             data['nodes'].append(m_node)
