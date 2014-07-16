@@ -482,7 +482,6 @@ def cytomap(request, state):
 
                     #print c_key
                     #print d_key
-
                     ### Datum has a relation to a Mission ###
                     if s.mission is not None:
                         m_link = "/webapp/data/missions/details/"+str(s.mission.id)
