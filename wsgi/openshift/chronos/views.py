@@ -307,7 +307,7 @@ def data_by_target_by_comps(request, t_id, c_id):
     Useful to retrieve data about certain mission.
     """
     if request.method == 'GET':
-        mix = SciData.objects.all().filter(component=c_id).filter(mission__target__id=t_id)
+        mix = SciData.objects.all().filter(component=c_id)  # .filter(mission__target__id=t_id)
         serializer = SciDataSerializer(mix, many=True)
         return JSONResponse(serializer.data)
     else:
