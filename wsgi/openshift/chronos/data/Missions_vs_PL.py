@@ -17,7 +17,7 @@ earth_obs['particles'] = True
 earth_obs['plasma'] = True
 earth_obs['probe'] = (False, 'Remember that you are here to observe')
 earth_obs['amplifier'] = (False, 'Maybe in the BUS')
-earth_obs['photopolarimeter'] = (False, 'Polarimeter is for light')
+earth_obs['photopolarimeter'] = True
 
 mission_type.append(earth_obs)
 

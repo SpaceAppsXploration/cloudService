@@ -48,6 +48,7 @@ def tools(request):
 
     return render_to_response('home/tools.html', params, context_instance=RequestContext(request))
 
+
 def blog(request):
     params = dict()
     params['keywords'] = KEYWORKDS
