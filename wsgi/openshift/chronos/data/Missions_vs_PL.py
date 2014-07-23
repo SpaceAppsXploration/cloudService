@@ -17,6 +17,7 @@ earth_obs['particles'] = True
 earth_obs['plasma'] = True
 earth_obs['probe'] = (False, 'Remember that you are here to observe')
 earth_obs['amplifier'] = (False, 'Maybe in the BUS')
+earth_obs['photopolarimeter'] = (False, 'Polarimeter is for light')
 
 mission_type.append(earth_obs)
 
@@ -39,6 +40,7 @@ cel_body_obs['particles'] = True
 cel_body_obs['plasma'] = True
 cel_body_obs['probe'] = (False, 'Remember that you are here to observe')
 cel_body_obs['amplifier'] = (False, 'Maybe in the BUS')
+cel_body_obs['photopolarimeter'] = True
 
 mission_type.append(cel_body_obs)
 
@@ -60,6 +62,7 @@ space_obs['particles'] = True
 space_obs['plasma'] = True
 space_obs['probe'] = (False, 'Space dust doesn''t help you observe')
 space_obs['amplifier'] = True
+space_obs['photopolarimeter'] = True
 
 mission_type.append(space_obs)
 
@@ -81,6 +84,7 @@ atm_analysis['plasma'] = True
 atm_analysis['grav'] = (False, 'Gravitation is not an atmospheric issue')
 atm_analysis['probe'] = (False, 'It''s difficult to collect and bring back gases')
 atm_analysis['amplifier'] = (False, 'Maybe in the BUS')
+atm_analysis['photopolarimeter'] = True
 
 mission_type.append(atm_analysis)
 
@@ -102,6 +106,7 @@ sample_collect['probe'] = True
 sample_collect['plasma'] = (False, 'It\'s definetly not necessary')
 sample_collect['particles'] = (False, 'It\'s definetly not necessary')
 sample_collect['amplifier'] = (False, 'You have to bring the sample back')
+sample_collect['photopolarimeter'] = (False, 'It\'s definetly not necessary')
 
 mission_type.append(sample_collect)
 
@@ -123,5 +128,6 @@ telecom['particles'] = (False, 'It\'s definetly not necessary')
 telecom['plasma'] = (False, 'It\'s definetly not necessary')
 telecom['probe'] = (False, 'You do not need to analyze but only to send a signal')
 telecom['amplifier'] = True
+telecom['photopolarimeter'] = (False, 'It\'s definetly not necessary')
 
 mission_type.append(telecom)

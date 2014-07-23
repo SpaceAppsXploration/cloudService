@@ -47,7 +47,27 @@ radio_sensor['struct_high_resist'] = True
 
 pl_vs_bus_type.append(radio_sensor)
 
+photopolarimeter = {}
+photopolarimeter['name'] = 'Photopolarimeter'
+photopolarimeter['slug'] = 'photopolarimeter'
+photopolarimeter['therm_active'] = True
+photopolarimeter['therm_passive'] = True
+photopolarimeter['pow_prim_panels'] = True
+photopolarimeter['pow_prim_rtg'] = True
+photopolarimeter['pow_sec_batt'] = True
+photopolarimeter['pow_sec_fc'] = True
+photopolarimeter['comm_mono'] = True
+photopolarimeter['comm_omni'] = True
+photopolarimeter['aodcs_robust'] = True
+photopolarimeter['aodcs_simple'] = True
+photopolarimeter['prop_electr'] = True
+photopolarimeter['prop_chem'] = True
+photopolarimeter['cdh_standard'] = True
+photopolarimeter['cdh_optim'] = True
+photopolarimeter['struct_stand'] = True
+photopolarimeter['struct_high_resist'] = True
 
+pl_vs_bus_type.append(photopolarimeter)
 
 microwave = {}
 microwave['name'] = 'Microwave'
