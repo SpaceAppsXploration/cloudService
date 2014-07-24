@@ -1,9 +1,10 @@
-{% extends "base.html" %}
+{% extends "simple.html" %}
 {% load cms_tags %}
 
 {% block body %}
     <script src="//cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
- <div class="col-md-12" style="margin-top:100px; margin-bottom:50px;">
+ <div class="row" style="margin-top:100px;">
+
      <div class="col-md-3">
 
          <ol class="button-group">
@@ -28,18 +29,13 @@
 <div id="cy" style="border: 1px solid #cccccc;">
 
 {% if state == '0' %}
-        <script type="application/javascript">
-          $('#imglogo').children('img').remove();
-          $('#imglogo').append('<div style="width:145px;"></div>');
-        </script>
+        <p>Choose a Payload</p>
     </div>
      {% else %}
 
 
          <script type="application/javascript">
                  $(window).ready(function(){ // on dom ready
-                    $('#imglogo').children('img').remove();
-                    $('#imglogo').append('<div style="width:145px;"></div>');
                     $('#cy').cytoscape({
 
                       style: cytoscape.stylesheet()
@@ -165,9 +161,10 @@
 {% endif %}
 
 
-     </div>
+
 </div>
 
+ </div>
 <style type="text/css">
 body { background-color: #ffffff;}
 #cy {
