@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block body %}
+    <section class="site--content wysiwyg">
+        <h1>Browse the API</h1>
+        <p><a href="http://www.spacexplore.it/api/docs/">See the Chronos API documentation here.</a></p>
+
+        <h1>Contribute on GitHub</h1>
+        <p><a href="https://github.com/SpaceAppsXploration">View our repos, and help out.</a></p>
+
+        <h1>Email Us</h1>
+        <p><a href="mailto:chronosprojectserver@gmail.com">Want to collaborate or know more? Write us</a></p>
+        <p style="margin-top:45px;">
+            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_twitter_large' displayText='Tweet'></span>
+            <span class='st_googleplus_large' displayText='Google +'></span>
+            <span class='st_sharethis_large' displayText='ShareThis'></span>
+        </p>
+    </section>
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher: "729c3d19-f531-469b-abdc-c3003eb199f5", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
+{% endblock %}

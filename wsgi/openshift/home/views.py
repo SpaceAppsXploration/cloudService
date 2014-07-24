@@ -14,37 +14,27 @@ KEYWORKDS = 'explore space planets star journey satellites exploration solar sys
 
 
 def home(request):
-    js = {'status': 'Coming Soon...', 'response': 200, 'code': 0, 'type': 'null', 'content': 'null'}
-    js = json.dumps(js)
-    
     params = dict()
     params['keywords'] = KEYWORKDS
-    params['status'] = js
-    rand = str(randrange(1, 8))
-    r_dict = { '1': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA15630-1920x1200.jpg',
-               '2': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17838-1920x1200.jpg',
-               '3': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA17999-1920x1200.jpg',
-               '4': 'http://www.jpl.nasa.gov/spaceimages/images/wallpaper/PIA18048-1920x1200.jpg',
-               '5': '/static/images/home/saturn_a.jpg',
-               '6': 'http://www.spacetelescope.org/static/archives/images/wallpaper4/s125e009232.jpg',
-               '7': '/static/images/home/hubble_a.jpg',
-               '8': 'http://www.spacetelescope.org/static/archives/images/wallpaper3/opo9818a.jpg'}
-    params['rand'] = r_dict[rand]
+    params['body_class'] = 'class="home"'
+
     return render_to_response('home/home.html', params, context_instance=RequestContext(request))
 
 
-def campaign(request):
+def development(request):
     params = dict()
     params['keywords'] = KEYWORKDS
-    params['title'] = 'Chronos - Campaign Pre-Launch'
+    params['title'] = 'Chronos - Development'
+    params['body_class'] = 'class="page development"'
 
-    return render_to_response('home/campaign.html', params, context_instance=RequestContext(request))
+    return render_to_response('home/development.html', params, context_instance=RequestContext(request))
 
 
 def tools(request):
     params = dict()
     params['keywords'] = KEYWORKDS
     params['title'] = 'Chronos - Early Demos'
+    params['body_class'] = 'class="page learning-tools"'
 
     return render_to_response('home/tools.html', params, context_instance=RequestContext(request))
 
@@ -53,6 +43,7 @@ def blog(request):
     params = dict()
     params['keywords'] = KEYWORKDS
     params['title'] = 'Chronos - Blog - Follow The Quest'
+    params['body_class'] = 'class="blog"'
 
     return render_to_response('home/blog.html', params, context_instance=RequestContext(request))
 

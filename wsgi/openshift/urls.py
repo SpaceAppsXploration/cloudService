@@ -6,7 +6,7 @@ from django.conf import settings
 from django.views.decorators.cache import cache_page
 
 #from home.views import wphoneregister
-from home.views import home, blog, tools, campaign
+from home.views import home, blog, tools, development
 from chronos.views import cytomap
 from webapp.views import details_page
 from webapp.views import datavis
@@ -40,7 +40,7 @@ urlpatterns = i18n_patterns('',
     #url(r'^webapp/wphonebeta/$', cache_page(60 * 180)(wphoneregister)),
     #url(r'^about/$', 'home.views.about', name='about'),
     #url(r'^promo/$', 'home.views.promo', name='promo'),
-    url(r'^campaign/$', cache_page(60 * 60 * 24)(campaign), name='campaign'),
+    url(r'^development/$', cache_page(60 * 60 * 24)(development), name='development'),
     url(r'^tools/$', cache_page(60 * 60 * 24)(tools), name='tools'),
     url(r'^blog/$', cache_page(60 * 60 * 24)(blog), name='blog'),
     url(r'^$', cache_page(60 * 30)(home), name='home'),
