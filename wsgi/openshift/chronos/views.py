@@ -301,10 +301,25 @@ def data_by_comps(request, comp_id):
 
 @csrf_exempt
 @api_view(['GET'])
-def data_by_target_by_comps(request, t_id, c_id):
+def data_by_mission(request, mission_id):
     """
     List of SciData filtered by mission.
     Useful to retrieve data about certain mission.
+    """
+    if request.method == 'GET':
+        mix = SciData.objects.all().filter(mission=mission_id)
+        serializer = SciDataSerializer(mix, many=True)
+        return JSONResponse(serializer.data)
+    else:
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
+        return JSONResponse(mex)
+
+@csrf_exempt
+@api_view(['GET'])
+def data_by_target_by_comps(request, t_id, c_id):
+    """
+    List of SciData filtered by target and component.
+    Useful to retrieve data about certain target and component combination.
     """
     if request.method == 'GET':
         mix = SciData.objects.all().filter(component=c_id).filter(mission__target__id=t_id).exclude(data_type=0)[2:5]
