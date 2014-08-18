@@ -18,7 +18,7 @@ earth_obs['plasma'] = True
 earth_obs['probe'] = (False, 'Remember that you are here to observe')
 earth_obs['amplifier'] = (False, 'Maybe in the BUS')
 earth_obs['photopolarimeter'] = True
-earth_obs['ion_mass'] = (False, 'No need to use it for Earth')
+earth_obs['ion_mass'] = (False, 'Too far from the surface, and we already know everything')
 
 mission_type.append(earth_obs)
 
@@ -65,7 +65,7 @@ space_obs['plasma'] = True
 space_obs['probe'] = (False, 'Space dust doesn''t help you observe')
 space_obs['amplifier'] = True
 space_obs['photopolarimeter'] = True
-space_obs['ion_mass'] = (False, 'Too far to measure')
+space_obs['ion_mass'] = (False, 'You\'re pointing towards open space, thus everything is too far for this')
 
 mission_type.append(space_obs)
 
@@ -88,7 +88,7 @@ atm_analysis['grav'] = (False, 'Gravitation is not an atmospheric issue')
 atm_analysis['probe'] = (False, 'It''s difficult to collect and bring back gases')
 atm_analysis['amplifier'] = (False, 'Maybe in the BUS')
 atm_analysis['photopolarimeter'] = True
-atm_analysis['ion_mass'] = (False, 'No need to go for it for atmosphere')
+atm_analysis['ion_mass'] = (False, 'It would be useful only for the extremely high layers')
 
 mission_type.append(atm_analysis)
 
@@ -134,6 +134,6 @@ telecom['plasma'] = (False, 'It\'s definetly not necessary')
 telecom['probe'] = (False, 'You do not need to analyze but only to send a signal')
 telecom['amplifier'] = True
 telecom['photopolarimeter'] = (False, 'It\'s definetly not necessary')
-telecom['ion_mass'] = (False, 'It\'s definetly not necessary')
+telecom['ion_mass'] = (False, 'You don\'t need to analyze, just to transmit')
 
 mission_type.append(telecom)
