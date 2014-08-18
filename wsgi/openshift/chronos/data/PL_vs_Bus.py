@@ -229,6 +229,28 @@ gamma_rays['struct_high_resist'] = True
 
 pl_vs_bus_type.append(gamma_rays)
 
+ion_mass = {}
+ion_mass['name'] = 'Ion Mass Analyzer'
+ion_mass['slug'] = 'ion_mass'
+ion_mass['therm_passive'] = True
+ion_mass['pow_prim_panels'] = True
+ion_mass['pow_prim_rtg'] = True
+ion_mass['pow_sec_batt'] = True
+ion_mass['pow_sec_fc'] = True
+ion_mass['comm_mono'] = True
+ion_mass['comm_omni'] = True
+ion_mass['aodcs_robust'] = True
+ion_mass['aodcs_simple'] = True
+ion_mass['prop_electr'] = True
+ion_mass['prop_chem'] = True
+ion_mass['cdh_standard'] = True
+ion_mass['cdh_optim'] = True
+ion_mass['struct_stand'] = True
+ion_mass['struct_high_resist'] = True
+
+pl_vs_bus_type.append(ion_mass)
+
+
 laser_alt = {}
 laser_alt['name'] = 'Laser_altimeter'
 laser_alt['slug'] = 'laser_alt'
