@@ -36,6 +36,8 @@ urlpatterns = i18n_patterns('',
     url(r'^api/scidata/by/target/(?P<t_id>[0-9]+)/by/comps/(?P<c_id>[0-9]+)/$', 'chronos.views.data_by_target_by_comps'),
     url(r'^api/scidata/by/target/(?P<t_id>[0-9]+)/$', 'chronos.views.data_by_target'),
     url(r'^api/scidata/by/mission/(?P<mission_id>[0-9]+)/$', 'chronos.views.data_by_mission'),
+    url(r'^api/scidata/$', 'chronos.views.total_scidata'),
+
     
     # home
     #url(r'^webapp/wphonebeta/$', cache_page(60 * 180)(wphoneregister)),

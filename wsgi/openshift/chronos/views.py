@@ -344,6 +344,48 @@ def data_by_target(request, t_id):
         mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
         return JSONResponse(mex)
 
+@csrf_exempt
+@api_view(['GET'])
+def total_scidata(request):
+    """
+    All SciData.
+    Useful only for tests or maintenance.
+    """
+    if request.method == 'GET':
+        mix = SciData.objects.all()
+        results = dict()
+        for s in mix:
+            for c in s.component.all():
+                if c.slug not in results.keys():
+                    key = c.slug
+                    results[key] = dict()
+                    results[key]['missions'] = []
+                    results[key]['missions_id'] = []
+                    results[key]['name'] = c.name
+                    if s.mission is not None and s.mission.codename not in results[key]['missions']:
+                        add_to_missions = results[key]['missions']
+                        add_to_missions.append(s.mission.codename)
+                        add_to_ids = results[key]['missions_id']
+                        add_to_ids.append(s.mission.id)
+                else:
+                    key = c.slug
+                    if s.mission is not None and s.mission.codename not in results[key]['missions']:
+                        add_to_missions = results[key]['missions']
+                        add_to_missions.append(s.mission.codename)
+                        add_to_ids = results[key]['missions_id']
+                        add_to_ids.append(s.mission.id)
+        print results
+
+        serializer = json.dumps(results)
+        return StreamingHttpResponse(serializer, content_type="application/json")
+
+        #serializer = SciDataSerializer(mix, many=True)
+        #return JSONResponse(serializer.data)
+    else:
+        mex = {'status': 'Error', 'code': 1, 'message': 'NO POST, PUT or DELETE for this endpoint', 'type': 'null', 'content': 'null'}
+        return JSONResponse(mex)
+
+
 
 def arbormap(request, state):
     from django.template import RequestContext
