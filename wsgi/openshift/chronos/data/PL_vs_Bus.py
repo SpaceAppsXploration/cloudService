@@ -366,3 +366,27 @@ amplifier['struct_high_resist'] = True
 pl_vs_bus_type.append(amplifier)
 
 
+
+microdust = {}
+microdust['name'] = 'Microdust_Particles_Analyzer'
+microdust['slug'] = 'microdust'
+microdust['therm_active'] = True
+microdust['therm_passive'] = True
+microdust['pow_prim_panels'] = True
+microdust['pow_prim_rtg'] = True
+microdust['pow_sec_batt'] = True
+microdust['pow_sec_fc'] = True
+microdust['comm_mono'] = True
+microdust['comm_omni'] = True
+microdust['aodcs_robust'] = True
+microdust['aodcs_simple'] = True
+microdust['prop_electr'] = True
+microdust['prop_chem'] = True
+microdust['cdh_standard'] = True
+microdust['cdh_optim'] = True
+microdust['struct_stand'] = True
+microdust['struct_high_resist'] = True
+
+pl_vs_bus_type.append(microdust)
+
+

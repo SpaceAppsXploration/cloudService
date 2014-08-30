@@ -19,6 +19,7 @@ earth_obs['probe'] = (False, 'Remember that you are here to observe')
 earth_obs['amplifier'] = (False, 'Maybe in the BUS')
 earth_obs['photopolarimeter'] = True
 earth_obs['ion_mass'] = (False, 'Too far from the surface, and we already know everything')
+earth_obs['microdust'] = (False, 'You are just observing')
 
 mission_type.append(earth_obs)
 
@@ -43,6 +44,7 @@ cel_body_obs['probe'] = (False, 'Remember that you are here to observe')
 cel_body_obs['amplifier'] = (False, 'Maybe in the BUS')
 cel_body_obs['photopolarimeter'] = True
 cel_body_obs['ion_mass'] = True
+cel_body_obs['microdust'] = (False, 'You are just observing')
 
 mission_type.append(cel_body_obs)
 
@@ -66,6 +68,7 @@ space_obs['probe'] = (False, 'Space dust doesn''t help you observe')
 space_obs['amplifier'] = True
 space_obs['photopolarimeter'] = True
 space_obs['ion_mass'] = (False, 'You\'re pointing towards open space, thus everything is too far for this')
+space_obs['microdust'] = (False, 'You are just observing')
 
 mission_type.append(space_obs)
 
@@ -89,6 +92,7 @@ atm_analysis['probe'] = (False, 'It''s difficult to collect and bring back gases
 atm_analysis['amplifier'] = (False, 'Maybe in the BUS')
 atm_analysis['photopolarimeter'] = True
 atm_analysis['ion_mass'] = (False, 'It would be useful only for the extremely high layers')
+atm_analysis['microdust'] = True
 
 mission_type.append(atm_analysis)
 
@@ -112,6 +116,7 @@ sample_collect['particles'] = (False, 'It\'s definetly not necessary')
 sample_collect['amplifier'] = (False, 'You have to bring the sample back')
 sample_collect['photopolarimeter'] = (False, 'It\'s definetly not necessary')
 sample_collect['ion_mass'] = True
+sample_collect['microdust'] = True
 
 mission_type.append(sample_collect)
 
@@ -135,5 +140,6 @@ telecom['probe'] = (False, 'You do not need to analyze but only to send a signal
 telecom['amplifier'] = True
 telecom['photopolarimeter'] = (False, 'It\'s definetly not necessary')
 telecom['ion_mass'] = (False, 'You don\'t need to analyze, just to transmit')
+telecom['microdust'] = (False, 'You don\'t need to analyze, just to transmit')
 
 mission_type.append(telecom)
