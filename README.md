@@ -22,6 +22,15 @@ License is `GNU GPL`. This is Free Software.
 
 Thanks to `Django Framework`, `Django-REST Framework` and `Django-Swagger`.
 
+## About
+This repo is part of the Chronos' Cloud:
+| Link  | Repository  |
+|---|---|
+| [Homepage](http://www.projectchronos.eu)  | [clouService](https://github.com/SpaceAppsXploration/clouService) |
+| [SPARQL and Hypermedia](http://hypermedia.projectchronos.eu) | [rdfendpoints](https://github.com/SpaceAppsXploration/rdfendpoints)  |
+| [Scientific & Technical Information](http://taxonomy.projectchronos.eu)  | [pramantha-nodejs-backend](https://github.com/SpaceAppsXploration/pramantha-nodejs-backend)  |
+| [RDF Vocabularies](http://ontology.projectchronos.eu)  | [RDFvocab](https://github.com/SpaceAppsXploration/RDFvocab)  |
+
 Credits to `2014 SpaceApps Challenge Rome Chronos/Xploration team`
 https://2014.spaceappschallenge.org/project/chronos/
 
